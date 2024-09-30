@@ -93,3 +93,7 @@ figure:hover {
     color: white;
     text-decoration: none;
 }
+#logo{
+    text-align: left;
+    height: 40px;
+}
