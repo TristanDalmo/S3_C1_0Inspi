@@ -1,8 +1,0 @@
-class DAO extends IDAO {
-
-
-
-
-
-    
-}
