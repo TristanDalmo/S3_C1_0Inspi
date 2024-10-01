@@ -4,6 +4,7 @@ import {API_Connexion_Exemple} from '/API/API_Connexion_Exemple.js';
  * Fonction appelée au chargement de la page
  */
 function main() {
+    // À la validation du formulaire, on lance la connexion si les champs ne sont pas vides
     let form = document.querySelector("form");
     form.onsubmit = validationSubmit;
 }
@@ -24,8 +25,8 @@ function validationSubmit() {
 
 /**
  * Permet de se connecter à un profil sur l'application
- * @param {String} username 
- * @param {String} password 
+ * @param {String} username Nom d'utilisateur
+ * @param {String} password Mot de passe
  */
 function Connexion(username , password ) {
     API_Connexion_Exemple.Connexion(username,password);
