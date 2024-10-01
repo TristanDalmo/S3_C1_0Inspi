@@ -1,0 +1,86 @@
+CSS
+body {
+    font-family: Arial, sans-serif;
+}
+
+#date {
+    margin-bottom: 10px;
+    
+  
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="date"], textarea {
+  
+    padding: 5px;
+}
+
+#bloc-logement {
+    width: 400px; /* Ajustez la largeur selon vos besoins */
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+#bloc-logement {
+    margin-bottom: 10px;
+}
+
+.info-logement {
+    display: block;
+    font-weight: bold;
+}
+
+.info-logement[type="radio"] {
+    margin-right: 5px;
+}
+
+.info-logement {
+    width: 100%;
+}
+#container-personne{
+    display: flex;
+    justify-content: stretch;
+    margin-left: 45%;
+}
+
+.form-group {
+    width: 45%;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+.details-logement {
+   
+    margin-top: 50px;
+
+margin-right: 50%;
+}
+
+.etat-des-lieux {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 100px;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.piece:nth-child(even)   
+ {
+    background-color: #f9f9f9; 
+}
+#cuisine{
+    width: 500px;
+}

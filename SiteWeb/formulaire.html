@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formulaire.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    </body>
+        <h1>État des Lieux (Conforme Loi ALUR)</h1>
+        <form id="date">
+            <fieldset>
+                <label for="date-entree">Date d'entrée :</label>
+                <input type="date" id="date-entree" name="date-entree">
+                <br>
+                <label for="date-sortie">Date d'entrée :</label>
+                <input type="date" id="date-sortie" name="date-sortie">
+            </fieldset>
+            
+        
+
+            <fieldset id="bloc-logement">
+                <h2>LOGEMENT</h2>
+                <div class="info-logement">
+                    <input type="radio" name="type" value="appartement"> Appartement
+                    <input type="radio" name="type" value="maison"> Maison
+                    <input type="radio" name="type" value="autre"> Autre: <input type="text">
+                </div>
+                <div class="info-logement">
+                    <label for="surface">SURFACE:</label>
+                    <input type="number" id="surface" name="surface"> m²
+                    
+                </div>
+                <div class="info-logement">
+                    <label for="pieces">NOMBRE DE PIÈCES PRINCIPALES:</label>
+                    <input type="number" id="pieces" name="pieces">
+                </div>
+                
+                <div class="info-logement">
+                    <label for="adresse">ADRESSE:</label>
+                    <textarea id="adresse" name="adresse" rows="3"></textarea>
+                </div>
+            </fieldset>
+            
+        <fieldset id="container-personne">            
+                <div id="BAILLEUR">
+                    <h3>LE BAILLEUR (OU SON MANDATAIRE)</h3>
+                    <div class="info-personne">
+                        <label>Civilité :</label>
+                        <input type="radio" name="civilite_bailleur" value="mr"> Mr
+                        <input type="radio" name="civilite_bailleur" value="mme"> Mme
+                        <input type="radio" name="civilite_bailleur" value="mlle"> Mlle
+                    </div>
+                    <div class="info-personne">
+                        <label for="prenom_bailleur">Prénom :</label>
+                        <input type="text" id="prenom_bailleur" name="prenom_bailleur">
+                    </div>
+                    <div class="info-personne">
+                        <label for="nom_bailleur">Nom :</label>
+                        <input type="text" id="nom_bailleur" name="nom_bailleur">
+                    </div>
+                    <div class="info-personne">
+                        <label for="adresse_bailleur">Adresse :</label>
+                        <textarea id="adresse_bailleur" name="adresse_bailleur" rows="3"></textarea>
+                    </div>
+                </div>
+        </fieldset>
+
+        <fieldset id="locataire">
+            
+            <h3>LE(S) LOCATAIRES(S)</h3>
+            <div class="info-personne">
+                <label>Civilité :</label>
+                <input type="radio" name="civilite_bailleur" value="mr"> Mr
+                <input type="radio" name="civilite_bailleur" value="mme"> Mme
+                <input type="radio" name="civilite_bailleur" value="mlle"> Mlle
+            </div>
+            <div class="info-personne">
+                <label for="prenom_bailleur">Prénom :</label>
+                <input type="text" id="prenom_bailleur" name="prenom_bailleur">
+            </div>
+            <div class="info-personne">
+                <label for="nom_bailleur">Nom :</label>
+                <input type="text" id="nom_bailleur" name="nom_bailleur">
+            </div>
+            <div class="info-personne">
+                <label for="adresse_bailleur">Adresse :</label>
+                <textarea id="adresse_bailleur" name="adresse_bailleur" rows="3"></textarea>
+            </div>
+
+        </fieldset> 
+
+              
+        <fieldset class="details-logement">
+
+            <h1>État des lieux</h1>
+            <table class="etat-des-lieux">
+                <thead>
+                    <tr>
+                        <th id="cuisine">Cuisine</th>
+                        <th>Description / Détails</th>
+
+                        <th>État à l'entrée</th>
+                        <th>État à la sortie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mur</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Sol</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Vitrage et volets</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Plafond</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Eclairage et interrupteurs</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>prise electrique (nombre : <input type="number"> )</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Placards et tirreoirs</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Évier (et robinetterie)</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Plaques de cuisson et four</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Hotte</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Électroménager</td>
+                        <td><input type="text"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                        <td><input type="number" min="1" max="3"></td>
+                    </tr>
+                   
+                    
+
+                    
+                    </tbody>
+            </table>
+        </fieldset> 
+        </form>
+    </body>
+</html>
