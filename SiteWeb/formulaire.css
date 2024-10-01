@@ -113,11 +113,15 @@ input[type="date"] {
 }
 .loi{
     margin-right: 80px;
+    font-style: italic;
 }
 .Logement{
     margin-left: 70px;
     margin-right: 70px;
     margin-bottom: 20px;
+}
+.grandfield{
+    border-radius: 2%;
 }
 
 
