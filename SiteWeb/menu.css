@@ -12,7 +12,7 @@ body {
     justify-content: space-between;
 }
 
-.header {
+header {
     background-color: #0D5C63;
     color: white;
     text-align: center;
@@ -82,14 +82,14 @@ figure:hover {
     transform: rotateY(180deg); 
 }
 
-.footer {
+footer {
     background-color: #0e6665;
     color: white;
     text-align: left;
     padding: 10px;
 }
 
-.footer a {
+footer a {
     color: white;
     text-decoration: none;
 }

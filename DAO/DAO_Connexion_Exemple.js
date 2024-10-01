@@ -3,7 +3,7 @@ import {I_DAO_Connexion} from '../DAO/I_DAO_Connexion.js';
 /**
  * Classe d'exemple de connexion à la DAO 
  */
-class DAO_Connexion_Exemple extends I_DAO_Connexion {
+export class DAO_Connexion_Exemple extends I_DAO_Connexion {
   
     /**
      * Constructeur de la classe
@@ -13,7 +13,7 @@ class DAO_Connexion_Exemple extends I_DAO_Connexion {
     }
 
     Connexion(username , password ) {
-        fetch('/PHP/CreationPages/GenerationAccueil.php', {
+        fetch('../PHP/CreationPages/GenerationAccueil.php', {
             method: 'GET',
             headers : {
                 'Accept': 'application/json',
@@ -28,9 +28,15 @@ class DAO_Connexion_Exemple extends I_DAO_Connexion {
             {
                 console.log("Données reçues.");
             }
+            return response.text();
         })
-        .then(html => {
-            document.body.innerHTML = html;
+        .then(html =>{
+            // Création d'un document à partir du HTML reçu
+            let parser = new DOMParser();
+            let nouveauDocument = parser.parseFromString(html, 'text/html');
+
+            // On remplace l'élément à la racine du document
+            document.replaceChild(nouveauDocument.documentElement,document.documentElement);
         })
         .catch(error => {
             console.error('Erreur : ', error);

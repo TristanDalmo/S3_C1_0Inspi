@@ -1,13 +1,10 @@
 <?php
 
-ob_start();
+require_once("GenerationPage.php");
 
-$instance = new GenerationAccueil();
-
-echo $instance->GeneratePage();
-
-ob_end_flush();
-
+/**
+ * Classe de génération de la page d'accueil de l'application
+ */
 class GenerationAccueil extends GenerationPage
 {
 
@@ -41,6 +38,8 @@ class GenerationAccueil extends GenerationPage
 
 }
 
+$instance = new GenerationAccueil();
 
+echo $instance->GeneratePage();
 
 ?>

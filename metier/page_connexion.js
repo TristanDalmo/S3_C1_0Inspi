@@ -29,6 +29,12 @@ function validationSubmit() {
  * @param {String} username Nom d'utilisateur
  * @param {String} password Mot de passe
  */
-function Connexion(username , password ) {
-    (new API_Connexion_Exemple()).Connexion(username,password);
+async function Connexion(username , password ) {
+    try {
+        (new API_Connexion_Exemple()).Connexion(username,password);
+    }
+    catch (error) {
+        console.error("Erreur : ", error);
+    }
+    
 }

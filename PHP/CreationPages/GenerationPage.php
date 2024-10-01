@@ -40,7 +40,7 @@ abstract class GenerationPage
      * @return string
      */
     public function GeneratePage() : string {
-        return $this->GenerateHead() + $this->GenerateContent() + $this->GenerateFooter();
+        return $this->GenerateHead() . $this->GenerateContent() . $this->GenerateFooter();
     }
 
     #endregion
@@ -59,9 +59,14 @@ abstract class GenerationPage
                 <meta charset=\"UTF-8\">
                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
                 <title>E-Lieu</title>
-                <link rel=\"stylesheet\" href=\"" + $this->cssChemin + "\">
-                <script src=\"" + $this->jsChemin + "\"></script>
-            </head>";
+                <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">
+                <script src=\"" . $this->jsChemin . "\"></script>
+            </head>
+            <header>
+                <img src=\"../SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
+                <h1>E-Lieu</h1>
+            </header>"
+                ;
     }
 
     /**
@@ -76,12 +81,12 @@ abstract class GenerationPage
      */
     public function GenerateFooter() : string
     {
-        return "    <div class=\"footer\">
+        return "    <footer>
                         <a href=\"\">
                             <p>Contact</p>
                         </a>
                     </div>
-                    </body>
+                    </footer>
                     </html>";
     }
 
