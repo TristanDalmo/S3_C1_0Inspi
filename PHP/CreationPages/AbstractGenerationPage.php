@@ -60,7 +60,7 @@ abstract class AbstractGenerationPage
                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
                 <title>E-Lieu</title>
                 <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">
-                <script src=\"" . $this->jsChemin . "\"></script>
+                <script type=\"text/javascript\"  src=\"" . $this->jsChemin . "\"></script>
             </head>
             <header>
                 <img src=\"../SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
@@ -81,13 +81,27 @@ abstract class AbstractGenerationPage
      */
     public function GenerateFooter() : string
     {
-        return "    <footer>
-                        <a href=\"\">
-                            <p>Contact</p>
-                        </a>
-                    </div>
-                    </footer>
-                    </html>";
+        return "<footer>
+        <div class=\"footer-container\">
+            <div class=\"footer-info\">
+                <h2>Contactez-nous</h2>
+                <p>Email : contact@exemple.com</p>
+                <p>Téléphone : +33 1 23 45 67 89</p>
+            </div>
+            <div class=\"footer-links\">
+                <h2>Liens utiles</h2>
+                <ul>
+                    <li><a href=\"Apropos.html\">À propos</a></li>
+                    <li><a href=\"Confdentialite.html\">Politique de confidentialité</a></li>
+                    <li><a href=\"ConditionUtliisattion.html\">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+          
+        </div>
+        <div class=\"footer-bottom\">
+            <p>&copy; 2024 Exemple. Tous droits réservés.</p>
+        </div>
+    </footer>";
     }
 
     #endregion

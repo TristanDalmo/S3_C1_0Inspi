@@ -1,21 +1,41 @@
-import {API_Connexion_Exemple} from '../API/API_Acceuil.js';
-import { DAO_Accueil } from '../DAO/DAO_Acceuil.js';
+import { API_Accueil } from '../API/API_Accueil.js';
 
 function main()
 {
-    let button = document.getElementById("BoutonCreationEtat");
-    button.onclick=LancementPageFormulaire;
+    let bouttonForm = document.getElementById("CreerFormulaire");
+    bouttonForm.onclick=Formulaire;
+
+    let boutonGestionnaire = document.getElementById("Gestionnaire");
+    boutonGestionnaire.onclick=Gestionnaire;
+
+    let boutonTableau = document.getElementById("TableauDeBord");
+    boutonTableau.onclick=TableauDeBord;
 }
 window.onload=main;
 
-function LancementPageFormulaire()
-{
-    Formulaire();
-}
-
 async function Formulaire() {
     try {
-        (new DAO_Accueil()).Formulaire();
+        (new API_Accueil()).Formulaire();
+    }
+    catch (error) {
+        console.error("Erreur : ", error);
+    }
+    
+}
+
+async function Gestionnaire() {
+    try {
+        (new API_Accueil()).Gestionnaire();
+    }
+    catch (error) {
+        console.error("Erreur : ", error);
+    }
+    
+}
+
+async function TableauDeBord() {
+    try {
+        (new API_Accueil()).TableauDeBord();
     }
     catch (error) {
         console.error("Erreur : ", error);

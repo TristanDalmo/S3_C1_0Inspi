@@ -19,6 +19,23 @@ header {
     padding: 20px;
 }
 
+.Boutons {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 3%;
+	width:90%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1.5%;
+	margin-bottom: 1.5%;
+}
+
+
+
+
+
+
+
 .creationEtatLieux {
     flex-grow: 1;
     display: flex;
