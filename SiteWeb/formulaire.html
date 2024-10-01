@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Lieu</title>
     <link rel="stylesheet" href="formulaire.css">
 </head>
+
 <body>
     <div class="header">
         <img src="images/logoE-Lieu.png" id="logo" alt="">
@@ -13,7 +15,7 @@
     </div>
 
     <div class="formulaire">
-        <form>    
+        <form>
             <fieldset class="grandfield">
                 <div class="Containerhaut">
                     <div class="texte-gauche">
@@ -21,48 +23,88 @@
                         <p id="petit">(Conforme LOI ALUR)</p>
                     </div>
                     <div class="date-droite">
-                        <label for="fDate">DATE D'ENTRÉE : </label>
+                        <label for="fDate" class="putbold">DATE D'ENTRÉE :</label>
                         <input type="date" id="fDate" name="fDate" required>
                     </div>
                 </div>
                 <div class="ligne2">
                     <div class="texte-gauche1">
-                    <input type="radio" id="ENTREE" name="fPermis" value="Oui">
-                    <label for="ENTREE">Entrée</label>
-                    <input type="radio" id="SORTIE" name="fPermis" value="Oui">
-                    <label for="SORTIE">Sortie</label>
+                        <input type="radio" id="ENTREE" name="fPermis" value="Entrée">
+                        <label for="ENTREE">Entrée</label>
+                        <input type="radio" id="SORTIE" name="fPermis" value="Sortie">
+                        <label for="SORTIE">Sortie</label>
                     </div>
                     <div class="date-droite1">
-                        <label for="fDateS">DATE DE SORTIE : </label>
-                        <input type="date" id="fDatS" name="fDate" required>
+                        <label for="fDateS" class="putbold">DATE DE SORTIE :</label>
+                        <input type="date" id="fDateS" name="fDateS" required>
                     </div>
-                </div><br>
+                </div>
+                <br>
                 <div class="loi">
-                <p>L'état des lieux doit être établi entre les deux parties (locataire et propriétaire) lors de la remise des clés du logement et lors de leur restitution.
-                    En effet, le bail (loi n° 89-462 du 6 juillet 1989) stipule que l'état des lieux doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de location, et dont le locataire a la jouissance exclusive.</p>
-                </div><br>
-                
+                    <p>L'état des lieux doit être établi entre les deux parties (locataire et propriétaire) lors de la remise des clés du logement et lors de leur restitution. En effet, le bail (loi n° 89-462 du 6 juillet 1989) stipule que l'état des lieux doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de location, et dont le locataire a la jouissance exclusive.</p>
+                </div>
+                <br>
+
                 <fieldset class="Logement">
                     <div class="l1">
-                        <p>LOGEMENT</p>
-                        <input type="radio" id="Appartement" name="fPermis" value="Oui">
-                        <label for="Appartement">Entrée</label>
-                        <input type="radio" id="Maison" name="fPermis" value="Oui">
-                        <label for="Maison">Sortie</label>
+                        <p class="putbold">LOGEMENT</p>
+                        <input type="radio" id="Appartement" name="typeLogement">
+                        <label for="Appartement">Appartement</label>
+                        <input type="radio" id="Maison" name="typeLogement">
+                        <label for="Maison">Maison</label>
                         <label>
-                        <input type="radio">
-                        Autre : <input type="text">
+                            <input type="radio" id="Autre" name="typeLogement">
+                            Autre : <input type="text" id="autreType">
                         </label>
                     </div>
                     <div class="l2">
-                        <label for="Surface">SURFACE :</label>
-                        <input type="text" id="SURFACE">
-                        
-
+                        <label for="SURFACE" class="putbold">SURFACE :</label>
+                        <input type="text" id="SURFACE" placeholder="m²">
+                        <label for="nbpiece" class="putbold">NOMBRE DE PIÈCES PRINCIPALES :</label>
+                        <input type="number" id="nbpiece">
                     </div>
-
+                    <div class="l3">
+                        <label for="adresse" class="putbold">ADRESSE :</label>
+                        <textarea id="adresse" rows="3" cols="50"></textarea>
+                    </div>
                 </fieldset>
-                
+                <table>
+                    <tr>
+                        <th>LE BAILLEUR (OU SON MANDATAIRE)</th>
+                        <th>LE(S) LOCATAIRE(S)</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="civilite_bailleur">CIVILITÉ :</label><br>
+                            <span class="civilite">
+                                <input type="radio" id="mr_bailleur" name="civilite_bailleur"> Mr
+                                <input type="radio" id="mme_bailleur" name="civilite_bailleur"> Mme
+                                <input type="radio" id="mlle_bailleur" name="civilite_bailleur"> Mlle
+                            </span><br>
+                            <label for="prenom_bailleur">PRÉNOM :</label>
+                            <input type="text" id="prenom_bailleur"><br>
+                            <label for="nom_bailleur">NOM :</label>
+                            <input type="text" id="nom_bailleur"><br>
+                            <label for="adresse_bailleur">ADRESSE :</label>
+                            <textarea id="adresse_bailleur" rows="3"></textarea>
+                        </td>
+                        <td>
+                            <label for="civilite_locataire">CIVILITÉ :</label><br>
+                            <span class="civilite">
+                                <input type="radio" id="mr_locataire" name="civilite_locataire"> Mr
+                                <input type="radio" id="mme_locataire" name="civilite_locataire"> Mme
+                                <input type="radio" id="mlle_locataire" name="civilite_locataire"> Mlle
+                            </span><br>
+                            <label for="prenom_locataire">PRÉNOM :</label>
+                            <input type="text" id="prenom_locataire"><br>
+                            <label for="nom_locataire">NOM :</label>
+                            <input type="text" id="nom_locataire"><br>
+                            <label for="adresse_locataire">ADRESSE :</label>
+                            <p class="petit">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
+                            <textarea id="adresse_locataire" rows="3"></textarea>
+                        </td>
+                    </tr>
+                </table>
             </fieldset>
         </form>
     </div>
@@ -73,4 +115,5 @@
         </a>
     </div>
 </body>
+
 </html>

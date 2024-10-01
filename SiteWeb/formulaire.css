@@ -90,9 +90,10 @@ input[type="date"] {
     margin-left: 5px;
 }
 
-#SORTIE{
+#SORTIE {
     margin-left: 80px;
 }
+
 .ligne2 {
     display: flex;
     justify-content: space-between; /* Ajoute de l'espace entre les boutons radio et la date de sortie */
@@ -111,18 +112,91 @@ input[type="date"] {
     flex-grow: 0;
     margin-right: 80px;
 }
-.loi{
+
+.loi {
     margin-right: 80px;
     font-style: italic;
 }
-.Logement{
+
+.Logement {
     margin-left: 70px;
     margin-right: 70px;
     margin-bottom: 20px;
+    border: 2px solid black;
 }
-.grandfield{
+
+.grandfield {
     border-radius: 2%;
+    border: 2px solid red;
+    margin-bottom: 20px;
+}
+
+#SURFACE {
+    width: 80px;
+}
+
+.l3 {
+    margin-bottom: 10px;
+}
+
+.putbold {
+    font-weight: bold;
 }
 
 
+.l1 {
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+}
 
+.l1 p {
+    margin-right: 20px; 
+}
+
+.l1 label {
+    margin-right: 2px; 
+}
+
+.l1 input[type="radio"] {
+    margin-right: 5px; 
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th {
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #000;
+}
+
+td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.civilite input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.address-text {
+    font-size: 0.9em;
+    color: gray;
+}
