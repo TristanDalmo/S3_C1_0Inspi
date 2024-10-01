@@ -16,10 +16,21 @@ export class I_API_Accueil {
      * Permet d'accéder au formulaire sur l'application
      */
     Formulaire() {
-        throw new Error("La méthode \"Formualaire()\" doit être implémentée");
+        throw new Error("La méthode \"Formulaire()\" doit être implémentée");
     }
+
+    /**
+     * Permet d'accéder au tableau de bord de l'application
+     */
     TableauDeBord(){
         throw new Error("La méthode \"TableauDeBord()\" doit être implémentée");
+    }
+
+    /**
+     * Permet d'accéder au gestionnaire d'états des lieux de l'application
+     */
+    Gestionnaire(){
+        throw new Error("La méthode \"Gestionnaire()\" doit être implémentée");
     }
 
 }
