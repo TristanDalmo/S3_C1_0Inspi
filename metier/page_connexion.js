@@ -1,11 +1,11 @@
-import {API_Connexion_Exemple} from '/API/API_Connexion_Exemple.js';
+import {API_Connexion_Exemple} from '../API/API_Connexion_Exemple.js';
 
 /**
  * Fonction appelée au chargement de la page
  */
 function main() {
     // À la validation du formulaire, on lance la connexion si les champs ne sont pas vides
-    let form = document.querySelector("form");
+    let form = document.getElementById("formConnexion");
     form.onsubmit = validationSubmit;
 }
 window.onload = main;
@@ -16,11 +16,12 @@ window.onload = main;
  */
 function validationSubmit() {
     // On récupère les données du formulaire
-    let username = new Date(document.getElementById("fUsername").value);
-    let password = new Date(document.getElementById("fPassword").value);    
+    let username = document.getElementById("fUsername").value;
+    let password = document.getElementById("fPassword").value;    
 
     Connexion(username,password);
 
+    return false;
 }
 
 /**
@@ -28,6 +29,12 @@ function validationSubmit() {
  * @param {String} username Nom d'utilisateur
  * @param {String} password Mot de passe
  */
-function Connexion(username , password ) {
-    API_Connexion_Exemple.Connexion(username,password);
+async function Connexion(username , password ) {
+    try {
+        (new API_Connexion_Exemple()).Connexion(username,password);
+    }
+    catch (error) {
+        console.error("Erreur : ", error);
+    }
+    
 }

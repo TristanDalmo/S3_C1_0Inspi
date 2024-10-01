@@ -1,7 +1,7 @@
 /**
  * Classe abstraite d'une API de connexion à la Base de Données
  */
-class I_API_Connexion {
+export class I_API_Connexion {
 
     /**
      * Constructeur de la classe abstraite

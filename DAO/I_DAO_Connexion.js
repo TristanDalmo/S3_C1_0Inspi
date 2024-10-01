@@ -1,7 +1,7 @@
 /**
  * Classe abstraite d'une DAO de connexion à la Base de Données
  */
-class I_DAO_Connexion {
+export class I_DAO_Connexion {
 
     /**
      * Constructeur de la classe
