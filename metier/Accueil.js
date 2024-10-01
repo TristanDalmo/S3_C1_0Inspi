@@ -1,4 +1,5 @@
-import {API_Connexion_Exemple} from '../API/API_Connexion_Exemple.js';
+import {API_Connexion_Exemple} from '../API/API_Acceuil.js';
+import { DAO_Accueil } from '../DAO/DAO_Acceuil.js';
 
 function main()
 {
@@ -12,9 +13,9 @@ function LancementPageFormulaire()
     Formulaire();
 }
 
-async function Formulaire(username , password ) {
+async function Formulaire() {
     try {
-        (new API_Connexion_Exemple()).Formulaire(username,password);
+        (new DAO_Accueil()).Formulaire();
     }
     catch (error) {
         console.error("Erreur : ", error);
