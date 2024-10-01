@@ -3,7 +3,7 @@
 /**
  * Classe abstraite de génération de page
  */
-abstract class GenerationPage 
+abstract class AbstractGenerationPage 
 {
     #region Attributs
 
