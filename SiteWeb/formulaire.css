@@ -200,15 +200,15 @@ input[type="text"], textarea {
     font-size: 0.9em;
     color: gray;
 }
-}
 
 
 
-header {
+
+.header {
     background-color: #0D5C63;
     color: white;
-    padding: 20px 0;
     text-align: center;
+    padding: 20px;
 }
 
 .about-us h2 {
