@@ -1,11 +1,11 @@
 <?php
 
-require_once("GenerationPage.php");
+require_once("AbstractGenerationPage.php");
 
 /**
  * Classe de génération de la page d'accueil de l'application
  */
-class GenerationAccueil extends GenerationPage
+class GenerationAccueil extends AbstractGenerationPage
 {
 
     public function __construct()
