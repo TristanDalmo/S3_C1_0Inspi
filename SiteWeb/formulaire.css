@@ -1,86 +1,119 @@
-CSS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-}
-
-#date {
-    margin-bottom: 10px;
-    
-  
-}
-
-label {
-    display: block;
-    font-weight: bold;
-}
-
-input[type="date"], textarea {
-  
-    padding: 5px;
-}
-
-#bloc-logement {
-    width: 400px; /* Ajustez la largeur selon vos besoins */
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-}
-
-#bloc-logement {
-    margin-bottom: 10px;
-}
-
-.info-logement {
-    display: block;
-    font-weight: bold;
-}
-
-.info-logement[type="radio"] {
-    margin-right: 5px;
-}
-
-.info-logement {
-    width: 100%;
-}
-#container-personne{
     display: flex;
-    justify-content: stretch;
-    margin-left: 45%;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
 }
 
-.form-group {
-    width: 45%;
+.formulaire {
+    flex-grow: 1;
 }
 
-.form-group {
-    margin-bottom: 10px;
-}
-.details-logement {
-   
-    margin-top: 50px;
-
-margin-right: 50%;
+.header {
+    background-color: #0D5C63;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
-.etat-des-lieux {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 100px;
-}
-th, td {
-    border: 1px solid black;
-    padding: 8px;
+.footer {
+    background-color: #0e6665;
+    color: white;
     text-align: left;
+    padding: 10px;
 }
 
-th {
-    background-color: #f2f2f2;
+.footer a {
+    color: white;
+    text-decoration: none;
 }
 
-.piece:nth-child(even)   
- {
-    background-color: #f9f9f9; 
+#logo {
+    text-align: left;
+    height: 40px;
 }
-#cuisine{
-    width: 500px;
+
+fieldset {
+    border-color: rgb(0, 0, 0);
+    border-width: 1.5px;
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
 }
+
+input, label, select {
+    margin: 0.2em;
+}
+
+.Gras {
+    font-weight: bold;
+    font-size: 32px;
+    margin: 0;
+}
+
+#petit {
+    font-size: 10px;
+    font-weight: bold;
+    margin: 0; 
+    margin-left: 5px;
+}
+
+.Containerhaut {
+    display: flex;
+    justify-content: space-between; /* Ajoute de l'espace entre les éléments */
+    align-items: center; /* Aligne les éléments verticalement */
+}
+
+.texte-gauche {
+    flex-grow: 1; /* Prend tout l'espace à gauche */
+}
+
+.date-droite {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligne le label et le champ de date à droite */
+    flex-grow: 0;
+    margin-right: 80px;
+}
+
+input[type="date"] {
+    margin-left: 5px;
+}
+
+#SORTIE{
+    margin-left: 80px;
+}
+.ligne2 {
+    display: flex;
+    justify-content: space-between; /* Ajoute de l'espace entre les boutons radio et la date de sortie */
+    align-items: center; /* Aligne verticalement les éléments */
+    margin-top: 5px;
+}
+
+.texte-gauche1 {
+    flex-grow: 1; /* Prend tout l'espace à gauche */
+}
+
+.date-droite1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligne le label et le champ de date à droite */
+    flex-grow: 0;
+    margin-right: 80px;
+}
+.loi{
+    margin-right: 80px;
+}
+
+
+
