@@ -16,5 +16,13 @@ export class API_Connexion_Exemple extends I_API_Connexion {
     Connexion(username , password ) {
         (new DAO_Connexion_Exemple()).Connexion(username,password);
     }
+
+    Formulaire() {
+        (new DAO_Connexion_Exemple()).Formulaire();
+    }
+
+    TableauDeBord() {
+        (new DAO_Connexion_Exemple()).TableauDeBord();
+    }
     
 }
