@@ -11,24 +11,36 @@ abstract class GenerationPage
      * Chemin vers le fichier css de la page (redéfini selon la classe de la page à générer)
      * @var string
      */
-    protected string $cssChemin = "";
+    private string $cssChemin = "";
 
     /**
      * Chemin vers le fichier javascript de la page (redéfini selon la classe de la page à générer
      * @var string 
      */
-    protected string $jsChemin = "";
+    private string $jsChemin = "";
 
     #endregion 
 
-    #region Génération de la page 
+    #region Génération de la page et constructeur
+
+    /**
+     * Constructeur de la classe
+     * @param string $cssChemin Chemin vers le fichier css de la page
+     * @param string $jsChemin Chemin vers le script js de la page
+     */
+    public function __construct($cssChemin, $jsChemin)
+    {
+        $this->cssChemin = $cssChemin;
+        $this->jsChemin = $jsChemin;
+        
+    }
 
     /**
      * Méthode de génération de la page entière à partir des méthodes suivantes
-     * @return void
+     * @return string
      */
-    public function GeneratePage() : void{
-        echo $this->GenerateHead() + $this->GenerateContent() + $this->GenerateFooter();
+    public function GeneratePage() : string {
+        return $this->GenerateHead() + $this->GenerateContent() + $this->GenerateFooter();
     }
 
     #endregion
