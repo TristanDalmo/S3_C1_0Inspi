@@ -11,16 +11,16 @@ class GenerationAccueil extends AbstractGenerationPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../SiteWeb/menu.css",jsChemin: "../metier/Accueil.js");
+        parent::__construct(cssChemin: "../SiteWeb/menu.css");
     }
 
     protected function GenerateContent() : string
     {
         return "
     <div class=\"Boutons\">
-            <div class=\"creationEtatLieux\" id=\"Gestionnaire\">
+            <div class=\"creationEtatLieux\">
                 <div class=\"boutoncreation\">
-                    <figure>
+                    <figure id=\"Gestionnaire\">
                         <img src=\"images/GestionnaireEtatLieux.png\" alt=\"Gestion des états des lieux\">
                         <figcaption>
                             <div class=\"description\">
@@ -32,9 +32,9 @@ class GenerationAccueil extends AbstractGenerationPage
                 </div>
             </div>
 
-            <div class=\"creationEtatLieux\" id=\"CreerFormulaire\">
+            <div class=\"creationEtatLieux\">
                 <div class=\"boutoncreation\">
-                    <figure>
+                    <figure id=\"CreerFormulaire\">
                         <img src=\"images/creationEtatLieux.png\" alt=\"Création d'état des lieux\">
                         <figcaption>
                             <div class=\"description\">
@@ -46,9 +46,9 @@ class GenerationAccueil extends AbstractGenerationPage
                 </div>
             </div>
 
-            <div class=\"creationEtatLieux\" id=\"TableauDeBord\">
+            <div class=\"creationEtatLieux\">
                 <div class=\"boutoncreation\">
-                    <figure>
+                    <figure id=\"TableauDeBord\">
                         <img src=\"images/PanneauConfiguration.png\" alt=\"Tableau de bord\">
                         <figcaption>
                             <div class=\"description\">

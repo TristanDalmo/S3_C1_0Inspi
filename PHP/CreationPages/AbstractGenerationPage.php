@@ -13,12 +13,6 @@ abstract class AbstractGenerationPage
      */
     private string $cssChemin = "";
 
-    /**
-     * Chemin vers le fichier javascript de la page (redéfini selon la classe de la page à générer
-     * @var string 
-     */
-    private string $jsChemin = "";
-
     #endregion 
 
     #region Génération de la page et constructeur
@@ -26,13 +20,10 @@ abstract class AbstractGenerationPage
     /**
      * Constructeur de la classe
      * @param string $cssChemin Chemin vers le fichier css de la page
-     * @param string $jsChemin Chemin vers le script js de la page
      */
-    public function __construct($cssChemin, $jsChemin)
+    public function __construct($cssChemin)
     {
         $this->cssChemin = $cssChemin;
-        $this->jsChemin = $jsChemin;
-        
     }
 
     /**
@@ -60,7 +51,6 @@ abstract class AbstractGenerationPage
                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
                 <title>E-Lieu</title>
                 <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">
-                <script type=\"text/javascript\"  src=\"" . $this->jsChemin . "\"></script>
             </head>
             <header>
                 <img src=\"../SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">

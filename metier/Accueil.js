@@ -2,6 +2,8 @@ import { API_Accueil } from '../API/API_Accueil.js';
 
 function main()
 {
+    console.log("test");
+
     let bouttonForm = document.getElementById("CreerFormulaire");
     bouttonForm.onclick=Formulaire;
 
@@ -11,9 +13,10 @@ function main()
     let boutonTableau = document.getElementById("TableauDeBord");
     boutonTableau.onclick=TableauDeBord;
 }
-window.onload=main;
+main();
 
 async function Formulaire() {
+
     try {
         (new API_Accueil()).Formulaire();
     }

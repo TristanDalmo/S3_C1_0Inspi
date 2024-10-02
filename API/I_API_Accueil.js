@@ -7,7 +7,7 @@ export class I_API_Accueil {
      * Constructeur de la classe abstraite
      */
     constructor() {
-        if (this.constructor === I_API_Connexion) {
+        if (this.constructor === I_API_Accueil) {
             throw new TypeError("On ne peut pas instancier une classe abstraite");
         }
     }

@@ -10,7 +10,7 @@ class GenerationTableauDeBord extends AbstractGenerationPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../SiteWeb/formulaire.css",jsChemin: "../metier/formulaire.js");
+        parent::__construct(cssChemin: "../SiteWeb/formulaire.css");
     }
 
     protected function GenerateContent() : string

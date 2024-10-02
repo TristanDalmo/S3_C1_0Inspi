@@ -30,7 +30,9 @@ header {
 	margin-bottom: 1.5%;
 }
 
-
+#CreerFormulaire, #TableauDeBord, #Gestionnaire {
+    cursor: pointer;
+}
 
 
 
