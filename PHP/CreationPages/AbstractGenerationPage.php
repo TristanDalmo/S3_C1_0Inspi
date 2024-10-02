@@ -51,11 +51,15 @@ abstract class AbstractGenerationPage
                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
                 <title>E-Lieu</title>
                 <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">
-                <link rel=\"stylesheet\" href=\"../SiteWeb/styleHeaderFooter\">
+                <link rel=\"stylesheet\" href=\"../SiteWeb/styleHeaderFooter.css\">
             </head>
             <header>
                 <img src=\"../SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
                 <h1>E-Lieu</h1>
+                <div class=\"clickable\" id=\"backAccueil\">
+                    <img src=\"../SiteWeb/images/home.png\" id=\"pictogrammeAccueil\" alt=\"\">
+                    <p id=\"texteAccueil\">Accueil</p>
+                </div>
             </header>"
                 ;
     }

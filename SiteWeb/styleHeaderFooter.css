@@ -83,3 +83,17 @@ footer {
 .clickable {
     cursor: pointer;
 }
+
+#backAccueil{
+    margin:0.5em;
+    display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 2%;
+}
+
+#pictogrammeAccueil{
+    width: auto;
+    height: auto;
+    
+
+}
