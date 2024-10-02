@@ -1,6 +1,6 @@
 <?php
 
-require_once("AbstractGenerationPage.php");
+require_once("../AbstractGenerationPage.php");
 
 /**
  * Classe de génération de la page "à propos" du site web

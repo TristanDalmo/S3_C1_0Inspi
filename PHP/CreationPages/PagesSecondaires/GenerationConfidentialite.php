@@ -1,6 +1,6 @@
 <?php
 
-require_once("AbstractGenerationPage.php");
+require_once("../AbstractGenerationPage.php");
 
 /**
  * Classe de génération des clauses de confidentialité du site web
