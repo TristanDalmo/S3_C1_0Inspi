@@ -52,11 +52,15 @@ export class Methodes {
      * @param {String} lien 
      */
     static ChargerScriptJS(lien) {
-        let script = document.createElement('script');
-        script.src = lien;
-        script.type = 'module';
-        document.head.appendChild(script);
-    }
+                let script = document.createElement('script');
+                script.src = lien;
+                script.type = 'module';
+                document.head.appendChild(script);
+        }
+        
+    
 
 
-} 
+}
+
+
