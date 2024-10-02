@@ -1,5 +1,5 @@
-import { I_API_PagesSecondaires } from "./I_API_PagesSecondaires";
-import { DAO_PagesSecondaires } from "../../DAO/PagesSecondaires/DAO_PagesSecondaires";
+import { I_API_PagesSecondaires } from "./I_API_PagesSecondaires.js";
+import { DAO_PagesSecondaires } from "../../DAO/PagesSecondaires/DAO_PagesSecondaires.js";
 
 /**
  * Classe d'une API affichant les pages secondaires du site web (à propos, confidentialité,...)

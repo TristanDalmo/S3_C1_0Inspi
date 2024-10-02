@@ -1,4 +1,4 @@
-import { I_DAO_PagesSecondaires } from "../../DAO/PagesSecondaires/I_DAO_PagesSecondaires.js";
+import { I_DAO_PagesSecondaires } from "./I_DAO_PagesSecondaires.js";
 import { Methodes } from "../../DAO/Methodes.js";
 
 /**
@@ -16,19 +16,26 @@ export class DAO_PagesSecondaires extends I_DAO_PagesSecondaires {
     Accueil() {
         Methodes.Fetch("../PHP/CreationPages/GenerationAccueil.php").then(() => {
             Methodes.ChargerScriptJS("../metier/Accueil.js");
+            Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
         });
     }
 
     APropos() {
-        Methodes.Fetch("../../PHP/PagesSecondaire/GenerationAPropos.php");
+        Methodes.Fetch("../PHP/CreationPages/PagesSecondaires/GenerationAPropos.php").then(() => {
+            Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
+        });
     }
 
     Conditions(){
-        Methodes.Fetch("../../PHP/PagesSecondaire/GenerationConditions.php");
+        Methodes.Fetch("../PHP/CreationPages/PagesSecondaires/GenerationConditions.php").then(() => {
+            Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
+        });
     }
 
     Confidentialite(){
-        Methodes.Fetch("../../PHP/PagesSecondaire/GenerationConfidentialite.php");
+        Methodes.Fetch("../PHP/CreationPages/PagesSecondaires/GenerationConfidentialite.php").then(() => {
+            Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
+        });
     }
 
 }
