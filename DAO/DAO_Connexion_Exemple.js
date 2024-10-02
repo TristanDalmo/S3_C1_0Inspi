@@ -16,6 +16,7 @@ export class DAO_Connexion_Exemple extends I_DAO_Connexion {
     async Connexion(username , password ) {
         Methodes.Fetch("../PHP/CreationPages/GenerationAccueil.php").then(() => {
             Methodes.ChargerScriptJS("../metier/Accueil.js");
+            Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
         });
         
     }

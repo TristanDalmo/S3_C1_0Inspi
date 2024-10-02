@@ -1,47 +1,55 @@
-import { API_Accueil } from '../API/API_Accueil.js';
+import { API_PagesSecondaires } from '../API/PagesSecondaires/API_PagesSecondaires.js';
 
 function main()
 {
-    console.log("JavaScript du Header et du Footer générés");
+    console.log("JavaScript du Header et du Footer généré.");
 
-    let bouttonForm = document.getElementById("CreerFormulaire");
-    bouttonForm.onclick=Formulaire;
+    //let boutonAccueil = document.getElementById("Accueil");
+    //boutonAccueil.onclick = Accueil;
 
-    let boutonGestionnaire = document.getElementById("Gestionnaire");
-    boutonGestionnaire.onclick=Gestionnaire;
+    let boutonAPropos = document.getElementById("APropos");
+    boutonAPropos.onclick=APropos;
 
-    let boutonTableau = document.getElementById("TableauDeBord");
-    boutonTableau.onclick=TableauDeBord;
+    let boutonConfidentialite = document.getElementById("Confidentialite");
+    boutonConfidentialite.onclick=Confidentialite;
+
+    let boutonConditions = document.getElementById("Conditions");
+    boutonConditions.onclick=Conditions;
 }
 main();
 
-async function Formulaire() {
-
+async function Accueil() {
     try {
-        (new API_Accueil()).Formulaire();
+        (new API_PagesSecondaires()).Accueil();
     }
     catch (error) {
         console.error("Erreur : ", error);
     }
-    
 }
 
-async function Gestionnaire() {
+async function APropos() {
     try {
-        (new API_Accueil()).Gestionnaire();
+        (new API_PagesSecondaires()).APropos();
     }
     catch (error) {
         console.error("Erreur : ", error);
     }
-    
 }
 
-async function TableauDeBord() {
+async function Confidentialite() {
     try {
-        (new API_Accueil()).TableauDeBord();
+        (new API_PagesSecondaires()).Confidentialite();
     }
     catch (error) {
         console.error("Erreur : ", error);
     }
-    
+}
+
+async function Conditions() {
+    try {
+        (new API_PagesSecondaires()).Conditions();
+    }
+    catch (error) {
+        console.error("Erreur : ", error);
+    }
 }

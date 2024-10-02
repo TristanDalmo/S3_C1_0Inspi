@@ -16,19 +16,26 @@ export class DAO_PagesSecondaires extends I_DAO_PagesSecondaires {
     Accueil() {
         Methodes.Fetch("../PHP/CreationPages/GenerationAccueil.php").then(() => {
             Methodes.ChargerScriptJS("../metier/Accueil.js");
+            Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
         });
     }
 
     APropos() {
-        Methodes.Fetch("../../PHP/PagesSecondaire/GenerationAPropos.php");
+        Methodes.Fetch("../../PHP/PagesSecondaire/GenerationAPropos.php").then(() => {
+            Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
+        });
     }
 
     Conditions(){
-        Methodes.Fetch("../../PHP/PagesSecondaire/GenerationConditions.php");
+        Methodes.Fetch("../../PHP/PagesSecondaire/GenerationConditions.php").then(() => {
+            Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
+        });
     }
 
     Confidentialite(){
-        Methodes.Fetch("../../PHP/PagesSecondaire/GenerationConfidentialite.php");
+        Methodes.Fetch("../../PHP/PagesSecondaire/GenerationConfidentialite.php").then(() => {
+            Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
+        });
     }
 
 }
