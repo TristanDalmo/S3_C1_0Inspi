@@ -12,12 +12,10 @@
 <body>
     
     <header class="header">
-        <img src="images/logoE-Lieu.png" id="logo" alt="">
+        <img src="images/logoE-Lieu.png" id="logo" alt="Logo E-Lieu">
         <h1>E-Lieu</h1>
     </header>
         
-    
-
     <div class="formulaire">
         <form>
             <fieldset class="grandfield">
@@ -52,58 +50,69 @@
                 <fieldset class="Logement">
                     <div class="l1">
                         <p class="putbold">LOGEMENT</p>
+                    </div>
+                    <div class="l2">
                         <input type="radio" id="Appartement" name="typeLogement">
                         <label for="Appartement">Appartement</label>
                         <input type="radio" id="Maison" name="typeLogement">
                         <label for="Maison">Maison</label>
-                        <label>
-                            <input type="radio" id="Autre" name="typeLogement">
-                            Autre : <input type="text" id="autreType">
-                        </label>
+                        <input type="radio" id="Autre" name="typeLogement">
+                        <label for="Autre">Autre</label>
+                        <input type="text" id="textautre" size="5">
                     </div>
-                    <div class="l2">
+                    <div class="l3">
                         <label for="SURFACE" class="putbold">SURFACE :</label>
                         <input type="text" id="SURFACE" placeholder="m²">
                         <label for="nbpiece" class="putbold">NOMBRE DE PIÈCES PRINCIPALES :</label>
                         <input type="number" id="nbpiece">
                     </div>
-                    <div class="l3">
+                    <div class="l4">
                         <label for="adresse" class="putbold">ADRESSE :</label>
                         <textarea id="adresse" rows="3" cols="50"></textarea>
                     </div>
                 </fieldset>
                 <table>
                     <tr>
-                        <th id="tab1">LE BAILLEUR (OU SON MANDATAIRE)</th>
-                        <th id="tab2">LE(S) LOCATAIRE(S)</th>
+                        <th id="tab1" class="putbold">LE BAILLEUR (OU SON MANDATAIRE)</th>
+                        <th id="tab2" class="putbold">LE(S) LOCATAIRE(S)</th>
                     </tr>
                     <tr>
                         <td>
-                            <label for="civilite_bailleur">CIVILITÉ :</label><br>
-                            <span class="civilite">
-                                <input type="radio" id="mr_bailleur" name="civilite_bailleur"> Mr
-                                <input type="radio" id="mme_bailleur" name="civilite_bailleur"> Mme
-                                <input type="radio" id="mlle_bailleur" name="civilite_bailleur"> Mlle
-                            </span><br>
-                            <label for="prenom_bailleur">PRÉNOM :</label>
-                            <input type="text" id="prenom_bailleur"><br>
-                            <label for="nom_bailleur">NOM :</label>
-                            <input type="text" id="nom_bailleur"><br>
-                            <label for="adresse_bailleur">ADRESSE :</label>
+                            <div class="civilite-container">
+                                <label for="civilite_bailleur" class="putbold">CIVILITÉ :</label>
+                                <span class="civilite">
+                                    <input type="radio" id="mr_bailleur" name="civilite_bailleur">
+                                    <label for="mr_bailleur">Mr</label>
+                                    <input type="radio" id="mme_bailleur" name="civilite_bailleur">
+                                    <label for="mme_bailleur">Mme</label>
+                                    <input type="radio" id="mlle_bailleur" name="civilite_bailleur">
+                                    <label for="mlle_bailleur">Mlle</label>
+                                </span>
+                            </div>
+                            <label for="prenom_bailleur" class="putbold" >PRÉNOM :</label>
+                            <input type="text" id="prenom_bailleur">
+                            <label for="nom_bailleur" class="putbold">NOM :</label>
+                            <input type="text" id="nom_bailleur">
+                            <label for="adresse_bailleur" class="putbold">ADRESSE :</label>
                             <textarea id="adresse_bailleur" rows="3"></textarea>
                         </td>
                         <td>
-                            <label for="civilite_locataire">CIVILITÉ :</label><br>
-                            <span class="civilite">
-                                <input type="radio" id="mr_locataire" name="civilite_locataire"> Mr
-                                <input type="radio" id="mme_locataire" name="civilite_locataire"> Mme
-                                <input type="radio" id="mlle_locataire" name="civilite_locataire"> Mlle
-                            </span><br>
-                            <label for="prenom_locataire">PRÉNOM :</label>
-                            <input type="text" id="prenom_locataire"><br>
-                            <label for="nom_locataire">NOM :</label>
-                            <input type="text" id="nom_locataire"><br>
-                            <label for="adresse_locataire">ADRESSE :</label>
+                            <div class="civilite-container">
+                                <label for="civilite_locataire" class="putbold">CIVILITÉ :</label>
+                                <span class="civilite">
+                                    <input type="radio" id="mr_locataire" name="civilite_locataire">
+                                    <label for="mr_locataire">Mr</label>
+                                    <input type="radio" id="mme_locataire" name="civilite_locataire">
+                                    <label for="mme_locataire">Mme</label>
+                                    <input type="radio" id="mlle_locataire" name="civilite_locataire">
+                                    <label for="mlle_locataire">Mlle</label>
+                                </span>
+                            </div>
+                            <label for="prenom_locataire" class="putbold">PRÉNOM :</label>
+                            <input type="text" id="prenom_locataire">
+                            <label for="nom_locataire" class="putbold">NOM :</label>
+                            <input type="text" id="nom_locataire">
+                            <label for="adresse_locataire" class="putbold">ADRESSE :</label>
                             <p class="petit">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
                             <textarea id="adresse_locataire" rows="3"></textarea>
                         </td>
@@ -128,7 +137,6 @@
                     <li><a href="ConditionUtliisattion.html">Conditions d'utilisation</a></li>
                 </ul>
             </div>
-          
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Exemple. Tous droits réservés.</p>
