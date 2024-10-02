@@ -51,6 +51,11 @@ class GenerationFormulaire extends AbstractGenerationPage
 
 }
 
+public function GenererLigneCuisine()
+{
+    $ligne=""
+}
+
 $instance = new GenerationFormulaire();
 
 echo $instance->GeneratePage();
