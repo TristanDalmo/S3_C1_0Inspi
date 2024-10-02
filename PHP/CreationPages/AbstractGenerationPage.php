@@ -51,6 +51,7 @@ abstract class AbstractGenerationPage
                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
                 <title>E-Lieu</title>
                 <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">
+                <link rel=\"stylesheet\" href=\"../SiteWeb/styleHeaderFooter\">
             </head>
             <header>
                 <img src=\"../SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
@@ -81,9 +82,9 @@ abstract class AbstractGenerationPage
             <div class=\"footer-links\">
                 <h2>Liens utiles</h2>
                 <ul>
-                    <li><a href=\"Apropos.html\">À propos</a></li>
-                    <li><a href=\"Confdentialite.html\">Politique de confidentialité</a></li>
-                    <li><a href=\"ConditionUtliisattion.html\">Conditions d'utilisation</a></li>
+                    <li id=\"APropos\" class=\"clickable\">À propos</li>
+                    <li id=\"Confidentialite\" class=\"clickable\">Politique de confidentialité</li>
+                    <li id=\"Conditions\" class=\"clickable\">Conditions d'utilisation</li>
                 </ul>
             </div>
           
