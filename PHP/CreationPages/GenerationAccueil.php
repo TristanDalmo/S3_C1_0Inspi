@@ -11,7 +11,7 @@ class GenerationAccueil extends AbstractGenerationPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../SiteWeb/menu.css");
+        parent::__construct(cssChemin: "../../SiteWeb/menu.css");
     }
 
     protected function GenerateContent() : string
@@ -21,7 +21,7 @@ class GenerationAccueil extends AbstractGenerationPage
             <div class=\"creationEtatLieux\">
                 <div class=\"boutoncreation\">
                     <figure id=\"Gestionnaire\">
-                        <img src=\"images/GestionnaireEtatLieux.png\" alt=\"Gestion des états des lieux\">
+                        <img src=\"../../SiteWeb/images/GestionnaireEtatLieux.png\" alt=\"Gestion des états des lieux\">
                         <figcaption>
                             <div class=\"description\">
                                 <h2>Gestion des États des lieux</h2>
@@ -35,7 +35,7 @@ class GenerationAccueil extends AbstractGenerationPage
             <div class=\"creationEtatLieux\">
                 <div class=\"boutoncreation\">
                     <figure id=\"CreerFormulaire\">
-                        <img src=\"images/creationEtatLieux.png\" alt=\"Création d'état des lieux\">
+                        <img src=\"../../SiteWeb/images/creationEtatLieux.png\" alt=\"Création d'état des lieux\">
                         <figcaption>
                             <div class=\"description\">
                                 <h2>Création d'état des lieux</h2>
@@ -49,7 +49,7 @@ class GenerationAccueil extends AbstractGenerationPage
             <div class=\"creationEtatLieux\">
                 <div class=\"boutoncreation\">
                     <figure id=\"TableauDeBord\">
-                        <img src=\"images/PanneauConfiguration.png\" alt=\"Tableau de bord\">
+                        <img src=\"../../SiteWeb/images/PanneauConfiguration.png\" alt=\"Tableau de bord\">
                         <figcaption>
                             <div class=\"description\">
                                 <h2>Tableau de Bord</h2>

@@ -13,6 +13,12 @@ abstract class AbstractGenerationPage
      */
     private string $cssChemin = "";
 
+    /**
+     * Nom de la page web
+     * @var string
+     */
+    private string $nom = "";
+
     #endregion 
 
     #region Génération de la page et constructeur
@@ -21,9 +27,10 @@ abstract class AbstractGenerationPage
      * Constructeur de la classe
      * @param string $cssChemin Chemin vers le fichier css de la page
      */
-    public function __construct($cssChemin)
+    public function __construct($cssChemin, string $nom)
     {
         $this->cssChemin = $cssChemin;
+        $this->nom = $nom;
     }
 
     /**
@@ -49,12 +56,13 @@ abstract class AbstractGenerationPage
             <head>
                 <meta charset=\"UTF-8\">
                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-                <title>E-Lieu</title>
+                <title>"+ $this->nom + "</title>
                 <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">
-                <link rel=\"stylesheet\" href=\"../SiteWeb/styleHeaderFooter.css\">
+                <link rel=\"stylesheet\" href=\"../../SiteWeb/styleHeaderFooter.css\">
+                <link rel=\"icon\" href=\"../../SiteWeb/images/logoE-Lieu.ico\"/>
             </head>
             <header>
-                <img src=\"../SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
+                <img src=\"../../SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
                 <h1>E-Lieu</h1>
             </header>"
                 ;
