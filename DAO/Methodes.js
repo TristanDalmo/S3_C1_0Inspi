@@ -13,8 +13,7 @@ export class Methodes {
 
         // On crée la demande de fetch
         fetch(lien, {
-            credentials: 'same-origin',
-            method: 'GET',
+           method: 'GET',
             headers : {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
