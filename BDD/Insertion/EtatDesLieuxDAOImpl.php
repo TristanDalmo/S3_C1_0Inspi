@@ -1,6 +1,6 @@
 <?php
 
-class EtatDesLieuxDAOImpl implements I_EtatDesLieuxDAO{
+class EtatDesLieuxDAOImpl implements I_BDD_DAO{
     private static $db;
 
     /**
