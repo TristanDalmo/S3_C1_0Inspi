@@ -247,8 +247,6 @@ footer {
 
 #tableauCuisine .etat {
     width: 1em;
-    background-color: red;
-    
 
 }
 
@@ -518,10 +516,10 @@ tr td:first-child, tr th:first-child{
     width: 0.25em;
 }
 .comment-fieldset {
-    border: 2px solid #000000; /* Bordure bleue */
-    border-radius: 8px; /* Coins arrondis */
-    background-color: #f9f9f9; /* Couleur de fond */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet 3D */
+    border: 2px solid #000000; 
+    border-radius: 8px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .comment-fieldset legend {
@@ -531,20 +529,20 @@ tr td:first-child, tr th:first-child{
 }
 
 .comment-textarea {
-    width: 100%; /* Prend toute la largeur */
-    height: 150px; /* Hauteur fixe */
-    border: 1px solid #ccc; /* Bordure grise */
-    border-radius: 4px; /* Coins arrondis */
-    padding: 10px; /* Espacement interne */
-    resize: vertical; /* Permet de redimensionner uniquement verticalement */
+    width: 100%; 
+    height: 150px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 10px; 
+    resize: vertical; 
     font-size: 1em; 
-    color: #000000; /* Couleur du texte */
-    background-color: #fff; /* Couleur de fond blanche */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre interne */
+    color: #000000; 
+    background-color: #fff; 
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .comment-textarea::placeholder {
-    color: #000000; /* Couleur du texte du placeholder */
+    color: #000000; 
 }
 
 textarea{
