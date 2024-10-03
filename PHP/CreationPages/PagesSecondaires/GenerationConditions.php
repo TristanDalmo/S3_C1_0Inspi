@@ -10,7 +10,7 @@ class GenerationConditions extends AbstractGenerationPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../SiteWeb/ConditionsUtilisation.css");
+        parent::__construct(cssChemin: "/S3_C1_0Inspi/SiteWeb/ConditionUtilisation.css", nom:"E-Lieu ~ Conditions d'utilisation");
     }
 
     protected function GenerateContent() : string

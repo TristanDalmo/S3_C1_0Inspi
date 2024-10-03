@@ -13,11 +13,10 @@ export class DAO_PagesSecondaires extends I_DAO_PagesSecondaires {
         super(); // Appel constructeur de la classe parente
     }
 
-    Accueil() {
-        Methodes.Fetch("../PHP/CreationPages/GenerationAccueil.php").then(() => {
+    async Accueil() {
+        await Methodes.Fetch("../PHP/CreationPages/GenerationAccueil.php");
             Methodes.ChargerScriptJS("../metier/Accueil.js");
             Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
-        });
     }
 
     APropos() {
