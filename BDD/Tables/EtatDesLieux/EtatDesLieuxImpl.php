@@ -2,7 +2,7 @@
 
 require_once("I_BDD_DAO.php"); 
 
-class EtatDesLieuxDAOImpl implements I_BDD_DAO{
+class EtatDesLieuxImpl implements I_BDD{
     private static $db;
 
     /**
