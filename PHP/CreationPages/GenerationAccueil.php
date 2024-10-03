@@ -54,6 +54,7 @@ class GenerationAccueil extends AbstractGenerationPage
                             <div class=\"description\">
                                 <h2>Tableau de Bord</h2>
                                 <p>Cliquez ici pour afficher votre tableau de bord</p>
+                                <a href=\"/GenerationTableauDeBord\">
                             </div>
                         </figcaption>
                     </figure>

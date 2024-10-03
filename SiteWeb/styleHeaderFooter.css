@@ -3,14 +3,18 @@ header {
     color: white;
     text-align: center;
     padding: 20px;
+    display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
 
 
+
 footer {
-    background-color: #0e6665;
+    background-color: #0D5C63;
     color: white;
-    text-align: left;
-    padding: 10px;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
 }
 
 #logo{
@@ -37,14 +41,6 @@ footer {
     margin: 5px 0;
 }
 
-footer {
-    background-color: #0D5C63;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 20px;
-}
-
 .footer-container {
     display: flex;
     justify-content: space-around;
@@ -66,12 +62,12 @@ footer {
     margin: 5px 0;
 }
 
-.footer-links a, .footer-social a {
+#backAccueil a,.footer-links a, .footer-social a {
     color: white;
     text-decoration: none;
 }
 
-.footer-links a:hover, .footer-social a:hover {
+#backAccueil a:hover,.footer-links a:hover, .footer-social a:hover {
     text-decoration: underline;
 }
 
@@ -92,14 +88,13 @@ footer {
 }
 
 #backAccueil{
-    margin:0.5em;
-    display:grid;
-	grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 10em;
+    display: inline-block;
 	column-gap: 2%;
 }
 
 #pictogrammeAccueil{
-    width: auto;
+    width: 5%;
     height: auto;
     
 
