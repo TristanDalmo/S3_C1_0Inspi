@@ -459,3 +459,21 @@ select {
 #tableauWC tr:last-child td:last-child {
     border-bottom-right-radius: 15px;
 }
+input[type="reset"], input[type="submit"] {
+    height: 3em;
+    width: 10em;
+    border-radius: 1em;
+    background: linear-gradient(tan,rosybrown);
+    font-size: 105%;
+
+    
+}
+input[type="reset"]:hover, input[type="submit"]:hover{
+    background: purple;
+    color: white;
+    
+}
+input[type="reset"]{
+    margin-left: 400px;
+    margin-right: 300px;
+}

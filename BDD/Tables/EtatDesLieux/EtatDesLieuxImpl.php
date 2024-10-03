@@ -15,11 +15,10 @@ class EtatDesLieuxImpl implements I_BDD{
         } else {
             echo "Connecté à la base de données SQLite.\n";
         }
+        echo "\n";
     }
 
-    public static function insertTable($etatDesLieux) {
-        $sql = "INSERT INTO EtatDesLieux (idEtatDesLieux, dateEntree, dateSortie, type, media) VALUES (:id, :dateEntree, :dateSortie, :type, :media)";
-        
+    public static function Stmt($sql,$etatDesLieux){
         $stmt = self::$db->prepare($sql);
         $stmt->bindValue(':id', $etatDesLieux->getIdEtatDesLieux(), SQLITE3_INTEGER);
         $stmt->bindValue(':dateEntree', $etatDesLieux->getDateEntree()->format('Y-m-d'), SQLITE3_TEXT);
@@ -28,12 +27,29 @@ class EtatDesLieuxImpl implements I_BDD{
         $stmt->bindValue(':media', $etatDesLieux->getMedia(), SQLITE3_TEXT);
 
         $result = $stmt->execute();
+        return $result;
+    }
 
+    public static function insertTable($etatDesLieux) {
+        $sql = "INSERT INTO EtatDesLieux (dateEntree, dateSortie, type, media) VALUES (:dateEntree, :dateSortie, :type, :media)";
+        $result=EtatDesLieuxImpl::Stmt( $sql,$etatDesLieux );
         if ($result) {
             echo "Insertion réussie ! ID de la nouvelle ligne : " . self::$db->lastInsertRowID() . "\n";
         } else {
             echo "Erreur lors de l'insertion : " . self::$db->lastErrorMsg() . "\n";
         }
+        echo "\n";
+    }
+
+    public static function updateTable($etatDesLieux) {
+        $sql = "UPDATE EtatDesLieux SET dateEntree = :dateEntree, dateSortie = :dateSortie, type = :type, media = :media WHERE idEtatDesLieux = :id";
+        $result=EtatDesLieuxImpl::Stmt( $sql,$etatDesLieux );
+        if ($result) {
+            echo "Mise à jour réussie ! Nombre de lignes affectées : " . self::$db->changes() . "\n";
+        } else {
+            echo "Erreur lors de la mise à jour : " . self::$db->lastErrorMsg() . "\n";
+        }
+        echo "\n";
     }
 
     public static function afficherContenuTable($tableName) {
@@ -48,6 +64,7 @@ class EtatDesLieuxImpl implements I_BDD{
         } else {
             echo "Erreur lors de la récupération du contenu de la table $tableName: " . self::$db->lastErrorMsg() . "\n";
         }
+        echo "\n";
     }
 
     /**
@@ -58,6 +75,7 @@ class EtatDesLieuxImpl implements I_BDD{
             self::$db->close();
             echo "Connexion à la base de données fermée.\n";
         }
+        echo "\n";
     }
 }
 
