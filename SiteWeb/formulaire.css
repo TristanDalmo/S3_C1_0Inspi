@@ -242,11 +242,14 @@ footer {
 }
 
 #tableauCuisine .details {
-    width: 50%;
+    width: auto;
 }
 
 #tableauCuisine .etat {
-    width: 10%;
+    width: 1em;
+    background-color: red;
+    
+
 }
 
 /* Arrondir les coins du tableau */
@@ -289,9 +292,13 @@ footer {
 
 
 #tableauSDB .sdb {
-    width: 25%;
+    width: auto;
 }
 
+#tableauSDB .etat{
+    width: 1%;
+    
+}
 
 #tableauSDB tr:first-child th:first-child {
     border-top-left-radius: 15px;
@@ -351,17 +358,16 @@ footer {
 
 
 #tableauChambres .description {
-    width: 20%;
+    width: 19%;
     vertical-align: middle;
     text-align: center;
     font-weight: bold;
 }
 
 #tableauChambres .etat {
-    width: 10%;
-    vertical-align: middle;
-    font-weight: bold;
+    width: 0.5em;
     text-align: center;
+   
 }
 
 #tableauChambres textarea {
@@ -440,7 +446,12 @@ select {
 
 
 #tableauWC .sdb {
-    width: 25%;
+    width:auto;
+    
+}
+#tableauWC .etat{
+    width: 10PX; 
+    
 }
 
 
@@ -492,10 +503,20 @@ tr th:first-child{
     background: white;
     margin-bottom: 2%;    
 }
-
+/*
 td:has(select)   {
- width: 10em;
-    
+ 
+ background-color: red;
+
+width: 25%;
+}
+
+*/
+tr td:first-child, tr th:first-child{
+    width: 12.5em;
+}
+#tableauChambres tr td:first-child, tr th:first-child{
+    width: 0.25em;
 }
 .comment-fieldset {
     border: 2px solid #000000; /* Bordure bleue */
