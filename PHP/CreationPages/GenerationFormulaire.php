@@ -17,7 +17,7 @@ class GenerationFormulaire extends AbstractGenerationPage
     {
         return "        
     <div class=\"formulaire\">
-        <form action=\"./Formulaire/MiseEnLigneFormulaire.php\" method=\"post\" enctype=\"multipart/form-data\">
+        <form>
             <fieldset class=\"grandfield\">
                 <div class=\"Containerhaut\">
                     <div class=\"texte-gauche\">
@@ -46,7 +46,6 @@ class GenerationFormulaire extends AbstractGenerationPage
                     <p>L'état des lieux doit être établi entre les deux parties (locataire et propriétaire) lors de la remise des clés du logement et lors de leur restitution. En effet, le bail (loi n° 89-462 du 6 juillet 1989) stipule que l'état des lieux doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de location, et dont le locataire a la jouissance exclusive.</p>
                 </div>
                 <br>
-
                 <fieldset class=\"Logement\">
                     <div class=\"l1\">
                         <p class=\"putbold\">LOGEMENT</p>
@@ -126,7 +125,7 @@ class GenerationFormulaire extends AbstractGenerationPage
                         <th class=\"rond\">Cuisine</th>
                         <th class=\"details\">Description / détails</th>
                         <th class=\"etat\">État (entrée)</th>
-                        <th class=\"rond\">État (sortie)</th>
+                        <th class=\"etat\">État (sortie)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -216,7 +215,7 @@ class GenerationFormulaire extends AbstractGenerationPage
                         </select></td>
                     </tr>
                     <tr>
-                        <td class=\"middleandbold\">Prise électrique (nombre : <input type=\"number\"> )</td>
+                        <td class=\"middleandbold\">Prise électrique nombre : <input type=\"number\"> </td>
                         <td><textarea name=\"prise1\" id=\"prise1\"></textarea></td>
                         <td><select id=\"prise2\">
                             <option value=\"p\">P</option>
@@ -332,8 +331,8 @@ class GenerationFormulaire extends AbstractGenerationPage
                     <tr>
                         <th class=\"sdb\">Salle de bain 1</th>
                         <th class=\"sdb\">Salle de bain 2</th>
-                        <th>(entrée)</th>
-                        <th>(sortie)</th>
+                        <th class=\"etat\">(entrée)</th>
+                        <th class=\"etat\">(sortie)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -904,21 +903,22 @@ class GenerationFormulaire extends AbstractGenerationPage
                     </tr>
                 </tbody>
             </table>
+            
             <table id=\"tableauWC\">
                 <thead>
                     <tr>
                         <th rowspan=\"2\">WC</th>
-                        <th colspan=\"2\" class=\"sdb\">Description / détails</th>
-                        <th colspan=\"2\">Etat entrée</th>
-                        <th colspan=\"2\">Etat sortie</th>
+                        <th colspan=\"2\" >Description / détails</th>
+                        <th colspan=\"2\" class=\"etat\">Etat entrée</th>
+                        <th colspan=\"2\" class=\"etat\">Etat sortie</th>
                     </tr>
                     <tr>
                         <th class=\"sdb\">WC 1</th>
                         <th class=\"sdb\">WC 2</th>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>1</th>
-                        <th>2</th>
+                        <th class=\"etat\">1</th>
+                        <th class=\"etat\">2</th>
+                        <th class=\"etat\">1</th>
+                        <th class=\"etat\">2</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1109,6 +1109,13 @@ class GenerationFormulaire extends AbstractGenerationPage
                     </tr>
                 </tbody>
             </table>
+
+
+            <fieldset class=\"comment-fieldset\">
+                <legend>Zone de Commentaires</legend>
+                <textarea class=\"comment-textarea\" placeholder=\"Veuillez saisir les informations supplémentaires que vous souhaitez nous faire parvenir \"></textarea>
+            </fieldset>
+
             <label for=\"Documents\" class=\"drop-container\" id=\"dropcontainer\">
                 <span class=\"drop-title\">Déposez vos fichiers</span>
                 ou
