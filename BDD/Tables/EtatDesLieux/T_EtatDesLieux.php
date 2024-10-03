@@ -2,7 +2,7 @@
 /**
  * Classe représentant un état des lieux.
  */
-class EtatDesLieux {
+class T_EtatDesLieux {
     private $idEtatDesLieux;
     private $dateEntree;
     private $dateSortie;
