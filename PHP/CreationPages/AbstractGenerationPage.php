@@ -13,6 +13,12 @@ abstract class AbstractGenerationPage
      */
     private string $cssChemin = "";
 
+    /**
+     * Nom de la page web
+     * @var string
+     */
+    private string $nom = "";
+
     #endregion 
 
     #region Génération de la page et constructeur
@@ -21,9 +27,10 @@ abstract class AbstractGenerationPage
      * Constructeur de la classe
      * @param string $cssChemin Chemin vers le fichier css de la page
      */
-    public function __construct($cssChemin)
+    public function __construct($cssChemin, string $nom)
     {
         $this->cssChemin = $cssChemin;
+        $this->nom = $nom;
     }
 
     /**
@@ -49,13 +56,18 @@ abstract class AbstractGenerationPage
             <head>
                 <meta charset=\"UTF-8\">
                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-                <title>E-Lieu</title>
+                <title>". $this->nom . "</title>
                 <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">
-                <link rel=\"stylesheet\" href=\"../SiteWeb/styleHeaderFooter.css\">
+                <link rel=\"stylesheet\" href=\"/S3_C1_0Inspi/SiteWeb/styleHeaderFooter.css\">
+                <link rel=\"icon\" href=\"/S3_C1_0Inspi/SiteWeb/images/logoE-Lieu.ico\"/>
             </head>
             <header>
-                <img src=\"../SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
+                <img src=\"/S3_C1_0Inspi/SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
                 <h1>E-Lieu</h1>
+                <div class=\"clickable\" id=\"backAccueil\">
+                    <img src=\"../SiteWeb/images/home.png\" id=\"pictogrammeAccueil\" alt=\"\">
+                    <p id=\"texteAccueil\">Accueil</p>
+                </div>
             </header>"
                 ;
     }
@@ -82,9 +94,9 @@ abstract class AbstractGenerationPage
             <div class=\"footer-links\">
                 <h2>Liens utiles</h2>
                 <ul>
-                    <li id=\"APropos\" class=\"clickable\">À propos</li>
-                    <li id=\"Confidentialite\" class=\"clickable\">Politique de confidentialité</li>
-                    <li id=\"Conditions\" class=\"clickable\">Conditions d'utilisation</li>
+                    <li id=\"APropos\"><a href=\"/S3_C1_0Inspi/PHP/CreationPages/PagesSecondaires/GenerationAPropos.php\">À propos</a></li>
+                    <li id=\"Confidentialite\"><a href=\"/S3_C1_0Inspi/PHP/CreationPages/PagesSecondaires/GenerationConditions.php\">Politique de confidentialité</a></li>
+                    <li id=\"Conditions\"><a href=\"/S3_C1_0Inspi/PHP/CreationPages/PagesSecondaires/GenerationConfidentialite.php\">Conditions d'utilisation</a></li>
                 </ul>
             </div>
           

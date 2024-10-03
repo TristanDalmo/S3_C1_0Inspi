@@ -15,28 +15,19 @@ export class DAO_Connexion_Exemple extends I_DAO_Connexion {
 
     async Connexion(username , password ) {
 
-        try {
-            // On lance la requête de fetch
-            const reponse = await Methodes.Fetch('../PHP/CreationPages/GenerationAccueil.php');
+        // On lance la requête de fetch
+        const reponse = await fetch('../PHP/CreationPages/GenerationAccueil.php');
 
-            // On vérifie si la réponse est positive ou non
-            if (!reponse.ok) {
-                throw new Error("Pas de fetch")
-            }
-            // Si oui, on lance le chargement des fichiers Javascript liés à la page html
-            else 
-            {
-                await Methodes.ChargerScriptJS("../metier/Accueil.js");
-                await Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
-            }
+        // On vérifie si la réponse est positive ou non
+        if (!reponse.ok) {
+            throw new Error("Échec du fetch")
         }
-        catch (error) {
-                console.error("Le fetch a échoué");
-            }
-        
-        
-
-        
+        // Si oui, on lance le chargement des fichiers Javascript liés à la page html
+        else 
+        {
+            await Methodes.ChargerScriptJS("../metier/Accueil.js");
+            await Methodes.ChargerScriptJS("../metier/HeaderFooter.js");
+        }
 
     }
         

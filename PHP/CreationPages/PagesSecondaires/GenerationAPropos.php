@@ -10,7 +10,7 @@ class GenerationAPropos extends AbstractGenerationPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../SiteWeb/Apropos.css");
+        parent::__construct(cssChemin: "/S3_C1_0Inspi/SiteWeb/Apropos.css", nom:"E-Lieu ~ À propos" );
     }
 
     protected function GenerateContent() : string
