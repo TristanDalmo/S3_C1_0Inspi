@@ -305,7 +305,9 @@ footer {
 #tableauSDB tr:last-child td:last-child {
     border-bottom-right-radius: 15px;
 }
-
+#notationetat{
+    text-align: center;
+}
 /*css pour le tableau chambre*/
 
 
