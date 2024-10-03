@@ -3,11 +3,41 @@
  * Classe représentant un état des lieux.
  */
 class T_EtatDesLieux {
+    /**
+     * id etat des lieux
+     * @var int
+     */
     private $idEtatDesLieux;
+    /**
+     * date d'entree
+     * @var string
+     */
     private $dateEntree;
+    /**
+     * date de sortie
+     * @var string
+     */
     private $dateSortie;
+    /**
+     * type de l'etat des lieux (entree ou sortie)
+     * @var string
+     */
     private $type;
+    /**
+     * video ou image associe a l'etat des lieux
+     * @var string
+     */
     private $media;
+    /**
+     * id reliant au bailleur
+     * @var int
+     */
+    private $idBailleur;
+    /**
+     * id reliant au logment
+     * @var int
+     */
+    private $idLogement;
 
     /**
      * constructeur de la classe
@@ -54,7 +84,21 @@ class T_EtatDesLieux {
     public function getMedia() {
         return $this->media;
     }
+    /**
+     * getter de l'id bailleur
+     * @return int
+     */
+    public function getIdBailleur() {
+        return $this->idBailleur;
+    }
 
+    /**
+     * getter de l'id logement 
+     * @return int
+     */
+    public function getIdLogement() {
+        return $this->idLogement;
+    }
     /**
      * setter id
      * @param int $idEtatDesLieux id
@@ -94,4 +138,20 @@ class T_EtatDesLieux {
     public function setMedia($media) {
         $this->media = $media;
     }
+    /**
+     * setteur de l'id bailleur
+     * @param mixed $idBailleur
+     * @return void
+     */
+    public function setIdbailleur($idBailleur) {
+        $this->media = $idBailleur;
+    }
+
+    public function setIdLogement($idLogement) {
+        $this->media = $idLogement;
+    }
+
+
+
+
 }
