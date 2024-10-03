@@ -1,12 +1,12 @@
 <?php
 
 // Insertion de toutes les pages contenues dans le dossier CreationPages
-foreach (glob("CreationPages/*.php") as $nomFichier) 
+foreach (glob(pattern: __DIR__ . "/CreationPages/*.php") as $nomFichier) 
 {
     include $nomFichier;
 }
 // Et dans le dossier PagesSecondaires
-foreach (glob("CreationPages/PagesSecondaires/*.php") as $nomFichier) 
+foreach (glob(pattern: __DIR__ . "/CreationPages/PagesSecondaires/*.php") as $nomFichier) 
 {
     include $nomFichier;
 }
