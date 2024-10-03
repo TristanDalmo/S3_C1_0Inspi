@@ -205,3 +205,9 @@ footer {
     font-size: 20px;
     margin-bottom: 10px;
 }
+table.salle-de-bain {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    border-radius: 20%;
+}
