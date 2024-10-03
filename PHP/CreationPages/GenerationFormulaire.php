@@ -1,6 +1,6 @@
 <?php
 
-require_once("AbstractGenerationPage.php");
+require_once(__DIR__ . "/AbstractGenerationPage.php");
 
 /**
  * Classe de génération de la page d'accueil de l'application
@@ -129,25 +129,8 @@ class GenerationFormulaire extends AbstractGenerationPage
                     <th>Description / détails</th>
                     <th> État </br>(entrée)</th>
                     <th> État </br>(sortie)</th>
-                </tr>"
-                + AjouterLigneTabCuisine("Mur","Mur")
-                + AjouterLigneTabCuisine("Sol","Sol")
-                + AjouterLigneTabCuisine("Vitrage et volets","VitrageVolets")
-                + AjouterLigneTabCuisine("Plafond","Plafond")
-                + AjouterLigneTabCuisine("Éclairage et interrupteurs","Eclairage")
-                + AjouterLigneTabCuisine("Prise électrique ( nombre : <input type=\"number\" id=\"NbrPrises\"> ) ","Prises")
-                + AjouterLigneTabCuisine("Placards et tiroirs","PlacardsTiroirs")
-                + AjouterLigneTabCuisine("Évier (et robinetterie)","Evier")
-                + AjouterLigneTabCuisine("Plaques de cuisson et four","Four")
-                + AjouterLigneTabCuisine("Hotte","Hotte")
-                + AjouterLigneTabCuisine("Électroménager : <input type=\"number\" id=\"NbrElectromenager\">","Electromenager")
-                +"
-
+                </tr>
             </table>
-
-
-
-
 
 
             </fieldset>
@@ -156,37 +139,10 @@ class GenerationFormulaire extends AbstractGenerationPage
     </div>";
     }
 
-    /**
-     * Méthode permettant de générer une ligne du tableau de la cuisine
-     * @param string $nom Nom à insérer dans la colonne de gauche
-     * @param string $idNom Id à insérer
-     * @return string Ligne ajoutée
-     */
-    public function AjouterLigneTabCuisine(string $nom,string $idNom) : string 
-    {
-        return "
-        <tr>
-            <td>" + $nom + "</td>
-            <td> <textarea name=\"DescriptionCuisine\""+$idNom + "id=\"DescriptionCuisine\""+$idNom + "> </td>
-            <td> <input type=\"text\" id=\"EtatEntreeCuisine" +  $idNom + "\"> </td>
-            <td> <input type=\"text\" id=\"EtatSortieCuisine" +  $idNom + "\"> </td>
-        </tr>     
-                            
-        
-        ";
-
-
-
-
-    }
 
 
 
 
 }
-
-$instance = new GenerationFormulaire();
-
-echo $instance->GeneratePage();
 
 ?>

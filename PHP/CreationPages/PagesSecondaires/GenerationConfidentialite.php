@@ -1,6 +1,6 @@
 <?php
 
-require_once("../AbstractGenerationPage.php");
+require_once(__DIR__ . "/../AbstractGenerationPage.php");
 
 /**
  * Classe de génération des clauses de confidentialité du site web
@@ -77,9 +77,5 @@ class GenerationConfidentialite extends AbstractGenerationPage
     }
 
 }
-
-$instance = new GenerationConfidentialite();
-
-echo $instance->GeneratePage();
 
 ?>

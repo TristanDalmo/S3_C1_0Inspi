@@ -1,6 +1,6 @@
 <?php
 
-require_once("../AbstractGenerationPage.php");
+require_once(__DIR__ . "/../AbstractGenerationPage.php");
 
 /**
  * Classe de génération de la page "à propos" du site web
@@ -10,7 +10,7 @@ class GenerationAPropos extends AbstractGenerationPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "/S3_C1_0Inspi/SiteWeb/Apropos.css", nom:"E-Lieu ~ À propos" );
+        parent::__construct(cssChemin: "../SiteWeb/Apropos.css", nom:"E-Lieu ~ À propos" );
     }
 
     protected function GenerateContent() : string
@@ -54,9 +54,5 @@ class GenerationAPropos extends AbstractGenerationPage
     }
 
 }
-
-$instance = new GenerationAPropos();
-
-echo $instance->GeneratePage();
 
 ?>

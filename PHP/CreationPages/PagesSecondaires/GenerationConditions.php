@@ -1,6 +1,6 @@
 <?php
 
-require_once("../AbstractGenerationPage.php");
+require_once(__DIR__ . "/../AbstractGenerationPage.php");
 
 /**
  * Classe de génération des conditions d'utilisation du site web
@@ -68,9 +68,5 @@ class GenerationConditions extends AbstractGenerationPage
     }
 
 }
-
-$instance = new GenerationConditions();
-
-echo $instance->GeneratePage();
 
 ?>
