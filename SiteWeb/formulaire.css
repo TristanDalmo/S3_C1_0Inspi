@@ -205,3 +205,61 @@ footer {
     font-size: 20px;
     margin-bottom: 10px;
 }
+
+
+
+/* css de la partie cuisine*/
+
+#tableauCuisine {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0; 
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    border-radius: 15px; 
+    overflow: hidden; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tableauCuisine th, 
+#tableauCuisine td {
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+#tableauCuisine td {
+    height: 50px;
+}
+
+#tableauCuisine .details {
+    width: 50%;
+}
+
+#tableauCuisine .etat {
+    width: 10%;
+}
+
+/* Arrondir les coins du tableau */
+#tableauCuisine tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+}
+
+#tableauCuisine tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+
+#tableauCuisine tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+#tableauCuisine tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+table.salle-de-bain {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    border-radius: 20%;
+}
