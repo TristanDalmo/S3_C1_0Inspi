@@ -247,7 +247,7 @@ footer {
 
 #tableauCuisine .etat {
     width: 1em;
-    background-color: red;
+   
     
 
 }
@@ -317,11 +317,12 @@ footer {
 }
 
 .middleandbold{
-    vertical-align: middle;
+    vertical-align: left;
     font-weight: bold;
 }
 #notationetat{
     text-align: center;
+   
 }
 
 
@@ -346,6 +347,7 @@ footer {
     /*width: 20%;*/
     vertical-align: middle;
     font-weight: bold;
+    
 }
 
 
@@ -370,10 +372,7 @@ footer {
    
 }
 
-#tableauChambres textarea {
- box-sizing: border-box;
-    resize: none; 
-}
+
 
 
 .input-inline {
@@ -488,12 +487,14 @@ input[type="reset"]{
     margin-left: 400px;
     margin-right: 300px;
 }
-<<<<<<< HEAD
+
 tr td:first-child,
 tr th:first-child{
     width: 20%;
+    text-align: center;
+    align-items: center;
 }
-=======
+
 /*bouton pour ajouter des images*/
 #imageInput{
     margin-right: auto;
@@ -503,18 +504,19 @@ tr th:first-child{
     background: white;
     margin-bottom: 2%;    
 }
-/*
-td:has(select)   {
- 
- background-color: red;
 
-width: 25%;
-}
-
-*/
 tr td:first-child, tr th:first-child{
     width: 12.5em;
 }
 #tableauChambres tr td:first-child, tr th:first-child{
     width: 0.25em;
+    text-align: left;
+}
+#tableauCuisine tr td:first-child, tr th:first-child{
+    width: 15em;
+    text-align: left;
+}
+#tableauWC tr td:first-child, tr th:first-child{
+    width: 90px;
+    text-align: left;
 }
