@@ -315,6 +315,8 @@ footer {
 #notationetat{
     text-align: center;
 }
+
+
 /*css pour le tableau chambre*/
 
 
@@ -328,12 +330,12 @@ footer {
     font-size: 16px;
     border: 1px solid #000;
     border-radius: 15px; 
-    
+    overflow: hidden;
     
 }
 
 .PremiereColonneChambre{
-    width: 15em;
+    /*width: 20%;*/
     vertical-align: middle;
     font-weight: bold;
 }
@@ -348,23 +350,21 @@ footer {
 
 
 #tableauChambres .description {
-    width: 15em;
+    width: 20%;
     vertical-align: middle;
     text-align: center;
     font-weight: bold;
 }
 
 #tableauChambres .etat {
-    width: 5em;
+    width: 10%;
     vertical-align: middle;
     font-weight: bold;
     text-align: center;
 }
 
 #tableauChambres textarea {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+ box-sizing: border-box;
     resize: none; 
 }
 
@@ -372,8 +372,8 @@ footer {
 .input-inline {
     display: flex;
     align-items: center;
-    gap: 5px; 
-    margin-bottom: 5px; 
+
+
 }
 
 
@@ -383,7 +383,7 @@ footer {
 
 
 .nbPrise {
-    width: 60px; 
+  /*  width: 60px; */
     padding: 5px;
     border: 1px solid #000; 
 }
@@ -406,9 +406,6 @@ footer {
 }
 /* Style pour les select */
 #tableauChambres select {
-    width: 120px; 
-    padding: 5px; 
-    border: 1px solid #000; 
-    border-radius: 5px; 
-    background-color: #fff; 
+      
+    align-items: center;
 }
