@@ -471,3 +471,7 @@ input[type="reset"]{
     margin-left: 400px;
     margin-right: 300px;
 }
+tr td:first-child,
+tr th:first-child{
+    width: 20%;
+}
