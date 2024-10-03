@@ -1,6 +1,6 @@
 <?php
 
-require_once("I_BDD_DAO.php"); 
+require_once("I_BDD.php"); 
 
 class EtatDesLieuxImpl implements I_BDD{
     private static $db;

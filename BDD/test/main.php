@@ -1,16 +1,16 @@
 <?php
 
 require_once '../Tables/EtatDesLieux/T_EtatDesLieux.php';
-require_once './I_DAOImpl.php';
+require_once '../Tables/EtatDesLieux/EtatDesLieuxImpl.php';
 
 
 
 
 function main() {
-
+    EtatDesLieux();
 }
 
-function EtatDesLieux($nouvelEtatDesLieux) {
+function EtatDesLieux() {
         // Création d'un nouvel état des lieux
         $nouvelEtatDesLieux = new T_EtatDesLieux();
 
