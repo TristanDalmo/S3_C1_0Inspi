@@ -118,7 +118,8 @@
                         </td>
                     </tr>
                 </table>
-            </fieldset>          
+            </fieldset>
+            <p id="notationetat">Complétez les colonnes État avec les lettres <strong>M</strong> (mauvais), <strong>P</strong> (passable), <strong>B</strong> (bon), <strong>TB</strong> (très bon).</p>          
             <table id="tableauCuisine">
                 <thead>
                     <tr>
@@ -130,70 +131,194 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Mur</td>
+                        <td class="middleandbold">Mur</td>
                         <td><textarea name="mur1" id="mur1"></textarea></td>
-                        <td><input type="text" id="mur2"></td>
-                        <td><input type="text" id="mur3"></td>
+                        <td><select id="Mur2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
+                        <td><select id="Mur3">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
                     </tr>
                     <tr>
-                        <td>Sol</td>
+                        <td class="middleandbold">Sol</td>
                         <td><textarea name="sol1" id="sol1"></textarea></td>
-                        <td><input type="text" id="sol2"></td>
-                        <td><input type="text" id="sol3"></td>
+                        <td><select id="sol2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
+                        <td><select id="sol3">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
                     </tr>
                     <tr>
-                        <td>Vitrage et volets</td>
+                        <td class="middleandbold">Vitrage et volets</td>
                         <td><textarea name="Vitrage1" id="Vitrage1"></textarea></td>
-                        <td><input type="text" id="Vitrage2"></td>
-                        <td><input type="text" id="Vitrage3"></td>
+                        <td><select id="Vitrage2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select>
+                    
+                        <td>
+                            
+                                <select id="Vitrage3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                                </select>
+                        </td>
+                 
                     </tr>
                     <tr>
-                        <td>Plafond</td>
+                        <td class="middleandbold">Plafond</td>
                         <td><textarea name="Plafond1" id="Plafond1"></textarea></td>
-                        <td><input type="text" id="Plafond2"></td>
-                        <td><input type="text" id="Plafond3"></td>
+                        <td><select id="Plafond2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
+                        <td><select id="Plafond3">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
                     </tr>
                     <tr>
-                        <td>Éclairage et interrupteurs</td>
+                        <td class="middleandbold">Éclairage et interrupteurs</td>
                         <td><textarea name="eclairage1" id="eclairage1"></textarea></td>
-                        <td><input type="text" id="eclairage2"></td>
-                        <td><input type="text" id="eclairage3"></td>
+                        <td><select id="eclairage2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
+                        <td><select id="eclairage3">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
                     </tr>
                     <tr>
-                        <td>Prise électrique (nombre : <input type="number"> )</td>
+                        <td class="middleandbold">Prise électrique (nombre : <input type="number"> )</td>
                         <td><textarea name="prise1" id="prise1"></textarea></td>
-                        <td><input type="text" id="prise2"></td>
-                        <td><input type="text" id="prise3"></td>
+                        <td><select id="prise2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
+                        <td><select id="prise3">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
                     </tr>
                     <tr>
-                        <td>Placards et tiroirs</td>
+                        <td class="middleandbold">Placards et tiroirs</td>
                         <td><textarea name="placard1" id="placard1"></textarea></td>
-                        <td><input type="text" id="placard2"></td>
-                        <td><input type="text" id="placard3"></td>
+                        <td><select id="placard2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
+                        <td><select id="placard3">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
                     </tr>
                     <tr>
-                        <td>Évier (et robinetterie)</td>
+                        <td class="middleandbold">Évier (et robinetterie)</td>
                         <td><textarea name="evier1" id="evier1"></textarea></td>
-                        <td><input type="text" id="evier2"></td>
-                        <td><input type="text" id="evier3"></td>
+                        <td><select id="evier2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
+                        <td><select id="evier3">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
                     </tr>
                     <tr>
-                        <td>Plaques de cuisson et four</td>
+                        <td class="middleandbold">Plaques de cuisson et four</td>
                         <td><textarea name="plaque1" id="plaque1"></textarea></td>
-                        <td><input type="text" id="plaque2"></td>
-                        <td><input type="text" id="plaque3"></td>
+                        <td><select id="plaque2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
+                        <td><select id="plaque3">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
                     </tr>
                     <tr>
-                        <td>Hotte</td>
+                        <td class="middleandbold">Hotte</td>
                         <td><textarea name="hotte1" id="hotte1"></textarea></td>
-                        <td><input type="text" id="hotte2"></td>
-                        <td><input type="text" id="hotte3"></td>
+                        <td><select id="hotte2">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
+                        <td><select id="hotte3">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="b">B</option>
+                            <option value="tb">TB</option>
+                        </select></td>
                     </tr>
                     <tr>
-                        <td class="rond">Électroménager : <input type="text"></td>
-                        <td><textarea name="electromenager1" id="electromenager1"></textarea></td>
-                        <td><input type="text" id="electromenager2"></td>
-                        <td class="rond"><input type="text" id="electromenager3"></td>
+                        <td class="middleandbold">
+                            Électroménager : 
+                            <input type="text">
+                        </td>
+                        <td>
+                            <textarea name="electromenager1" id="electromenager1" style="width: 100%;"></textarea>
+                        </td>
+                        <td>
+                            <select id="electromenager2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="electromenager3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -202,7 +327,7 @@
                     <tr>
                         <th rowspan="2">Salle de bain</th>
                         <th colspan="2" class="sdb">Description / détails</th>
-                        <th colspan="2" >État</th>
+                        <th colspan="2">État</th>
                     </tr>
                     <tr>
                         <th class="sdb">Salle de bain 1</th>
@@ -213,70 +338,572 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Mur</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="middleandbold">Mur</td>
+                        <td><textarea ></textarea></td>
+                        <td><textarea ></textarea></td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Sol</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="middleandbold">Sol</td>
+                        <td><textarea></textarea></td>
+                        <td><textarea></textarea></td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Vitrage et volets</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="middleandbold">Vitrage et volets</td>
+                        <td><textarea></textarea></td>
+                        <td><textarea></textarea></td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Plafond</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="middleandbold">Plafond</td>
+                        <td><textarea></textarea></td>
+                        <td><textarea></textarea></td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Éclairage et interrupteurs</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="middleandbold">Éclairage et interrupteurs</td>
+                        <td><textarea></textarea></td>
+                        <td><textarea></textarea></td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Prise électrique</td>
-                        <td>Nombre :</td>
-                        <td>Nombre :</td>
-                        <td></td>
-                        <td></td>
+                        <td class="middleandbold">Prise électrique</td>
+                        <td>
+                            <strong>Nombre</strong> : <input type="number" min="0" placeholder="Nombre de prises">
+                        </td>
+                        <td>
+                            <strong>Nombre</strong> : <input type="number" min="0" placeholder="Nombre de prises">
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Lavabo et robinetterie</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="middleandbold">Lavabo et robinetterie</td>
+                        <td><textarea></textarea></td>
+                        <td><textarea></textarea></td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Baignoire / douche</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="middleandbold">Baignoire / douche</td>
+                        <td><textarea></textarea></td>
+                        <td><textarea></textarea></td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td>WC</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="middleandbold">WC</td>
+                        <td><textarea></textarea></td>
+                        <td><textarea></textarea></td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select>
+                                <option value="très bon">TB</option>
+                                <option value="bon">B</option>
+                                <option value="passable">P</option>
+                                <option value="mauvais">M</option>
+                            </select>
+                        </td>
                     </tr>
                 </tbody>
-            </table>             
+            </table>         
+            <table id="tableauChambres">
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="PremiereColonneChambre">Chambres</th>
+                        <th colspan="3" class="description">Description / détails</th>
+                        <th colspan="3" class="etat">État entrée</th>
+                        <th colspan="3" class="etat">État sortie</th>
+                    </tr>
+                    <tr>
+                        <th class="description">Chambre 1</th>
+                        <th class="description">Chambre 2</th>
+                        <th class="description">Chambre 3</th>
+                        <th class="etat">1</th>
+                        <th class="etat">2</th>
+                        <th class="etat">3</th>
+                        <th class="etat">1</th>
+                        <th class="etat">2</th>
+                        <th class="etat">3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="PremiereColonneChambre">Mur</td>
+                        <td><textarea id="mur1"></textarea></td>
+                        <td><textarea id="mur2"></textarea></td>
+                        <td><textarea id="mur3"></textarea></td>
+                        <td>
+                            <select id="etatEntreeMur1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreeMur2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreeMur3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieMur1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieMur2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieMur3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="PremiereColonneChambre">Sol</td>
+                        <td><textarea id="sol1"></textarea></td>
+                        <td><textarea id="sol2"></textarea></td>
+                        <td><textarea id="sol3"></textarea></td>
+                        <td>
+                            <select id="etatEntreeSol1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreeSol2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreeSol3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieSol1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieSol2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieSol3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="PremiereColonneChambre">Vitrages et volets</td>
+                        <td><textarea id="vitrages1"></textarea></td>
+                        <td><textarea id="vitrages2"></textarea></td>
+                        <td><textarea id="vitrages3"></textarea></td>
+                        <td>
+                            <select id="etatEntreeVitrages1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreeVitrages2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreeVitrages3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieVitrages1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieVitrages2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieVitrages3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="PremiereColonneChambre">Plafond</td>
+                        <td><textarea id="plafond1"></textarea></td>
+                        <td><textarea id="plafond2"></textarea></td>
+                        <td><textarea id="plafond3"></textarea></td>
+                        <td>
+                            <select id="etatEntreePlafond1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreePlafond2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreePlafond3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortiePlafond1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortiePlafond2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortiePlafond3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="PremiereColonneChambre">Éclairage et interrupteurs</td>
+                        <td><textarea id="eclairage1"></textarea></td>
+                        <td><textarea id="eclairage2"></textarea></td>
+                        <td><textarea id="eclairage3"></textarea></td>
+                        <td>
+                            <select id="etatEntreeEclairage1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreeEclairage2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreeEclairage3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieEclairage1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieEclairage2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortieEclairage3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="PremiereColonneChambre">Plafonds électriques</td>
+                        <td>
+                            <div class="description-group">
+                                <div class="input-inline">
+                                    <span>Nombre :</span>
+                                    <input type="number" class="nbPrise" min="0" id="nbPlafondElectrique1">
+                                </div>
+                                <textarea id="plafondElectrique1"></textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="description-group">
+                                <div class="input-inline">
+                                    <span>Nombre :</span>
+                                    <input type="number" class="nbPrise" min="0" id="nbPlafondElectrique2">
+                                </div>
+                                <textarea id="plafondElectrique2"></textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="description-group">
+                                <div class="input-inline">
+                                    <span>Nombre :</span>
+                                    <input type="number" class="nbPrise" min="0" id="nbPlafondElectrique3">
+                                </div>
+                                <textarea id="plafondElectrique3"></textarea>
+                            </div>
+                        </td>
+                        <td>
+                            <select id="etatEntreePlafondElectrique1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreePlafondElectrique2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatEntreePlafondElectrique3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortiePlafondElectrique1">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortiePlafondElectrique2">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="etatSortiePlafondElectrique3">
+                                <option value="p">P</option>
+                                <option value="m">M</option>
+                                <option value="b">B</option>
+                                <option value="tb">TB</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                  
         </form>
     </div>
 
