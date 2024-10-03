@@ -257,9 +257,46 @@ footer {
 #tableauCuisine tr:last-child td:last-child {
     border-bottom-right-radius: 15px;
 }
-table.salle-de-bain {
+/* CSS du tableau Salle de bain */
+#tableauSDB {
     width: 100%;
-    border-collapse: collapse;
-    border: 2px solid black;
-    border-radius: 20%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0;
+    font-size: 16px;
+    border: 1px solid #000;
+    border-radius: 15px; /* Applique le border-radius au tableau entier */
+    overflow: hidden; /* Cache les coins coupés */
 }
+
+/* Style des cellules du tableau */
+#tableauSDB th,
+#tableauSDB td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Largeur des colonnes Salle de bain */
+#tableauSDB .sdb {
+    width: 25%;
+}
+
+/* Arrondir les coins du tableau Salle de bain */
+#tableauSDB tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+}
+
+#tableauSDB tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+
+#tableauSDB tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+#tableauSDB tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+
