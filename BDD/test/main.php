@@ -12,25 +12,45 @@ function main() {
 
 function EtatDesLieux() {
         // Création d'un nouvel état des lieux
-        $nouvelEtatDesLieux = new T_EtatDesLieux();
+        $EtatDesLieux = new T_EtatDesLieux();
 
         // exemple d'initialisation mai apres récuperer les infos du formulaire
-        $nouvelEtatDesLieux->setIdEtatDesLieux(1);
-        $nouvelEtatDesLieux->setDateEntree(new DateTime('2023-05-01'));
-        $nouvelEtatDesLieux->setDateSortie(new DateTime('2024-04-30'));
-        $nouvelEtatDesLieux->setType('sortie');
-        $nouvelEtatDesLieux->setMedia('photo.jpg');
+        $EtatDesLieux->setIdEtatDesLieux(1);
+        $EtatDesLieux->setDateEntree(new DateTime('2023-05-01'));
+        $EtatDesLieux->setDateSortie(new DateTime('2024-04-30'));
+        $EtatDesLieux->setType('sortie');
+        $EtatDesLieux->setMedia('photo.jpg');
     
     
         EtatDesLieuxImpl::init();// creer la connexion a la bdd
     
         //EnseignantDAOImpl::afficherContenuTable('EtatDesLieux');
         // Insertion du nouvel état des lieux
-        EtatDesLieuxImpl::InsertTable($nouvelEtatDesLieux);
+        EtatDesLieuxImpl::InsertTable($EtatDesLieux);
     
         // Attendre un peu avant d'afficher le contenu de la table (pour s'assurer que l'insertion est terminée)
         sleep(1); // Utiliser sleep pour attendre 1 seconde (équivalent à setTimeout en JS)
         EtatDesLieuxImpl::afficherContenuTable('EtatDesLieux');
+
+
+
+        // Création d'un nouvel état des lieux
+        $EtatDesLieux2 = new T_EtatDesLieux();
+
+        // exemple d'initialisation mai apres récuperer les infos du formulaire
+        $EtatDesLieux2->setIdEtatDesLieux(1);
+        $EtatDesLieux2->setDateEntree(new DateTime('1980-05-01'));
+        $EtatDesLieux2->setDateSortie(new DateTime('2560-04-30'));
+        $EtatDesLieux2->setType('entree');
+        $EtatDesLieux2->setMedia('video.jpg');
+
+
+        EtatDesLieuxImpl::updateTable($EtatDesLieux2);
+
+        sleep(1);
+
+        EtatDesLieuxImpl::afficherContenuTable('EtatDesLieux');
+
         EtatDesLieuxImpl::closeConnection();
     }
 
