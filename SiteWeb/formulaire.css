@@ -477,3 +477,12 @@ input[type="reset"]{
     margin-left: 400px;
     margin-right: 300px;
 }
+/*bouton pour ajouter des images*/
+#imageInput{
+    margin-right: auto;
+    margin-left: 40%;
+    border-radius: 1em;
+    border:solid 1px #000;
+    background: white;
+    margin-bottom: 2%;    
+}
