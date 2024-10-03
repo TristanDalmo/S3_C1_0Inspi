@@ -1,6 +1,6 @@
 <?php
 
-require_once("AbstractGenerationPage.php");
+require_once(__DIR__ . "/AbstractGenerationPage.php");
 
 /**
  * Classe de génération de la page d'accueil de l'application
@@ -19,11 +19,5 @@ class GenerationTableauDeBord extends AbstractGenerationPage
     }
 
 }
-
-
-$instance = new GenerationTableauDeBord();
-
-echo $instance->GeneratePage();
-
 
 ?>
