@@ -1,5 +1,7 @@
 <?php
 
+require_once("I_BDD_DAO.php"); 
+
 class EtatDesLieuxDAOImpl implements I_BDD_DAO{
     private static $db;
 
