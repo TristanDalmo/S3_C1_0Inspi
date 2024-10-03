@@ -10,7 +10,7 @@ class GenerationFormulaire extends AbstractGenerationPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../SiteWeb/formulaire.css");
+        parent::__construct(cssChemin: "../SiteWeb/formulaire.css",nom:"E-Lieu ~ Formulaire");
     }
 
     protected function GenerateContent() : string

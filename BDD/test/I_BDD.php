@@ -1,17 +1,16 @@
 <?php
 
-interface I_BDD_DAO {
+interface I_BDD {
     /**
      * Initialise la connexion à la base de données.
      */
     public static function init();
 
     /**
-     * Insère un nouvel état des lieux dans la table.
-     * 
-     * @param EtatDesLieux $etatDesLieux L'objet EtatDesLieux à insérer
+     * Insère les donnees des donnees dans la table.
+     * info du type de la table
      */
-    public static function insertTable($etatDesLieux);
+    public static function insertTable($info);
 
     /**
      * Affiche le contenu d'une table spécifiée.

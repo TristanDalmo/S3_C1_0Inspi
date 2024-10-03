@@ -1,8 +1,8 @@
 <?php
 
-require_once("I_BDD_DAO.php"); 
+require_once("I_BDD.php"); 
 
-class EtatDesLieuxDAOImpl implements I_BDD_DAO{
+class EtatDesLieuxImpl implements I_BDD{
     private static $db;
 
     /**
