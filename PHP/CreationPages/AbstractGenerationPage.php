@@ -56,14 +56,18 @@ abstract class AbstractGenerationPage
             <head>
                 <meta charset=\"UTF-8\">
                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-                <title>"+ $this->nom + "</title>
+                <title>". $this->nom . "</title>
                 <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">
-                <link rel=\"stylesheet\" href=\"../../SiteWeb/styleHeaderFooter.css\">
-                <link rel=\"icon\" href=\"../../SiteWeb/images/logoE-Lieu.ico\"/>
+                <link rel=\"stylesheet\" href=\"/S3_C1_0Inspi/SiteWeb/styleHeaderFooter.css\">
+                <link rel=\"icon\" href=\"/S3_C1_0Inspi/SiteWeb/images/logoE-Lieu.ico\"/>
             </head>
             <header>
-                <img src=\"../../SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
+                <img src=\"/S3_C1_0Inspi/SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
                 <h1>E-Lieu</h1>
+                <div class=\"clickable\" id=\"backAccueil\">
+                    <img src=\"../SiteWeb/images/home.png\" id=\"pictogrammeAccueil\" alt=\"\">
+                    <p id=\"texteAccueil\">Accueil</p>
+                </div>
             </header>"
                 ;
     }
@@ -90,9 +94,9 @@ abstract class AbstractGenerationPage
             <div class=\"footer-links\">
                 <h2>Liens utiles</h2>
                 <ul>
-                    <li id=\"APropos\" class=\"clickable\">À propos</li>
-                    <li id=\"Confidentialite\" class=\"clickable\">Politique de confidentialité</li>
-                    <li id=\"Conditions\" class=\"clickable\">Conditions d'utilisation</li>
+                    <li id=\"APropos\"><a href=\"/S3_C1_0Inspi/PHP/CreationPages/PagesSecondaires/GenerationAPropos.php\">À propos</a></li>
+                    <li id=\"Confidentialite\"><a href=\"/S3_C1_0Inspi/PHP/CreationPages/PagesSecondaires/GenerationConditions.php\">Politique de confidentialité</a></li>
+                    <li id=\"Conditions\"><a href=\"/S3_C1_0Inspi/PHP/CreationPages/PagesSecondaires/GenerationConfidentialite.php\">Conditions d'utilisation</a></li>
                 </ul>
             </div>
           
