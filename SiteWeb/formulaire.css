@@ -486,3 +486,8 @@ input[type="reset"]{
     background: white;
     margin-bottom: 2%;    
 }
+
+td:has(select)   {
+ width: 10em;
+    
+}
