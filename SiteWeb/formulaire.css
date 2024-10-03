@@ -495,6 +495,7 @@ tr th:first-child{
     align-items: center;
 }
 
+
 /*bouton pour ajouter des images*/
 #imageInput{
     margin-right: auto;
@@ -510,13 +511,188 @@ tr td:first-child, tr th:first-child{
 }
 #tableauChambres tr td:first-child, tr th:first-child{
     width: 0.25em;
-    text-align: left;
 }
-#tableauCuisine tr td:first-child, tr th:first-child{
-    width: 15em;
-    text-align: left;
+.comment-fieldset {
+    border: 2px solid #000000; /* Bordure bleue */
+    border-radius: 8px; /* Coins arrondis */
+    background-color: #f9f9f9; /* Couleur de fond */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet 3D */
 }
-#tableauWC tr td:first-child, tr th:first-child{
-    width: 90px;
-    text-align: left;
+
+.comment-fieldset legend {
+    font-weight: bold; 
+    color: #000000; 
+    font-size: 1.2em; 
 }
+
+.comment-textarea {
+    width: 100%; /* Prend toute la largeur */
+    height: 150px; /* Hauteur fixe */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 4px; /* Coins arrondis */
+    padding: 10px; /* Espacement interne */
+    resize: vertical; /* Permet de redimensionner uniquement verticalement */
+    font-size: 1em; 
+    color: #000000; /* Couleur du texte */
+    background-color: #fff; /* Couleur de fond blanche */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre interne */
+}
+
+.comment-textarea::placeholder {
+    color: #000000; /* Couleur du texte du placeholder */
+}
+
+textarea{
+    resize: vertical;
+}
+
+
+/* #region Boutons bas */
+.boutonsBasDePage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin : 2em auto 2em auto;
+}
+
+input[type="reset"], input[type="submit"] {
+    height: 3em;
+    width: 10em;
+    border-radius: 1em;
+    font-size: 105%;    
+}
+
+input[type="reset"] {
+    background: #094146 ;
+    color: white;
+}
+input[type="submit"] {
+    background: #78cdd7;
+    color: black;
+}
+
+input[type="reset"]:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+input[type="submit"]:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* #endregion */
+
+
+
+/* #region Dropzone */
+.drop-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 200px;
+    padding: 20px;
+    border: 2px dashed #222245;
+    color: #222245;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    margin-left: 25em;
+    margin-right: 25em;
+  }
+  
+  .drop-container:hover {
+    background: #eee;
+  }
+  
+  .drop-title {
+    color: #222245;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .drop-container.drag-active {
+    background: #eee;
+  }
+  
+  input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: #222245;
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid #222245;
+  }
+  
+  input[type=file]:focus {
+    outline: 2px dashed #222245;
+    outline-offset: 2px;
+  }
+  
+  input[type=file]::file-selector-button {
+    margin-right: 8px;
+    border: none;
+    background: #222245;
+    padding: 8px 12px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background: #4747b8;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #1e1e3f;
+      color: #fff;
+    }
+  
+    .drop-container {
+      border-color: #35356e;
+      color: #fff;
+    }
+  
+    .drop-container:hover {
+      background-color: #282853;
+    }
+  
+    .drop-container.drag-active {
+      background-color: #282853;
+    }
+  
+    .drop-title {
+      color: #fff;
+    }
+  
+    input[type=file] {
+      width: 350px;
+      max-width: 100%;
+      color: #fff;
+      border: 1px solid #35356e;
+      background-color: #1e1e3f;
+    }
+  
+    input[type=file]:focus {
+      outline: 2px dashed #7c7cc0;
+      outline-offset: 2px;
+    }
+  
+    input[type=file]::file-selector-button {
+      background-color: #35356e;
+      color: #fff;
+    }
+  }
+  body {
+    font-family: system-ui;
+  }
+
+
+
+
+
+
+
+
+
+/*#endregion */
