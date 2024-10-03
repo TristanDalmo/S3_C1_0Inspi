@@ -488,6 +488,12 @@ input[type="reset"]{
     margin-left: 400px;
     margin-right: 300px;
 }
+<<<<<<< HEAD
+tr td:first-child,
+tr th:first-child{
+    width: 20%;
+}
+=======
 /*bouton pour ajouter des images*/
 #imageInput{
     margin-right: auto;

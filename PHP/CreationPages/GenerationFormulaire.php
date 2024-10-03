@@ -17,7 +17,7 @@ class GenerationFormulaire extends AbstractGenerationPage
     {
         return "        
     <div class=\"formulaire\">
-        <form>
+        <form action=\"./Formulaire/MiseEnLigneFormulaire.php\" method=\"post\" enctype=\"multipart/form-data\">
             <fieldset class=\"grandfield\">
                 <div class=\"Containerhaut\">
                     <div class=\"texte-gauche\">
@@ -1109,6 +1109,12 @@ class GenerationFormulaire extends AbstractGenerationPage
                     </tr>
                 </tbody>
             </table>
+
+            <input type=\"file\" name=\"Documents[]\" id=\"Documents\" accept=\"image/*,video/*\" multiple capture>
+
+            <input type=\"reset\" value=\"Effacer\" />
+            <input type=\"submit\" value=\"Valider\" />
+
         </form>
     </div>";
     }
