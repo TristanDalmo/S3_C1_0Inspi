@@ -1,5 +1,7 @@
 <?php
 
+require_once("I_EtatDesLieuxDAO.php"); 
+
 class EtatDesLieuxDAOImpl implements I_EtatDesLieuxDAO{
     private static $db;
 

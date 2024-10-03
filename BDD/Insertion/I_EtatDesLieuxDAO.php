@@ -1,7 +1,10 @@
 <?php
 
+/**
+ * Interface d'état des lieux
+ */
 interface I_EtatDesLieuxDAO {
-    /**
+    /** 
      * Initialise la connexion à la base de données.
      */
     public static function init();
