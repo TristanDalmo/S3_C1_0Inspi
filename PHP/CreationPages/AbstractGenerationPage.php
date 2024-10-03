@@ -14,6 +14,12 @@ abstract class AbstractGenerationPage
     private string $cssChemin = "";
 
     /**
+     * Chemin vers le fichier javascript de la page (s'il en a un)
+     * @var string
+     */
+    private ?string $jsChemin = "";
+
+    /**
      * Nom de la page web
      * @var string
      */
@@ -26,11 +32,14 @@ abstract class AbstractGenerationPage
     /**
      * Constructeur de la classe
      * @param string $cssChemin Chemin vers le fichier css de la page
+     * @param string $nom Nom de la page
+     * @param string $jsChemin Chemin vers l'éventuel fichier js de la page
      */
-    public function __construct($cssChemin, string $nom)
+    public function __construct($cssChemin, string $nom, ?string $jsChemin = null)
     {
         $this->cssChemin = $cssChemin;
         $this->nom = $nom;
+        $this->jsChemin = $jsChemin;
     }
 
     /**
@@ -51,14 +60,21 @@ abstract class AbstractGenerationPage
      */
     public function GenerateHead(): string
     {
-        return "<!DOCTYPE html>
+        $retour = "<!DOCTYPE html>
             <html lang=\"fr\">
             <head>
                 <meta charset=\"UTF-8\">
                 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
                 <title>". $this->nom . "</title>
-                <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">
-                <link rel=\"stylesheet\" href=\"../SiteWeb/styleHeaderFooter.css\">
+                <link rel=\"stylesheet\" href=\"" . $this->cssChemin . "\">";
+        
+        
+        if ( $this->jsChemin !== null )
+        {
+            $retour .= "<script src=" . $this->jsChemin . "></script>";
+        }
+
+        $retour .= "<link rel=\"stylesheet\" href=\"../SiteWeb/styleHeaderFooter.css\">
                 <link rel=\"icon\" href=\"../SiteWeb/images/logoE-Lieu.ico\"/>
             </head>
             <header>
@@ -78,6 +94,8 @@ abstract class AbstractGenerationPage
                 
             </header>"
                 ;
+
+        return $retour;
     }
 
     /**

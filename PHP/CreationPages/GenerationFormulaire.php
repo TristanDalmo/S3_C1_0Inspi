@@ -10,7 +10,7 @@ class GenerationFormulaire extends AbstractGenerationPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../SiteWeb/formulaire.css",nom:"E-Lieu ~ Formulaire");
+        parent::__construct(cssChemin: "../SiteWeb/formulaire.css",nom:"E-Lieu ~ Formulaire",jsChemin: "../metier/formulaire.js");
     }    
 
     protected function GenerateContent() : string
@@ -1109,11 +1109,17 @@ class GenerationFormulaire extends AbstractGenerationPage
                     </tr>
                 </tbody>
             </table>
-
-            <input type=\"file\" name=\"Documents[]\" id=\"Documents\" accept=\"image/*,video/*\" multiple capture>
-
-            <input type=\"reset\" value=\"Effacer\" />
-            <input type=\"submit\" value=\"Valider\" />
+            <label for=\"Documents\" class=\"drop-container\" id=\"dropcontainer\">
+                <span class=\"drop-title\">Déposez vos fichiers</span>
+                ou
+                <input type=\"file\" name=\"Documents[]\" id=\"Documents\" accept=\"image/*,video/*\" multiple capture>
+            </label>
+ 
+            
+            <div class=\"boutonsBasDePage\">
+                <input type=\"reset\" value=\"Effacer\" />
+                <input type=\"submit\" value=\"Valider\" />
+            </div>
 
         </form>
     </div>";

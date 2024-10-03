@@ -459,24 +459,7 @@ select {
 #tableauWC tr:last-child td:last-child {
     border-bottom-right-radius: 15px;
 }
-input[type="reset"], input[type="submit"] {
-    height: 3em;
-    width: 10em;
-    border-radius: 1em;
-    background: linear-gradient(tan,rosybrown);
-    font-size: 105%;
 
-    
-}
-input[type="reset"]:hover, input[type="submit"]:hover{
-    background: purple;
-    color: white;
-    
-}
-input[type="reset"]{
-    margin-left: 400px;
-    margin-right: 300px;
-}
 /*bouton pour ajouter des images*/
 #imageInput{
     margin-right: auto;
@@ -491,3 +474,153 @@ td:has(select)   {
  width: 10em;
     
 }
+
+/* #region Boutons bas */
+.boutonsBasDePage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin : 2em auto 2em auto;
+}
+
+input[type="reset"], input[type="submit"] {
+    height: 3em;
+    width: 10em;
+    border-radius: 1em;
+    font-size: 105%;    
+}
+
+input[type="reset"] {
+    background: #094146 ;
+    color: white;
+}
+input[type="submit"] {
+    background: #78cdd7;
+    color: black;
+}
+
+input[type="reset"]:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+input[type="submit"]:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* #endregion */
+
+
+
+/* #region Dropzone */
+.drop-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 200px;
+    padding: 20px;
+    border: 2px dashed #222245;
+    color: #222245;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    margin-left: 25em;
+    margin-right: 25em;
+  }
+  
+  .drop-container:hover {
+    background: #eee;
+  }
+  
+  .drop-title {
+    color: #222245;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .drop-container.drag-active {
+    background: #eee;
+  }
+  
+  input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: #222245;
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid #222245;
+  }
+  
+  input[type=file]:focus {
+    outline: 2px dashed #222245;
+    outline-offset: 2px;
+  }
+  
+  input[type=file]::file-selector-button {
+    margin-right: 8px;
+    border: none;
+    background: #222245;
+    padding: 8px 12px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background: #4747b8;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #1e1e3f;
+      color: #fff;
+    }
+  
+    .drop-container {
+      border-color: #35356e;
+      color: #fff;
+    }
+  
+    .drop-container:hover {
+      background-color: #282853;
+    }
+  
+    .drop-container.drag-active {
+      background-color: #282853;
+    }
+  
+    .drop-title {
+      color: #fff;
+    }
+  
+    input[type=file] {
+      width: 350px;
+      max-width: 100%;
+      color: #fff;
+      border: 1px solid #35356e;
+      background-color: #1e1e3f;
+    }
+  
+    input[type=file]:focus {
+      outline: 2px dashed #7c7cc0;
+      outline-offset: 2px;
+    }
+  
+    input[type=file]::file-selector-button {
+      background-color: #35356e;
+      color: #fff;
+    }
+  }
+  body {
+    font-family: system-ui;
+  }
+
+
+
+
+
+
+
+
+
+/*#endregion */
