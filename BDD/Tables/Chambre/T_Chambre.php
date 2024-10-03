@@ -3,6 +3,9 @@
  * Classe représentant une chambre.
  */
 class Chambre {
+    /**
+     * @var int
+     */
     private $idChambre;
 
     /**

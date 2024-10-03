@@ -3,6 +3,9 @@
  * Classe représentant une salle de bain.
  */
 class SalleDeBain {
+    /**
+     * @var int
+     */
     private $idSalleDeBain;
 
     /**
