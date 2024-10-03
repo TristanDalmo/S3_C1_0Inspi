@@ -62,7 +62,7 @@ abstract class AbstractGenerationPage
                 <link rel=\"icon\" href=\"/S3_C1_0Inspi/SiteWeb/images/logoE-Lieu.ico\"/>
             </head>
             <header>
-                <div id=\"backAccueil\">
+                <div class=\"centreeDansHeader\" id=\"backAccueil\">
                     <a href=\"/S3_C1_0Inspi/PHP/CreationPages/GenerationAccueil.php\">
                         <img src=\"/S3_C1_0Inspi/SiteWeb/images/home.png\" id=\"pictogrammeAccueil\" alt=\"\">
                         <p id=\"texteAccueil\">Accueil</p>
@@ -72,7 +72,7 @@ abstract class AbstractGenerationPage
                     <img src=\"/S3_C1_0Inspi/SiteWeb/images/logoE-Lieu.png\" id=\"logo\" alt=\"\">
                     <h1>E-Lieu</h1>
                 </div>
-                <div id=\"LoginCompte\">
+                <div class=\"centreeDansHeader\" id=\"LoginCompte\">
                     <p>Connecté en tant que : test</p>
                 </div>
                 

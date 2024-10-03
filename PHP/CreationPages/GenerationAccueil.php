@@ -21,13 +21,16 @@ class GenerationAccueil extends AbstractGenerationPage
             <div class=\"creationEtatLieux\">
                 <div class=\"boutoncreation\">
                     <figure id=\"Gestionnaire\">
+                        <a class=\"boutonAccueil\"href=\"./GenerationGestionnaire.php\">
                         <img src=\"../../SiteWeb/images/GestionnaireEtatLieux.png\" alt=\"Gestion des états des lieux\">
                         <figcaption>
                             <div class=\"description\">
                                 <h2>Gestion des États des lieux</h2>
                                 <p>Cliquez ici pour gérer tous vos états des lieux</p>
                             </div>
+                            </a>
                         </figcaption>
+                        
                     </figure>
                 </div>
             </div>
@@ -35,29 +38,35 @@ class GenerationAccueil extends AbstractGenerationPage
             <div class=\"creationEtatLieux\">
                 <div class=\"boutoncreation\">
                     <figure id=\"CreerFormulaire\">
+                        <a class=\"boutonAccueil\"href=\"./GenerationFormulaire.php\">
                         <img src=\"../../SiteWeb/images/creationEtatLieux.png\" alt=\"Création d'état des lieux\">
                         <figcaption>
                             <div class=\"description\">
                                 <h2>Création d'état des lieux</h2>
                                 <p>Cliquez ici pour créer un nouvel état des lieux</p>
                             </div>
+                            </a>
                         </figcaption>
+                        
                     </figure>
                 </div>
             </div>
 
             <div class=\"creationEtatLieux\">
                 <div class=\"boutoncreation\">
-                    <figure id=\"TableauDeBord\">
-                        <img src=\"../../SiteWeb/images/PanneauConfiguration.png\" alt=\"Tableau de bord\">
-                        <figcaption>
-                            <div class=\"description\">
-                                <h2>Tableau de Bord</h2>
-                                <p>Cliquez ici pour afficher votre tableau de bord</p>
-                                <a href=\"/GenerationTableauDeBord\">
-                            </div>
-                        </figcaption>
-                    </figure>
+                    
+                        <figure id=\"TableauDeBord\">
+                        <a class=\"boutonAccueil\" href=\"./GenerationTableauDeBord.php\">
+                            <img src=\"../../SiteWeb/images/PanneauConfiguration.png\" alt=\"Tableau de bord\">
+                            <figcaption>
+                                <div class=\"description\">
+                                    <h2>Tableau de Bord</h2>
+                                    <p>Cliquez ici pour afficher votre tableau de bord</p>
+                                </div>
+                              </a>  
+                            </figcaption>
+                        </figure>
+                    
                 </div>
             </div>
         </div>";

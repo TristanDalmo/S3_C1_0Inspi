@@ -5,6 +5,8 @@ header {
     padding: 20px;
     display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -62,12 +64,12 @@ footer {
     margin: 5px 0;
 }
 
-#backAccueil a,.footer-links a, .footer-social a {
+.boutonAccueil, #backAccueil a,.footer-links a, .footer-social a {
     color: white;
     text-decoration: none;
 }
 
-#backAccueil a:hover,.footer-links a:hover, .footer-social a:hover {
+.boutonAccueil:hover, #backAccueil a:hover,.footer-links a:hover, .footer-social a:hover {
     text-decoration: underline;
 }
 
@@ -88,14 +90,27 @@ footer {
 }
 
 #backAccueil{
-    margin-left: 10em;
-    display: inline-block;
-	column-gap: 2%;
+    
+    
+    display:inline-block;
+    text-align: center;
+}
+
+#texteAccueil
+{
+    margin-left: auto;
 }
 
 #pictogrammeAccueil{
-    width: 5%;
+    width: 10%;
     height: auto;
+    float:  left;
     
 
+}
+
+.centreeDansHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
