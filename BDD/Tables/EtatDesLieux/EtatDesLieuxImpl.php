@@ -13,27 +13,45 @@ class EtatDesLieuxImpl implements I_BDD{
         if (!self::$db) {
             echo self::$db->lastErrorMsg();
         } else {
-            echo "Connecté à la base de données SQLite.\n";
+            echo "Connecté à la base de données SQLite.";
         }
+        echo "<br>";
     }
 
-    public static function insertTable($etatDesLieux) {
-        $sql = "INSERT INTO EtatDesLieux (idEtatDesLieux, dateEntree, dateSortie, type, media) VALUES (:id, :dateEntree, :dateSortie, :type, :media)";
-        
+    public static function Stmt($sql,$etatDesLieux){
+        self::$db->exec('BEGIN TRANSACTION');
         $stmt = self::$db->prepare($sql);
         $stmt->bindValue(':id', $etatDesLieux->getIdEtatDesLieux(), SQLITE3_INTEGER);
         $stmt->bindValue(':dateEntree', $etatDesLieux->getDateEntree()->format('Y-m-d'), SQLITE3_TEXT);
         $stmt->bindValue(':dateSortie', $etatDesLieux->getDateSortie()->format('Y-m-d'), SQLITE3_TEXT);
         $stmt->bindValue(':type', $etatDesLieux->getType(), SQLITE3_TEXT);
-        $stmt->bindValue(':media', $etatDesLieux->getMedia(), SQLITE3_TEXT);
-
+        $stmt->bindValue(':media', $etatDesLieux->getMedia(), SQLITE3_TEXT);        
         $result = $stmt->execute();
+        self::$db->exec('COMMIT');
+        return $result;
+    }
 
+    public static function insertTable($etatDesLieux) {
+        $sql = "INSERT INTO EtatDesLieux (dateEntree, dateSortie, type, media) VALUES (:dateEntree, :dateSortie, :type, :media)";
+        $result=EtatDesLieuxImpl::Stmt( $sql,$etatDesLieux );
         if ($result) {
-            echo "Insertion réussie ! ID de la nouvelle ligne : " . self::$db->lastInsertRowID() . "\n";
+            echo "Insertion réussie ! ID de la nouvelle ligne : " . self::$db->lastInsertRowID();
         } else {
-            echo "Erreur lors de l'insertion : " . self::$db->lastErrorMsg() . "\n";
+            echo "Erreur lors de l'insertion : " . self::$db->lastErrorMsg();
         }
+        
+        echo "<br>";
+    }
+
+    public static function updateTable($etatDesLieux) {
+        $sql = "UPDATE EtatDesLieux SET dateEntree = :dateEntree, dateSortie = :dateSortie, type = :type, media = :media WHERE idEtatDesLieux = :id";
+        $result=EtatDesLieuxImpl::Stmt( $sql,$etatDesLieux );
+        if ($result) {
+            echo "Mise à jour réussie ! Nombre de lignes affectées : " . self::$db->changes();
+        } else {
+            echo "Erreur lors de la mise à jour : " . self::$db->lastErrorMsg();
+        }
+        echo "<br>";
     }
 
     public static function afficherContenuTable($tableName) {
@@ -44,10 +62,12 @@ class EtatDesLieuxImpl implements I_BDD{
             echo "Contenu de la table $tableName:\n";
             while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
                 print_r($row);
+                echo "<br>";
             }
         } else {
-            echo "Erreur lors de la récupération du contenu de la table $tableName: " . self::$db->lastErrorMsg() . "\n";
+            echo "Erreur lors de la récupération du contenu de la table $tableName: " . self::$db->lastErrorMsg();
         }
+        echo "<br>";
     }
 
     /**
@@ -56,8 +76,9 @@ class EtatDesLieuxImpl implements I_BDD{
     public static function closeConnection() {
         if (self::$db) {
             self::$db->close();
-            echo "Connexion à la base de données fermée.\n";
+            echo "Connexion à la base de données fermée";
         }
+        echo "<br>";
     }
 }
 

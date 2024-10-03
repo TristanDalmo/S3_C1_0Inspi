@@ -78,7 +78,7 @@
                     <tr>
                         <td>
                             <div class="civilite-container">
-                                <label for="civilite_bailleur" class="putbold">CIVILITÉ :</label>
+                                <label for="mr_bailleur" class="putbold">CIVILITÉ :</label>
                                 <span class="civilite">
                                     <input type="radio" id="mr_bailleur" name="civilite_bailleur">
                                     <label for="mr_bailleur">Mr</label>
@@ -97,7 +97,7 @@
                         </td>
                         <td>
                             <div class="civilite-container">
-                                <label for="civilite_locataire" class="putbold">CIVILITÉ :</label>
+                                <label for="mr_locataire" class="putbold">CIVILITÉ :</label>
                                 <span class="civilite">
                                     <input type="radio" id="mr_locataire" name="civilite_locataire">
                                     <label for="mr_locataire">Mr</label>
@@ -555,9 +555,9 @@
                 <tbody>
                     <tr>
                         <td class="PremiereColonneChambre">Mur</td>
-                        <td><textarea id="mur1"></textarea></td>
-                        <td><textarea id="mur2"></textarea></td>
-                        <td><textarea id="mur3"></textarea></td>
+                        <td><textarea id="murChambre1"></textarea></td>
+                        <td><textarea id="murChambre2"></textarea></td>
+                        <td><textarea id="murChambre3"></textarea></td>
                         <td>
                             <select id="etatEntreeMur1">
                                 <option value="p">P</option>
@@ -609,9 +609,9 @@
                     </tr>
                     <tr>
                         <td class="PremiereColonneChambre">Sol</td>
-                        <td><textarea id="sol1"></textarea></td>
-                        <td><textarea id="sol2"></textarea></td>
-                        <td><textarea id="sol3"></textarea></td>
+                        <td><textarea id="solChambre1"></textarea></td>
+                        <td><textarea id="solChambre2"></textarea></td>
+                        <td><textarea id="solChambre3"></textarea></td>
                         <td>
                             <select id="etatEntreeSol1">
                                 <option value="p">P</option>
@@ -771,9 +771,9 @@
                     </tr>
                     <tr>
                         <td class="PremiereColonneChambre">Éclairage et interrupteurs</td>
-                        <td><textarea id="eclairage1"></textarea></td>
-                        <td><textarea id="eclairage2"></textarea></td>
-                        <td><textarea id="eclairage3"></textarea></td>
+                        <td><textarea id="eclairageChambre1"></textarea></td>
+                        <td><textarea id="eclairageChambre2"></textarea></td>
+                        <td><textarea id="eclairageChambre3"></textarea></td>
                         <td>
                             <select id="etatEntreeEclairage1">
                                 <option value="p">P</option>
@@ -903,6 +903,7 @@
                     </tr>
                 </tbody>
             </table>
+            
             <table id="tableauWC">
                 <thead>
                     <tr>
@@ -1108,6 +1109,10 @@
                     </tr>
                 </tbody>
             </table>
+
+
+           <input type="file" id="imageInput" accept="image/*" multiple>
+            <div class="image-container" id="imageContainer"> </div>    
             <input type="reset" value="Effacer" />
             <input type="submit" value="Valider" />
         </form>

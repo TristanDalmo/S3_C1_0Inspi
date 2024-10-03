@@ -14,8 +14,8 @@ body {
 .formulaire {
     flex-grow: 1;
     padding: 20px;
-    margin-right: 2em;
-    margin-left: 2em;
+    margin-left : 6em;
+    margin-right: 6em;
 }
 
 .header {
@@ -406,9 +406,15 @@ footer {
     border-bottom-right-radius: 10px; 
 }
 /* Style pour les select */
-#tableauChambres select {
-      
-    align-items: center;
+select {
+    color: black;
+    background-color: #eeeeee;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+    font-size: 18px;
 }
 
 #tableauWC {
@@ -471,7 +477,19 @@ input[type="reset"]{
     margin-left: 400px;
     margin-right: 300px;
 }
+<<<<<<< HEAD
 tr td:first-child,
 tr th:first-child{
     width: 20%;
 }
+=======
+/*bouton pour ajouter des images*/
+#imageInput{
+    margin-right: auto;
+    margin-left: 40%;
+    border-radius: 1em;
+    border:solid 1px #000;
+    background: white;
+    margin-bottom: 2%;    
+}
+>>>>>>> f865e80ea411ffd414cbfaf9f2d37f138a85e2e0
