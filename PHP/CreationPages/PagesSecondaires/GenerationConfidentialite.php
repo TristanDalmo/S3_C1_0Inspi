@@ -10,7 +10,7 @@ class GenerationConfidentialite extends AbstractGenerationPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../SiteWeb/Confidentialite.css");
+        parent::__construct(cssChemin: "/S3_C1_0Inspi/SiteWeb/Confidentialite.css", nom:"E-Lieu ~ Confidentialité");
     }
 
     protected function GenerateContent() : string
