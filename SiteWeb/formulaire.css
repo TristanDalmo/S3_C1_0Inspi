@@ -492,4 +492,8 @@ tr th:first-child{
     background: white;
     margin-bottom: 2%;    
 }
->>>>>>> f865e80ea411ffd414cbfaf9f2d37f138a85e2e0
+
+td:has(select)   {
+ width: 10em;
+    
+}
