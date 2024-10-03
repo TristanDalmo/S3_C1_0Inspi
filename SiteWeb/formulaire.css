@@ -242,11 +242,14 @@ footer {
 }
 
 #tableauCuisine .details {
-    width: 50%;
+    width: auto;
 }
 
 #tableauCuisine .etat {
-    width: 10%;
+    width: 1em;
+    background-color: red;
+    
+
 }
 
 /* Arrondir les coins du tableau */
@@ -289,9 +292,13 @@ footer {
 
 
 #tableauSDB .sdb {
-    width: 25%;
+    width: auto;
 }
 
+#tableauSDB .etat{
+    width: 1%;
+    
+}
 
 #tableauSDB tr:first-child th:first-child {
     border-top-left-radius: 15px;
@@ -351,17 +358,16 @@ footer {
 
 
 #tableauChambres .description {
-    width: 20%;
+    width: 19%;
     vertical-align: middle;
     text-align: center;
     font-weight: bold;
 }
 
 #tableauChambres .etat {
-    width: 10%;
-    vertical-align: middle;
-    font-weight: bold;
+    width: 0.5em;
     text-align: center;
+   
 }
 
 #tableauChambres textarea {
@@ -440,7 +446,12 @@ select {
 
 
 #tableauWC .sdb {
-    width: 25%;
+    width:auto;
+    
+}
+#tableauWC .etat{
+    width: 10PX; 
+    
 }
 
 
@@ -459,7 +470,30 @@ select {
 #tableauWC tr:last-child td:last-child {
     border-bottom-right-radius: 15px;
 }
+input[type="reset"], input[type="submit"] {
+    height: 3em;
+    width: 10em;
+    border-radius: 1em;
+    background: linear-gradient(tan,rosybrown);
+    font-size: 105%;
 
+    
+}
+input[type="reset"]:hover, input[type="submit"]:hover{
+    background: purple;
+    color: white;
+    
+}
+input[type="reset"]{
+    margin-left: 400px;
+    margin-right: 300px;
+}
+<<<<<<< HEAD
+tr td:first-child,
+tr th:first-child{
+    width: 20%;
+}
+=======
 /*bouton pour ajouter des images*/
 #imageInput{
     margin-right: auto;
@@ -469,8 +503,54 @@ select {
     background: white;
     margin-bottom: 2%;    
 }
-
+/*
 td:has(select)   {
+ 
+ background-color: red;
+
+width: 25%;
+}
+
+*/
+tr td:first-child, tr th:first-child{
+    width: 12.5em;
+}
+#tableauChambres tr td:first-child, tr th:first-child{
+    width: 0.25em;
+}
+.comment-fieldset {
+    border: 2px solid #000000; /* Bordure bleue */
+    border-radius: 8px; /* Coins arrondis */
+    background-color: #f9f9f9; /* Couleur de fond */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet 3D */
+}
+
+.comment-fieldset legend {
+    font-weight: bold; 
+    color: #000000; 
+    font-size: 1.2em; 
+}
+
+.comment-textarea {
+    width: 100%; /* Prend toute la largeur */
+    height: 150px; /* Hauteur fixe */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 4px; /* Coins arrondis */
+    padding: 10px; /* Espacement interne */
+    resize: vertical; /* Permet de redimensionner uniquement verticalement */
+    font-size: 1em; 
+    color: #000000; /* Couleur du texte */
+    background-color: #fff; /* Couleur de fond blanche */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre interne */
+}
+
+.comment-textarea::placeholder {
+    color: #000000; /* Couleur du texte du placeholder */x 
+}
+textarea{
+    resize: vertical;
+}
+
  width: 10em;
     
 }
