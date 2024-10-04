@@ -5,33 +5,21 @@
      */
     class connexionBase
     {
-        private static $db;
-
-            /**
-         * Initialise la connexion à la base de données.
-         */
-        public static function init() {
-            self::$db = new SQLite3('../baseDeDonnees.db');
-            if (!self::$db) {
-                echo self::$db->lastErrorMsg();
-            } else {
-                echo "Connecté à la base de données SQLite.\n";
-            }
-        }
+        private static SQLite3 $instance;
 
         /**
          * Ferme la connexion à la base de données.
          */
         public static function closeConnection() {
-            if (self::$db) {
-                self::$db->close();
+            if (self::$instance) {
+                self::$instance->close();
                 echo "Connexion à la base de données fermée.\n";
             }
         }
 
         public static function afficherContenuTable($tableName) {
             $sql = "SELECT * FROM " . SQLite3::escapeString($tableName);
-            $result = self::$db->query($sql);
+            $result = self::$instance->query($sql);
     
             if ($result) {
                 echo "Contenu de la table $tableName:\n";
@@ -40,17 +28,19 @@
                     echo "<br>";
                 }
             } else {
-                echo "Erreur lors de la récupération du contenu de la table $tableName: " . self::$db->lastErrorMsg();
+                echo "Erreur lors de la récupération du contenu de la table $tableName: " . self::$instance->lastErrorMsg();
             }
             echo "<br>";
         }
 
         /**
-         * Fonction static retournant la base de données stockées en attribut.
+         * Fonction static retournant la base de données stockées en attribut et si il n'existe pas le créer.
          */
-        public static function getDataBase() {
-            return $this->db;
+        public static function getInstance():SQLite3 {
+            if (self::$instance == null) {
+                self::$instance = new SQLite3('../baseDeDonnees.db'); 
+            }
+            return self::$instance;
         }
     }
-
 ?>

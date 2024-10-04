@@ -1,19 +1,20 @@
 <?php
 
-require_once("I_BDD.php"); 
+require_once(__DIR__ . "/../../test/I_BDD.php"); 
+require_once (__DIR__.'/../../test/connexionBase.php');
 
 class EtatDesLieuxImpl implements I_BDD{
 
     public static function Stmt($sql,$etatDesLieux){
-        self::$db->exec('BEGIN TRANSACTION');
-        $stmt = self::$db->prepare($sql);
+        connexionBase::getDataBase()->exec('BEGIN TRANSACTION');
+        $stmt = connexionBase::getDataBase()->prepare($sql);
         $stmt->bindValue(':id', $etatDesLieux->getIdEtatDesLieux(), SQLITE3_INTEGER);
         $stmt->bindValue(':dateEntree', $etatDesLieux->getDateEntree()->format('Y-m-d'), SQLITE3_TEXT);
         $stmt->bindValue(':dateSortie', $etatDesLieux->getDateSortie()->format('Y-m-d'), SQLITE3_TEXT);
         $stmt->bindValue(':type', $etatDesLieux->getType(), SQLITE3_TEXT);
         $stmt->bindValue(':media', $etatDesLieux->getMedia(), SQLITE3_TEXT);        
         $result = $stmt->execute();
-        self::$db->exec('COMMIT');
+        connexionBase::getDataBase()->exec('COMMIT');
         return $result;
     }
 
@@ -21,9 +22,9 @@ class EtatDesLieuxImpl implements I_BDD{
         $sql = "INSERT INTO EtatDesLieux (dateEntree, dateSortie, type, media) VALUES (:dateEntree, :dateSortie, :type, :media)";
         $result=EtatDesLieuxImpl::Stmt( $sql,$etatDesLieux );
         if ($result) {
-            echo "Insertion réussie ! ID de la nouvelle ligne : " . self::$db->lastInsertRowID();
+            echo "Insertion réussie ! ID de la nouvelle ligne : " . connexionBase::getDataBase()->lastInsertRowID();
         } else {
-            echo "Erreur lors de l'insertion : " . self::$db->lastErrorMsg();
+            echo "Erreur lors de l'insertion : " . connexionBase::getDataBase()->lastErrorMsg();
         }
         
         echo "<br>";
@@ -31,7 +32,7 @@ class EtatDesLieuxImpl implements I_BDD{
 
     public static function DeleteTable(int $id) {
         $sql = "DELETE FROM ETATDESLIEUX WHERE idEtatDesLieux = :id";
-        $stmt = self::$db->prepare($sql);
+        $stmt = connexionBase::getDataBase()->prepare($sql);
         $stmt->bindValue(':id', $id,SQLITE3_INTEGER);
         $result = $stmt->execute();
     }
@@ -40,9 +41,9 @@ class EtatDesLieuxImpl implements I_BDD{
         $sql = "UPDATE EtatDesLieux SET dateEntree = :dateEntree, dateSortie = :dateSortie, type = :type, media = :media WHERE idEtatDesLieux = :id";
         $result=EtatDesLieuxImpl::Stmt( $sql,$etatDesLieux );
         if ($result) {
-            echo "Mise à jour réussie ! Nombre de lignes affectées : " . self::$db->changes();
+            echo "Mise à jour réussie ! Nombre de lignes affectées : " . connexionBase::getDataBase()->changes();
         } else {
-            echo "Erreur lors de la mise à jour : " . self::$db->lastErrorMsg();
+            echo "Erreur lors de la mise à jour : ".connexionBase::getDataBase()->lastErrorMsg();
         }
         echo "<br>";
     }
