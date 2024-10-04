@@ -17,7 +17,7 @@ class GenerationFormulaire extends AbstractGenerationPage
     {
         return "        
     <div class=\"formulaire\">
-        <form>
+        <form action='../BDD/test/main.php' method='POST'>
             <fieldset class=\"grandfield\">
                 <div class=\"Containerhaut\">
                     <div class=\"texte-gauche\">

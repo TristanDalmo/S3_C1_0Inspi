@@ -2,7 +2,7 @@
 /**
  * Classe représentant un élément de WC.
  */
-class ElementWc {
+class T_ElementWc {
     /**
      * id
      * @var int
