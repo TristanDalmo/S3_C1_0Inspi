@@ -22,7 +22,7 @@ function EtatDesLieux() {
         $EtatDesLieux->setMedia('photo.jpg');
     
     
-        connexionBase::init();// creer la connexion a la bdd
+        connexionBase::getInstance();// creer la connexion a la bdd
     
         //EnseignantDAOImpl::afficherContenuTable('EtatDesLieux');
         // Insertion du nouvel état des lieux
