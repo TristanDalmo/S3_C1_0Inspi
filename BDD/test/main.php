@@ -2,12 +2,15 @@
 
 require_once '../Tables/EtatDesLieux/T_EtatDesLieux.php';
 require_once '../Tables/EtatDesLieux/EtatDesLieuxImpl.php';
+require_once '../Tables/Chambre/T_Chambre.php';
+require_once '../Interactions/Chambre/ChambreImpl.php'
 
 
 
 
 function main() {
     EtatDesLieux();
+    Chambre();
 }
 
 function EtatDesLieux() {
@@ -53,8 +56,40 @@ function EtatDesLieux() {
 
         EtatDesLieuxImpl::closeConnection();
     }
+    function Chambre():void{
+        // Création d'une nouvelle chambre
+    $chambre = new Chambre();
 
-// Exécution de la fonction principale
+    // Initialisation des données de la chambre
+    $chambre->setIdChambre(1);
+    $chambre->setIdPriseChambre(101);
+
+    ChambreImpl::init(); // Crée la connexion à la base de données
+
+    // Insertion de la nouvelle chambre
+    ChambreImpl::insertTable($chambre);
+
+    // Attendre un peu avant d'afficher le contenu de la table
+    sleep(1);
+    ChambreImpl::afficherContenuTable('Chambre');
+
+    // Création d'une autre chambre pour la mise à jour
+    $chambre2 = new Chambre();
+    $chambre2->setIdChambre(1);
+    $chambre2->setIdPriseChambre(102);
+
+    // Mise à jour de la chambre
+    ChambreImpl::updateTable($chambre2);
+
+    sleep(1);
+
+    // Affichage du contenu de la table après la mise à jour
+    ChambreImpl::afficherContenuTable('Chambre');
+
+    ChambreImpl::closeConnection();
+}
+
+
 main();
 
 ?>
