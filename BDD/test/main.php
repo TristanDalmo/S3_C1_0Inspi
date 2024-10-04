@@ -51,6 +51,30 @@ function EtatDesLieux() {
         EtatDesLieuxImpl::closeConnection();
     }
 
+    function WC() {
+        // Création d'un nouveau wc
+       $Wc = new T_WC();
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+          //ne rien faire car l'id est en auto increment
+
+        }
+
+    
+       
+        echo '<br>';
+        
+        WcImpl::init();// creer la connexion a la bdd
+        WcImpl::InsertTable($Wc);
+    
+        // Attendre un peu avant d'afficher le contenu de la table (pour s'assurer que l'insertion est terminée)
+        sleep(1); // Utiliser sleep pour attendre 1 seconde (équivalent à setTimeout en JS)
+        WcImpl::afficherContenuTable('Wc');
+
+        WcImpl::closeConnection();
+    }
 // Exécution de la fonction principale
 main();
 
