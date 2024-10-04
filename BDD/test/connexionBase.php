@@ -5,12 +5,24 @@
      */
     class connexionBase
     {
+        /**
+         * Attribut statique représentant la base de donnéess stockée
+         * @SQLite3 
+         */
         private static ?SQLite3 $db=null;
+
+        /**
+         * Attribut statique représentant l'instance de ce objet
+         * @self 
+         */
         private static ?self $instance = null;
 
+        /**
+         * Constructeur du singleton en privé et asignant la base de données à l'attribut
+         */
         private function __construct()
         {
-            
+            self::$db = new SQLite3('../baseDeDonnees.db'); 
         }
 
         /**
@@ -45,11 +57,14 @@
         public static function getInstance():self {
             if (self::$instance == null) {
                 self::$instance= new self();
-                self::$db = new SQLite3('../baseDeDonnees.db'); 
             }
             return self::$instance;
         }
 
+        /**
+         * Fonction retournant la base de données liée au singleton
+         * @return SQLite3
+         */
         public static function getBDD():SQLite3{
             return self::$db;
         }
