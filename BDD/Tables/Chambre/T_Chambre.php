@@ -2,7 +2,7 @@
 /**
  * Classe représentant une chambre.
  */
-class Chambre {
+class T_Chambre {
     /**
      * @var int
      */

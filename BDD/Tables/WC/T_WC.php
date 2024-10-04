@@ -2,7 +2,7 @@
 /**
  * Classe représentant un WC.
  */
-class Wc {
+class T_Wc {
     /**
      * Summary of idWc
      * @var int

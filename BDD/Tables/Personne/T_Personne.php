@@ -2,7 +2,7 @@
 /**
  * Classe représentant une personne.
  */
-class Personne {
+class T_Personne {
     /**
      * id de la personne
      * @var int
