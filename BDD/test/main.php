@@ -2,13 +2,19 @@
 
 require_once '../Tables/EtatDesLieux/T_EtatDesLieux.php';
 require_once '../Tables/EtatDesLieux/EtatDesLieuxImpl.php';
+
+require_once './connexionBase.php';
+
 require_once '../../PHP/Formulaire/MiseEnLigneFormulaire.php';
+require_once '../Tables/Chambre/T_Chambre.php';
+require_once '../Interactions/Chambre/ChambreImpl.php';
 
 
 
 
 function main() {
     EtatDesLieux();
+    Chambre();
 }
 
 function EtatDesLieux() {
@@ -32,6 +38,15 @@ function EtatDesLieux() {
 
         // exemple d'initialisation mai apres récuperer les infos du formulaire
         $EtatDesLieux->setIdEtatDesLieux(1);
+
+      /*  $EtatDesLieux->setDateEntree(new DateTime('2023-05-01'));
+        $EtatDesLieux->setDateSortie(new DateTime('2024-04-30'));
+        $EtatDesLieux->setType('sortie');
+        $EtatDesLieux->setMedia('photo.jpg');
+    
+    
+        connexionBase::getInstance();// creer la connexion a la bdd */
+
         $EtatDesLieux->setDateEntree($dateEntreeObj);
         $EtatDesLieux->setDateSortie($dateSortieObj);
         $EtatDesLieux->setType($type);
@@ -39,6 +54,7 @@ function EtatDesLieux() {
         echo '<br>';
         //echo (new MiseEnLigneFormulaire())->InsertionMedias();
         EtatDesLieuxImpl::init();// creer la connexion a la bdd
+
     
         //EnseignantDAOImpl::afficherContenuTable('EtatDesLieux');
         // Insertion du nouvel état des lieux
@@ -46,7 +62,7 @@ function EtatDesLieux() {
     
         // Attendre un peu avant d'afficher le contenu de la table (pour s'assurer que l'insertion est terminée)
         sleep(1); // Utiliser sleep pour attendre 1 seconde (équivalent à setTimeout en JS)
-        EtatDesLieuxImpl::afficherContenuTable('EtatDesLieux');
+        connexionBase::afficherContenuTable('EtatDesLieux');
 
         EtatDesLieuxImpl::closeConnection();
     }
@@ -76,6 +92,44 @@ function EtatDesLieux() {
         WcImpl::closeConnection();
     }
 // Exécution de la fonction principale
+    function Chambre():void{
+        // Création d'une nouvelle chambre
+    $chambre = new Chambre();
+
+    // Initialisation des données de la chambre
+    $chambre->setIdChambre(1);
+    $chambre->setIdPriseChambre(101);
+
+    ChambreImpl::init(); // Crée la connexion à la base de données
+
+    // Insertion de la nouvelle chambre
+    ChambreImpl::insertTable($chambre);
+
+    // Attendre un peu avant d'afficher le contenu de la table
+    sleep(1);
+    ChambreImpl::afficherContenuTable('Chambre');
+
+    // Création d'une autre chambre pour la mise à jour
+    $chambre2 = new Chambre();
+    $chambre2->setIdChambre(1);
+    $chambre2->setIdPriseChambre(102);
+
+    // Mise à jour de la chambre
+    ChambreImpl::updateTable($chambre2);
+
+    sleep(1);
+
+      /*  connexionBase::afficherContenuTable('EtatDesLieux');
+
+        connexionBase::closeConnection(); */
+    
+    // Affichage du contenu de la table après la mise à jour
+    ChambreImpl::afficherContenuTable('Chambre');
+
+    ChambreImpl::closeConnection();
+}
+
+
 main();
 
 ?>
