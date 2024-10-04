@@ -2,7 +2,7 @@
 /**
  * Classe représentant une salle de bain.
  */
-class SalleDeBain {
+class T_SalleDeBain {
     /**
      * @var int
      */
