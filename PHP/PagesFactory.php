@@ -59,6 +59,10 @@ class PagesFactory {
             case "Confidentialite":
                 $this->generateur = new GenerationConfidentialite();
                 break;
+
+            case "Partage":
+                $this->generateur = new GenerationPagePartage();
+                break;
         }
 
         // On génère ensuite la page et on la retourne

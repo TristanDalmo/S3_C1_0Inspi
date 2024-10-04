@@ -14,10 +14,10 @@ class GenerationFormulaire extends AbstractGenerationPage
     }    
 
     protected function GenerateContent() : string
-    {
+    { // ./BDD/test/main.php
         return "        
     <div class=\"formulaire\">
-        <form action='../BDD/test/main.php' method='POST'>
+        <form action='./Formulaire/MiseEnLigneFormulaire.php' method='POST' enctype='multipart/form-data'>
             <fieldset class=\"grandfield\">
                 <div class=\"Containerhaut\">
                     <div class=\"texte-gauche\">

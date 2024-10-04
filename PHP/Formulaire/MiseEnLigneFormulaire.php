@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__ . "/../PagesFactory.php");
+
 /**
  * Classe permettant de mettre en ligne un formulaire à partir de données entrées
  */
@@ -96,7 +98,7 @@ Class MiseEnLigneFormulaire {
      */
     public function MiseEnLigne(): void {
 
-        echo "<!DOCTYPE html>
+      /*  echo "<!DOCTYPE html>
         <html lang=\"fr\">
         <head>
             <meta charset=\"UTF-8\">
@@ -105,7 +107,7 @@ Class MiseEnLigneFormulaire {
             <link rel=\"stylesheet\" href=\"../../SiteWeb/styleHeaderFooter.css\">
             <link rel=\"icon\" href=\"../../SiteWeb/images/logoE-Lieu.ico\"/>
         </head>
-        <body>";
+        <body>"; */
 
         // Insertion des médias du formulaire
         $chemin_documents = $this->InsertionMedias();
@@ -113,14 +115,13 @@ Class MiseEnLigneFormulaire {
         // Insertion dans la Base de Données
         $this->InsertionBDD(documents: $chemin_documents);
 
-        echo "</body>";
-
     }
 
 }
 
 (new MiseEnLigneFormulaire())->MiseEnLigne();
 
-
+header("Location: ../PagesFactory.php?page=Partage");
+exit();
 
 ?>

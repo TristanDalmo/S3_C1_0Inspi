@@ -10,7 +10,6 @@ header {
 }
 
 
-
 footer {
     background-color: #0D5C63;
     color: white;
@@ -90,23 +89,22 @@ footer {
 }
 
 #backAccueil{
-    
-    
-    display:inline-block;
-    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 #texteAccueil
 {
-    margin-left: auto;
+    text-align: left;
+    font-size: 1.8em;
+    margin-left: 1em;
+    line-height: 3.6em;
 }
 
 #pictogrammeAccueil{
-    width: 10%;
+    width: 50%;
     height: auto;
-    float:  left;
-    
-
+    float:left;
 }
 
 .centreeDansHeader{
