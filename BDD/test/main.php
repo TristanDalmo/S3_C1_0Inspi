@@ -2,7 +2,7 @@
 
 require_once '../Tables/EtatDesLieux/T_EtatDesLieux.php';
 require_once '../Tables/EtatDesLieux/EtatDesLieuxImpl.php';
-
+require_once './connexionBase.php';
 
 
 
@@ -22,7 +22,7 @@ function EtatDesLieux() {
         $EtatDesLieux->setMedia('photo.jpg');
     
     
-        EtatDesLieuxImpl::init();// creer la connexion a la bdd
+        connexionBase::init();// creer la connexion a la bdd
     
         //EnseignantDAOImpl::afficherContenuTable('EtatDesLieux');
         // Insertion du nouvel état des lieux
@@ -30,7 +30,7 @@ function EtatDesLieux() {
     
         // Attendre un peu avant d'afficher le contenu de la table (pour s'assurer que l'insertion est terminée)
         sleep(1); // Utiliser sleep pour attendre 1 seconde (équivalent à setTimeout en JS)
-        EtatDesLieuxImpl::afficherContenuTable('EtatDesLieux');
+        connexionBase::afficherContenuTable('EtatDesLieux');
 
 
 
@@ -49,9 +49,9 @@ function EtatDesLieux() {
 
         sleep(1);
 
-        EtatDesLieuxImpl::afficherContenuTable('EtatDesLieux');
+        connexionBase::afficherContenuTable('EtatDesLieux');
 
-        EtatDesLieuxImpl::closeConnection();
+        connexionBase::closeConnection();
     }
 
 // Exécution de la fonction principale

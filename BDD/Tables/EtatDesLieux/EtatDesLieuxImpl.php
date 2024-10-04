@@ -3,20 +3,6 @@
 require_once("I_BDD.php"); 
 
 class EtatDesLieuxImpl implements I_BDD{
-    private static $db;
-
-    /**
-     * Initialise la connexion à la base de données.
-     */
-    public static function init() {
-        self::$db = new SQLite3('../baseDeDonnees.db');
-        if (!self::$db) {
-            echo self::$db->lastErrorMsg();
-        } else {
-            echo "Connecté à la base de données SQLite.";
-        }
-        echo "<br>";
-    }
 
     public static function Stmt($sql,$etatDesLieux){
         self::$db->exec('BEGIN TRANSACTION');
@@ -43,6 +29,13 @@ class EtatDesLieuxImpl implements I_BDD{
         echo "<br>";
     }
 
+    public static function DeleteTable(int $id) {
+        $sql = "DELETE FROM ETATDESLIEUX WHERE idEtatDesLieux = :id";
+        $stmt = self::$db->prepare($sql);
+        $stmt->bindValue(':id', $id,SQLITE3_INTEGER);
+        $result = $stmt->execute();
+    }
+
     public static function updateTable($etatDesLieux) {
         $sql = "UPDATE EtatDesLieux SET dateEntree = :dateEntree, dateSortie = :dateSortie, type = :type, media = :media WHERE idEtatDesLieux = :id";
         $result=EtatDesLieuxImpl::Stmt( $sql,$etatDesLieux );
@@ -50,33 +43,6 @@ class EtatDesLieuxImpl implements I_BDD{
             echo "Mise à jour réussie ! Nombre de lignes affectées : " . self::$db->changes();
         } else {
             echo "Erreur lors de la mise à jour : " . self::$db->lastErrorMsg();
-        }
-        echo "<br>";
-    }
-
-    public static function afficherContenuTable($tableName) {
-        $sql = "SELECT * FROM " . SQLite3::escapeString($tableName);
-        $result = self::$db->query($sql);
-
-        if ($result) {
-            echo "Contenu de la table $tableName:\n";
-            while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-                print_r($row);
-                echo "<br>";
-            }
-        } else {
-            echo "Erreur lors de la récupération du contenu de la table $tableName: " . self::$db->lastErrorMsg();
-        }
-        echo "<br>";
-    }
-
-    /**
-     * Ferme la connexion à la base de données.
-     */
-    public static function closeConnection() {
-        if (self::$db) {
-            self::$db->close();
-            echo "Connexion à la base de données fermée";
         }
         echo "<br>";
     }
