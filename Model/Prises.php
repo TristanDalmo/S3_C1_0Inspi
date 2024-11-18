@@ -3,7 +3,7 @@
 namespace Model;
 
 /**
- * Classe représentant les différentes prises d'une pièce
+ * Classe représentant les différentes prises de prises
  */
 class Prises {
     
