@@ -85,8 +85,8 @@ class PieceDAO extends BasePDODAO implements I_PieceDAO {
     public function getById(int $id) : Piece{
 
         // Mise en place de la requête
-        $requete = "SELECT * FROM ELECTROMENAGER WHERE idElectromenager = :idElectromenager";
-        $parameters = array("idElectromenager" => $id);
+        $requete = "SELECT * FROM PIECE WHERE idPiece = :idPiece";
+        $parameters = array("idPiece" => $id);
 
         // Exécution de la requête
         $reponse = $this->execRequest($requete,$parameters);   
