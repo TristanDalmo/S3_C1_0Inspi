@@ -33,9 +33,9 @@ class PageFormulaire extends AbstractPage
                 </div>
                 <div class=\"ligne2\">
                     <div class=\"texte-gauche1\">
-                        <input type=\"radio\" id=\"ENTREE\" name=\"fPermis\" value=\"Entrée\">
+                        <input type=\"radio\" id=\"ENTREE\" name=\"fPermis\" value=\"Entrée\" required>
                         <label for=\"ENTREE\">Entrée</label>
-                        <input type=\"radio\" id=\"SORTIE\" name=\"fPermis\" value=\"Sortie\">
+                        <input type=\"radio\" id=\"SORTIE\" name=\"fPermis\" value=\"Sortie\" required>
                         <label for=\"SORTIE\">Sortie</label>
                     </div>
                     <div class=\"date-droite1\">
@@ -48,28 +48,30 @@ class PageFormulaire extends AbstractPage
                     <p>L'état des lieux doit être établi entre les deux parties (locataire et propriétaire) lors de la remise des clés du logement et lors de leur restitution. En effet, le bail (loi n° 89-462 du 6 juillet 1989) stipule que l'état des lieux doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de location, et dont le locataire a la jouissance exclusive.</p>
                 </div>
                 <br>
+                <p id=\"notice\">Tous les champs munis d'une astérisque(*) sont obligatoires.</p>
+                <br>
                 <fieldset class=\"Logement\">
                     <div class=\"l1\">
                         <p class=\"putbold\">LOGEMENT</p>
                     </div>
                     <div class=\"l2\">
-                        <input type=\"radio\" id=\"Appartement\" name=\"typeLogement\">
+                        <input type=\"radio\" id=\"Appartement\" name=\"typeLogement\" required>
                         <label for=\"Appartement\">Appartement</label>
-                        <input type=\"radio\" id=\"Maison\" name=\"typeLogement\">
+                        <input type=\"radio\" id=\"Maison\" name=\"typeLogement\" required>
                         <label for=\"Maison\">Maison</label>
-                        <input type=\"radio\" id=\"Autre\" name=\"typeLogement\">
+                        <input type=\"radio\" id=\"Autre\" name=\"typeLogement\"required>
                         <label for=\"Autre\">Autre</label>
-                        <input type=\"text\" id=\"textautre\" size=\"5\">
+                        <input type=\"text\" id=\"textautre\" size=\"5\" required>
                     </div>
                     <div class=\"l3\">
                         <label for=\"SURFACE\" class=\"putbold\">SURFACE :</label>
-                        <input type=\"text\" id=\"SURFACE\" placeholder=\"m²\">
+                        <input type=\"text\" id=\"SURFACE\" placeholder=\"m²\" required>
                         <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÈCES PRINCIPALES :</label>
-                        <input type=\"number\" id=\"nbpiece\">
+                        <input type=\"number\" id=\"nbpiece\" required>
                     </div>
                     <div class=\"l4\">
                         <label for=\"adresse\" class=\"putbold\">ADRESSE :</label>
-                        <textarea id=\"adresse\" rows=\"3\" cols=\"50\"></textarea>
+                        <textarea id=\"adresse\" rows=\"3\" cols=\"50\" required></textarea>
                     </div>
                 </fieldset>
                 <table>
@@ -82,40 +84,40 @@ class PageFormulaire extends AbstractPage
                             <div class=\"civilite-container\">
                                 <label for=\"mr_bailleur\" class=\"putbold\">CIVILITÉ :</label>
                                 <span class=\"civilite\">
-                                    <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\">
+                                    <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\" required>
                                     <label for=\"mr_bailleur\">Mr</label>
-                                    <input type=\"radio\" id=\"mme_bailleur\" name=\"civilite_bailleur\">
+                                    <input type=\"radio\" id=\"mme_bailleur\" name=\"civilite_bailleur\" required>
                                     <label for=\"mme_bailleur\">Mme</label>
-                                    <input type=\"radio\" id=\"mlle_bailleur\" name=\"civilite_bailleur\">
+                                    <input type=\"radio\" id=\"mlle_bailleur\" name=\"civilite_bailleur\" required>
                                     <label for=\"mlle_bailleur\">Mlle</label>
                                 </span>
                             </div>
                             <label for=\"prenom_bailleur\" class=\"putbold\" >PRÉNOM :</label>
-                            <input type=\"text\" id=\"prenom_bailleur\">
+                            <input type=\"text\" id=\"prenom_bailleur\" required>
                             <label for=\"nom_bailleur\" class=\"putbold\">NOM :</label>
-                            <input type=\"text\" id=\"nom_bailleur\">
+                            <input type=\"text\" id=\"nom_bailleur\" required>
                             <label for=\"adresse_bailleur\" class=\"putbold\">ADRESSE :</label>
-                            <textarea id=\"adresse_bailleur\" rows=\"3\"></textarea>
+                            <textarea id=\"adresse_bailleur\" rows=\"3\" required></textarea>
                         </td>
                         <td>
                             <div class=\"civilite-container\">
                                 <label for=\"mr_locataire\" class=\"putbold\">CIVILITÉ :</label>
                                 <span class=\"civilite\">
-                                    <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\">
+                                    <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\" required>
                                     <label for=\"mr_locataire\">Mr</label>
-                                    <input type=\"radio\" id=\"mme_locataire\" name=\"civilite_locataire\">
+                                    <input type=\"radio\" id=\"mme_locataire\" name=\"civilite_locataire\" required>
                                     <label for=\"mme_locataire\">Mme</label>
-                                    <input type=\"radio\" id=\"mlle_locataire\" name=\"civilite_locataire\">
+                                    <input type=\"radio\" id=\"mlle_locataire\" name=\"civilite_locataire\" required>
                                     <label for=\"mlle_locataire\">Mlle</label>
                                 </span>
                             </div>
                             <label for=\"prenom_locataire\" class=\"putbold\">PRÉNOM :</label>
-                            <input type=\"text\" id=\"prenom_locataire\">
+                            <input type=\"text\" id=\"prenom_locataire\" required>
                             <label for=\"nom_locataire\" class=\"putbold\">NOM :</label>
-                            <input type=\"text\" id=\"nom_locataire\">
+                            <input type=\"text\" id=\"nom_locataire\" required>
                             <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE :</label>
                             <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
-                            <textarea id=\"adresse_locataire\" rows=\"3\"></textarea>
+                            <textarea id=\"adresse_locataire\" rows=\"3\" required></textarea>
                         </td>
                     </tr>
                 </table>
