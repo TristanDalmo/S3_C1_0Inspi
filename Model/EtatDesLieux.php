@@ -30,16 +30,7 @@ class EtatDesLieux {
     private string $media;
     
     // Logement associé à l'état des lieux
-    private Logement $logement;
-
-    /**
-     * constructeur de la classe
-     */
-    public function __construct() {
-    }
-
-
-    
+    private Logement $logement;    
 
     /**
      * Get the value of idEtatDesLieux
@@ -151,5 +142,26 @@ class EtatDesLieux {
     public function setLogement($logement)
     {
         $this->logement = $logement;
+    }
+
+    /**
+     * Méthode d'hydratation d'une classe
+     * @param array $donnees Données à intégrer
+     * @return void
+     */
+    public function hydrate(array $donnees)
+    {
+        foreach ($donnees as $key => $value)
+        {
+            // On récupère le nom du setter correspondant à l'attribut.
+            $method = 'set'.ucfirst($key);
+            
+            // Si le setter correspondant existe.
+            if (method_exists($this, $method))
+            {
+                // On appelle le setter.
+                $this->$method($value);
+            }
+        }
     }
 }
