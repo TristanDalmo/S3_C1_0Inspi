@@ -1,38 +1,26 @@
 <?php
+
+namespace Model;
+
 /**
  * Classe représentant une personne.
  */
-class T_Personne {
-    /**
-     * id de la personne
-     * @var int
-     */
-    private $idPersonne;
-    /**
-     * civilite
-     * @var string
-     */
-    private $civilite;
-    /**
-     * prenom
-     * @var string
-     */
-    private $prenom;
-    /**
-     * nom
-     * @var string
-     */
-    private $nom;
-    /**
-     * adresse
-     * @var string
-     */
-    private $adresse;
-    /**
-     * cle etrangere reliant la personne a un etat des lieux
-     * @var int
-     */
-    private $idEtatDesLieux;
+class Personne {
+    
+    // Id de la personne
+    private int $idPersonne;
+
+    // Civilité de la personne (Mr, Mme, ...)
+    private string $civilite;
+    
+    // Prénom de la personne
+    private string $prenom;
+    
+    // Nom de la personne
+    private string $nom;
+    
+    // Adresse de la personne
+    private string $adresse;
 
     /**
      * Constructeur de la classe
@@ -81,14 +69,6 @@ class T_Personne {
     }
 
     /**
-     * Getter pour l'id de l'état des lieux
-     * @return int L'id de l'état des lieux
-     */
-    public function getIdEtatDesLieux() {
-        return $this->idEtatDesLieux;
-    }
-
-    /**
      * Setter pour l'id de la personne
      * @param int $idPersonne L'id de la personne
      */
@@ -128,11 +108,4 @@ class T_Personne {
         $this->adresse = $adresse;
     }
 
-    /**
-     * Setter pour l'id de l'état des lieux
-     * @param int $idEtatDesLieux L'id de l'état des lieux
-     */
-    public function setIdEtatDesLieux($idEtatDesLieux) {
-        $this->idEtatDesLieux = $idEtatDesLieux;
-    }
 }
