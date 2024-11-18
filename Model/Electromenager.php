@@ -1,43 +1,26 @@
 <?php
+
+namespace Model;
+
 /**
  * Classe représentant un électroménager.
  */
-class T_Electromenager {
-    /**
-     * id de l'électroménager
-     * @var int
-     */
-    private $idElectromenager;
+class Electromenager {
+    
+    // Id de l'électroménager
+    private int $idElectromenager;
 
-    /**
-     * nom de l'électroménager
-     * @var string
-     */
-    private $nomElectromenager;
+    // Nom de l'électroménager
+    private string $nomElectromenager;
 
-    /**
-     * description de l'électroménager
-     * @var string
-     */
-    private $description;
+    // Description de l'électroménager
+    private string $description;
 
-    /**
-     * état à l'entrée
-     * @var string
-     */
-    private $etatEntree;
+    // État de l'entrée
+    private string $etatEntree;
 
-    /**
-     * état à la sortie
-     * @var string
-     */
-    private $etatSortie;
-
-    /**
-     * Constructeur de la classe
-     */
-    public function __construct() {
-    }
+    // État de la sortie
+    private string $etatSortie;
 
     /**
      * Getter pour l'id de l'électroménager
@@ -118,4 +101,26 @@ class T_Electromenager {
     public function setEtatSortie($etatSortie) {
         $this->etatSortie = $etatSortie;
     }
+
+    /**
+     * Méthode d'hydratation d'une classe
+     * @param array $donnees Données à intégrer
+     * @return void
+     */
+    public function hydrate(array $donnees)
+    {
+        foreach ($donnees as $key => $value)
+        {
+            // On récupère le nom du setter correspondant à l'attribut.
+            $method = 'set'.ucfirst($key);
+            
+            // Si le setter correspondant existe.
+            if (method_exists($this, $method))
+            {
+                // On appelle le setter.
+                $this->$method($value);
+            }
+        }
+    }
+
 }

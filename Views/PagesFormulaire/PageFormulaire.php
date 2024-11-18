@@ -1121,7 +1121,7 @@ class PageFormulaire extends AbstractPage
             <label for=\"Documents\" class=\"drop-container\" id=\"dropcontainer\">
                 <span class=\"drop-title\">Déposez vos fichiers</span>
                 ou
-                <input type=\"file\" name=\"Documents[]\" id=\"Documents\" accept=\"image/*,video/*\" multiple capture>
+                <input type=\"file\" name=\"Documents[]\" id=\"Documents\" accept=\".jpg,.jpeg,.png,.mp4,.mov\" multiple capture>
             </label>
  
             
