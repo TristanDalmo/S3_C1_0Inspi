@@ -3,8 +3,8 @@
 namespace DAO\EtatDesLieuxDAO;
 
 use Models\BasePDODAO;
-require_once(__DIR__."./I_EtatDesLieuxDAO.php");
-require_once(__DIR__."../../Model/EtatDesLieux.php");
+require_once(__DIR__."/I_EtatDesLieuxDAO.php");
+require_once(__DIR__."/../../Model/EtatDesLieux.php");
 use model\EtatDesLieux;
 use DAO\I_EtatDesLieuxDAO;
 use PDO;

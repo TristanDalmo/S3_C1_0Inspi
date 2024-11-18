@@ -1,7 +1,7 @@
 <?php
 
 namespace DAO\I_EtatDesLieuxDAO;
-require_once(__DIR__."../../Model/Piece.php");
+
 use Model\EtatDesLieux;
 
 /**
@@ -33,3 +33,5 @@ interface I_EtatDesLieuxDAO {
      */
     public function GetById(int $id):EtatDesLieux;
 }
+
+?>
