@@ -4,9 +4,11 @@ namespace Model;
 require_once(__DIR__ . "/Prises.php");
 require_once(__DIR__ . "/TypePiece.php");
 require_once(__DIR__ . "/Electromenager.php");
+require_once(__DIR__ . "/Logement.php");
 use Model\Prises;
 use Model\TypePiece;
 use Model\Electromenager;
+use Model\Logement;
 
 /**
  * Classe représentant une pièce d'un logement.
@@ -24,6 +26,9 @@ class Piece {
 
     // Type de pièce
     private TypePiece $typePiece;
+
+    // Logement contenant la pièce
+    private Logement $logement;
 
     /**
      * Get the value of idPiece
@@ -127,4 +132,20 @@ class Piece {
         }
     }
 
+
+    /**
+     * Get the value of logement
+     */ 
+    public function getLogement()
+    {
+        return $this->logement;
+    }
+
+    /**
+     * Set the value of logement
+     */ 
+    public function setLogement($logement)
+    {
+        $this->logement = $logement;
+    }
 }
