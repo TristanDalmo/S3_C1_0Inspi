@@ -2,12 +2,12 @@
 
 
 
-namespace DAO\EtatDesLieux;
+namespace DAO\EtatDesLieuxDAO;
 require_once(__DIR__ . "/../BasePDODAO.php");
 use DAO\BasePDODAO;
 require_once(__DIR__."/../../Model/EtatDesLieux.php");
 use Model\EtatDesLieux;
-require_once(__DIR__."./I_EtatDesLieuxDAO.php");
+require_once(__DIR__."/I_EtatDesLieuxDAO.php");
 use DAO\EtatDesLieux\I_EtatDesLieuxDAO;
 use PDO;
 
