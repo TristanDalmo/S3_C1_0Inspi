@@ -12,7 +12,7 @@ use PDO;
 /**
  * Classe d'interactions avec la BDD sur la table Prises
  */
-class PieceDAO extends BasePDODAO implements I_PrisesDAO {
+class PrisesDAO extends BasePDODAO implements I_PrisesDAO {
 
     public function Create(Prises $prises) : string
     {
