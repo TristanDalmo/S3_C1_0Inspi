@@ -11,23 +11,21 @@ interface I_EtatDesLieuxDAO {
     /**
      * Méthode permettant de créer un état des lieux dans la BDD
      * @param \Model\EtatDesLieux $etatDesLieux état des lieux à insérer
-     * @return string Message d'erreur ou de succès 
+     * @return int Id de l'élément créé
      */
-    public function Create(EtatDesLieux $etatDesLieux) : string;
+    public function Create(EtatDesLieux $etatDesLieux) : int;
 
     /**
      * Méthode permettant de mettre à jour un état des lieux dans la BDD
      * @param \Model\EtatDesLieux $etatDesLieux Etat des lieux à mettre à jour
-     * @return string Message d'erreur ou de succès
      */
-    public function Update(EtatDesLieux $etatDesLieux): string;
+    public function Update(EtatDesLieux $etatDesLieux);
 
     /**
      * Méthode permettant d'effacer un état des lieux 
      * @param int $id id de l'état des lieux à supprimer
-     * @return string Message d'erreur ou de succès
      */
-    public function Delete(int $id): string;
+    public function Delete(int $id);
 
     /**
      * Méthode permettant d'obtenir un état des lieux via son id

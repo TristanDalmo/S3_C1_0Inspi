@@ -14,7 +14,7 @@ use PDO;
  */
 class LocataireDAO extends BasePDODAO implements I_LocataireDAO {
 
-    public function Create(Locataire $locataire): string {
+    public function Create(Locataire $locataire) {
 
         // On prépare la requête d'insertion
         $requete = "INSERT INTO LOCATAIRE (idPersonne,idEtatDesLieux) VALUES (:idPersonne,:idEtatDesLieux)";
@@ -29,16 +29,13 @@ class LocataireDAO extends BasePDODAO implements I_LocataireDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Le locataire a été ajouté avec succès",
         "Aucun locataire n'a été ajouté",
         "Erreur lors de la tentative d'ajout du locataire");
-    
-        // Retour de la variable
-        return $reponse;
     }
     
-    public function Delete(int $idPersonne, int $idEtatDesLieux) : string {
+    public function Delete(int $idPersonne, int $idEtatDesLieux) {
 
         $requete = "DELETE FROM LOGEMENT WHERE idPersonne = :idPersonne, idEtatDesLieux = :idEtatDesLieux";
     
@@ -51,13 +48,10 @@ class LocataireDAO extends BasePDODAO implements I_LocataireDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Le locataire a été supprimé avec succès",
         "Aucun locataire n'a été supprimé",
         "Erreur lors de la tentative de suppression de le locataire");
-    
-        // Retour de la variable
-        return $reponse;
     }
 
     public function getById(int $idPersonne, int $idEtatDesLieux) : Locataire {
