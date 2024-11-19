@@ -152,7 +152,6 @@ class EtatDesLieux {
      */ 
     public function setidLogement($logement)
     {
-        //$this->logement = $logement;
         if (is_int($logement)) {
             $this->logement=new Logement();
             $this->logement->setIdLogement($logement);

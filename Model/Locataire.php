@@ -19,15 +19,22 @@ class Locataire {
      */ 
     public function getLocataire()
     {
-        return $this->locataire;
+        return $this->locataire ?? null;
     }
 
     /**
      * Set the value of locataire
      */ 
     public function setLocataire($locataire)
-    {
-        $this->locataire = $locataire;
+    { 
+        if (is_int($locataire))
+        {
+            $this->locataire= new Personne();
+            $this->locataire->setIdPersonne($locataire);
+        }
+        else if($locataire instanceof Personne) {
+            $this->locataire=$locataire;
+        }
     }
 
     /**
@@ -35,7 +42,7 @@ class Locataire {
      */ 
     public function getEtatDesLieux()
     {
-        return $this->etatDesLieux;
+        return $this->etatDesLieux ?? null;
     }
 
     /**
@@ -43,7 +50,13 @@ class Locataire {
      */ 
     public function setEtatDesLieux($etatDesLieux)
     {
-        $this->etatDesLieux = $etatDesLieux;
+        if (is_int($etatDesLieux)) {
+            $this->etatDesLieux= new EtatDesLieux();
+            $this->etatDesLieux->setIdEtatDesLieux($etatDesLieux);
+        }
+        else if ($etatDesLieux instanceof EtatDesLieux) {
+            $this->etatDesLieux=$etatDesLieux;
+        }
     }
 
     /**
@@ -59,7 +72,7 @@ class Locataire {
             $method = 'set'.ucfirst($key);
             
             // Si le setter correspondant existe.
-            if (method_exists($this, $method))
+            if (method_exists($this, $method)&& $value != null)
             {
                 // On appelle le setter.
                 $this->$method($value);
