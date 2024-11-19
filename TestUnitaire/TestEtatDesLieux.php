@@ -14,44 +14,61 @@ use Model\Personne;
 use Model\TypePiece;
 
 class TestEtatDesLieux{
-    public static function CreerEtatDesLieux(): EtatDesLieux {
+    /**
+     * Réalise les tests de la classe
+     * @return void
+     */
+    public static function main(){
+        $renvoie="";
+        echo "Test de l'état des lieux: ";
+        echo "<br>";
+        echo "testGetByID: ";
+        if (TestEtatDesLieux::TestGetById(1)){
+            $renvoie="Test passé avec succès";
+        }
+        else{
+            $renvoie= "Echec du test";
+        }
+        echo $renvoie;
+    }
+    private static function CreerEtatDesLieux(): EtatDesLieux {
         $etatDesLieux=new EtatDesLieux();
         $etatDesLieux->setDateEntree("02-05-2032");
         $etatDesLieux->setDateSortie("05-06-2069");
-        $type= new TypePiece();
-        $etatDesLieux->setType($type);
+        $etatDesLieux->setType("Entrée");
         $etatDesLieux->setMedia("test.txt");
         $logement=new Logement() ;
-        $etatDesLieux->setLogement($logement);
+        $etatDesLieux->setidLogement($logement);
         $personne=new Personne();
-        $etatDesLieux->setBailleur($personne);
+        $etatDesLieux->setidPersonne($personne);
         return $etatDesLieux;
     }
 
-    public static function TestGetById(int $id){
-        // initialisation d'un etat des lieux 
-        $etatDesLieux=TestEtatDesLieux::CreerEtatDesLieux();
-        $etatDesLieuxDAO=new EtatDesLieuxDAO();
-        $etatDesLieuxDAO->Create($etatDesLieux);
+    private static function TestGetById(int $id):bool{
         
 
         // recuperation de l'etat des lieux créer precdement 
-        $etatDesLieuxDAO2=new EtatDesLieuxDAO();
-        $etatDesLieux2=$etatDesLieuxDAO2->getById($id);
-        
-        echo (
-            ($etatDesLieux->getType())==($etatDesLieux2->getType()) && ($etatDesLieux->getBailleur())==($etatDesLieux2->getBailleur())
-            && ($etatDesLieux->getDateEntree())==($etatDesLieux2->getDateEntree())&& ($etatDesLieux->getDateSortie())==($etatDesLieux2->getDateSortie())
-            && ($etatDesLieux->getIdEtatDesLieux())==($etatDesLieux2->getIdEtatDesLieux()) && ($etatDesLieux->getLogement())==($etatDesLieux2->getLogement())
-            && ($etatDesLieux->getMedia())==($etatDesLieux2->getMedia())&& ($etatDesLieux->getType())==($etatDesLieux2->getType())
+        $etatDesLieuxDAO=new EtatDesLieuxDAO();
+        $etatDesLieux=$etatDesLieuxDAO->getById($id);
+        echo "Bailleur  " .  ($etatDesLieux->getBailleur()->getIdPersonne());
+        echo "\n Id logement : " . ($etatDesLieux->getLogement()->getIdLogement());
+        echo "\n Id etat des lieux : " . ($etatDesLieux->getIdEtatDesLieux());
+        return (
+            ($etatDesLieux->getType()=="Entrée") && ($etatDesLieux->getBailleur()->getIdPersonne()==1)
+            && ($etatDesLieux->getDateEntree()=="2024-01-01")&& ($etatDesLieux->getDateSortie()==null)
+            && ($etatDesLieux->getIdEtatDesLieux()==1) && ($etatDesLieux->getLogement()->getIdLogement()==1)
+            && ($etatDesLieux->getMedia()=="photos_entree.zip")
         );
         
 
     }
 
-    public static function TestInsertion(EtatDesLieux $etatDesLieux){  
+    private static function TestInsertion(){  
+        $etatDesLieux=TestEtatDesLieux::CreerEtatDesLieux() ;
         $etatDesLieuxDAO=new EtatDesLieuxDAO();
-        $etatDesLieuxDAO->Create($etatDesLieux);
+        //$etatDesLieux_recupereID=$etatDesLieuxDAO->Create($etatDesLieux);
+        
+
 
     }
 
@@ -59,6 +76,6 @@ class TestEtatDesLieux{
 
 }
 
-TestEtatDesLieux::TestGetById(1);
+TestEtatDesLieux::main();
 
 ?>
