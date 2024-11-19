@@ -14,7 +14,7 @@ use PDO;
  */
 class ElectromenagerDAO extends BasePDODAO implements I_ElectromenagerDAO {
 
-    public function Create(Electromenager $electromenager) : string
+    public function Create(Electromenager $electromenager) : int
     {
         // Mise en place de la requête
         $requete = "INSERT INTO ELECTROMENAGER(nomElectromenager,description,etatEntree,etatSortie) VALUES (:nomElectromenager,:description,:etatEntree,:etatSortie)";
@@ -29,17 +29,20 @@ class ElectromenagerDAO extends BasePDODAO implements I_ElectromenagerDAO {
         $reponse = $this->execRequest($requete,$parameters);        
     
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "L'élément électroménager a été ajouté avec succès",
         "Aucun élément électroménager n'a été ajouté",
         "Erreur lors de la tentative d'ajout de l'élément électroménager");
 
+        // Variable de retour (id de l'élément inserré)
+        $retour = $this->getlastInsertId();
+        
         // Retour de la variable
-        return $reponse;
+        return $retour;
     }
 
 
-    public function Update(Electromenager $electromenager): string
+    public function Update(Electromenager $electromenager)
     {
         // Mise en place de la requête
         $requete = "UPDATE ELECTROMENAGER SET nomElectromenager = :nomElectromenager, description = :description, etatEntree = :etatEntree , etatSortie = :etatSortie WHERE idElectromenager = :idElectromenager";
@@ -55,16 +58,13 @@ class ElectromenagerDAO extends BasePDODAO implements I_ElectromenagerDAO {
         $reponse = $this->execRequest($requete,$parameters);        
     
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Élément électroménager mis à jour avec succès",
         "Aucune modification n'a été effectuée",
         "Impossible de mettre à jour l'élément électroménager");
-
-        // Retour de la variable
-        return $reponse;
     }
 
-    public function Delete(int $id) : string
+    public function Delete(int $id)
     {
         // Mise en place de la requête
         $requete = "DELETE FROM ELECTROMENAGER WHERE idElectromenager = :idElectromenager";
@@ -74,13 +74,10 @@ class ElectromenagerDAO extends BasePDODAO implements I_ElectromenagerDAO {
         $reponse = $this->execRequest($requete,$parameters);   
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "L'élément électroménager a été supprimé avec succès",
         "Aucun élément électroménager n'a été supprimé",
         "Erreur lors de la tentative de suppression de l'élément électroménager");
-
-        // Retour de la variable
-        return $reponse;
     }
 
     public function getById(int $id) : Electromenager{

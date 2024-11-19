@@ -14,7 +14,7 @@ use PDO;
  */
 class PieceDAO extends BasePDODAO implements I_PieceDAO {
 
-    public function Create(Piece $piece) : string
+    public function Create(Piece $piece) : int
     {
         // Mise en place de la requête
         $requete = "INSERT INTO PIECE(idTypePiece,idPrises,idElectromenager,idLogement) VALUES (:idTypePiece,:idPrises,:idElectromenager,:idLogement)";
@@ -29,17 +29,20 @@ class PieceDAO extends BasePDODAO implements I_PieceDAO {
         $reponse = $this->execRequest($requete,$parameters);        
     
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "La pièce a été ajouté avec succès",
         "Aucune pièce n'a été ajouté",
         "Erreur lors de la tentative d'ajout de la pièce");
 
+        // Variable de retour (id de l'élément inserré)
+        $retour = $this->getlastInsertId();
+        
         // Retour de la variable
-        return $reponse;
+        return $retour;
     }
 
 
-    public function Update(Piece $piece): string
+    public function Update(Piece $piece)
     {
         // Mise en place de la requête
         $requete = "UPDATE PIECE SET idTypePiece = :idTypePiece, idPrises = :idPrises, idElectromenager = :idElectromenager , idLogement = :idLogement";
@@ -54,16 +57,13 @@ class PieceDAO extends BasePDODAO implements I_PieceDAO {
         $reponse = $this->execRequest($requete,$parameters);        
     
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Pièce mis à jour avec succès",
         "Aucune modification n'a été effectuée",
         "Impossible de mettre à jour la pièce");
-
-        // Retour de la variable
-        return $reponse;
     }
 
-    public function Delete(int $id) : string
+    public function Delete(int $id) 
     {
         // Mise en place de la requête
         $requete = "DELETE FROM PIECE WHERE idPiece = :idPiece";
@@ -73,13 +73,10 @@ class PieceDAO extends BasePDODAO implements I_PieceDAO {
         $reponse = $this->execRequest($requete,$parameters);   
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "La pièce a été supprimé avec succès",
         "Aucune pièce n'a été supprimé",
         "Erreur lors de la tentative de suppression de la pièce");
-
-        // Retour de la variable
-        return $reponse;
     }
 
     public function getById(int $id) : Piece{

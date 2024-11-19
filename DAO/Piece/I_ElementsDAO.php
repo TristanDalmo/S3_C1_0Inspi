@@ -12,23 +12,21 @@ interface I_ElementsDAO {
     /**
      * Méthode permettant de créer un élément dans la BDD
      * @param \Model\Elements $element Élément à insérer
-     * @return string Message d'erreur ou de succès
+     * @return int Id de l'élément créé
      */
-    public function Create(Elements $element) : string;
+    public function Create(Elements $element) : int;
 
     /**
      * Méthode permettant de modifier les données d'un élément
      * @param \Model\Elements $element Élément à modifier
-     * @return string Message d'erreur ou de succès
      */
-    public function Update(Elements $element): string;
+    public function Update(Elements $element);
 
     /**
      * Méthode permettant de supprimer un élément
      * @param int $id Id d'un élément à supprimer
-     * @return string Message d'erreur ou de succès
      */
-    public function Delete(int $id): string;
+    public function Delete(int $id);
 
     /**
      * Méthode permettant de sélectionner un élément dans la BDD à partir de son id
