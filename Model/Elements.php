@@ -13,6 +13,9 @@ class Elements {
     // Id de l'élément
     private int $idElement;
 
+    // Type de l'élément
+    private string $typeElement;
+
     // Description de l'élément
     private string $description;
 
@@ -145,5 +148,21 @@ class Elements {
                 $this->$method($value);
             }
         }
+    }
+
+    /**
+     * Get the value of typeElement
+     */ 
+    public function getTypeElement()
+    {
+        return $this->typeElement;
+    }
+
+    /**
+     * Set the value of typeElement
+     */ 
+    public function setTypeElement($typeElement)
+    {
+        $this->typeElement = $typeElement;
     }
 }

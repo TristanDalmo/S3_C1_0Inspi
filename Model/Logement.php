@@ -34,7 +34,7 @@ class Logement {
      * @return int 
      */
     public function getIdLogement() {
-        return $this->idLogement;
+        return $this->idLogement ?? null;
     }
 
     /**

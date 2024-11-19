@@ -4,7 +4,6 @@ namespace Model;
 require_once(__DIR__ . "/Personne.php");
 require_once(__DIR__ . "/TypePiece.php");
 use Model\Personne;
-use Model\TypePiece;
 
 /**
  * Classe représentant un état des lieux.
@@ -21,7 +20,7 @@ class EtatDesLieux {
     private string $dateSortie;
 
     // Type de l'etat des lieux (entree ou sortie)
-    private TypePiece $type;
+    private string $type;
 
     // Bailleur de l'état des lieux
     private Personne $bailleur;
@@ -32,12 +31,17 @@ class EtatDesLieux {
     // Logement associé à l'état des lieux
     private Logement $logement;    
 
+    public function __construct(){
+        $this->bailleur = new Personne();
+        $this->logement = new Logement();
+    }
+
     /**
      * Get the value of idEtatDesLieux
      */ 
     public function getIdEtatDesLieux()
     {
-        return $this->idEtatDesLieux;
+        return $this->idEtatDesLieux ?? null;
     }
 
     /**
@@ -53,13 +57,13 @@ class EtatDesLieux {
      */ 
     public function getDateEntree()
     {
-        return $this->dateEntree;
+        return $this->dateEntree ?? null;
     }
 
     /**
      * Set the value of dateEntree
      */ 
-    public function setDateEntree($dateEntree)
+    public function setdateEntree($dateEntree)
     {
         $this->dateEntree = $dateEntree;
     }
@@ -69,13 +73,13 @@ class EtatDesLieux {
      */ 
     public function getDateSortie()
     {
-        return $this->dateSortie;
+        return $this->dateSortie ?? null;
     }
 
     /**
      * Set the value of dateSortie
      */ 
-    public function setDateSortie($dateSortie)
+    public function setdateSortie($dateSortie)
     {
         $this->dateSortie = $dateSortie;
     }
@@ -85,15 +89,15 @@ class EtatDesLieux {
      */ 
     public function getType()
     {
-        return $this->type;
+        return $this->type ?? null;
     }
 
     /**
      * Set the value of type
      */ 
-    public function setType($type)
+    public function setType($type): void
     {
-        $this->type = $type;
+        $this->type=$type;
     }
 
     /**
@@ -101,15 +105,22 @@ class EtatDesLieux {
      */ 
     public function getBailleur()
     {
-        return $this->bailleur;
+        return $this->bailleur ?? null;
     }
 
     /**
      * Set the value of bailleur
      */ 
-    public function setBailleur($bailleur)
+    public function setidPersonne($bailleur)
     {
-        $this->bailleur = $bailleur;
+        //$this->bailleur = $bailleur;
+        if (is_int($bailleur)) {
+            $this->bailleur=new Personne();
+            $this->bailleur->setIdPersonne($bailleur);
+        }
+        else if($bailleur instanceof Personne){
+            $this->bailleur=$bailleur;
+        }
     }
 
     /**
@@ -117,7 +128,7 @@ class EtatDesLieux {
      */ 
     public function getMedia()
     {
-        return $this->media;
+        return $this->media ?? null;
     }
 
     /**
@@ -133,15 +144,22 @@ class EtatDesLieux {
      */ 
     public function getLogement()
     {
-        return $this->logement;
+        return $this->logement ?? null;
     }
 
     /**
      * Set the value of logement
      */ 
-    public function setLogement($logement)
+    public function setidLogement($logement)
     {
-        $this->logement = $logement;
+        //$this->logement = $logement;
+        if (is_int($logement)) {
+            $this->logement=new Logement();
+            $this->logement->setIdLogement($logement);
+        }
+        else if($logement instanceof Logement){
+            $this->logement=$logement;
+        }
     }
 
     /**
@@ -157,10 +175,12 @@ class EtatDesLieux {
             $method = 'set'.ucfirst($key);
             
             // Si le setter correspondant existe.
-            if (method_exists($this, $method))
+            if (method_exists($this, $method) && $value != null)
             {
                 // On appelle le setter.
                 $this->$method($value);
+                echo $method;
+                echo '<br>';
             }
         }
     }

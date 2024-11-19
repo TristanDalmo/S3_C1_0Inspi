@@ -1,9 +1,12 @@
 <?php
 
-namespace Models;
+namespace DAO;
 use PDO;
+use PDOException;
 use PDOStatement;
+require_once(__DIR__ . "/../Config/Config.php");
 use Config;
+use Exception;
 
 /**
  * Classe de base d'un DAO
@@ -24,20 +27,31 @@ class BasePDODAO {
      */
     protected function execRequest(string $sql, array $params = null) : PDOStatement|false {
         
+        // Initialisation de la variable de retour
+        $retour = null;
+
         // On prépare la requête
         $stmt = $this->db->prepare($sql);
 
-        // Si on a des paramètres, on les utilisera
-        if ($params != null) {
-            // On ajoute les différents attributs
-            foreach ($params as $key => $value) {
-                $stmt->bindValue($key, $value);
+        try {
+            // Si on a des paramètres, on les utilisera
+            if ($params != null) {
+                // On ajoute les différents attributs
+                foreach ($params as $key => $value) {
+                    $stmt->bindValue($key, $value);
+                }
             }
+
+            // On exécute la requête SQL
+            $stmt->execute();
+
+            $retour = $stmt;
+        }
+        catch (PDOException $e) {
+            // Gérer les erreurs de BDD
+            $retour = "Erreur : " . $e->getMessage();
         }
 
-
-        // On exécute la requête SQL
-        $stmt->execute();
         
         return $stmt;
     }
@@ -48,11 +62,56 @@ class BasePDODAO {
      */
     private function getDB() : PDO {
 
+        $dbPath = Config\Config::get('sqlite_path');
+
+        return new PDO("sqlite:" . $dbPath);
+
+        /*
+
         $dsn = Config\Config::get('dsn');
         $username = Config\Config::get('username');
         $password = Config\Config::get('password');
 
         return new PDO(dsn: $dsn, username: $username, password: $password);
+
+        */
+    }
+
+    /**
+     * Méthode permettant de vérifier les résultats de la BDD selon le résultat renvoyé
+     * @param mixed $result Résultat à vérifier
+     * @param string $MessageSucces Message à retourner en cas de succès
+     * @param string $MessageAucunChangement Message à retourner dans le cas où il n'y a aucun changement
+     * @param string $MessageErreur Message à retourner en cas d'erreur
+     */
+    protected function verificationResultat($result, string $MessageSucces, string $MessageAucunChangement, string $MessageErreur) : void 
+    {
+        // Message de retour
+        $retour = null;
+
+        if ($result instanceof PDOStatement) {
+            $rowCount = $result->rowCount();
+            if ($rowCount > 0) {
+                $retour =  $MessageSucces;
+            } else {
+                $retour =  $MessageAucunChangement;
+                throw new Exception($retour);
+            }
+        } else {
+            $retour =  $MessageErreur;
+            throw new Exception($retour);
+        }
+
+        // Retour du message en console
+        echo "<script>console.log('" . $retour . "');</script>";
+    }
+
+    /**
+     * Méthode retournant l'id du dernier élément inserré dans la BDD
+     * @return int Id du dernier élément inserré dans la BDD
+     */
+    protected function getlastInsertId() : int {
+        return $this->db->lastInsertId();
     }
 
     
