@@ -14,7 +14,6 @@ use Model\Personne;
 use Model\TypePiece;
 
 class TestEtatDesLieux{
-
     public static function CreerEtatDesLieux(): EtatDesLieux {
         $etatDesLieux=new EtatDesLieux();
         $etatDesLieux->setDateEntree("02-05-2032");
