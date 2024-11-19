@@ -4,11 +4,11 @@ namespace Controllers\PagesFormulaire;
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PageFormulaire.php");
 use Views\PagesFormulaire\PageFormulaire;
 
+
 /**
  * Classe permettant de créer la page de remplissage du formulaire
  */
 class ControllerFormulaire {
-
     // Page à initialiser
     private PageFormulaire $page;
 

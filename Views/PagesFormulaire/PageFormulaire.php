@@ -53,13 +53,13 @@ class PageFormulaire extends AbstractPage
                         <p class=\"putbold\">LOGEMENT</p>
                     </div>
                     <div class=\"l2\">
-                        <input type=\"radio\" id=\"Appartement\" name=\"typeLogement\">
+                        <input type=\"radio\" id=\"Appartement\" name=\"typeLogement\" value=\"Appartement\">
                         <label for=\"Appartement\">Appartement</label>
-                        <input type=\"radio\" id=\"Maison\" name=\"typeLogement\">
+                        <input type=\"radio\" id=\"Maison\" name=\"typeLogement\" value=\"Maison\">
                         <label for=\"Maison\">Maison</label>
-                        <input type=\"radio\" id=\"Autre\" name=\"typeLogement\">
+                        <input type=\"radio\" id=\"Autre\" name=\"typeLogement\" value=\"Autre\">
                         <label for=\"Autre\">Autre</label>
-                        <input type=\"text\" id=\"textautre\" size=\"5\">
+                        <input type=\"text\" id=\"textautre\" name=\"textautre\" size=\"5\">
                     </div>
                     <div class=\"l3\">
                         <label for=\"SURFACE\" class=\"putbold\">SURFACE :</label>
@@ -80,13 +80,13 @@ class PageFormulaire extends AbstractPage
                     <tr>
                         <td>
                             <div class=\"civilite-container\">
-                                <label for=\"mr_bailleur\" class=\"putbold\">CIVILITÉ :</label>
+                                <label for=\"mr_bailleur\" class=\"putbold\">CIVILITÉ : </label>
                                 <span class=\"civilite\">
-                                    <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\">
+                                    <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\" value=\"Mr\">
                                     <label for=\"mr_bailleur\">Mr</label>
-                                    <input type=\"radio\" id=\"mme_bailleur\" name=\"civilite_bailleur\">
+                                    <input type=\"radio\" id=\"mme_bailleur\" name=\"civilite_bailleur \"value=\"Mme\">
                                     <label for=\"mme_bailleur\">Mme</label>
-                                    <input type=\"radio\" id=\"mlle_bailleur\" name=\"civilite_bailleur\">
+                                    <input type=\"radio\" id=\"mlle_bailleur\" name=\"civilite_bailleur\" value=\"Mlle\">
                                     <label for=\"mlle_bailleur\">Mlle</label>
                                 </span>
                             </div>
@@ -101,18 +101,18 @@ class PageFormulaire extends AbstractPage
                             <div class=\"civilite-container\">
                                 <label for=\"mr_locataire\" class=\"putbold\">CIVILITÉ :</label>
                                 <span class=\"civilite\">
-                                    <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\">
+                                    <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\" value=\"Mr\">
                                     <label for=\"mr_locataire\">Mr</label>
-                                    <input type=\"radio\" id=\"mme_locataire\" name=\"civilite_locataire\">
+                                    <input type=\"radio\" id=\"mme_locataire\" name=\"civilite_locataire\" \"value=\"Mme\">
                                     <label for=\"mme_locataire\">Mme</label>
-                                    <input type=\"radio\" id=\"mlle_locataire\" name=\"civilite_locataire\">
+                                    <input type=\"radio\" id=\"mlle_locataire\" name=\"civilite_locataire\" value=\"Mlle\">
                                     <label for=\"mlle_locataire\">Mlle</label>
                                 </span>
                             </div>
                             <label for=\"prenom_locataire\" class=\"putbold\">PRÉNOM :</label>
-                            <input type=\"text\" id=\"prenom_locataire\">
+                            <input type=\"text\" id=\"prenom_locataire\" name=\"prenom_locataire\">
                             <label for=\"nom_locataire\" class=\"putbold\">NOM :</label>
-                            <input type=\"text\" id=\"nom_locataire\">
+                            <input type=\"text\" id=\"nom_locataire\" name=\"nom_locataire\">
                             <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE :</label>
                             <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
                             <textarea id=\"adresse_locataire\" rows=\"3\"></textarea>
@@ -193,7 +193,7 @@ class PageFormulaire extends AbstractPage
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
-                        <td><select id=\"Plafond3\">
+                        <td><select name=\"Plafond3\" id=\"Plafond3\">
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -1129,6 +1129,17 @@ class PageFormulaire extends AbstractPage
                 <input type=\"reset\" value=\"Effacer\" />
                 <input type=\"submit\" value=\"Valider\" />
             </div>
+                <div class=\"file-generation\">
+        <p>Choisissez le format de fichier à générer :</p>
+            <input type=\"radio\" id=\"format_pdf\" name=\"file_format\" value=\"pdf\" required>
+            <label for=\"format_pdf\">PDF</label>
+
+            <input type=\"radio\" id=\"format_word\" name=\"file_format\" value=\"word\">
+            <label for=\"format_word\">Word</label>
+
+            <br><br>
+            <button type=\"submit\" id=\"generateFile\">Générer le fichier</button>
+        </div>
 
         </form>
     </div>";
