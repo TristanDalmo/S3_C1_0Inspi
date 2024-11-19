@@ -1,7 +1,7 @@
 <?php
 
 namespace DAO\EtatDesLieux;
-require_once(__DIR__."../../Model/Locataire.php");
+require_once(__DIR__."/../../Model/Locataire.php");
 use Model\Locataire;
 
 /**
