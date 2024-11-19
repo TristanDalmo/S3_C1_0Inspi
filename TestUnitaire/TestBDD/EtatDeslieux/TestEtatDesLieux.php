@@ -1,17 +1,16 @@
 <?php
 
-namespace TestUnitaire;
-require_once(__DIR__ . "/../DAO/EtatDesLieux/EtatDesLieuxDAO.php");
-require_once(__DIR__ . "/../Model/EtatDesLieux.php");
-require_once(__DIR__ . "/../Model/Logement.php");
-require_once(__DIR__ . "/../Model/Personne.php");
-require_once(__DIR__ . "/../Model/TypePiece.php");
+namespace TestUnitaire\TestBDD\EtatDesLieux\TestEtatDesLieux;
+require_once(__DIR__ . "/../../../DAO/EtatDesLieux/EtatDesLieuxDAO.php");///../DAO/EtatDesLieux/EtatDesLieuxDAO.php
+require_once(__DIR__ . "/../../../Model/EtatDesLieux.php");
+require_once(__DIR__ . "/../../../Model/Logement.php");
+require_once(__DIR__ . "/../../../Model/Personne.php");
+require_once(__DIR__ . "/../../../Model/TypePiece.php");
 use DAO\EtatDesLieuxDAO\EtatDesLieuxDAO;
 use Model\EtatDesLieux;
 use Model\Logement;
 use Model\Personne;
-use Model\TypePiece;
-require_once(__DIR__ . "/AbstractTestUnitaire.php");
+require_once(__DIR__ . "/../../AbstractTestUnitaire.php");
 use TestUnitaire\AbstractTestUnitaire;
 use Exception;
 
