@@ -2,16 +2,16 @@
 
 namespace TestUnitaire\TestBDD\Piece;
 
-require_once(__DIR__ . "/../../../DAO/Piece/ElectromenagerDAO.php");
-require_once(__DIR__ . "/../../../Model/Electromenager.php");
-use DAO\Piece\ElectromenagerDAO;
-use Model\Electromenager;
+require_once(__DIR__ . "/../../../DAO/Piece/PieceDAO.php");
+require_once(__DIR__ . "/../../../Model/Piece.php");
+use DAO\Piece\PieceDAO;
+use Model\Piece;
 
 require_once(__DIR__ . "/../../AbstractTestUnitaire.php");
 use TestUnitaire\AbstractTestUnitaire;
 use Exception;
 
-class TestElectromenager extends AbstractTestUnitaire {
+class TestPiece extends AbstractTestUnitaire {
 
     // Id de l'élément créé dans GetbyId
     private int $idCree;
@@ -20,7 +20,7 @@ class TestElectromenager extends AbstractTestUnitaire {
 
         // On retourne un tableau des résultats
         return [
-            "<h2>Tests unitaire de la classe Electroménager</h2>",
+            "<h2>Tests unitaire de la classe Pièce</h2>",
             $this->TestGetById(),
             $this->TestInsert(),
             $this->TestUpdate(),
@@ -28,23 +28,19 @@ class TestElectromenager extends AbstractTestUnitaire {
         ];
     }
 
-    /**
-     * Test de la méthode Get By Id
-     * @return string Message de retour
-     */
+
     private function TestGetById():string{
         
-        // recuperation de l'etat des lieux créer precdement 
-        $electromenagerDAO=new ElectromenagerDAO();
-        $electromenager=$electromenagerDAO->getById(1);
+        $pieceDAO=new PieceDAO();
+        $piece=$pieceDAO->getById(2);
 
         // Variable de retour
         $retour = "";
 
-        if ( ($electromenager->getNomElectromenager() == "Réfrigérateur") 
-            && ($electromenager->getDescription() == "Réfrigérateur combiné 250L")
-            && ($electromenager->getEtatEntree() == "B") 
-            && ($electromenager->getEtatSortie() == "") )
+        if ( ($piece->getElectromenager()->getIdElectromenager() == 2) 
+            && ($piece->getLogement()->getIdLogement() == 1)
+            && ($piece->getPrises()->getIdPrises() == 2)
+            && ($piece->getTypePiece()->getIdTypePiece() ==3))
         {
             $retour = "<p class='reussi'>Test de GetById : Test réussi </p>";
         }
@@ -56,25 +52,22 @@ class TestElectromenager extends AbstractTestUnitaire {
         return $retour; 
     }
 
-    /**
-     * Test de la méthode Insert
-     * @return string Message de retour
-     */
+
     private function TestInsert(): string {
 
         // Création de l'électroménager
-        $electromenager = new Electromenager();
-        $electromenager->setEtatEntree("A");
-        $electromenager->setEtatSortie("B");
-        $electromenager->setDescription("Electro");
-        $electromenager->setNomElectromenager("Eleeeee");
+        $piece = new Piece();
+        $piece->setIdElectromenager(3);
+        $piece->setidLogement(2);
+        $piece->setidPrise(1);
+        $piece->setidTypePiece(2);
 
-        $electroDAO = new ElectromenagerDAO();
+        $pieceDAO = new PieceDAO();
 
         $retour = "";
 
         try {
-            $this->idCree = $electroDAO->Create($electromenager);
+            $this->idCree = $pieceDAO->Create($piece);
             $retour = "<p class='reussi'>Test de Insert : Test réussi </p>";
         }
         catch (Exception $e) {
@@ -85,24 +78,28 @@ class TestElectromenager extends AbstractTestUnitaire {
         return $retour;
     }
 
-    /**
-     * Test de la méthode Update
-     * @return string Retour
-     */
+
     private function TestUpdate(): string {
 
         // On reprend l'élément précédent et on le met à jour
-        $edlDAO = new ElectromenagerDAO();
+        $edlDAO = new PieceDAO();
         $edl = $edlDAO->GetbyId(2);
 
         $retour = "";
 
         try {
-            $ancienncevaleur = $edl->getDescription();
+            $anciennevaleur = $edl->getElectromenager()->getIdElectromenager();
             // Variable aléatoire 
-            $edl->setDescription(time() . uniqid());
+            if ($edl->getElectromenager()->getIdElectromenager()==1)
+            {
+                $edl->setIdElectromenager(2);
+            }
+            else {
+                $edl->setIdElectromenager(1);
+            }
+
             $edlDAO->Update($edl);
-            if ($ancienncevaleur != $edlDAO->getById(2)->getDescription()) {
+            if ($anciennevaleur != $edlDAO->getById(2)->getElectromenager()->getIdElectromenager()) {
                 $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
             }
             else {
@@ -117,13 +114,10 @@ class TestElectromenager extends AbstractTestUnitaire {
         return $retour;
     }
 
-    /**
-     * Test de la méthode Update
-     * @return string Retour
-     */
+
     private function TestDelete(): string {
 
-        $edlDAO = new ElectromenagerDAO();
+        $edlDAO = new PieceDAO();
 
         $retour = "";
 

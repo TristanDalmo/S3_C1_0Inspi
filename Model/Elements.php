@@ -31,10 +31,8 @@ class Elements {
 
     /**
      * Get the value of idElement
-     *
-     * @return int
      */
-    public function getIdElement(): int
+    public function getIdElement()
     {
         return $this->idElement ?? null;
     }
@@ -51,10 +49,8 @@ class Elements {
 
     /**
      * Get the value of description
-     *
-     * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description ?? null;
     }
@@ -71,10 +67,8 @@ class Elements {
 
     /**
      * Get the value of etatEntree
-     *
-     * @return string
      */
-    public function getEtatEntree(): string
+    public function getEtatEntree()
     {
         return $this->etatEntree ?? null;
     }
@@ -91,10 +85,8 @@ class Elements {
 
     /**
      * Get the value of etatSortie
-     *
-     * @return string
      */
-    public function getEtatSortie(): string
+    public function getEtatSortie()
     {
         return $this->etatSortie ?? null;
     }
@@ -111,10 +103,8 @@ class Elements {
 
     /**
      * Get the value of piece
-     *
-     * @return Piece
      */
-    public function getPiece(): Piece
+    public function getPiece()
     {
         return $this->piece ?? null;
     }
@@ -122,7 +112,7 @@ class Elements {
     /**
      * Set the value of piece
      */
-    public function setPiece($piece)
+    public function setidPiece($piece)
     {
         if (is_int($piece))
         {

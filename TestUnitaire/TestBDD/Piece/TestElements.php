@@ -2,16 +2,16 @@
 
 namespace TestUnitaire\TestBDD\Piece;
 
-require_once(__DIR__ . "/../../../DAO/Piece/ElectromenagerDAO.php");
-require_once(__DIR__ . "/../../../Model/Electromenager.php");
-use DAO\Piece\ElectromenagerDAO;
-use Model\Electromenager;
+require_once(__DIR__ . "/../../../DAO/Piece/ElementsDAO.php");
+require_once(__DIR__ . "/../../../Model/Elements.php");
+use DAO\Piece\ElementsDAO;
+use Model\Elements;
 
 require_once(__DIR__ . "/../../AbstractTestUnitaire.php");
 use TestUnitaire\AbstractTestUnitaire;
 use Exception;
 
-class TestElectromenager extends AbstractTestUnitaire {
+class TestElements extends AbstractTestUnitaire {
 
     // Id de l'élément créé dans GetbyId
     private int $idCree;
@@ -20,7 +20,7 @@ class TestElectromenager extends AbstractTestUnitaire {
 
         // On retourne un tableau des résultats
         return [
-            "<h2>Tests unitaire de la classe Electroménager</h2>",
+            "<h2>Tests unitaire de la classe Éléments</h2>",
             $this->TestGetById(),
             $this->TestInsert(),
             $this->TestUpdate(),
@@ -34,17 +34,18 @@ class TestElectromenager extends AbstractTestUnitaire {
      */
     private function TestGetById():string{
         
-        // recuperation de l'etat des lieux créer precdement 
-        $electromenagerDAO=new ElectromenagerDAO();
-        $electromenager=$electromenagerDAO->getById(1);
+        // recuperation de l'élément créé précédemment
+        $elementsDAO=new ElementsDAO();
+        $elements=$elementsDAO->getById(1);
 
         // Variable de retour
         $retour = "";
 
-        if ( ($electromenager->getNomElectromenager() == "Réfrigérateur") 
-            && ($electromenager->getDescription() == "Réfrigérateur combiné 250L")
-            && ($electromenager->getEtatEntree() == "B") 
-            && ($electromenager->getEtatSortie() == "") )
+        if ( ($elements->getDescription() == "Mur peint en blanc") 
+            && ($elements->getTypeElement() == "Mur")
+            && ($elements->getEtatEntree() == "A") 
+            && ($elements->getEtatSortie() == "")
+            && ($elements->getPiece() !== null && $elements->getPiece()?->getIdPiece() == 1))
         {
             $retour = "<p class='reussi'>Test de GetById : Test réussi </p>";
         }
@@ -62,14 +63,15 @@ class TestElectromenager extends AbstractTestUnitaire {
      */
     private function TestInsert(): string {
 
-        // Création de l'électroménager
-        $electromenager = new Electromenager();
+        // Création de l'élément
+        $electromenager = new Elements();
+        $electromenager->setTypeElement("PAPIERPAEINT");
         $electromenager->setEtatEntree("A");
         $electromenager->setEtatSortie("B");
-        $electromenager->setDescription("Electro");
-        $electromenager->setNomElectromenager("Eleeeee");
+        $electromenager->setDescription("element");
+        $electromenager->setidPiece(2);
 
-        $electroDAO = new ElectromenagerDAO();
+        $electroDAO = new ElementsDAO();
 
         $retour = "";
 
@@ -92,17 +94,17 @@ class TestElectromenager extends AbstractTestUnitaire {
     private function TestUpdate(): string {
 
         // On reprend l'élément précédent et on le met à jour
-        $edlDAO = new ElectromenagerDAO();
-        $edl = $edlDAO->GetbyId(2);
+        $elementDAO = new ElementsDAO();
+        $element = $elementDAO->GetbyId(2);
 
         $retour = "";
 
         try {
-            $ancienncevaleur = $edl->getDescription();
+            $ancienncevaleur = $element->getDescription();
             // Variable aléatoire 
-            $edl->setDescription(time() . uniqid());
-            $edlDAO->Update($edl);
-            if ($ancienncevaleur != $edlDAO->getById(2)->getDescription()) {
+            $element->setDescription(time() . uniqid());
+            $elementDAO->Update($element);
+            if ($ancienncevaleur != $elementDAO->getById(2)->getDescription()) {
                 $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
             }
             else {
@@ -123,13 +125,13 @@ class TestElectromenager extends AbstractTestUnitaire {
      */
     private function TestDelete(): string {
 
-        $edlDAO = new ElectromenagerDAO();
+        $elementDAO = new ElementsDAO();
 
         $retour = "";
 
         try {
             // On supprime l'élément créé dans le test insert
-            $edlDAO->Delete($this->idCree);
+            $elementDAO->Delete($this->idCree);
 
             $retour = "<p class='reussi'>Test de Delete : Test réussi </p>";
 
