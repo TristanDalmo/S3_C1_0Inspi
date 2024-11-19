@@ -1,6 +1,6 @@
 <?
 
-    namespace MediaService;
+    namespace Service\MediaService;
 
     interface I_MediaService
     {

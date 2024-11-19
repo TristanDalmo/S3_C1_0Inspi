@@ -1,6 +1,8 @@
 <?php
 
     namespace MediaMetier;
+
+    use Exception;
     require_once(__DIR__ . "/I_MediaManager.php");
     use MediaMetier\I_MediaManager;
 
@@ -11,8 +13,6 @@
     {
         public function InsertionMedia(array $donnees) : string
         {
-            $retour = "";
-
             // On vérifie que les documents existent et qu'il s'agit bien d'un tableau
             if (isset($donnees['Documents']) && is_array($donnees['Documents']['name']))
             {
@@ -35,32 +35,30 @@
     
                     // Vérifie si le fichier existe déjà ou non
                     if (file_exists(filename: $Fichier_Cible)) {
-                        $retour = "Le fichier " . $donnees["fileToUpload"]["name"][$key] . " existe déjà, veuillez changer le nom de votre fichier ou en insérer un différent.";
-                        break;
+                        throw new Exception("Le fichier " . $donnees["fileToUpload"]["name"][$key] . " existe déjà, veuillez changer le nom de votre fichier ou en insérer un différent.");
                     }
     
                     // Limitation de taille des fichiers (à 40 Mo), on arrête si la limite est dépassée
                     if ($donnees["Documents"]["size"][$key] > 40000000) {
-                        $retour = "Le fichier " . $donnees["fileToUpload"]["name"][$key] . " dépasse la limite autorisée (40 Mo).";
-                        break;
+                        throw new Exception("Le fichier est trop volumineux, il doit être inférieur à 40Mo");
                     }
     
                     // On vérifie si on insère bien le bon type de fichier (que n'importe quel fichier ne soit pas inséré à la place)
                     $fichiers_autorises = array("jpg","png","jpeg","mp4","mov",);
                     if (!in_array(needle: $TypeFichier,haystack: $fichiers_autorises)) {
-                        echo "Le fichier " . $donnees["fileToUpload"]["name"][$key] . " n'est pas dans un format autorisé (jpg, png, jpeg, mp4 ou mov).";
-                        break;
+                        throw new Exception("Le fichier " . $donnees["fileToUpload"]["name"][$key] . " n'est pas dans un format autorisé (jpg, png, jpeg, mp4 ou mov).");
+                        
                     }
     
                     #endregion
                 
                 // Upload du fichier et message sur console pour savoir si oui ou non il a été ajouté
                     if (move_uploaded_file(from: $donnees["Documents"]["tmp_name"][$key], to: $Fichier_Cible)) {
-                        echo "<script>console.log('Le fichier " . $donnees["Documents"]["name"][$key] . " a bien été ajouté aux documents du serveur')</script>";
+                        throw new Exception("Le fichier " . $donnees["Documents"]["name"][$key] . " a bien été ajouté aux documents du serveur");
                     }
                     else 
                     {
-                        echo "<script>console.log('Une erreur s'est produite lors de l'ajout de : " . $donnees["Documents"]["name"][$key]. "')</script>";
+                        throw new Exception("Une erreur s'est produite lors de l'ajout de : " . $donnees["Documents"]["name"][$key]);
                     }
                     
     

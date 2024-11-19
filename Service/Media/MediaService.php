@@ -1,8 +1,8 @@
 <?php
 
-    namespace MediaService;
+    namespace Service\MediaService;
     require_once __DIR__."I_MediaService.php";
-    use MediaService\I_MediaService;
+    use Service\MediaService\I_MediaService;
     require_once __DIR__."././MediaMetier.php";
     use MediaMetier\MediaManager;
 

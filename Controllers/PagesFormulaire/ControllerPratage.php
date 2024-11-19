@@ -3,6 +3,8 @@
 namespace Controllers\PagesFormulaire;
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
 use Views\PagesFormulaire\PagePartage;
+use MediaService\MediaService;
+require_once(__DIR__."/././Service/Media/MediaService.php");
 
 /**
  * Classe permettant de créer la page de remplissage du formulaire
@@ -28,11 +30,18 @@ class ControllerPartage {
     public function index() : string {
 
 
-        /**
-         * ========================================================================================================
-         * =                                INSERER PARTIE SERVICE ICI                                            =
-         * ========================================================================================================
-         */
+        try
+        {
+            $mediaService = new MediaService();
+            if (isset($_FILES))
+            {
+                $mediaService->InsertionMedias($_FILES);
+            } 
+        }
+        catch
+        {
+            
+        }
 
         return $this->page->GeneratePage();
 
