@@ -14,7 +14,7 @@ use PDO;
  */
 class LogementDAO extends BasePDODAO implements I_LogementDAO {
 
-    public function Create(Logement $logement): string {
+    public function Create(Logement $logement): int {
         // On prépare la requête d'insertion
         $requete = "INSERT INTO LOGEMENT (type, surface, nbPiece, adresse) VALUES (:type, :surface, :nbPiece, :adresse)";
 
@@ -30,16 +30,19 @@ class LogementDAO extends BasePDODAO implements I_LogementDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Le logement a été ajouté avec succès",
         "Aucun logement n'a été ajouté",
         "Erreur lors de la tentative d'ajout du logement");
     
+        // Variable de retour (id de l'élément inserré)
+        $retour = $this->getlastInsertId();
+        
         // Retour de la variable
-        return $reponse;
+        return $retour;
     }
     
-    public function Update(Logement $logement) : string {
+    public function Update(Logement $logement) {
 
         $requete = "UPDATE LOGEMENT SET type = :type, surface = :surface, nbPiece = :nbPiece, adresse = :adresse WHERE idLogement = :idLogement";
         $donnees = array(
@@ -54,16 +57,13 @@ class LogementDAO extends BasePDODAO implements I_LogementDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Logement mis à jour avec succès",
         "Aucune modification n'a été effectuée",
         "Impossible de mettre à jour le logement");
-        
-        // Retour de la variable
-        return $reponse;
     }
 
-    public function Delete(int $id) : string {
+    public function Delete(int $id) {
 
         $requete = "DELETE FROM LOGEMENT WHERE idLogement = :idLogement";
     
@@ -75,13 +75,10 @@ class LogementDAO extends BasePDODAO implements I_LogementDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Le logement a été supprimé avec succès",
         "Aucun logement n'a été supprimé",
         "Erreur lors de la tentative de suppression de le logement");
-    
-        // Retour de la variable
-        return $reponse;
     }
 
     public function getById(int $id) : Logement {

@@ -11,23 +11,21 @@ interface I_LogementDAO {
     /**
      * Méthode permettant de créer un logement dans la BDD
      * @param \Model\Logement $logement Logement à insérer
-     * @return string Message d'erreur ou de succès 
+     * @return int Id de l'élément créé
      */
-    public function Create(Logement $logement) : string;
+    public function Create(Logement $logement) : int;
 
     /**
      * Méthode permettant de mettre à jour un logement dans la BDD
      * @param \Model\Logement $logement Logement à mettre à jour
-     * @return string Message d'erreur ou de succès
      */
-    public function Update(Logement $logement): string;
+    public function Update(Logement $logement);
 
     /**
      * Méthode permettant d'effacer un logement
      * @param int $id id du logement à supprimer
-     * @return string Message d'erreur ou de succès
      */
-    public function Delete(int $id): string;
+    public function Delete(int $id);
 
     /**
      * Méthode permettant d'obtenir un logement via son id

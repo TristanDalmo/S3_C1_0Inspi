@@ -14,7 +14,7 @@ use PDO;
  */
 class PersonneDAO extends BasePDODAO implements I_PersonneDAO {
 
-    public function Create(Personne $personne): string {
+    public function Create(Personne $personne): int {
         // On prépare la requête d'insertion
         $requete = "INSERT INTO PERSONNE (civilite, prenom, nom, adresse) VALUES (:civilite, :prenom, :nom, :adresse)";
 
@@ -30,16 +30,19 @@ class PersonneDAO extends BasePDODAO implements I_PersonneDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "La personne a été ajouté avec succès",
         "Aucune personne n'a été ajouté",
         "Erreur lors de la tentative d'ajout de la personne");
-    
+
+        // Variable de retour (id de l'élément inserré)
+        $retour = $this->getlastInsertId();
+        
         // Retour de la variable
-        return $reponse;
+        return $retour;
     }
     
-    public function Update(Personne $personne) : string {
+    public function Update(Personne $personne) {
 
         $requete = "UPDATE PERSONNE SET civilite = :civilite, prenom = :prenom, nom = :nom, adresse = :adresse WHERE idPersonne = :idPersonne";
         $donnees = array(
@@ -54,16 +57,13 @@ class PersonneDAO extends BasePDODAO implements I_PersonneDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Personne mis à jour avec succès",
         "Aucune modification n'a été effectuée",
         "Impossible de mettre à jour la personne");
-        
-        // Retour de la variable
-        return $reponse;
     }
 
-    public function Delete(int $id) : string {
+    public function Delete(int $id) {
 
         $requete = "DELETE FROM PERSONNE WHERE idPersonne = :idPersonne";
     
@@ -75,13 +75,10 @@ class PersonneDAO extends BasePDODAO implements I_PersonneDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "La personne a été supprimé avec succès",
         "Aucune personne n'a été supprimé",
         "Erreur lors de la tentative de suppression de la personne");
-    
-        // Retour de la variable
-        return $reponse;
     }
 
     public function getById(int $id) : Personne {

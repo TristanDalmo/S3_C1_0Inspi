@@ -6,6 +6,7 @@ use PDOException;
 use PDOStatement;
 require_once(__DIR__ . "/../Config/Config.php");
 use Config;
+use Exception;
 
 /**
  * Classe de base d'un DAO
@@ -61,11 +62,19 @@ class BasePDODAO {
      */
     private function getDB() : PDO {
 
+        $dbPath = Config\Config::get('sqlite_path');
+
+        return new PDO("sqlite:" . $dbPath);
+
+        /*
+
         $dsn = Config\Config::get('dsn');
         $username = Config\Config::get('username');
         $password = Config\Config::get('password');
 
         return new PDO(dsn: $dsn, username: $username, password: $password);
+
+        */
     }
 
     /**
@@ -74,9 +83,8 @@ class BasePDODAO {
      * @param string $MessageSucces Message à retourner en cas de succès
      * @param string $MessageAucunChangement Message à retourner dans le cas où il n'y a aucun changement
      * @param string $MessageErreur Message à retourner en cas d'erreur
-     * @return string Message à retourner
      */
-    protected function verificationResultat($result, string $MessageSucces, string $MessageAucunChangement, string $MessageErreur) : string 
+    protected function verificationResultat($result, string $MessageSucces, string $MessageAucunChangement, string $MessageErreur) : void 
     {
         // Message de retour
         $retour = null;
@@ -87,13 +95,23 @@ class BasePDODAO {
                 $retour =  $MessageSucces;
             } else {
                 $retour =  $MessageAucunChangement;
+                throw new Exception($retour);
             }
         } else {
             $retour =  $MessageErreur;
+            throw new Exception($retour);
         }
 
-        // Retour du message
-        return $retour;
+        // Retour du message en console
+        echo "<script>console.log('" . $retour . "');</script>";
+    }
+
+    /**
+     * Méthode retournant l'id du dernier élément inserré dans la BDD
+     * @return int Id du dernier élément inserré dans la BDD
+     */
+    protected function getlastInsertId() : int {
+        return $this->db->lastInsertId();
     }
 
     

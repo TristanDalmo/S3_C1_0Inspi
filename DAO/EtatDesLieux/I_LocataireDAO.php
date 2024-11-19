@@ -11,17 +11,15 @@ interface I_LocataireDAO {
     /**
      * Méthode permettant de créer un locataire dans la BDD
      * @param \Model\Locataire $locataire Locataire à insérer
-     * @return string Message d'erreur ou de succès 
      */
-    public function Create(Locataire $locataire) : string;
+    public function Create(Locataire $locataire);
 
     /**
      * Méthode permettant d'effacer un locataire
      * @param int $idPersonne id de la personne locataire
      * @param int $idEtatDesLieux id de l'état des lieux associé
-     * @return string Message d'erreur ou de succès
      */
-    public function Delete(int $idPersonne, int $idEtatDesLieux): string;
+    public function Delete(int $idPersonne, int $idEtatDesLieux);
 
     /**
      * Méthode permettant d'obtenir un locataire via son id

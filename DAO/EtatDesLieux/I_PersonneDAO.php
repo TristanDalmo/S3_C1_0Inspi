@@ -11,23 +11,21 @@ interface I_PersonneDAO {
     /**
      * Méthode permettant de créer une personne dans la BDD
      * @param \Model\Personne $personne Personne à insérer
-     * @return string Message d'erreur ou de succès 
+     * @return int Id de l'élément créé
      */
-    public function Create(Personne $personne) : string;
+    public function Create(Personne $personne) : int;
 
     /**
      * Méthode permettant de mettre à jour une personne dans la BDD
      * @param \Model\Personne $personne Personne à mettre à jour
-     * @return string Message d'erreur ou de succès
      */
-    public function Update(Personne $personne): string;
+    public function Update(Personne $personne);
 
     /**
      * Méthode permettant d'effacer une personne de la BDD
      * @param int $id id de la personne à supprimer
-     * @return string Message d'erreur ou de succès
      */
-    public function Delete(int $id): string;
+    public function Delete(int $id);
 
     /**
      * Méthode permettant d'obtenir une personne via son id

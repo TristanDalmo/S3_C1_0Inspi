@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace DAO\EtatDesLieuxDAO;
 require_once(__DIR__ . "/../BasePDODAO.php");
 use DAO\BasePDODAO;
@@ -16,7 +14,7 @@ use PDO;
  */
 class EtatDesLieuxDAO extends BasePDODAO implements I_EtatDesLieuxDAO {
 
-    public function Create(EtatDesLieux $etatDesLieux): string {
+    public function Create(EtatDesLieux $etatDesLieux): int {
         // On prépare la requête d'insertion
         $requete = "INSERT INTO EtatDesLieux (dateEntree,dateSortie,type,media,idPersonne) VALUES (:dateEntree,:dateSortie,:type,:media,:idPersonne)";
 
@@ -33,15 +31,18 @@ class EtatDesLieuxDAO extends BasePDODAO implements I_EtatDesLieuxDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "L'état des lieux a été ajouté avec succès",
         "Aucun état des lieux n'a été ajouté",
         "Erreur lors de la tentative d'ajout de l'état des lieux");
     
+        // Variable de retour (id de l'élément inserré)
+        $retour = $this->getlastInsertId();
+        
         // Retour de la variable
-        return $reponse;
+        return $retour;
     }
-    public function Update(EtatDesLieux $etatDesLieux) : string {
+    public function Update(EtatDesLieux $etatDesLieux) {
         $requete = "UPDATE EtatDesLieux SET dateEntree = :dateEntree, dateSortie = :dateSortie, type = :type, media = :media, idPersonne = :idPersonne WHERE id = :id";
         $donnees = array(
             "id" => $etatDesLieux->getIdEtatDesLieux(),
@@ -56,16 +57,13 @@ class EtatDesLieuxDAO extends BasePDODAO implements I_EtatDesLieuxDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "État des lieux mis à jour avec succès",
         "Aucune modification n'a été effectuée",
         "Impossible de mettre à jour l'état des lieux");
-        
-        // Retour de la variable
-        return $reponse;
     }
 
-    public function Delete(int $id) : string {
+    public function Delete(int $id) {
         $requete = "DELETE FROM EtatDesLieux WHERE idEtatDesLieux = :idEtatDesLieux";
     
         $donnees = array(
@@ -76,13 +74,10 @@ class EtatDesLieuxDAO extends BasePDODAO implements I_EtatDesLieuxDAO {
         $reponse = $this->execRequest($requete, $donnees);
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "L'état des lieux a été supprimé avec succès",
         "Aucun état des lieux n'a été supprimé",
         "Erreur lors de la tentative de suppression de l'état des lieux");
-    
-        // Retour de la variable
-        return $reponse;
     }
 
     public function getById(int $id) : EtatDesLieux {
