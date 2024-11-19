@@ -43,9 +43,9 @@ class EtatDesLieuxDAO extends BasePDODAO implements I_EtatDesLieuxDAO {
         return $retour;
     }
     public function Update(EtatDesLieux $etatDesLieux) {
-        $requete = "UPDATE EtatDesLieux SET dateEntree = :dateEntree, dateSortie = :dateSortie, type = :type, media = :media, idPersonne = :idPersonne WHERE id = :id";
+        $requete = "UPDATE EtatDesLieux SET dateEntree = :dateEntree, dateSortie = :dateSortie, type = :type, media = :media, idPersonne = :idPersonne WHERE idEtatDesLieux = :idEtatDesLieux";
         $donnees = array(
-            "id" => $etatDesLieux->getIdEtatDesLieux(),
+            "idEtatDesLieux" => $etatDesLieux->getIdEtatDesLieux(),
             "dateEntree" => $etatDesLieux->getDateEntree(),
             "dateSortie" => $etatDesLieux->getDateSortie(),
             "type" => $etatDesLieux->getType(),

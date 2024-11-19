@@ -178,8 +178,6 @@ class EtatDesLieux {
             {
                 // On appelle le setter.
                 $this->$method($value);
-                echo $method;
-                echo '<br>';
             }
         }
     }
