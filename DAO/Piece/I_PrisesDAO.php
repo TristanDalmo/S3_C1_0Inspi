@@ -18,7 +18,7 @@ interface I_PrisesDAO {
 
     /**
      * Méthode permettant de modifier les données d'un ensemble de prises
-     * @param \Model\Piece $prises Ensemble de prises à modifier
+     * @param \Model\Prises $prises Ensemble de prises à modifier
      * @return string Message d'erreur ou de succès
      */
     public function Update(Prises $prises): string;

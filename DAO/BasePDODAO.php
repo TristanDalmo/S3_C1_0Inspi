@@ -4,6 +4,7 @@ namespace DAO;
 use PDO;
 use PDOException;
 use PDOStatement;
+require_once(__DIR__ . "/../Config/Config.php");
 use Config;
 
 /**

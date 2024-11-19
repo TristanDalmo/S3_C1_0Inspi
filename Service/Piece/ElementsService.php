@@ -32,6 +32,6 @@ class ElementsService implements iElementsService
     public function getById(int $id): Elements
     {
         $daoelements = new ElementsDAO(); 
-        $daoelements->getById($id);
+        return $daoelements->getById($id);
     }
 }
