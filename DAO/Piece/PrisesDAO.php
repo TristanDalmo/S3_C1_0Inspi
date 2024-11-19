@@ -14,7 +14,7 @@ use PDO;
  */
 class PrisesDAO extends BasePDODAO implements I_PrisesDAO {
 
-    public function Create(Prises $prises) : string
+    public function Create(Prises $prises) : int
     {
         // Mise en place de la requête
         $requete = "INSERT INTO PRISES(description,nombrePrises,etatEntree,etatSortie) VALUES (:description,:nombrePrises,:etatEntree,:etatSortie)";
@@ -29,17 +29,20 @@ class PrisesDAO extends BasePDODAO implements I_PrisesDAO {
         $reponse = $this->execRequest($requete,$parameters);        
     
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Les prises ont été ajoutées avec succès",
         "Aucune prise n'a été ajouté",
         "Erreur lors de la tentative d'ajout des prises");
 
+        // Variable de retour (id de l'élément inserré)
+        $retour = $this->getlastInsertId();
+        
         // Retour de la variable
-        return $reponse;
+        return $retour;
     }
 
 
-    public function Update(Prises $prises): string
+    public function Update(Prises $prises)
     {
         // Mise en place de la requête
         $requete = "UPDATE PRISES SET description = :description, nombrePrises = :nombrePrises, etatEntree = :etatEntree , etatSortie = :etatSortie WHERE idPrise = :idPrise";
@@ -55,16 +58,13 @@ class PrisesDAO extends BasePDODAO implements I_PrisesDAO {
         $reponse = $this->execRequest($requete,$parameters);        
     
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Prises mises à jour avec succès",
         "Aucune modification n'a été effectuée",
         "Impossible de mettre à jour les prises");
-
-        // Retour de la variable
-        return $reponse;
     }
 
-    public function Delete(int $id) : string
+    public function Delete(int $id)
     {
         // Mise en place de la requête
         $requete = "DELETE FROM PRISES WHERE idPrise = :idPrise";
@@ -74,13 +74,10 @@ class PrisesDAO extends BasePDODAO implements I_PrisesDAO {
         $reponse = $this->execRequest($requete,$parameters);   
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "L'ensemble de prises a été supprimé avec succès",
         "Aucun ensemble de prises n'a été supprimé",
         "Erreur lors de la tentative de suppression des prises");
-
-        // Retour de la variable
-        return $reponse;
     }
 
     public function getById(int $id) : Prises{

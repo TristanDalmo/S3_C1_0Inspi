@@ -14,7 +14,7 @@ use PDO;
  */
 class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
 
-    public function Create(Elements $element) : string
+    public function Create(Elements $element) : int
     {
         // Mise en place de la requête
         $requete = "INSERT INTO ELEMENTS(typeElement,description,etatEntree,etatSortie,idpiece) VALUES (:typeElement,:description,:etatEntree,:etatSortie,:idPiece)";
@@ -30,17 +30,20 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
         $reponse = $this->execRequest($requete,$parameters);        
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "L'élément a été ajouté avec succès",
         "Aucun élément n'a été ajouté",
         "Erreur lors de la tentative d'ajout de l'élément");
 
+        // Variable de retour (id de l'élément inserré)
+        $retour = $this->getlastInsertId();
+        
         // Retour de la variable
-        return $reponse;
+        return $retour;
     }
 
 
-    public function Update(Elements $element): string
+    public function Update(Elements $element)
     {
         // Mise en place de la requête
         $requete = "UPDATE ELEMENTS SET typeElement = :TypeElement, description = :description, etatEntree = :etatEntree, etatSortie = :etatSortie, idPiece = :idPiece WHERE idElement = :idElement";
@@ -56,16 +59,13 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
         $reponse = $this->execRequest($requete,$parameters);        
     
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "Élément mis à jour avec succès",
         "Aucune modification n'a été effectuée",
         "Impossible de mettre à jour l'élément");
-
-        // Retour de la variable
-        return $reponse;
     }
 
-    public function Delete(int $id) : string
+    public function Delete(int $id)
     {
         // Mise en place de la requête
         $requete = "DELETE FROM ELEMENTS WHERE idElement = :idElement";
@@ -75,13 +75,10 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
         $reponse = $this->execRequest($requete,$parameters);   
 
         // Retour d'un message de succès ou non
-        $reponse = $this->verificationResultat($reponse,
+        $this->verificationResultat($reponse,
         "L'élément a été supprimé avec succès",
         "Aucun élément n'a été supprimé",
         "Erreur lors de la tentative de suppression de l'élément");
-
-        // Retour de la variable
-        return $reponse;
     }
 
     public function getById(int $id) : Elements{
