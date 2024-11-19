@@ -12,13 +12,27 @@ class PagePartage extends AbstractPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../../Public/CSS/menu.css",nom:"E-Lieu ~ Partage et Export");
+        parent::__construct(cssChemin: "../../Public/CSS/Partage.css",nom:"E-Lieu ~ Partage et Export");
     }
 
     protected function GenerateContent() : string
-    {
-        return "<p>PARTAGE DE L'ÉTAT DES LIEUX</p>";
-    }
+{
+    return "
+        <div class='container'>
+            <div class='pdf-container'>
+                <iframe src=\"../../Public/Medias/TP1ANALYSE.pdf\" width=\"100%\" height=\"500px\" frameborder=\"0\"></iframe>
+            </div>
+            <div class='buttons-container'>
+                <button onclick='action1()'>Importer l'état des lieux</button>
+                <button onclick='action2()'>Partager par mail</button>
+                <button onclick='action3()'>Télécharger au format docx</button>
+                <button onclick='action4()'>Télécharger au format PDF</button>
+            </div>
+        </div>
+    ";
+}
+
+
 
 }
 
