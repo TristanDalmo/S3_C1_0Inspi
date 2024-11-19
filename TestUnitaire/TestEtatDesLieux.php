@@ -17,7 +17,7 @@ class TestEtatDesLieux{
 
     public static function TestGetById(int $id){
         // initialisation d'un etat des lieux 
-        $etatDesLieux=new EtatDesLieux();
+        $etatDesLieux=new EtatDesLieux(true);
         $etatDesLieux->setDateEntree("02-05-2032");
         $etatDesLieux->setDateSortie("05-06-2069");
         $type= new TypePiece();

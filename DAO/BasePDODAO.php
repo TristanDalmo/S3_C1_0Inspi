@@ -61,11 +61,19 @@ class BasePDODAO {
      */
     private function getDB() : PDO {
 
+        $dbPath = Config\Config::get('sqlite_path');
+
+        return new PDO("sqlite:" . $dbPath);
+
+        /*
+
         $dsn = Config\Config::get('dsn');
         $username = Config\Config::get('username');
         $password = Config\Config::get('password');
 
         return new PDO(dsn: $dsn, username: $username, password: $password);
+
+        */
     }
 
     /**
