@@ -1,6 +1,6 @@
 <?php
 
-namespace TestUnitaire\TestBDD\EtatDesLieux\TestEtatDesLieux;
+namespace TestUnitaire\TestBDD\EtatDesLieux;
 require_once(__DIR__ . "/../../../DAO/EtatDesLieux/EtatDesLieuxDAO.php");///../DAO/EtatDesLieux/EtatDesLieuxDAO.php
 require_once(__DIR__ . "/../../../Model/EtatDesLieux.php");
 require_once(__DIR__ . "/../../../Model/Logement.php");
@@ -155,12 +155,5 @@ class TestEtatDesLieux extends AbstractTestUnitaire {
     }
 
 }
-
-
-$test = new TestEtatDesLieux();
-$result = $test->Execute();
-
-foreach ( $result as $row ) {
-    echo $row . "<br/>"; }
 
 ?>

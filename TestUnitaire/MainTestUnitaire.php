@@ -2,8 +2,8 @@
 
 namespace TestUnitaire;
 
-require_once(__DIR__ . "/MainTestUnitaire.php");
-use TestUnitaire\TestEtatDesLieux;
+require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestEtatDesLieux.php");
+use TestUnitaire\TestBDD\EtatDesLieux\TestEtatDesLieux;
 
 class MainTestUnitaire {
 
@@ -13,7 +13,7 @@ class MainTestUnitaire {
     public function __construct() {
 
         $this->tests = [
-            new TestEtatDesLieux(),
+            new TestEtatDesLieux()
         ];
     }
 
