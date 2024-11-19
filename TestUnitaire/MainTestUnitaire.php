@@ -6,6 +6,13 @@ require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestEtatDesLieux.php");
 require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestLocataire.php");
 use TestUnitaire\TestBDD\EtatDesLieux\TestEtatDesLieux;
 use TestUnitaire\TestBDD\EtatDesLieux\TestLocataire;
+require_once(__DIR__. "/TestBDD/Piece/TestElectromenager.php");
+use TestUnitaire\TestBDD\Piece\TestElectromenager;
+require_once(__DIR__. "/TestBDD/Piece/TestElements.php");
+use TestUnitaire\TestBDD\Piece\TestElements;
+require_once(__DIR__. "/TestBDD/Piece/TestPiece.php");
+use TestUnitaire\TestBDD\Piece\TestPiece;
+
 
 class MainTestUnitaire {
 
@@ -16,7 +23,10 @@ class MainTestUnitaire {
 
         $this->tests = [
             new TestEtatDesLieux(),
-            new TestLocataire()
+            new TestLocataire(),
+            new TestElectromenager(),
+            new TestElements(),
+            new TestPiece()
         ];
     }
 

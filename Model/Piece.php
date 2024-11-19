@@ -59,7 +59,7 @@ class Piece {
     /**
      * Set the value of prises
      */
-    public function setPrises($prises)
+    public function setidPrise($prises)
     {
         if (is_int($prises)) {
             $this->prises=new Prises();
@@ -83,7 +83,7 @@ class Piece {
     /**
      * Set the value of electromenager
      */
-    public function setElectromenager($electromenager)
+    public function setIdElectromenager($electromenager)
     {
         if (is_int($electromenager))
         {
@@ -106,7 +106,7 @@ class Piece {
     /**
      * Set the value of typePiece
      */
-    public function setTypePiece($typePiece)
+    public function setidTypePiece($typePiece)
     {
         if (is_int($typePiece))
         {
@@ -152,7 +152,7 @@ class Piece {
     /**
      * Set the value of logement
      */ 
-    public function setLogement($logement)
+    public function setidLogement($logement)
     {
         if (is_int($logement)) {
             $this->logement = new Logement();

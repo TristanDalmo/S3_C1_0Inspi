@@ -103,7 +103,7 @@ class BasePDODAO {
         }
 
         // Retour du message en console
-        echo "<script>console.log('" . $retour . "');</script>";
+        echo "<script>console.log(" . json_encode($retour) . ");</script>";
     }
 
     /**

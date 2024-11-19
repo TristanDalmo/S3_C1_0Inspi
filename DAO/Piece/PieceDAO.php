@@ -19,10 +19,10 @@ class PieceDAO extends BasePDODAO implements I_PieceDAO {
         // Mise en place de la requête
         $requete = "INSERT INTO PIECE(idTypePiece,idPrises,idElectromenager,idLogement) VALUES (:idTypePiece,:idPrises,:idElectromenager,:idLogement)";
         $parameters = array(
-            "idTypePiece"=>$piece->getTypePiece()->getIdTypePiece(),
-            "idPrises"=>$piece->getPrises()->getIdPrises(),
-            "idElectromenager"=>$piece->getElectromenager()->getIdElectromenager(),
-            "idLogement"=>$piece->getLogement()->getIdLogement()     
+            "idTypePiece" => $piece->getTypePiece()?->getIdTypePiece() ?? null,
+            "idPrises" => $piece->getPrises()?->getIdPrises() ?? null,
+            "idElectromenager" => $piece->getElectromenager()?->getIdElectromenager() ?? null,
+            "idLogement" => $piece->getLogement()?->getIdLogement() ?? null
         );
 
         // Exécution de la requête
@@ -45,12 +45,13 @@ class PieceDAO extends BasePDODAO implements I_PieceDAO {
     public function Update(Piece $piece)
     {
         // Mise en place de la requête
-        $requete = "UPDATE PIECE SET idTypePiece = :idTypePiece, idPrises = :idPrises, idElectromenager = :idElectromenager , idLogement = :idLogement";
+        $requete = "UPDATE PIECE SET idTypePiece = :idTypePiece, idPrises = :idPrises, idElectromenager = :idElectromenager , idLogement = :idLogement WHERE idPiece = :idPiece";
         $parameters = array(
-            "idTypePiece"=>$piece->getTypePiece()->getIdTypePiece(),
-            "idPrises"=>$piece->getPrises()->getIdPrises(),
-            "idElectromenager"=>$piece->getElectromenager()->getIdElectromenager(),
-            "idLogement"=>$piece->getLogement()->getIdLogement()     
+            "idTypePiece" => $piece->getTypePiece()?->getIdTypePiece() ?? null,
+            "idPrises" => $piece->getPrises()?->getIdPrises() ?? null,
+            "idElectromenager" => $piece->getElectromenager()?->getIdElectromenager() ?? null,
+            "idLogement" => $piece->getLogement()?->getIdLogement() ?? null,
+            "idPiece" => $piece->getIdPiece()
         );
 
         // Exécution de la requête
