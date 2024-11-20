@@ -2,6 +2,10 @@
 
 namespace Controllers\PagesFormulaire;
 
+require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
+use Views\PagesFormulaire\PagePartage;
+
+
 use FPDF;
 use ZipArchive;
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
@@ -36,12 +40,34 @@ class ControllerPartage {
      * @return string Page web à afficher
      */
     public function index() : string {
+
         /**
          * ========================================================================================================
          * =                                INSERER PARTIE SERVICE ICI                                            =
          * ========================================================================================================
+<<<<<<< HEAD
          */         
         $this->generatePDF();
+=======
+
+         */        
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Affichage du message que le formulaire a été soumis
+            echo "<h1>Détails du formulaire soumis</h1>";
+            echo "<table border='1' cellpadding='10' cellspacing='0'>";
+            echo "<tr><th>Nom du champ</th><th>Valeur</th></tr>";
+            
+            // Génération du PDF
+            $this->generatePDF();
+    
+            // Interrompre le processus pour afficher le PDF directement (ne pas poursuivre l'affichage HTML)
+            exit;  // Arrêter ici pour éviter l'affichage de la page HTML après le PDF
+        }
+    
+        // Création de la page
+        $controller = new ControllerPartage(new PagePartage());
+        echo $controller->index();          
+>>>>>>> d708ea61569d1a5f1fed150283dfeaece1fee58d
         return $this->page->GeneratePage();
     }
     
@@ -460,8 +486,11 @@ class ControllerPartage {
         
     }
 }
+<<<<<<< HEAD
 // Création de la page
 $controller = new ControllerPartage(new PagePartage());
 echo $controller->index();
+=======
+>>>>>>> d708ea61569d1a5f1fed150283dfeaece1fee58d
 
 ?>
