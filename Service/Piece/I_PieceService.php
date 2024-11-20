@@ -11,12 +11,11 @@ use Model\Piece;
 interface I_PieceService 
 {
     /**
-     * Crée une nouvelle pièce.
-     * 
-     * @param Piece $piece la pièce a ajouter
-     * @return void
+     * Crée une nouvelle pièce
+     * @param \Model\Piece $piece la pièce a ajouter
+     * @return int Id de l'élément créé
      */
-    public function Create(Piece $piece);
+    public function Create(Piece $piece):int;
 
     /**
      * Supprime une pièce existante.

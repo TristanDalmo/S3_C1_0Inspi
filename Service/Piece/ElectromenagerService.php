@@ -12,10 +12,10 @@ use Model\Electromenager;
 
 class ElectromenagerService implements I_ElectomenagerService {
 
-    public function Create(Electromenager $electromenager)
+    public function Create(Electromenager $electromenager):int
     {
         $daoelectro = new ElectromenagerDAO(); 
-        $daoelectro->Create($electromenager); 
+        return $daoelectro->Create($electromenager); 
     }
     public function  Delete( int $id)
     {
