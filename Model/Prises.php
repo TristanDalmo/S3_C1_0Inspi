@@ -28,10 +28,8 @@ class Prises {
 
     /**
      * Get the value of idPrises
-     *
-     * @return int
      */
-    public function getIdPrises(): int
+    public function getIdPrise()
     {
         return $this->idPrises ?? null;
     }
@@ -41,7 +39,7 @@ class Prises {
      *
      * @param int $idPrises
      */
-    public function setIdPrises(int $idPrises)
+    public function setIdPrise(int $idPrises)
     {
         $this->idPrises = $idPrises;
     }

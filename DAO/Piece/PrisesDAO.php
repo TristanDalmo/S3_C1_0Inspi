@@ -51,7 +51,7 @@ class PrisesDAO extends BasePDODAO implements I_PrisesDAO {
             "nombrePrises"=>$prises->getNombrePrises(),
             "etatEntree"=>$prises->getEtatEntree(),
             "etatSortie"=>$prises->getEtatSortie(),
-            "idPrise"=>$prises->getIdPrises()       
+            "idPrise"=>$prises->getIdPrise()       
         );
 
         // Exécution de la requête

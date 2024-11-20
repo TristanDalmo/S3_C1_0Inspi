@@ -63,7 +63,7 @@ class Piece {
     {
         if (is_int($prises)) {
             $this->prises=new Prises();
-            $this->prises->setIdPrises($prises);
+            $this->prises->setIdPrise($prises);
         }
         else if($prises instanceof Prises){
             $this->prises=$prises;

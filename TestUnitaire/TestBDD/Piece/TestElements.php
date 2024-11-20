@@ -95,7 +95,7 @@ class TestElements extends AbstractTestUnitaire {
 
         // On reprend l'élément précédent et on le met à jour
         $elementDAO = new ElementsDAO();
-        $element = $elementDAO->GetbyId(1);
+        $element = $elementDAO->GetbyId(2);
         $retour = "";
 
         try {
@@ -104,7 +104,7 @@ class TestElements extends AbstractTestUnitaire {
             $element->setDescription(time() . uniqid());
 
             $elementDAO->Update($element);
-            if ($anciennevaleur == $elementDAO->getById(1)->getDescription()) {
+            if ($anciennevaleur == $elementDAO->getById(2)->getDescription()) {
                 throw new Exception("La modification n'a pas été effectuée");
             }
 

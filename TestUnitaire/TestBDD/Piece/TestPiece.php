@@ -39,7 +39,7 @@ class TestPiece extends AbstractTestUnitaire {
 
         if ( ($piece->getElectromenager()->getIdElectromenager() == 2) 
             && ($piece->getLogement()->getIdLogement() == 1)
-            && ($piece->getPrises()->getIdPrises() == 2)
+            && ($piece->getPrises()->getIdPrise() == 2)
             && ($piece->getTypePiece()->getIdTypePiece() ==3))
         {
             $retour = "<p class='reussi'>Test de GetById : Test réussi </p>";
@@ -83,7 +83,7 @@ class TestPiece extends AbstractTestUnitaire {
 
         // On reprend l'élément précédent et on le met à jour
         $edlDAO = new PieceDAO();
-        $edl = $edlDAO->GetbyId(2);
+        $edl = $edlDAO->GetbyId(1);
 
         $retour = "";
 
@@ -99,7 +99,7 @@ class TestPiece extends AbstractTestUnitaire {
             }
 
             $edlDAO->Update($edl);
-            if ($anciennevaleur == $edlDAO->getById(2)->getTypePiece()->getIdTypePiece()) {
+            if ($anciennevaleur == $edlDAO->getById(1)->getTypePiece()->getIdTypePiece()) {
                 throw new Exception("La modification n'a pas été effectuée");
             }
 
