@@ -1,19 +1,20 @@
 <?php
-namespace Service\EtatDesLieux;
 
+namespace Service\EtatDesLieux;
+require_once(__DIR__ ."../../Model/Personne.php");
+use Model\Personne;
+require_once(__DIR__ ."../../DAO/EtatDesLieux/PersonneDAO.php");
 use DAO\EtatDesLieux\PersonneDAO;
 
-require_once(__DIR__ ."../..//Model/Personne.php");
-use Model\Personne;
-require_once(__DIR__ ."../../DAO/EtatDesLieux/I_PersonneDAO.php");
-use DAO\EtatDesLieux\I_PersonneDAO;
-
+/**
+ * Couche service servant aux méthodes liées à la table Personne
+ */
 class PersonneService implements I_PersonneService{
 
-    public function create(Personne $personne)
+    public function create(Personne $personne) : int
     {
         $daoPersonne = new PersonneDAO();
-        $daoPersonne->create($personne);
+        return $daoPersonne->create($personne);
     }
     public function update(Personne $personne)
     {

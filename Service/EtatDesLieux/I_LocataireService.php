@@ -3,6 +3,10 @@
 namespace Service\EtatDesLieux;
 require_once(__DIR__ ."../../Model/Locataire.php");
 use Model\Locataire;
+
+/**
+ * (Interface) Couche service servant aux méthodes liées à la table Locataire
+ */
 interface I_LocataireService
 {
     /**

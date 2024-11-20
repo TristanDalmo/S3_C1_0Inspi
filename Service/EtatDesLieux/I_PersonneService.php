@@ -1,19 +1,21 @@
 <?php
 
 namespace Service\EtatDesLieux;
-require_once(__DIR__ . "../../Model/Personne.php");
+require_once(__DIR__ . "/../../Model/Personne.php");
 use Model\Personne;
 
-// Définition de l'interface I_PersonneService
+/**
+ * (Interface) Couche service servant aux méthodes liées à la table Personne
+ */
 interface I_PersonneService
 {
     /**
      * Méthode pour créer une personne.
      *
      * @param Personne $personne L'objet personne à créer.
-     * @return void
+     * @return int Id de la personne créée
      */
-    public function create(Personne $personne);
+    public function create(Personne $personne) : int;
 
     /**
      * Méthode pour mettre à jour une personne.
@@ -27,10 +29,9 @@ interface I_PersonneService
      * Méthode pour supprimer une personne.
      *
      * @param int $id L'identifiant de la personne à supprimer.
-     * @param int $id2 l'identifiant de l'états des lieux 
      * @return void
      */
-    public function delete(int $id,int $id2);
+    public function delete(int $id);
 
     /**
      * Méthode pour récupérer une personne par son identifiant.

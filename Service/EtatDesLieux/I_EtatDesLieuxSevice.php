@@ -1,16 +1,21 @@
 <?php
 
+namespace Service\EtatDesLieux;
+require_once(__DIR__ . "/../../Model/EtatDesLieux.php");
 use Model\EtatDesLieux;
 
+/**
+ * (Interface) Couche service servant aux méthodes liées à la table Etat des Lieux
+ */
 interface I_EtatDesLieuxService 
 {
     /**
      * Crée un nouvel état des lieux.
      *
      * @param EtatDesLieux $edl L'etat des lieux à créer.
-     * @return void
+     * @return int Id de l'état des lieux créé
      */
-    public function create(EtatDesLieux $edl);
+    public function create(EtatDesLieux $edl) : int;
 
     /**
      * Met à jour un état des lieux existant.

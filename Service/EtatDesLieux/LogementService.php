@@ -1,17 +1,20 @@
 <?php
 
+namespace Service\EtatDesLieux;
+require_once(__DIR__ . "/../../Model/Logement.php");
 use Model\Logement;
-
-use DAO\EtatDesLieux;
+require_once(__DIR__ . "/../../DAO/EtatDesLieux/LogementDAO.php");
 use DAO\EtatDesLieux\LogementDAO;
 
+/**
+ * Couche service servant aux méthodes liées à la table Logement
+ */
 class LogementService implements I_LogementService
 {
-    public function create(Logement $logement)
+    public function create(Logement $logement) : int
     {
         $logementdao = new LogementDAO();
-        $logementdao->Create($logement);
-
+        return $logementdao->Create($logement);
     }
     public function update(Logement $logement)
     {
