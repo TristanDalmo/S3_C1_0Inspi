@@ -1201,7 +1201,7 @@ class PageFormulaire extends AbstractPage
         <label for=\"format_word\">Word</label>
 
         <br><br>
-        <button type=\"submit\" id=\"generateFile\">Générer le fichier</button>
+        <button type=\"submit\" target=\"_blank\" id=\"generateFile\">Générer le fichier</button>
     </div>
 
     </form>
