@@ -102,13 +102,12 @@ class TestElectromenager extends AbstractTestUnitaire {
             // Variable aléatoire 
             $edl->setDescription(time() . uniqid());
             $edlDAO->Update($edl);
-            if ($ancienncevaleur != $edlDAO->getById(2)->getDescription()) {
-                $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
-            }
-            else {
+            if ($ancienncevaleur == $edlDAO->getById(2)->getDescription()) {
                 throw new Exception("La modification n'a pas été effectuée");
             }
 
+            $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
+            
         }
         catch (Exception $e) {
             $retour = "<p class='echoue'>Test d'Update : Test échoué. Cause : ". $e->getMessage() ."</p>";

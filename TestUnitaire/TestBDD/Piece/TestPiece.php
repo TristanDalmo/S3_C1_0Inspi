@@ -99,12 +99,11 @@ class TestPiece extends AbstractTestUnitaire {
             }
 
             $edlDAO->Update($edl);
-            if ($anciennevaleur != $edlDAO->getById(2)->getTypePiece()->getIdTypePiece()) {
-                $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
-            }
-            else {
+            if ($anciennevaleur == $edlDAO->getById(2)->getTypePiece()->getIdTypePiece()) {
                 throw new Exception("La modification n'a pas été effectuée");
             }
+
+            $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
 
         }
         catch (Exception $e) {

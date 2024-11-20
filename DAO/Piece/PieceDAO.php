@@ -61,7 +61,8 @@ class PieceDAO extends BasePDODAO implements I_PieceDAO {
         $this->verificationResultat($reponse,
         "Pièce mis à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour la pièce");
+        "Impossible de mettre à jour la pièce",
+        true);
     }
 
     public function Delete(int $id) 

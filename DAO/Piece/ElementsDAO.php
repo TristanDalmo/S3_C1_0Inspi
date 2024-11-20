@@ -47,7 +47,7 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
     public function Update(Elements $element)
     {
         // Mise en place de la requête
-        $requete = "UPDATE ELEMENTS SET typeElement = :TypeElement, description = :description, etatEntree = :etatEntree, etatSortie = :etatSortie, idPiece = :idPiece WHERE idElement = :idElement";
+        $requete = "UPDATE ELEMENTS SET typeElement = :typeElement, description = :description, etatEntree = :etatEntree, etatSortie = :etatSortie, idPiece = :idPiece WHERE idElement = :idElement";
         $parameters = array(
             "typeElement"=>$element->getTypeElement(),
             "description"=>$element->getDescription(),
@@ -64,7 +64,8 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
         $this->verificationResultat($reponse,
         "Élément mis à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour l'élément");
+        "Impossible de mettre à jour l'élément",
+        true);
     }
 
     public function Delete(int $id)

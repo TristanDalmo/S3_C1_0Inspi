@@ -60,7 +60,8 @@ class LogementDAO extends BasePDODAO implements I_LogementDAO {
         $this->verificationResultat($reponse,
         "Logement mis à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour le logement");
+        "Impossible de mettre à jour le logement",
+        true);
     }
 
     public function Delete(int $id) {

@@ -60,7 +60,8 @@ class PersonneDAO extends BasePDODAO implements I_PersonneDAO {
         $this->verificationResultat($reponse,
         "Personne mis à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour la personne");
+        "Impossible de mettre à jour la personne",
+        true);
     }
 
     public function Delete(int $id) {

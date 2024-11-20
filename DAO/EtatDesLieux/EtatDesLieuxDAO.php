@@ -60,7 +60,8 @@ class EtatDesLieuxDAO extends BasePDODAO implements I_EtatDesLieuxDAO {
         $this->verificationResultat($reponse,
         "État des lieux mis à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour l'état des lieux");
+        "Impossible de mettre à jour l'état des lieux",
+        true);
     }
 
     public function Delete(int $id) {

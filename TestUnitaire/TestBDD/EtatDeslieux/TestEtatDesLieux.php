@@ -115,12 +115,11 @@ class TestEtatDesLieux extends AbstractTestUnitaire {
             // Variable aléatoire 
             $edl->setMedia(time() . uniqid());
             $edlDAO->Update($edl);
-            if ($ancienncevaleur != $edlDAO->getById(2)->getMedia()) {
-                $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
-            }
-            else {
+            if ($ancienncevaleur == $edlDAO->getById(2)->getMedia()) {
                 throw new Exception("La modification n'a pas été effectuée");
             }
+            
+            $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
 
         }
         catch (Exception $e) {
