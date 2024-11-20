@@ -68,16 +68,65 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         
         #region Insertions dans la BDD
 
+        // Création du logement dans la BDD
         $logement = new Logement();
-        $logement->setNbPiece($donnees['']);
-        $logement->setAdresse($donnees['']);
-        $logement->setSurface($donnees['']);
-        $logement->setType($donnees['']);
+        $logement->setNbPiece($donnees['nbpiece']);
+        $logement->setAdresse($donnees['adresse']);
+        $logement->setSurface($donnees['SURFACE']);
+        $logement->setType($donnees['typeLogement']);
 
-        $logementDAO->Create($logement);
+        // Insertion du logement et stock de son identifiant unique
+        $idLogement = $logementDAO->Create($logement);
 
+        // Création d'une personne
+        $personne = new Personne();
+        $personne->setNom($donnees['nom_locataire']);
+        $personne->setPrenom($donnees['prenom_locataire']);
+        $personne->setAdresse($donnees['adresse_locataire']);
+        $personne->setCivilite($donnees['civilite_locataire']);
 
+        // Gestion de la création d'une personne
+        $idPersonne = null;
+        if (($result = $personneDAO->GetByNomPrenomAdresse($personne)) != null) {
+            $idPersonne = $result->getidPersonne();
+        }
+        else {
+            $idPersonne = $personneDAO->Create($personne);
+        }
 
+        // Création d'un bailleur pour l'état des lieux
+        $bailleur = new Personne();
+        $bailleur->setNom($donnees['nom_bailleur']);
+        $bailleur->setPrenom($donnees['prenom_bailleur']);
+        $bailleur->setAdresse($donnees['adresse_bailleur']);
+        $bailleur->setCivilite($donnees['civilite_bailleur']);
+
+        // Gestion de la création d'un bailleur
+        $idBailleur = null;
+        if (($resultBailleur = $personneDAO->GetByNomPrenomAdresse($bailleur)) != null) {
+            $idBailleur = $resultBailleur->getidPersonne();
+        }
+        else {
+            $idBailleur = $personneDAO->Create($bailleur);
+        }
+
+        // Création d'un état des lieux
+        $etatDesLieux = new EtatDesLieux();
+        $etatDesLieux->setdateEntree($donnees['']);
+        $etatDesLieux->setdateSortie($donnees['']);
+        $etatDesLieux->setMedia($donnees['']);
+        $etatDesLieux->setType($donnees['']);
+        $etatDesLieux->setidLogement($idLogement);
+        $etatDesLieux->setidPersonne($idBailleur);
+        
+        $idEtatDesLieux = $etatDesLieuxDAO->Create($etatDesLieux);
+
+        // Création d'un locataire sur un état des lieux
+        $locataire = new Locataire();
+        $locataire->setidEtatDesLieux($idEtatDesLieux);
+        $locataire->setidPersonne($idPersonne);
+
+        $locataireDAO->Create($locataire);
 
 
 
