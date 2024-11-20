@@ -42,7 +42,8 @@ class MainTestUnitaire {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Tests Unitaires</title>
             <link rel="stylesheet" href="../Public/CSS/testUnitaire.css">';
-        $retour .= "<h1> Tests Unitaires </h1><br>";
+        $retour .= '<h1> Tests Unitaires </h1><br>
+        <div class="gridSections ">';
 
         foreach ($this->tests as $test) {
             $donnees = $test->Execute();
@@ -56,6 +57,8 @@ class MainTestUnitaire {
             $retour .= "</section>";
 
         }
+
+        $retour .="</div>";
 
         return $retour;
 
