@@ -5,9 +5,11 @@ namespace TestUnitaire;
 require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestEtatDesLieux.php");
 require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestLocataire.php");
 require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestLogement.php");
+require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestPersonne.php");
 use TestUnitaire\TestBDD\EtatDesLieux\TestEtatDesLieux;
 use TestUnitaire\TestBDD\EtatDesLieux\TestLocataire;
 use TestUnitaire\TestBDD\EtatDesLieux\TestLogement;
+use TestUnitaire\TestBDD\EtatDesLieux\TestPersonne;
 require_once(__DIR__. "/TestBDD/Piece/TestElectromenager.php");
 use TestUnitaire\TestBDD\Piece\TestElectromenager;
 require_once(__DIR__. "/TestBDD/Piece/TestElements.php");
@@ -30,7 +32,8 @@ class MainTestUnitaire {
             new TestElectromenager(),
             new TestElements(),
             new TestPiece(),
-            new TestLogement()
+            new TestLogement(),
+            new TestPersonne()
         ];
     }
 

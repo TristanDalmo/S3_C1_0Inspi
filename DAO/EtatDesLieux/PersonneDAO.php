@@ -3,9 +3,9 @@
 namespace DAO\EtatDesLieux;
 require_once(__DIR__ . "/../BasePDODAO.php");
 use DAO\BasePDODAO;
-require_once(__DIR__."../../Model/Personne.php");
+require_once(__DIR__."/../../Model/Personne.php");
 use Model\Personne;
-require_once(__DIR__."./I_PersonneDAO.php");
+require_once(__DIR__."/I_PersonneDAO.php");
 use DAO\EtatDesLieux\I_PersonneDAO;
 use PDO;
 
