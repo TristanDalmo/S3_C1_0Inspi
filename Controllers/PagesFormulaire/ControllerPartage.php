@@ -1,10 +1,14 @@
 <?php
 
 namespace Controllers\PagesFormulaire;
+
+use Exception;
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
 use Views\PagesFormulaire\PagePartage;
-use MediaService\MediaService;
-require_once(__DIR__."/././Service/Media/MediaService.php");
+use Service\MediaService\MediaService;
+require_once(__DIR__."/../../Service/Media/MediaService.php");
+use RetourMetier\Retour;
+require_once(__DIR__."/../../RetourMetier/Retour.php");
 
 /**
  * Classe permettant de créer la page de remplissage du formulaire
@@ -28,21 +32,23 @@ class ControllerPartage {
      * @return string Page web à afficher
      */
     public function index() : string {
-
-
+        $retour=new Retour();
+        $retourMessage = "Le fichier est envoyé avec succès";
         try
         {
             $mediaService = new MediaService();
-            if (isset($_FILES))
+            if (isset($_FILES['Documents']) && $_FILES['Documents']==null)
             {
-                $mediaService->InsertionMedias($_FILES);
+                $mediaService->InsertionMedias($_FILES['Documents']);
+                
             } 
         }
-        catch
+        catch(Exception $e)
         {
             
+            $retourMessage = $e->getMessage();
         }
-
+        $retour->EnvoieRetour($retourMessage);
         return $this->page->GeneratePage();
 
     }

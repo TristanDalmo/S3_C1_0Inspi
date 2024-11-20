@@ -14,7 +14,7 @@
         public function InsertionMedia(array $donnees) : string
         {
             // On vérifie que les documents existent et qu'il s'agit bien d'un tableau
-            if (isset($donnees['Documents']) && is_array($donnees['Documents']['name']))
+            if (is_array($donnees['name']))
             {
                 // Définition du dossier dans lequel on enverra les médias (on utilisera 2 variables aléatoires indépendantes qui rendront le nom du dossier unique)
                 $Dossier_Cible = "../../MediasClients/" . time() . uniqid() . "/";
@@ -23,10 +23,10 @@
                 mkdir(directory: $Dossier_Cible,permissions: 0777,recursive: true);
     
                 // Pour tous les médias envoyés dans le formulaire
-                foreach ($donnees["Documents"]["name"] as $key => $temp)
+                foreach ($donnees["name"] as $key => $temp)
                 {
                     // On redéfinit le chemin où envoyer le média
-                    $Fichier_Cible = $Dossier_Cible . basename(path: $donnees["Documents"]["name"][$key]);
+                    $Fichier_Cible = $Dossier_Cible . basename(path: $donnees["name"][$key]);
     
                     // Permet de récupérer le type de fichier en minuscule, afin d'éviter des erreurs potentielles
                     $TypeFichier = strtolower(string: pathinfo(path: $Fichier_Cible,flags: PATHINFO_EXTENSION));
@@ -39,7 +39,7 @@
                     }
     
                     // Limitation de taille des fichiers (à 40 Mo), on arrête si la limite est dépassée
-                    if ($donnees["Documents"]["size"][$key] > 40000000) {
+                    if ($donnees["size"][$key] > 40000000) {
                         throw new Exception("Le fichier est trop volumineux, il doit être inférieur à 40Mo");
                     }
     
@@ -53,12 +53,12 @@
                     #endregion
                 
                 // Upload du fichier et message sur console pour savoir si oui ou non il a été ajouté
-                    if (move_uploaded_file(from: $donnees["Documents"]["tmp_name"][$key], to: $Fichier_Cible)) {
-                        throw new Exception("Le fichier " . $donnees["Documents"]["name"][$key] . " a bien été ajouté aux documents du serveur");
+                    if (move_uploaded_file(from: $donnees["tmp_name"][$key], to: $Fichier_Cible)) {
+                        throw new Exception("Le fichier " . $donnees["name"][$key] . " a bien été ajouté aux documents du serveur");
                     }
                     else 
                     {
-                        throw new Exception("Une erreur s'est produite lors de l'ajout de : " . $donnees["Documents"]["name"][$key]);
+                        throw new Exception("Une erreur s'est produite lors de l'ajout de : " . $donnees["name"][$key]);
                     }
                     
     
@@ -66,7 +66,7 @@
             } 
             else
             {
-                echo "<script>console.log('Les documents n'ont pas pu être insérés.')</script>";
+                throw new Exception("Les documents n'ont pas pu être insérés.");
             }
     
             // Retourne le chemin du fichier pour l'insérer dans la base de données

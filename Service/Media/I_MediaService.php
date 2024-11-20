@@ -1,4 +1,4 @@
-<?
+<?php
 
     namespace Service\MediaService;
 

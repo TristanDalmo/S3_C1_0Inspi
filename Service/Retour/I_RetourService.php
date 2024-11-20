@@ -4,7 +4,7 @@
 
     interface I_RetourService
     {
-        public function envoieRetour(string $message);
+        public function EnvoieRetour(string $message);
     }
 
 ?>
