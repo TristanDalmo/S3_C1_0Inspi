@@ -25,7 +25,7 @@ class Locataire {
     /**
      * Set the value of locataire
      */ 
-    public function setLocataire($locataire)
+    public function setidPersonne($locataire)
     { 
         if (is_int($locataire))
         {
@@ -48,7 +48,7 @@ class Locataire {
     /**
      * Set the value of etatDesLieux
      */ 
-    public function setEtatDesLieux($etatDesLieux)
+    public function setidEtatDesLieux($etatDesLieux)
     {
         if (is_int($etatDesLieux)) {
             $this->etatDesLieux= new EtatDesLieux();

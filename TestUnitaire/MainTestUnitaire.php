@@ -33,7 +33,12 @@ class MainTestUnitaire {
 
     public function Execute() : string {
 
-        $retour = "<h1> Tests Unitaires </h1><br>";
+        $retour = '<head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Tests Unitaires</title>
+            <link rel="stylesheet" href="../Public/CSS/testUnitaire.css">';
+        $retour .= "<h1> Tests Unitaires </h1><br>";
 
         foreach ($this->tests as $test) {
             $donnees = $test->Execute();

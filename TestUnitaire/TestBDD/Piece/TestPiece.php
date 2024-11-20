@@ -57,9 +57,9 @@ class TestPiece extends AbstractTestUnitaire {
 
         // Création de l'électroménager
         $piece = new Piece();
-        $piece->setIdElectromenager(3);
-        $piece->setidLogement(2);
-        $piece->setidPrise(1);
+        $piece->setIdElectromenager(4);
+        $piece->setidLogement(1);
+        $piece->setidPrise(4);
         $piece->setidTypePiece(2);
 
         $pieceDAO = new PieceDAO();
@@ -88,18 +88,18 @@ class TestPiece extends AbstractTestUnitaire {
         $retour = "";
 
         try {
-            $anciennevaleur = $edl->getElectromenager()->getIdElectromenager();
+            $anciennevaleur = $edl->getTypePiece()->getIdTypePiece();
             // Variable aléatoire 
-            if ($edl->getElectromenager()->getIdElectromenager()==1)
+            if ($edl->getTypePiece()->getIdTypePiece()==1)
             {
-                $edl->setIdElectromenager(2);
+                $edl->setidTypePiece(2);
             }
             else {
-                $edl->setIdElectromenager(1);
+                $edl->setidTypePiece(1);
             }
 
             $edlDAO->Update($edl);
-            if ($anciennevaleur != $edlDAO->getById(2)->getElectromenager()->getIdElectromenager()) {
+            if ($anciennevaleur != $edlDAO->getById(2)->getTypePiece()->getIdTypePiece()) {
                 $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
             }
             else {

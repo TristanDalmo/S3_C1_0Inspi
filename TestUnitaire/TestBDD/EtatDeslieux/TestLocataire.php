@@ -37,8 +37,6 @@ class TestLocataire extends AbstractTestUnitaire {
 
         // Variable de retour
         $retour = "";
-        echo "etatdeslieux".$locataire->getEtatDesLieux()->getIdEtatDesLieux();
-        echo "locataire".$locataire->getLocataire()->getIdPersonne();
 
         if (
             ($locataire->getEtatDesLieux()->getIdEtatDesLieux()==1)&&($locataire->getLocataire()->getIdPersonne()== 1)
@@ -58,8 +56,8 @@ class TestLocataire extends AbstractTestUnitaire {
 
         // Création de l'état des lieux
         $locataire=new Locataire();
-        $locataire->setEtatDesLieux(1);
-        $locataire->setLocataire(3);
+        $locataire->setidEtatDesLieux(1);
+        $locataire->setidPersonne(3);
         $locataireDAO = new LocataireDAO();
 
         $retour = "";

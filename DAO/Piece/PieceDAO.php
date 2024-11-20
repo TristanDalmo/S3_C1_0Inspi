@@ -17,7 +17,7 @@ class PieceDAO extends BasePDODAO implements I_PieceDAO {
     public function Create(Piece $piece) : int
     {
         // Mise en place de la requête
-        $requete = "INSERT INTO PIECE(idTypePiece,idPrises,idElectromenager,idLogement) VALUES (:idTypePiece,:idPrises,:idElectromenager,:idLogement)";
+        $requete = "INSERT INTO PIECE(idTypePiece,idPrise,idElectromenager,idLogement) VALUES (:idTypePiece,:idPrises,:idElectromenager,:idLogement)";
         $parameters = array(
             "idTypePiece" => $piece->getTypePiece()?->getIdTypePiece() ?? null,
             "idPrises" => $piece->getPrises()?->getIdPrises() ?? null,
@@ -45,7 +45,7 @@ class PieceDAO extends BasePDODAO implements I_PieceDAO {
     public function Update(Piece $piece)
     {
         // Mise en place de la requête
-        $requete = "UPDATE PIECE SET idTypePiece = :idTypePiece, idPrises = :idPrises, idElectromenager = :idElectromenager , idLogement = :idLogement WHERE idPiece = :idPiece";
+        $requete = "UPDATE PIECE SET idTypePiece = :idTypePiece, idPrise = :idPrises, idElectromenager = :idElectromenager , idLogement = :idLogement WHERE idPiece = :idPiece";
         $parameters = array(
             "idTypePiece" => $piece->getTypePiece()?->getIdTypePiece() ?? null,
             "idPrises" => $piece->getPrises()?->getIdPrises() ?? null,
