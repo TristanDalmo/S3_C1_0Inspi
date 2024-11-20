@@ -102,6 +102,30 @@ class PersonneDAO extends BasePDODAO implements I_PersonneDAO {
         return $personne;
     }
 
+    public function GetByNomPrenomAdresse(Personne $personne): Personne|null{
+        // On met en place la requête
+        $requete = "SELECT * FROM PERSONNE WHERE nom = :nom and prenom=:prenom and adresse=:adresse";
+
+        // On exécute la requête
+        $reponse = $this->execRequest($requete,array(
+            "prenom" => $personne->getPrenom(),
+            "nom" => $personne->getNom(),
+            "adresse" => $personne->getAdresse()
+        )
+        );
+
+        $personne = null;
+
+        // Si on a bien obtenu une ligne, on retournera une Personne
+        if (($row = $reponse->fetch(PDO::FETCH_ASSOC)) != null) {
+            $personne = new Personne();
+            $personne->hydrate($row);
+        }
+
+        // On retourne la personne
+        return $personne;
+    }
+
 
 }
 
