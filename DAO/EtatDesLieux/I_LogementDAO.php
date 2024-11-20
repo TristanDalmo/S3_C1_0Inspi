@@ -1,7 +1,7 @@
 <?php
 
 namespace DAO\EtatDesLieux;
-require_once(__DIR__."../../Model/Logement.php");
+require_once(__DIR__."/../../Model/Logement.php");
 use Model\Logement;
 
 /**
