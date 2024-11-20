@@ -2,6 +2,10 @@
 
 namespace Controllers\PagesFormulaire;
 
+require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
+use Views\PagesFormulaire\PagePartage;
+
+
 use FPDF;
 use ZipArchive;
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
@@ -36,10 +40,12 @@ class ControllerPartage {
      * @return string Page web à afficher
      */
     public function index() : string {
+
         /**
          * ========================================================================================================
          * =                                INSERER PARTIE SERVICE ICI                                            =
          * ========================================================================================================
+
          */        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Affichage du message que le formulaire a été soumis
@@ -465,6 +471,5 @@ class ControllerPartage {
         
     }
 }
-
 
 ?>
