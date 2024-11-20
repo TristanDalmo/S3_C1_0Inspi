@@ -1,6 +1,6 @@
 <?php
 
-namespace DAO\EtatDesLieuxDAO;
+namespace DAO\EtatDesLieux;
 require_once(__DIR__ . "/../BasePDODAO.php");
 use DAO\BasePDODAO;
 require_once(__DIR__."/../../Model/EtatDesLieux.php");

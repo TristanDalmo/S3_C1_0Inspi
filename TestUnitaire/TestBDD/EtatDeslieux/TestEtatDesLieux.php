@@ -6,7 +6,7 @@ require_once(__DIR__ . "/../../../Model/EtatDesLieux.php");
 require_once(__DIR__ . "/../../../Model/Logement.php");
 require_once(__DIR__ . "/../../../Model/Personne.php");
 require_once(__DIR__ . "/../../../Model/TypePiece.php");
-use DAO\EtatDesLieuxDAO\EtatDesLieuxDAO;
+use DAO\EtatDesLieux\EtatDesLieuxDAO;
 use Model\EtatDesLieux;
 use Model\Logement;
 use Model\Personne;

@@ -100,11 +100,13 @@ class TestElements extends AbstractTestUnitaire {
         $retour = "";
 
         try {
-            $ancienncevaleur = $element->getDescription();
+            $anciennevaleur = $element->getDescription();
             // Variable aléatoire 
             $element->setDescription(time() . uniqid());
+
+
             $elementDAO->Update($element);
-            if ($ancienncevaleur != $elementDAO->getById(2)->getDescription()) {
+            if ($anciennevaleur != $elementDAO->getById(2)->getDescription()) {
                 $retour = "<p class='reussi'>Test d'Update : Test réussi </p>";
             }
             else {
