@@ -22,7 +22,8 @@ class TestPersonne extends AbstractTestUnitaire {
             $this->TestGetById(),
             $this->TestInsert(),
             $this->TestUpdate(),
-            $this->TestDelete()
+            $this->TestDelete(),
+            $this->TestGetByNomPrenomAdresse()
         ];
     }
 
@@ -50,6 +51,34 @@ class TestPersonne extends AbstractTestUnitaire {
         else 
         {
             $retour .= "<p class='echoue'>Test de GetById : Test échoué </p>";
+        }
+
+        return $retour; 
+    }
+
+    private function TestGetByNomPrenomAdresse():string{
+        
+        // recuperation de l'etat des lieux créer precdement 
+        $personneDAO=new PersonneDAO();
+        $personne=new Personne();
+        $personne->setIdPersonne(1);
+        $personne->setCivilite("M.");
+        $personne->setPrenom("Jean");
+        $personne->setNom("Dupont");
+        $personne->setAdresse("10 Rue des Lilas, Nantes");
+        
+        // Variable de retour
+        $retour = "";
+
+        if (
+            ($personneDAO->GetByNomPrenomAdresse($personne)->getIdPersonne()==1)
+        )
+        {
+            $retour = "<p class='reussi'>Test de GetByNomPrenomAdresse : Test réussi </p>";
+        }
+        else 
+        {
+            $retour .= "<p class='echoue'>Test de GetByNomPrenomAdresse : Test échoué </p>";
         }
 
         return $retour; 

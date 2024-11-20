@@ -31,5 +31,9 @@ class PersonneService implements I_PersonneService{
         $daoPersonne = new PersonneDAO();
         return $daoPersonne->getById($id);
     }
+    public function GetByNomPrenomAdresse(Personne $personne): Personne|null{
+        $daoPersonne = new PersonneDAO();
+        return $daoPersonne->getByNomPrenomAdresse($personne);
+    }
 }
 ?>

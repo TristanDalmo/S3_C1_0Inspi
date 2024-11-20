@@ -40,6 +40,12 @@ interface I_PersonneService
      * @return Personne L'objet Personne correspondant.
      */
     public function getById(int $id): Personne;
+    /**
+     * Méthode permettant d'obtenir une personne via son nom,prenom et adresse
+     * @param \Model\Personne $personne la Personne à obtenir
+     * @return \Model\Personne|null Personne obtenu avec son nom,prenom et adresse ou null si elle n'exist epas dans la base de données
+     */
+    public function GetByNomPrenomAdresse(Personne $personne):Personne|null;
 }
 
 
