@@ -36,49 +36,31 @@ class ControllerPartage {
      * @return string Page web à afficher
      */
     public function index() : string {
-
-
         /**
          * ========================================================================================================
          * =                                INSERER PARTIE SERVICE ICI                                            =
          * ========================================================================================================
          */        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Affichage du message que le formulaire a été soumis
             echo "<h1>Détails du formulaire soumis</h1>";
             echo "<table border='1' cellpadding='10' cellspacing='0'>";
             echo "<tr><th>Nom du champ</th><th>Valeur</th></tr>";
-
-            $compteur=0;
-        
-            // Parcourt toutes les clés de $_POST et affiche le nom du champ et sa valeur
-            foreach ($_POST as $key => $value) {
-                $compteur++;
-                // Pour les champs de type tableau ou texte long, il peut être utile de vérifier si le champ est un tableau.
-                // Si le champ est un tableau (comme les cases à cocher ou les boutons radio), il sera affiché sous forme de liste.
-                echo "". $key ."". $value ."";
-                if (is_array($value)) {
-                    echo "<tr><td>" . htmlspecialchars($key) . "</td><td>";
-                    echo "<ul>";
-
-                    foreach ($value as $v) {
-                        echo "<li>" . htmlspecialchars($v) . "</li>";
-                    }
-                    echo "</ul>";
-                    echo "</td></tr>";
-                } else {
-                    echo "<tr><td>" . htmlspecialchars($key) . "</td><td>" . htmlspecialchars($value) . "</td></tr>";
-                }
-            }
-            echo "</table>";
-        } else {
-            echo "Aucune donnée soumise.";
+            
+            // Génération du PDF
+            $this->generatePDF();
+    
+            // Interrompre le processus pour afficher le PDF directement (ne pas poursuivre l'affichage HTML)
+            exit;  // Arrêter ici pour éviter l'affichage de la page HTML après le PDF
         }
-        echo($compteur);
+    
+        // Création de la page
+        $controller = new ControllerPartage(new PagePartage());
+        echo $controller->index();          
         return $this->page->GeneratePage();
-
-    }  
-    function generatePDF()
-    {
+    }
+    
+        function generatePDF(){
         // Récupération des données du formulaire
         $fDate = htmlspecialchars($_POST['fDate'] ?? 'Non renseignée');
         $fDateS = htmlspecialchars($_POST['fDateS'] ?? 'Non renseignée');
@@ -276,264 +258,213 @@ class ControllerPartage {
 
         // Utiliser une police TrueType compatible UTF-8 (comme DejaVu)
         $pdf->SetFont('Arial', '', 12);
-        $pdf->Cell(0, 10, 'Etat des Lieux', 0, 1, 'C');
 
-        // Titre
+        // Titre principal
         $pdf->Cell(0, 10, 'Etat des Lieux', 0, 1, 'C');
         $pdf->Cell(0, 10, '(Conforme LOI ALUR)', 0, 1, 'C');
 
-        // Date d'entrée
-        $pdf->Ln(5);
+        // Récupération des données du formulaire 
         $pdf->Cell(0, 10, 'Date d\'entrée : ' . $fDate, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Permis : ' . $fPermis, 0, 1, 'L');
         $pdf->Cell(0, 10, 'Date de sortie : ' . $fDateS, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Permis : ' . $fPermis, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Autre texte : ' . $textautre, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Prénom locataire : ' . $prenomLocataire, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Nom locataire : ' . $nomLocataire, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Adresse locataire : ' . $adresseLocataire, 0, 1, 'L');
 
-        // Loi
-        $pdf->Ln(10);
-        $pdf->MultiCell(0, 10, "");
+        //cuisine 
+        $pdf->Cell(0, 10, 'Description du mur de la cuisine : ' . $descriptionmurcuisine, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur de la cuisine (entrée) : ' . $etatCuisineMurEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur de la cuisine (sortie) : ' . $etatCuisineMurSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description du sol de la cuisine : ' . $descriptionSolCuisine, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol de la cuisine (entrée) : ' . $etatCuisineSolEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol de la cuisine (sortie) : ' . $etatCuisineSolSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description des vitrages et volets de la cuisine : ' . $descriptionVitrageVolets, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages et volets de la cuisine (entrée) : ' . $etatCuisineVitrageVoletsEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages et volets de la cuisine (sortie) : ' . $etatCuisineVitrageVoletsSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description du plafond de la cuisine : ' . $descriptionPlafondCuisine, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond de la cuisine (entrée) : ' . $etatCuisinePlafondEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond de la cuisine (sortie) : ' . $etatCuisinePlafondSortie, 0, 1, 'L');
 
-        // Logement
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Logement', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Type de logement : ' . $typeLogement, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Surface : ' . $surface . ' m²', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Nombre de pièces principales : ' . $nbPiece, 0, 1, 'L');
-        $pdf->MultiCell(0, 10, 'Adresse : ' . $adresse);
+        // Prises, placards, électroménagers
+        $pdf->Cell(0, 10, 'Description des éclairages et interrupteurs : ' . $descriptionEclairageInterrupteurs, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des éclairages et interrupteurs (entrée) : ' . $etatCuisineEclairageInterrupteursEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des éclairages et interrupteurs (sortie) : ' . $etatCuisineEclairageInterrupteursSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Nombre de prises électriques : ' . $nombrePriseElectrique, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description des prises électriques : ' . $descriptionPriseElectrique, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des prises électriques (entrée) : ' . $etatCuisinePriseElectriqueEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des prises électriques (sortie) : ' . $etatCuisinePriseElectriqueSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description des placards et tiroirs : ' . $descriptionPlacardsTiroirs, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des placards et tiroirs (entrée) : ' . $etatCuisinePlacardsTiroirsEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des placards et tiroirs (sortie) : ' . $etatCuisinePlacardsTiroirsSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description de l\'évier et robinetterie : ' . $descriptionEvierRobinetterie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'évier et robinetterie (entrée) : ' . $etatCuisineEvierRobinetterieEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'évier et robinetterie (sortie) : ' . $etatCuisineEvierRobinetterieSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description de la plaque de cuisson et four : ' . $descriptionPlaqueFour, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la plaque de cuisson et du four (entrée) : ' . $etatCuisinePlaqueFourEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la plaque de cuisson et du four (sortie) : ' . $etatCuisinePlaqueFourSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description de la hotte : ' . $descriptionHotte, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la hotte (entrée) : ' . $etatCuisineHotteEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la hotte (sortie) : ' . $etatCuisineHotteSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Nom de l\'électroménager : ' . $electromenagerNom, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description de l\'électroménager : ' . $descriptionElectromenager, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'électroménager (entrée) : ' . $etatCuisineElectromenagerEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'électroménager (sortie) : ' . $etatCuisineElectromenagerSortie, 0, 1, 'L');
 
-        // Bailleur
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Le Bailleur (ou son mandataire)', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Civilité : ' . $civiliteBailleur, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Prénom : ' . $prenomBailleur, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Nom : ' . $nomBailleur, 0, 1, 'L');
-        $pdf->MultiCell(0, 10, 'Adresse : ' . $adresseBailleur);
+        // Salle de bain
+        $pdf->Cell(0, 10, 'Mur salle de bain 1 : ' . $murSdb1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Mur salle de bain 2 : ' . $murSdb2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur (entrée) : ' . $etatMurEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur (sortie) : ' . $etatMurSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Sol salle de bain 1 : ' . $solSdb1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Sol salle de bain 2 : ' . $solSdb2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol (entrée) : ' . $etatSolEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol (sortie) : ' . $etatSolSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Vitrage salle de bain 1 : ' . $vitrageSdb1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Vitrage salle de bain 2 : ' . $vitrageSdb2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du vitrage (entrée) : ' . $etatVitrageEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du vitrage (sortie) : ' . $etatVitrageSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond (entrée) : ' . $etatPlafondEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond (sortie) : ' . $etatPlafondSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Éclairage salle de bain 1 : ' . $eclairageSdb1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Éclairage salle de bain 2 : ' . $eclairageSdb2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'éclairage (entrée) : ' . $etatEclairageEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'éclairage (sortie) : ' . $etatEclairageSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Prise salle de bain 1 : ' . $priseSdb1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Prise salle de bain 2 : ' . $priseSdb2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la prise (entrée) : ' . $etatPriseEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la prise (sortie) : ' . $etatPriseSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Lavabo salle de bain 1 : ' . $laveLingeSdb1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Lavabo salle de bain 2 : ' . $laveLingeSdb2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du lavabo (entrée) : ' . $etatLavaboEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du lavabo (sortie) : ' . $etatLavaboSortie, 0, 1, 'L');
 
-        // Locataire
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Le(s) Locataire(s)', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Civilité : ' . $civiliteLocataire, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Prénom : ' . $prenomLocataire, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Nom : ' . $nomLocataire, 0, 1, 'L');
-        $pdf->MultiCell(0, 10, 'Adresse : ' . $adresseLocataire);
+        // WC
+        $pdf->Cell(0, 10, 'État de la baignoire (entrée) : ' . $etatBaignoireEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la baignoire (sortie) : ' . $etatBaignoireSortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'WC salle de bain 1 : ' . $wcSdb1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'WC salle de bain 2 : ' . $wcSdb2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des WC (entrée) : ' . $etatWCEntree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des WC (sortie) : ' . $etatWCSortie, 0, 1, 'L');
 
-        // Section des chambres, cuisine, salle de bains, WC, et autres éléments
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des lieux de la cuisine', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Description des murs : ' . $descriptionmurcuisine, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs à l\'entrée : ' . $etatcuisinemurentree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs à la sortie : ' . $etat_cuisine_mur_sortie, 0, 1, 'L');
+        // Chambre
+        $pdf->Cell(0, 10, 'Mur chambre 1 : ' . $murChambre1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Mur chambre 2 : ' . $murChambre2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Mur chambre 3 : ' . $murChambre3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur 1 (entrée) : ' . $etatEntreeMur1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur 2 (entrée) : ' . $etatEntreeMur2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur 3 (entrée) : ' . $etatEntreeMur3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur 1 (sortie) : ' . $etatSortieMur1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur 2 (sortie) : ' . $etatSortieMur2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du mur 3 (sortie) : ' . $etatSortieMur3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Sol chambre 1 : ' . $solChambre1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Sol chambre 2 : ' . $solChambre2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Sol chambre 3 : ' . $solChambre3, 0, 1, 'L');
 
-        $pdf->Cell(0, 10, 'Description du sol : ' . $description_sol_cuisine, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol à l\'entrée : ' . $etat_cuisine_sol_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol à la sortie : ' . $etat_cuisine_sol_sortie, 0, 1, 'L');
+        
 
-        $pdf->Cell(0, 10, 'Description du vitrage et des volets : ' . $description_vitrage_volets, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du vitrage et des volets à l\'entrée : ' . $etat_cuisine_vitrage_volets_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du vitrage et des volets à la sortie : ' . $etat_cuisine_vitrage_volets_sortie, 0, 1, 'L');
+        // Cuisine - Sol
+        $pdf->Cell(0, 10, 'État du sol de la cuisine (entrée) - Partie 1 : ' . $etatCuisineSolEntree1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol de la cuisine (entrée) - Partie 2 : ' . $etatCuisineSolEntree2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol de la cuisine (entrée) - Partie 3 : ' . $etatCuisineSolEntree3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol de la cuisine (sortie) - Partie 1 : ' . $etatCuisineSolSortie1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol de la cuisine (sortie) - Partie 2 : ' . $etatCuisineSolSortie2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol de la cuisine (sortie) - Partie 3 : ' . $etatCuisineSolSortie3, 0, 1, 'L');
 
-                // Cuisine - Eclairage, interrupteurs, prises électriques, etc.
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des lieux de la cuisine - Eclairage et accessoires', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Description de l\'éclairage et interrupteurs : ' . $description_eclairage_interrupteurs, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat de l\'éclairage et des interrupteurs à l\'entrée : ' . $etat_cuisine_eclairage_interrupteurs_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat de l\'éclairage et des interrupteurs à la sortie : ' . $etat_cuisine_eclairage_interrupteurs_sortie, 0, 1, 'L');
+        // Cuisine - Vitrages
+        $pdf->Cell(0, 10, 'Vitrages de la cuisine - Partie 1 : ' . $vitrages1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Vitrages de la cuisine - Partie 2 : ' . $vitrages2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Vitrages de la cuisine - Partie 3 : ' . $vitrages3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages (entrée) - Partie 1 : ' . $etatCuisineVitragesEntree1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages (entrée) - Partie 2 : ' . $etatCuisineVitragesEntree2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages (entrée) - Partie 3 : ' . $etatCuisineVitragesEntree3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages (sortie) - Partie 1 : ' . $etatCuisineVitragesSortie1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages (sortie) - Partie 2 : ' . $etatCuisineVitragesSortie2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages (sortie) - Partie 3 : ' . $etatCuisineVitragesSortie3, 0, 1, 'L');
 
-        $pdf->Cell(0, 10, 'Nombre de prises électriques : ' . $nombre_prise_electrique, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Description des prises électriques : ' . $description_prise_electrique, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des prises électriques à l\'entrée : ' . $etat_cuisine_prise_electrique_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des prises électriques à la sortie : ' . $etat_cuisine_prise_electrique_sortie, 0, 1, 'L');
+        // Cuisine - Plafond
+        $pdf->Cell(0, 10, 'Plafond de la cuisine - Partie 1 : ' . $plafond1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Plafond de la cuisine - Partie 2 : ' . $plafond2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Plafond de la cuisine - Partie 3 : ' . $plafond3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond (entrée) - Partie 1 : ' . $etatCuisinePlafondEntree1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond (entrée) - Partie 2 : ' . $etatCuisinePlafondEntree2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond (entrée) - Partie 3 : ' . $etatCuisinePlafondEntree3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond (sortie) - Partie 1 : ' . $etatCuisinePlafondSortie1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond (sortie) - Partie 2 : ' . $etatCuisinePlafondSortie2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond (sortie) - Partie 3 : ' . $etatCuisinePlafondSortie3, 0, 1, 'L');
 
-        $pdf->Cell(0, 10, 'Description des placards et tiroirs : ' . $description_placards_tiroirs, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des placards et tiroirs à l\'entrée : ' . $etat_cuisine_placards_tiroirs_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des placards et tiroirs à la sortie : ' . $etat_cuisine_placards_tiroirs_sortie, 0, 1, 'L');
+        // Cuisine - Éclairage
+        $pdf->Cell(0, 10, 'Éclairage de la cuisine - Partie 1 : ' . $eclairage1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Éclairage de la cuisine - Partie 2 : ' . $eclairage2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Éclairage de la cuisine - Partie 3 : ' . $eclairage3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'éclairage (entrée) - Partie 1 : ' . $etatChambreEclairageEntree1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'éclairage (entrée) - Partie 2 : ' . $etatChambreEclairageEntree2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'éclairage (entrée) - Partie 3 : ' . $etatChambreEclairageEntree3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'éclairage (sortie) - Partie 1 : ' . $etatChambreEclairageSortie1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'éclairage (sortie) - Partie 2 : ' . $etatChambreEclairageSortie2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de l\'éclairage (sortie) - Partie 3 : ' . $etatChambreEclairageSortie3, 0, 1, 'L');
 
-        $pdf->Cell(0, 10, 'Description de l\'évier et robinetterie : ' . $description_evier_robinetterie, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat de l\'évier et de la robinetterie à l\'entrée : ' . $etat_cuisine_evier_robinetterie_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat de l\'évier et de la robinetterie à la sortie : ' . $etat_cuisine_evier_robinetterie_sortie, 0, 1, 'L');
-
-        // Cuisine - Plaques, hotte, électroménager
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des lieux de la cuisine - Equipements', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Description des plaques et du four : ' . $description_plaque_four, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des plaques et du four à l\'entrée : ' . $etat_cuisine_plaque_four_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des plaques et du four à la sortie : ' . $etat_cuisine_plaque_four_sortie, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Description de la hotte : ' . $description_hotte, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat de la hotte à l\'entrée : ' . $etat_cuisine_hotte_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat de la hotte à la sortie : ' . $etat_cuisine_hotte_sortie, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Description des appareils électroménagers : ' . $description_electromenager, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des appareils électroménagers à l\'entrée : ' . $etat_cuisine_electromenager_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des appareils électroménagers à la sortie : ' . $etat_cuisine_electromenager_sortie, 0, 1, 'L');
-
-        // Salle de bains - Murs, sol, vitrage
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des lieux de la salle de bains', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Description des murs (Salle de bains) : ' . $description_mur_sdb1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs à l\'entrée (Salle de bains) : ' . $etat_mur_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs à la sortie (Salle de bains) : ' . $etat_mur_sortie, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Description du sol (Salle de bains) : ' . $sol_sdb1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol à l\'entrée (Salle de bains) : ' . $etat_sol_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol à la sortie (Salle de bains) : ' . $etat_sol_sortie, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Description du vitrage (Salle de bains) : ' . $vitrage_sdb1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du vitrage à l\'entrée (Salle de bains) : ' . $etat_vitrage_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du vitrage à la sortie (Salle de bains) : ' . $etat_vitrage_sortie, 0, 1, 'L');
-
-        // Salle de bains - Eclairage, prises, lavabo, baignoire
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des lieux de la salle de bains - Equipements', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Eclairage à l\'entrée : ' . $etat_eclairage_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Eclairage à la sortie : ' . $etat_eclairage_sortie, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Prises électriques à l\'entrée : ' . $etat_prise_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Prises électriques à la sortie : ' . $etat_prise_sortie, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Lavabo à l\'entrée : ' . $etat_lavabo_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Lavabo à la sortie : ' . $etat_lavabo_sortie, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Baignoire à l\'entrée : ' . $etat_baignoire_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Baignoire à la sortie : ' . $etat_baignoire_sortie, 0, 1, 'L');
-
-        // WC - Murs, sol, accessoires
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des lieux des WC', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Description des murs des WC : ' . $description_mur_wc1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs des WC à l\'entrée : ' . $etat_wc1_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs des WC à la sortie : ' . $etat_wc1_sortie, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Description du sol des WC : ' . $description_sol1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol des WC à l\'entrée : ' . $etat_entree_sol1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol des WC à la sortie : ' . $etat_sortie_sol1, 0, 1, 'L');
-        // WC - Vitrage, tuyauterie, luminaires
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des lieux des WC - Equipements', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Vitrage des WC à l\'entrée : ' . $etat_entree_vitrage_volet1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Vitrage des WC à la sortie : ' . $etat_sortie_vitrage_volet1, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Tuyauterie des WC à l\'entrée : ' . $etat_entree_tuyauterie1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Tuyauterie des WC à la sortie : ' . $etat_sortie_tuyauterie1, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Luminaire des WC à l\'entrée : ' . $etat_entree_luminaire1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Luminaire des WC à la sortie : ' . $etat_sortie_luminaire1, 0, 1, 'L');
-
-        // Chambre - Murs, sol, vitrage
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des lieux de la chambre', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Description des murs de la chambre 1 : ' . $murChambre1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs de la chambre 1 à l\'entrée : ' . $etatEntreeMur1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs de la chambre 1 à la sortie : ' . $etatSortieMur1, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Description du sol de la chambre 1 : ' . $solChambre1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol de la chambre 1 à l\'entrée : ' . $etat_cuisine_sol_entree1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol de la chambre 1 à la sortie : ' . $etat_cuisine_sol_sortie1, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Vitrage de la chambre 1 à l\'entrée : ' . $etat_cuisine_vitrages_entree1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Vitrage de la chambre 1 à la sortie : ' . $etat_cuisine_vitrages_sortie1, 0, 1, 'L');
-
-        // Chambre - Plafond, éclairage
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des lieux de la chambre - Plafond et éclairage', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Plafond de la chambre 1 à l\'entrée : ' . $etat_cuisine_plafond_entree1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Plafond de la chambre 1 à la sortie : ' . $etat_cuisine_plafond_sortie1, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Eclairage de la chambre 1 à l\'entrée : ' . $etat_chambre_eclairage_entree1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Eclairage de la chambre 1 à la sortie : ' . $etat_chambre_eclairage_sortie1, 0, 1, 'L');
-
-        // Plafond Electrique - Chambre
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des plafonds électriques', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Plafond électrique de la chambre 1 : ' . $plafondElectrique1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du plafond électrique de la chambre 1 à l\'entrée : ' . $etatEntreePlafondElectrique1, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du plafond électrique de la chambre 1 à la sortie : ' . $etatSortiePlafondElectrique1, 0, 1, 'L');
-
-        // WC - Accessoires et plomberie
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Etat des accessoires et plomberie des WC', 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Description des murs WC 2 : ' . $description_mur_wc2, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs WC 2 à l\'entrée : ' . $etat_wc2_entree, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat des murs WC 2 à la sortie : ' . $etat_wc2_sortie, 0, 1, 'L');
-
-        $pdf->Cell(0, 10, 'Description du sol WC 2 : ' . $description_sol2, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol WC 2 à l\'entrée : ' . $etat_entree_sol2, 0, 1, 'L');
-        $pdf->Cell(0, 10, 'Etat du sol WC 2 à la sortie : ' . $etat_sortie_sol2, 0, 1, 'L');
-
-        // Finalisation du PDF
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Commentaires supplémentaires : ' . $zone_de_commentaire, 0, 1, 'L');
-
-        // Envoi du fichier PDF
-        $pdf->Output('D', 'etat_des_lieux.pdf'); // Envoi du PDF au navigateur pour téléchargement
-
-      
-
-        // Finalisation et envoi du PDF
-        $pdf->Ln(10);
-        $pdf->Cell(0, 10, 'Commentaire(s) supplémentaire(s) : ', 0, 1, 'L');
-        $pdf->MultiCell(0, 10, $zoneDeCommentaire);
-
-        // Envoi du fichier PDF
-        $pdf->Output($fileFormat == 'pdf' ? 'D' : 'I', 'etat_des_lieux.' . $fileFormat); // Envoi du PDF ou du format choisi
+        // Cuisine - Plafond Électrique
+        $pdf->Cell(0, 10, 'Plafond électrique - Partie 1 : ' . $plafondElectrique1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Plafond électrique - Partie 2 : ' . $plafondElectrique2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Plafond électrique - Partie 3 : ' . $plafondElectrique3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond électrique (entrée) - Partie 1 : ' . $etatEntreePlafondElectrique1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond électrique (entrée) - Partie 2 : ' . $etatEntreePlafondElectrique2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond électrique (entrée) - Partie 3 : ' . $etatEntreePlafondElectrique3, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond électrique (sortie) - Partie 1 : ' . $etatSortiePlafondElectrique1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond électrique (sortie) - Partie 2 : ' . $etatSortiePlafondElectrique2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du plafond électrique (sortie) - Partie 3 : ' . $etatSortiePlafondElectrique3, 0, 1, 'L');
+        
 
 
+        // WC - Description et état des murs
+        $pdf->Cell(0, 10, 'Description des murs WC - Partie 1 : ' . $descriptionMurWC1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description des murs WC - Partie 2 : ' . $descriptionMurWC2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des murs WC (entrée) - Partie 1 : ' . $etatWC1Entree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des murs WC (entrée) - Partie 2 : ' . $etatWC2Entree, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des murs WC (sortie) - Partie 1 : ' . $etatWC1Sortie, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des murs WC (sortie) - Partie 2 : ' . $etatWC2Sortie, 0, 1, 'L');
 
+        // WC - Description et état des sols
+        $pdf->Cell(0, 10, 'Description du sol WC - Partie 1 : ' . $descriptionSol1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Description du sol WC - Partie 2 : ' . $descriptionSol2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol WC (entrée) - Partie 1 : ' . $etatEntreeSol1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol WC (entrée) - Partie 2 : ' . $etatEntreeSol2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol WC (sortie) - Partie 1 : ' . $etatSortieSol1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du sol WC (sortie) - Partie 2 : ' . $etatSortieSol2, 0, 1, 'L');
 
-}
+        // WC - Vitrages et volets
+        $pdf->Cell(0, 10, 'Vitrages et volets WC - Partie 1 : ' . $vitrageVolet1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Vitrages et volets WC - Partie 2 : ' . $vitrageVolet2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages et volets WC (entrée) - Partie 1 : ' . $etatEntreeVitrageVolet1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages et volets WC (entrée) - Partie 2 : ' . $etatEntreeVitrageVolet2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages et volets WC (sortie) - Partie 1 : ' . $etatSortieVitrageVolet1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État des vitrages et volets WC (sortie) - Partie 2 : ' . $etatSortieVitrageVolet2, 0, 1, 'L');
 
+        // WC - Tuyauterie
+        $pdf->Cell(0, 10, 'Tuyauterie WC - Partie 1 : ' . $tuyauterie1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Tuyauterie WC - Partie 2 : ' . $tuyauterie2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la tuyauterie WC (entrée) - Partie 1 : ' . $etatEntreeTuyauterie1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la tuyauterie WC (entrée) - Partie 2 : ' . $etatEntreeTuyauterie2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la tuyauterie WC (sortie) - Partie 1 : ' . $etatSortieTuyauterie1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État de la tuyauterie WC (sortie) - Partie 2 : ' . $etatSortieTuyauterie2, 0, 1, 'L');
 
+        // WC - Luminaire
+        $pdf->Cell(0, 10, 'Luminaire WC - Partie 1 : ' . $luminaire1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'Luminaire WC - Partie 2 : ' . $luminaire2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du luminaire WC (entrée) - Partie 1 : ' . $etatEntreeLuminaire1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du luminaire WC (entrée) - Partie 2 : ' . $etatEntreeLuminaire2, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du luminaire WC (sortie) - Partie 1 : ' . $etatSortieLuminaire1, 0, 1, 'L');
+        $pdf->Cell(0, 10, 'État du luminaire WC (sortie) - Partie 2 : ' . $etatSortieLuminaire2, 0, 1, 'L');
+     
+        // Zone de commentaire
+        $pdf->Cell(0, 10, 'Zone de commentaire : ' . $zoneDeCommentaire, 0, 1, 'L');
 
-    function generateWord() {
-        // Récupération des données du formulaire
-        $name = htmlspecialchars($_POST['name'] ?? 'Nom inconnu');
-        $email = htmlspecialchars($_POST['email'] ?? 'Email inconnu');
-    
-        // Contenu Word XML (format pour un fichier docx)
-        $content = "
-            <w:document xmlns:w='http://schemas.openxmlformats.org/wordprocessingml/2006/main'>
-                <w:body>
-                    <w:p>
-                        <w:r><w:t>Etat des Lieux</w:t></w:r>
-                    </w:p>
-                    <w:p>
-                        <w:r><w:t>Nom : $name</w:t></w:r>
-                    </w:p>
-                    <w:p>
-                        <w:r><w:t>Email : $email</w:t></w:r>
-                    </w:p>
-                </w:body>
-            </w:document>
-        ";
-    
-        // Créer un flux en mémoire pour le fichier ZIP
-        $zip = new ZipArchive();
-        $zipFileName = "php://output";  // Utiliser le flux de sortie pour envoyer directement le fichier
-        if ($zip->open($zipFileName, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
-            // Ajouter le contenu du fichier Word dans le ZIP
-            $zip->addFromString("word/document.xml", $content);
-            $zip->addEmptyDir("word/_rels");
-            $zip->addEmptyDir("_rels");
-            $zip->addEmptyDir("docProps");
-            
-            // Fermer le fichier ZIP pour que les modifications prennent effet
-            $zip->close();
-    
-            // Définir les en-têtes pour envoyer un fichier Word
-            header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-            header('Content-Disposition: attachment; filename="etat_des_lieux.docx"');
-    
-            // Le fichier est envoyé directement au client sans être enregistré localement
-            readfile($zipFileName);
-        } else {
-            echo "Erreur lors de la création du fichier Word.";
-        }
+        // Envoi du PDF ou du format choisi
+        $pdf->Output($fileFormat == 'pdf' ? 'D' : 'I', 'etat_des_lieux.' . $fileFormat); 
+        
     }
-
 }
-
-// Création de la page
-$controller = new ControllerPartage(new PagePartage());
-echo $controller->index();
 
 
 ?>
