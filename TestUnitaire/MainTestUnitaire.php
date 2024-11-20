@@ -16,6 +16,8 @@ require_once(__DIR__. "/TestBDD/Piece/TestElements.php");
 use TestUnitaire\TestBDD\Piece\TestElements;
 require_once(__DIR__. "/TestBDD/Piece/TestPiece.php");
 use TestUnitaire\TestBDD\Piece\TestPiece;
+require_once(__DIR__ . "/TestBDD/Piece/TestPrises.php");
+use TestUnitaire\TestBDD\Piece\TestPrises;
 
 
 
@@ -29,11 +31,12 @@ class MainTestUnitaire {
         $this->tests = [
             new TestEtatDesLieux(),
             new TestLocataire(),
+            new TestLogement(),
+            new TestPersonne(),
             new TestElectromenager(),
             new TestElements(),
             new TestPiece(),
-            new TestLogement(),
-            new TestPersonne()
+            new TestPrises()
         ];
     }
 
