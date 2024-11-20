@@ -61,7 +61,8 @@ class PrisesDAO extends BasePDODAO implements I_PrisesDAO {
         $this->verificationResultat($reponse,
         "Prises mises à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour les prises");
+        "Impossible de mettre à jour les prises",
+        true);
     }
 
     public function Delete(int $id)

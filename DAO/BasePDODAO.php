@@ -84,23 +84,53 @@ class BasePDODAO {
      * @param string $MessageAucunChangement Message à retourner dans le cas où il n'y a aucun changement
      * @param string $MessageErreur Message à retourner en cas d'erreur
      */
-    protected function verificationResultat($result, string $MessageSucces, string $MessageAucunChangement, string $MessageErreur) : void 
+    protected function verificationResultat($result, string $MessageSucces, string $MessageAucunChangement, string $MessageErreur, bool $isUpdate = false) : void 
     {
         // Message de retour
         $retour = null;
 
-        if ($result instanceof PDOStatement) {
-            $rowCount = $result->rowCount();
-            if ($rowCount > 0) {
-                $retour =  $MessageSucces;
+        if (!$isUpdate)
+        {
+            if ($result instanceof PDOStatement) {
+                $rowCount = $result->rowCount();
+                if ($rowCount > 0) {
+                    $retour =  $MessageSucces;
+                } else {
+                    $retour =  $MessageAucunChangement;
+                    throw new Exception($retour);
+                }
             } else {
-                $retour =  $MessageAucunChangement;
+                $retour =  $MessageErreur;
                 throw new Exception($retour);
             }
-        } else {
-            $retour =  $MessageErreur;
-            throw new Exception($retour);
         }
+        else 
+        {
+            if ($result instanceof PDOStatement) {
+                // Sélection des changements dans la BDD
+                $changesCount = $this->db->query('SELECT changes()')->fetchColumn();
+                
+                if ($changesCount > 0) {
+                    $retour = $MessageSucces;
+                } else {
+                    // Vérification que l'opération s'est finie sans erreur
+                    $errorInfo = $this->db->errorInfo();
+                    if ($errorInfo[0] === '00000') {
+                        // Pas d'erreur, mais pas de changement
+                        $retour = $MessageAucunChangement;
+                    } else {
+                        // Une erreur s'est produite
+                        $retour = $MessageErreur . " : " . $errorInfo[2];
+                        throw new Exception($retour);
+                    }
+                }
+            } else {
+                $retour = $MessageErreur;
+                throw new Exception($retour);
+            }
+        }
+
+
 
         // Retour du message en console
         echo "<script>console.log(" . json_encode($retour) . ");</script>";
