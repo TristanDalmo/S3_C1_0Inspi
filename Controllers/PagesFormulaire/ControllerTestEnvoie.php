@@ -1,5 +1,6 @@
 <?php 
 
+    namespace Controllers\PagesFormulaire;
     require_once(__DIR__ . "/../../Views/PagesFormulaire/PageEnvoieMail.php");
     use Views\PagesFormulaire\PageEnvoieMail;
 
