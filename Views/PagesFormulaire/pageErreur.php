@@ -17,6 +17,6 @@ class pageErreur extends AbstractPage
 
     protected function GenerateContent() : string
     {
-        return "<p> ERREUR : ".$this->messageErreur."</p>";
+        return "<p id=\"messageErreur\"><span id=\"erreur\">ERREUR : </span><br>".$this->messageErreur."<br>Veuillez retourner sur la page précédente</p>";
     }
 }
