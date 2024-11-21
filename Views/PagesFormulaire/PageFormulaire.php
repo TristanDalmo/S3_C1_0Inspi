@@ -12,7 +12,7 @@ class PageFormulaire extends AbstractPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../../Public/CSS/formulaire.css",nom:"E-Lieu ~ Formulaire",jsChemin: "../../Public/JavaScript/formulaire.js");
+        parent::__construct(cssChemin: "../../Public/CSS/formulaire.css",nom:"E-Lieu ~ Formulaire");
     }    
 
     protected function GenerateContent() : string

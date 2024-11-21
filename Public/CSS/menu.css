@@ -90,3 +90,14 @@ figure figcaption {
 figure:hover {
     transform: rotateY(180deg); 
 }
+#messageErreur
+{
+    font-size: 50px;
+    text-align: center;
+}
+#erreur
+{
+    font-size: 70px;
+    font-weight: bold;
+    color:red;
+}
