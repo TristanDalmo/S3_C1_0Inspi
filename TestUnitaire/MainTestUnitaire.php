@@ -2,6 +2,9 @@
 
 namespace TestUnitaire;
 
+require_once(__DIR__ . "/../Config/Config.php");
+use Config\Config;
+
 require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestEtatDesLieux.php");
 require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestLocataire.php");
 require_once(__DIR__ . "/TestBDD/EtatDeslieux/TestLogement.php");
@@ -42,6 +45,8 @@ class MainTestUnitaire {
 
 
     public function Execute() : string {
+
+        Config::setModeTestUnitaires(true);
 
         $retour = '<head>
             <meta charset="UTF-8">
