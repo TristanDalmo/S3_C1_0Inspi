@@ -149,7 +149,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //création de la piece
         $cuisine=new Piece();
-        $cuisine->setidTypePiece('Cuisine');
+        $cuisine->setidTypePiece(3);
         $cuisine->setidLogement($idLogement);
         $cuisine->setidPrise($idPriseCuisine);
         $cuisine->setIdElectromenager($idelectromenager);
@@ -262,7 +262,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $idPriseSdb1=$prisesDAO->Create($priseSdb1);
 
         $salleDeBain1=new Piece();
-        $salleDeBain1->setidTypePiece('Salle de bain');
+        $salleDeBain1->setidTypePiece(4);
         $salleDeBain1->setidLogement($idLogement);
         $salleDeBain1->setidPrise($idPriseSdb1);
 
@@ -361,7 +361,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $idPriseSdb2=$prisesDAO->Create($priseSdb2);
 
         $salleDeBain2=new Piece();
-        $salleDeBain2->setidTypePiece('Salle de bain');
+        $salleDeBain2->setidTypePiece(4);
         $salleDeBain2->setidLogement($idLogement);
         $salleDeBain2->setidPrise($idPriseSdb2);
 
