@@ -130,6 +130,61 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
 
 
+        // création des prises de cuisine
+        $priseCuisine=new Prises();
+        $priseCuisine->setDescription($donnees['description_prise_electrique']);
+        $priseCuisine->setEtatEntree($donnees['etat_cuisine_prise_electrique_entree']);
+        $priseCuisine->setEtatSortie($donnees['etat_cuisine_prise_electrique_sortie']);
+        $priseCuisine->setNombrePrises($donnees['nombre_prise_electrique']);
+
+        $idPriseCuisine=$prisesDAO->Create($priseCuisine);
+
+        // création electromenager
+        $electromenager=new Electromenager();
+        $electromenager->setDescription($donnees['description_electromenager']);
+        $electromenager->setEtatEntree($donnees['etat_cuisine_electromenager_entree']);
+        $electromenager->setEtatSortie($donnees['etat_cuisine_electromenager_sortie']);
+        $electromenager->setNomElectromenager($donnees['electromenager_nom']);
+
+        $idelectromenager=$electromenagerDAO->Create($electromenager);
+
+
+        //création de la piece
+        $cuisine=new Piece();
+        $cuisine->setidTypePiece('Cuisine');
+        $cuisine->setidLogement($idLogement);
+        $cuisine->setidPrise($idPriseCuisine);
+        $cuisine->setIdElectromenager($idelectromenager);
+
+        $idCuisine=$pieceDAO->Create($cuisine);
+
+        // crétion du mur de la cuisine
+        $murCuisine=new Elements();
+        $murCuisine->setDescription($donnees['description_mur_cuisine']);
+        $murCuisine->setEtatEntree($donnees['etat_cuisine_mur_entree']);
+        $murCuisine->setEtatSortie($donnees['etat_cuisine_mur_sortie']);
+        $murCuisine->setTypeElement('Mur');
+        $murCuisine->setidPiece($idCuisine);
+
+        $idMurCuisine=$elementsDAO->Create($murCuisine);
+
+        //création sol cuisine
+        $solCuisine=new Elements();
+        $solCuisine->setDescription($donnees['description_sol_cuisine']);
+        $solCuisine->setEtatEntree($donnees['etat_cuisine_sol_entree']);
+        $solCuisine->setEtatSortie($donnees['etat_cuisine_sol_sortie']);
+        $solCuisine->setTypeElement('Sol');
+        $solCuisine->setidPiece($idCuisine);
+
+        $idSolCuisine=$elementsDAO->Create($solCuisine);
+
+        //création vitrages volets
+        $vitrages_voletsCuisine=new Elements();
+        $vitrages_voletsCuisine->setDescription($donnees['description_vitrage_volets']);
+        $vitrages_voletsCuisine->setEtatEntree($donnees['etat_cuisine_vitrage_volets_entree']);
+        $vitrages_voletsCuisine->setEtatSortie($donnees['etat_cuisine_vitrage_volets_sortie']);
+        $vitrages_voletsCuisine->setTypeElement('Vitrages et Volets');
+        $vitrages_voletsCuisine->setidPiece($idCuisine);
 
         #endregion
 
