@@ -57,7 +57,9 @@ class ControllerPartage {
             // Crée le dossier si nécessaire
             mkdir(directory: $Dossier_Cible,permissions: 0777,recursive: true);
 
+            #region Gestion médias
 
+            // Gestion des médias ajoutés dans le serveur (images et vidéos)
             $mediaService = new MediaService();
             if (isset($_FILES['Documents']) && is_array($_FILES['Documents']['error']))
             {
@@ -75,9 +77,22 @@ class ControllerPartage {
                 if ($hasValidFiles) {
                     $mediaService->InsertionMedias($_FILES['Documents'],$Dossier_Cible);
                 } 
-        
-                
             } 
+
+            #endregion
+
+            // Gestion du commentaire de bas de page (génération .txt)
+
+            // Gestion de l'insertion dans la BDD
+            $insertion=new InsertionEDLDAO();
+            $insertion->InsererEDL($_POST);
+
+            // Gestion de la création du fichier Word
+
+            // Gestion de la création du fichier pdf
+
+
+            // Affichage de la page en cas de succès
             $newPage=$this->page->GeneratePage();
         }
         catch(Exception $e)
@@ -98,8 +113,7 @@ class ControllerPartage {
 $controller = new ControllerPartage(new PagePartage());
 echo $controller->index();
 
-$insertion=new InsertionEDLDAO();
-$insertion->InsererEDL($_POST);
+
 
 
 
