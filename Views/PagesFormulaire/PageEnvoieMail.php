@@ -3,14 +3,14 @@ namespace Views\PagesFormulaire;
 use Views\AbstractPage;
 require_once(__DIR__ . "/../AbstractPage.php");
 
-class pageErreur extends AbstractPage
+class PageEnvoieMail extends AbstractPage
 {
 
-    private string $messageErreur="";
+    private string $folderPath="";
 
-    public function __construct(string $messageErreur)
+    public function __construct(string $folderPath)
     {
-        $this->messageErreur = $messageErreur; 
+        $this->folderPath = $folderPath; 
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
         parent::__construct(cssChemin: "../../Public/CSS/formulaire.css",nom:"E-Lieu ~ Formulaire");
     }    
@@ -22,7 +22,8 @@ class pageErreur extends AbstractPage
         <input type=\"text\" placeholder=\"Adresse Email du destinataire...\" name=\"adresseEmailDestinataire\">
         <input type=\"text\" placeholder=\"Objet du Mail...\" name=\"ObjetMail\"
         <textarea class=\"objectText\" placeholder=\"Corps du Mail...\"></textarea>
-        </fieldset>
+        <input type=\"hidden\" name=\"pieceJointe\">".$this->folderPath.
+        "</fieldset>
         <input=\"submit\" value=\"Envoyer\">
         </form>"
         ;
