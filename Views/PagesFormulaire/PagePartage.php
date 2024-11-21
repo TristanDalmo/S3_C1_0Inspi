@@ -12,7 +12,7 @@ class PagePartage extends AbstractPage
     public function __construct()
     {
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../../Public/CSS/menu.css",nom:"E-Lieu ~ Partage et Export",jsChemin:"../../Public/JavaScript/RetourFichier.js");
+        parent::__construct(cssChemin: "../../Public/CSS/menu.css",nom:"E-Lieu ~ Partage et Export");
     }
 
     protected function GenerateContent() : string

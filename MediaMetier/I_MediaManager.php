@@ -10,8 +10,9 @@
         /**
          * Méthode permettant d'insérer les fichiers dans le serveur
          * @param array $donnees Données du serveur
-         * @return string Renvoie le chemin utilisé
+         * @param string $Dossier_Cible Chemin utilisé
+         * @return void
          */
-        public function InsertionMedia(array $donnees) : string;
+        public function InsertionMedia(array $donnees, string $Dossier_Cible);
     }
 ?>

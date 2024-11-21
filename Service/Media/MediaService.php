@@ -9,10 +9,10 @@
     class MediaService implements I_MediaService
     {
 
-        public function InsertionMedias(array $donnees)
+        public function InsertionMedias(array $donnees, $Dossier_Cible)
         {
             $mediaManager=new MediaManager();
-            return $mediaManager->InsertionMedia($donnees);
+            $mediaManager->InsertionMedia($donnees, $Dossier_Cible);
         }
     }
 
