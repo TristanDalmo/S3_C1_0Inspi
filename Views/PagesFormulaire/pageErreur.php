@@ -12,11 +12,14 @@ class pageErreur extends AbstractPage
     {
         $this->messageErreur = $messageErreur; 
         // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
-        parent::__construct(cssChemin: "../../Public/CSS/menu.css",nom:"E-Lieu ~ Formulaire");
+        parent::__construct(cssChemin: "../../Public/CSS/erreur.css",nom:"E-Lieu ~ Formulaire");
     }    
 
     protected function GenerateContent() : string
     {
-        return "<p id=\"messageErreur\"><span id=\"erreur\">ERREUR : </span><br>".$this->messageErreur."<br>Veuillez retourner sur la page précédente</p>";
+        return "<div id=\"messageErreur\"><span id=\"erreur\">ERREUR : </span><br>
+        <p id=\"Message\">".$this->messageErreur."</p>
+        <br>
+        <p id=\"texteFin\">Veuillez retourner sur la page précédente</p></div>";
     }
 }
