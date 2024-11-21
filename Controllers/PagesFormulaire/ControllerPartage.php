@@ -259,217 +259,217 @@ class ControllerPartage {
         // Créer un nouvel objet PDF
         $pdf = new FPDF();
 
-        $pdf->AddFont('Helvetica', '', 'Helvetica.php');
+        $pdf->AddFont('courier', '', 'couriri.php');
 
         $pdf->AddPage();
-        $pdf->SetFont('Helvetica','',12 );
+        $pdf->SetFont('courier','',12 );
 
        
         // Titre principal
-        $pdf->Cell(0, 10, utf8_decode( 'État des Lieux'), 0, 1, 'C');
-        $pdf->Cell(0, 10, utf8_decode( '(Conforme LOI ALUR)'), 0, 1, 'C');
+        $pdf->Cell(0, 10,    'État des Lieux', 0, 1, 'C');
+        $pdf->Cell(0, 10,   '(Conforme LOI ALUR)','UTF-8', 0, 1, 'C');
 
         // Récupération des données du formulaire 
-        $pdf->Cell(0, 10, utf8_decode( 'Date d\'entrée : ' ). utf8_decode(  $fDate), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Date de sortie : ' ). utf8_decode( $fDateS), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Permis : ' ). utf8_decode( $fPermis), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Autre texte : ' ). utf8_decode( $textautre), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Prénom locataire : ' ). utf8_decode( $prenomLocataire), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Nom locataire : ' ). utf8_decode( $nomLocataire), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Adresse locataire : ' ). utf8_decode( $adresseLocataire), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Date d\'entrée  : ', $fDate, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Date de sortie   : ', $fDateS, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Permis  : ', $fPermis, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Autre texte  : ', $textautre, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Prénom locataire  : ', $prenomLocataire, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Nom locataire  : ', $nomLocataire, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Adresse locataire  : ', $adresseLocataire, 0, 1, 'l');
 
         //cuisine 
-        $pdf->Cell(0, 10, utf8_decode( 'Description du mur de la cuisine : ' ). utf8_decode( $descriptionmurcuisine), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur de la cuisine (entrée) : ' ). utf8_decode( $etatCuisineMurEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur de la cuisine (sortie) : ' ). utf8_decode( $etatCuisineMurSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description du sol de la cuisine : ' ). utf8_decode( $descriptionSolCuisine), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol de la cuisine (entrée) : ' ). utf8_decode( $etatCuisineSolEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol de la cuisine (sortie) : ' ). utf8_decode( $etatCuisineSolSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description des vitrages et volets de la cuisine : ' ). utf8_decode( $descriptionVitrageVolets), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages et volets de la cuisine (entrée) : ' ). utf8_decode( $etatCuisineVitrageVoletsEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages et volets de la cuisine (sortie) : ' ). utf8_decode( $etatCuisineVitrageVoletsSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description du plafond de la cuisine : ' ). utf8_decode( $descriptionPlafondCuisine), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond de la cuisine (entrée) : ' ). utf8_decode( $etatCuisinePlafondEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond de la cuisine (sortie) : ' ). utf8_decode( $etatCuisinePlafondSortie), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description du mur de la cuisine  : ', $descriptionmurcuisine, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur de la cuisine (entrée)  : ', $etatCuisineMurEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur de la cuisine (sortie)  : ', $etatCuisineMurSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description du sol de la cuisine  : ', $descriptionSolCuisine, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol de la cuisine (entrée)  : ', $etatCuisineSolEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol de la cuisine (sortie)  : ', $etatCuisineSolSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description des vitrages et volets de la cuisine  : ', $descriptionVitrageVolets, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages et volets de la cuisine (entrée)  : ', $etatCuisineVitrageVoletsEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages et volets de la cuisine (sortie)  : ', $etatCuisineVitrageVoletsSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description du plafond de la cuisine  : ', $descriptionPlafondCuisine, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond de la cuisine (entrée)  : ', $etatCuisinePlafondEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond de la cuisine (sortie)  : ', $etatCuisinePlafondSortie, 0, 1, 'l');
 
         // Prises, placards, électroménagers
-        $pdf->Cell(0, 10, utf8_decode( 'Description des éclairages et interrupteurs : ' ). utf8_decode( $descriptionEclairageInterrupteurs), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des éclairages et interrupteurs (entrée) : ' ). utf8_decode( $etatCuisineEclairageInterrupteursEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des éclairages et interrupteurs (sortie) : ' ). utf8_decode( $etatCuisineEclairageInterrupteursSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Nombre de prises électriques : ' ). utf8_decode( $nombrePriseElectrique), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description des prises électriques : ' ). utf8_decode( $descriptionPriseElectrique), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des prises électriques (entrée) : ' ). utf8_decode( $etatCuisinePriseElectriqueEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des prises électriques (sortie) : ' ). utf8_decode( $etatCuisinePriseElectriqueSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description des placards et tiroirs : ' ). utf8_decode( $descriptionPlacardsTiroirs), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des placards et tiroirs (entrée) : ' ). utf8_decode( $etatCuisinePlacardsTiroirsEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des placards et tiroirs (sortie) : ' ). utf8_decode( $etatCuisinePlacardsTiroirsSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description de l\'évier et robinetterie : ' ). utf8_decode( $descriptionEvierRobinetterie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'évier et robinetterie (entrée) : ' ). utf8_decode( $etatCuisineEvierRobinetterieEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'évier et robinetterie (sortie) : ' ). utf8_decode( $etatCuisineEvierRobinetterieSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description de la plaque de cuisson et four : ' ). utf8_decode( $descriptionPlaqueFour), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la plaque de cuisson et du four (entrée) : ' ). utf8_decode( $etatCuisinePlaqueFourEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la plaque de cuisson et du four (sortie) : ' ). utf8_decode( $etatCuisinePlaqueFourSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description de la hotte : ' ). utf8_decode( $descriptionHotte), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la hotte (entrée) : ' ). utf8_decode( $etatCuisineHotteEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la hotte (sortie) : ' ). utf8_decode( $etatCuisineHotteSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Nom de l\'électroménager : ' ). utf8_decode( $electromenagerNom), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description de l\'électroménager : ' ). utf8_decode( $descriptionElectromenager), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'électroménager (entrée) : ' ). utf8_decode( $etatCuisineElectromenagerEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'électroménager (sortie) : ' ). utf8_decode( $etatCuisineElectromenagerSortie), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description des éclairages et interrupteurs  : ', $descriptionEclairageInterrupteurs, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des éclairages et interrupteurs (entrée)  : ', $etatCuisineEclairageInterrupteursEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des éclairages et interrupteurs (sortie)  : ', $etatCuisineEclairageInterrupteursSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Nombre de prises électriques  : ', $nombrePriseElectrique, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description des prises électriques  : ', $descriptionPriseElectrique, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des prises électriques (entrée)  : ', $etatCuisinePriseElectriqueEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des prises électriques (sortie)  : ', $etatCuisinePriseElectriqueSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description des placards et tiroirs  : ', $descriptionPlacardsTiroirs, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des placards et tiroirs (entrée)  : ', $etatCuisinePlacardsTiroirsEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des placards et tiroirs (sortie)  : ', $etatCuisinePlacardsTiroirsSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description de l\'évier et robinetterie  : ', $descriptionEvierRobinetterie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'évier et robinetterie (entrée)  : ', $etatCuisineEvierRobinetterieEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'évier et robinetterie (sortie)  : ', $etatCuisineEvierRobinetterieSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description de la plaque de cuisson et four  : ', $descriptionPlaqueFour, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la plaque de cuisson et du four (entrée)  : ', $etatCuisinePlaqueFourEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la plaque de cuisson et du four (sortie)  : ', $etatCuisinePlaqueFourSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description de la hotte  : ', $descriptionHotte, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la hotte (entrée)  : ', $etatCuisineHotteEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la hotte (sortie)  : ', $etatCuisineHotteSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Nom de l\'électroménager  : ', $electromenagerNom, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description de l\'électroménager  : ', $descriptionElectromenager, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'électroménager (entrée)  : ', $etatCuisineElectromenagerEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'électroménager (sortie)  : ', $etatCuisineElectromenagerSortie, 0, 1, 'l');
 
         // Salle de bain
-        $pdf->Cell(0, 10, utf8_decode( 'Mur salle de bain 1 : ' ). utf8_decode( $murSdb1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Mur salle de bain 2 : ' ). utf8_decode( $murSdb2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur (entrée) : ' ). utf8_decode( $etatMurEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur (sortie) : ' ). utf8_decode( $etatMurSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Sol salle de bain 1 : ' ). utf8_decode( $solSdb1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Sol salle de bain 2 : ' ). utf8_decode( $solSdb2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol (entrée) : ' ). utf8_decode( $etatSolEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol (sortie) : ' ). utf8_decode( $etatSolSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Vitrage salle de bain 1 : ' ). utf8_decode( $vitrageSdb1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Vitrage salle de bain 2 : ' ). utf8_decode( $vitrageSdb2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du vitrage (entrée) : ' ). utf8_decode( $etatVitrageEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du vitrage (sortie) : ' ). utf8_decode( $etatVitrageSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond (entrée) : ' ). utf8_decode( $etatPlafondEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond (sortie) : ' ). utf8_decode( $etatPlafondSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Éclairage salle de bain 1 : ' ). utf8_decode( $eclairageSdb1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Éclairage salle de bain 2 : ' ). utf8_decode( $eclairageSdb2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'éclairage (entrée) : ' ). utf8_decode( $etatEclairageEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'éclairage (sortie) : ' ). utf8_decode( $etatEclairageSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Prise salle de bain 1 : ' ). utf8_decode( $priseSdb1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Prise salle de bain 2 : ' ). utf8_decode( $priseSdb2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la prise (entrée) : ' ). utf8_decode( $etatPriseEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la prise (sortie) : ' ). utf8_decode( $etatPriseSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Lavabo salle de bain 1 : ' ). utf8_decode( $laveLingeSdb1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Lavabo salle de bain 2 : ' ). utf8_decode( $laveLingeSdb2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du lavabo (entrée) : ' ). utf8_decode( $etatLavaboEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du lavabo (sortie) : ' ). utf8_decode( $etatLavaboSortie), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Mur salle de bain 1  : ', $murSdb1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Mur salle de bain 2  : ', $murSdb2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur (entrée)  : ', $etatMurEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur (sortie)  : ', $etatMurSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Sol salle de bain 1  : ', $solSdb1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Sol salle de bain 2  : ', $solSdb2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol (entrée)  : ', $etatSolEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol (sortie)  : ', $etatSolSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Vitrage salle de bain 1  : ', $vitrageSdb1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Vitrage salle de bain 2  : ', $vitrageSdb2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du vitrage (entrée)  : ', $etatVitrageEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du vitrage (sortie)  : ', $etatVitrageSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond (entrée)  : ', $etatPlafondEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond (sortie)  : ', $etatPlafondSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Éclairage salle de bain 1  : ', $eclairageSdb1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Éclairage salle de bain 2  : ', $eclairageSdb2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'éclairage (entrée)  : ', $etatEclairageEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'éclairage (sortie)  : ', $etatEclairageSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Prise salle de bain 1  : ', $priseSdb1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Prise salle de bain 2  : ', $priseSdb2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la prise (entrée)  : ', $etatPriseEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la prise (sortie)  : ', $etatPriseSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Lavabo salle de bain 1  : ', $laveLingeSdb1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Lavabo salle de bain 2  : ', $laveLingeSdb2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du lavabo (entrée)  : ', $etatLavaboEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du lavabo (sortie)  : ', $etatLavaboSortie, 0, 1, 'l');
 
         // WC
-        $pdf->Cell(0, 10, utf8_decode( 'État de la baignoire (entrée) : ' ). utf8_decode( $etatBaignoireEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la baignoire (sortie) : ' ). utf8_decode( $etatBaignoireSortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'WC salle de bain 1 : ' ). utf8_decode( $wcSdb1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'WC salle de bain 2 : ' ). utf8_decode( $wcSdb2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des WC (entrée) : ' ). utf8_decode( $etatWCEntree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des WC (sortie) : ' ). utf8_decode( $etatWCSortie), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la baignoire (entrée)  : ', $etatBaignoireEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la baignoire (sortie)  : ', $etatBaignoireSortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'WC salle de bain 1  : ', $wcSdb1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'WC salle de bain 2  : ', $wcSdb2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des WC (entrée)  : ', $etatWCEntree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des WC (sortie)  : ', $etatWCSortie, 0, 1, 'l');
 
         // Chambre
-        $pdf->Cell(0, 10, utf8_decode( 'Mur chambre 1 : ' ). utf8_decode( $murChambre1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Mur chambre 2 : ' ). utf8_decode( $murChambre2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Mur chambre 3 : ' ). utf8_decode( $murChambre3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur 1 (entrée) : ' ). utf8_decode( $etatEntreeMur1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur 2 (entrée) : ' ). utf8_decode( $etatEntreeMur2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur 3 (entrée) : ' ). utf8_decode( $etatEntreeMur3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur 1 (sortie) : ' ). utf8_decode( $etatSortieMur1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur 2 (sortie) : ' ). utf8_decode( $etatSortieMur2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du mur 3 (sortie) : ' ). utf8_decode( $etatSortieMur3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Sol chambre 1 : ' ). utf8_decode( $solChambre1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Sol chambre 2 : ' ). utf8_decode( $solChambre2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Sol chambre 3 : ' ). utf8_decode( $solChambre3), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Mur chambre 1  : ', $murChambre1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Mur chambre 2  : ', $murChambre2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Mur chambre 3  : ', $murChambre3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur 1 (entrée)  : ', $etatEntreeMur1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur 2 (entrée)  : ', $etatEntreeMur2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur 3 (entrée)  : ', $etatEntreeMur3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur 1 (sortie)  : ', $etatSortieMur1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur 2 (sortie)  : ', $etatSortieMur2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du mur 3 (sortie)  : ', $etatSortieMur3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Sol chambre 1  : ', $solChambre1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Sol chambre 2  : ', $solChambre2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Sol chambre 3  : ', $solChambre3, 0, 1, 'l');
 
         
 
         // Cuisine - Sol
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol de la cuisine (entrée) - chambre 1 : ' ). utf8_decode( $etatCuisineSolEntree1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol de la cuisine (entrée) - chambre 2 : ' ). utf8_decode( $etatCuisineSolEntree2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol de la cuisine (entrée) - chambre 3 : ' ). utf8_decode( $etatCuisineSolEntree3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol de la cuisine (sortie) - chambre 1 : ' ). utf8_decode( $etatCuisineSolSortie1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol de la cuisine (sortie) - chambre 2 : ' ). utf8_decode( $etatCuisineSolSortie2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol de la cuisine (sortie) - chambre 3 : ' ). utf8_decode( $etatCuisineSolSortie3), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol de la cuisine (entrée) - chambre 1  : ', $etatCuisineSolEntree1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol de la cuisine (entrée) - chambre 2  : ', $etatCuisineSolEntree2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol de la cuisine (entrée) - chambre 3  : ', $etatCuisineSolEntree3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol de la cuisine (sortie) - chambre 1  : ', $etatCuisineSolSortie1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol de la cuisine (sortie) - chambre 2  : ', $etatCuisineSolSortie2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol de la cuisine (sortie) - chambre 3  : ', $etatCuisineSolSortie3, 0, 1, 'l');
 
         // Cuisine - Vitrages
-        $pdf->Cell(0, 10, utf8_decode( 'Vitrages de la cuisine - chambre 1 : ' ). utf8_decode( $vitrages1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Vitrages de la cuisine - chambre 2 : ' ). utf8_decode( $vitrages2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Vitrages de la cuisine - chambre 3 : ' ). utf8_decode( $vitrages3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages (entrée) - chambre 1 : ' ). utf8_decode( $etatCuisineVitragesEntree1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages (entrée) - chambre 2 : ' ). utf8_decode( $etatCuisineVitragesEntree2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages (entrée) - chambre 3 : ' ). utf8_decode( $etatCuisineVitragesEntree3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages (sortie) - chambre 1 : ' ). utf8_decode( $etatCuisineVitragesSortie1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages (sortie) - chambre 2 : ' ). utf8_decode( $etatCuisineVitragesSortie2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages (sortie) - chambre 3 : ' ). utf8_decode( $etatCuisineVitragesSortie3), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Vitrages de la cuisine - chambre 1  : ', $vitrages1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Vitrages de la cuisine - chambre 2  : ', $vitrages2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Vitrages de la cuisine - chambre 3  : ', $vitrages3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages (entrée) - chambre 1  : ', $etatCuisineVitragesEntree1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages (entrée) - chambre 2  : ', $etatCuisineVitragesEntree2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages (entrée) - chambre 3  : ', $etatCuisineVitragesEntree3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages (sortie) - chambre 1  : ', $etatCuisineVitragesSortie1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages (sortie) - chambre 2  : ', $etatCuisineVitragesSortie2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages (sortie) - chambre 3  : ', $etatCuisineVitragesSortie3, 0, 1, 'l');
 
         // Cuisine - Plafond
-        $pdf->Cell(0, 10, utf8_decode( 'Plafond de la cuisine - chambre 1 : ' ). utf8_decode( $plafond1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Plafond de la cuisine - chambre 2 : ' ). utf8_decode( $plafond2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Plafond de la cuisine - chambre 3 : ' ). utf8_decode( $plafond3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond (entrée) - chambre 1 : ' ). utf8_decode( $etatCuisinePlafondEntree1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond (entrée) - chambre 2 : ' ). utf8_decode( $etatCuisinePlafondEntree2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond (entrée) - chambre 3 : ' ). utf8_decode( $etatCuisinePlafondEntree3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond (sortie) - chambre 1 : ' ). utf8_decode( $etatCuisinePlafondSortie1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond (sortie) - chambre 2 : ' ). utf8_decode( $etatCuisinePlafondSortie2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond (sortie) - chambre 3 : ' ). utf8_decode( $etatCuisinePlafondSortie3), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Plafond de la cuisine - chambre 1  : ', $plafond1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Plafond de la cuisine - chambre 2  : ', $plafond2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Plafond de la cuisine - chambre 3  : ', $plafond3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond (entrée) - chambre 1  : ', $etatCuisinePlafondEntree1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond (entrée) - chambre 2  : ', $etatCuisinePlafondEntree2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond (entrée) - chambre 3  : ', $etatCuisinePlafondEntree3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond (sortie) - chambre 1  : ', $etatCuisinePlafondSortie1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond (sortie) - chambre 2  : ', $etatCuisinePlafondSortie2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond (sortie) - chambre 3  : ', $etatCuisinePlafondSortie3, 0, 1, 'l');
 
         // Cuisine - Éclairage
-        $pdf->Cell(0, 10, utf8_decode( 'Éclairage de la cuisine - chambre 1 : ' ). utf8_decode( $eclairage1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Éclairage de la cuisine - chambre 2 : ' ). utf8_decode( $eclairage2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Éclairage de la cuisine - chambre 3 : ' ). utf8_decode( $eclairage3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'éclairage (entrée) - chambre 1 : ' ). utf8_decode( $etatChambreEclairageEntree1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'éclairage (entrée) - chambre 2 : ' ). utf8_decode( $etatChambreEclairageEntree2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'éclairage (entrée) - chambre 3 : ' ). utf8_decode( $etatChambreEclairageEntree3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'éclairage (sortie) - chambre 1 : ' ). utf8_decode( $etatChambreEclairageSortie1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'éclairage (sortie) - chambre 2 : ' ). utf8_decode( $etatChambreEclairageSortie2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de l\'éclairage (sortie) - chambre 3 : ' ). utf8_decode( $etatChambreEclairageSortie3), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Éclairage de la cuisine - chambre 1  : ', $eclairage1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Éclairage de la cuisine - chambre 2  : ', $eclairage2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Éclairage de la cuisine - chambre 3  : ', $eclairage3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'éclairage (entrée) - chambre 1  : ', $etatChambreEclairageEntree1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'éclairage (entrée) - chambre 2  : ', $etatChambreEclairageEntree2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'éclairage (entrée) - chambre 3  : ', $etatChambreEclairageEntree3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'éclairage (sortie) - chambre 1  : ', $etatChambreEclairageSortie1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'éclairage (sortie) - chambre 2  : ', $etatChambreEclairageSortie2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de l\'éclairage (sortie) - chambre 3  : ', $etatChambreEclairageSortie3, 0, 1, 'l');
 
         // Cuisine - Plafond Électrique
-        $pdf->Cell(0, 10, utf8_decode( 'Plafond électrique - chambre 1 : ' ). utf8_decode( $plafondElectrique1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Plafond électrique - chambre 2 : ' ). utf8_decode( $plafondElectrique2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Plafond électrique - chambre 3 : ' ). utf8_decode( $plafondElectrique3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond électrique (entrée) - chambre 1 : ' ). utf8_decode( $etatEntreePlafondElectrique1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond électrique (entrée) - chambre 2 : ' ). utf8_decode( $etatEntreePlafondElectrique2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond électrique (entrée) - chambre 3 : ' ). utf8_decode( $etatEntreePlafondElectrique3), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond électrique (sortie) - chambre 1 : ' ). utf8_decode( $etatSortiePlafondElectrique1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond électrique (sortie) - chambre 2 : ' ). utf8_decode( $etatSortiePlafondElectrique2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du plafond électrique (sortie) - chambre 3 : ' ). utf8_decode( $etatSortiePlafondElectrique3), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Plafond électrique - chambre 1  : ', $plafondElectrique1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Plafond électrique - chambre 2  : ', $plafondElectrique2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Plafond électrique - chambre 3  : ', $plafondElectrique3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond électrique (entrée) - chambre 1  : ', $etatEntreePlafondElectrique1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond électrique (entrée) - chambre 2  : ', $etatEntreePlafondElectrique2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond électrique (entrée) - chambre 3  : ', $etatEntreePlafondElectrique3, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond électrique (sortie) - chambre 1  : ', $etatSortiePlafondElectrique1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond électrique (sortie) - chambre 2  : ', $etatSortiePlafondElectrique2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du plafond électrique (sortie) - chambre 3  : ', $etatSortiePlafondElectrique3, 0, 1, 'l');
 
-        $pdf->Cell(0, 10, utf8_decode( 'Nombre de plafond électrique (sortie) - chambre 1 : ' ). utf8_decode( $nbPlafondElectrique1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Nombre de plafond électrique (sortie) - chambre 2 : ' ). utf8_decode( $nbPlafondElectrique2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Nombre de plafond électrique (sortie) - chambre 3 : ' ). utf8_decode( $nbPlafondElectrique3), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Nombre de plafond électrique (sortie) - chambre 1  : ', $nbPlafondElectrique1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Nombre de plafond électrique (sortie) - chambre 2  : ', $nbPlafondElectrique2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Nombre de plafond électrique (sortie) - chambre 3  : ', $nbPlafondElectrique3, 0, 1, 'l');
 
         // WC - Description et état des murs
-        $pdf->Cell(0, 10, utf8_decode( 'Description des murs WC - chambre 1 : ' ). utf8_decode( $descriptionMurWC1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description des murs WC - chambre 2 : ' ). utf8_decode( $descriptionMurWC2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des murs WC (entrée) - chambre 1 : ' ). utf8_decode( $etatWC1Entree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des murs WC (entrée) - chambre 2 : ' ). utf8_decode( $etatWC2Entree), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des murs WC (sortie) - chambre 1 : ' ). utf8_decode( $etatWC1Sortie), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des murs WC (sortie) - chambre 2 : ' ). utf8_decode( $etatWC2Sortie), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description des murs WC - chambre 1  : ', $descriptionMurWC1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description des murs WC - chambre 2  : ', $descriptionMurWC2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des murs WC (entrée) - chambre 1  : ', $etatWC1Entree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des murs WC (entrée) - chambre 2  : ', $etatWC2Entree, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des murs WC (sortie) - chambre 1  : ', $etatWC1Sortie, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des murs WC (sortie) - chambre 2  : ', $etatWC2Sortie, 0, 1, 'l');
 
         // WC - Description et état des sols
-        $pdf->Cell(0, 10, utf8_decode( 'Description du sol WC - chambre 1 : ' ). utf8_decode( $descriptionSol1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Description du sol WC - chambre 2 : ' ). utf8_decode( $descriptionSol2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol WC (entrée) - chambre 1 : ' ). utf8_decode( $etatEntreeSol1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol WC (entrée) - chambre 2 : ' ). utf8_decode( $etatEntreeSol2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol WC (sortie) - chambre 1 : ' ). utf8_decode( $etatSortieSol1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du sol WC (sortie) - chambre 2 : ' ). utf8_decode( $etatSortieSol2), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description du sol WC - chambre 1  : ', $descriptionSol1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Description du sol WC - chambre 2  : ', $descriptionSol2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol WC (entrée) - chambre 1  : ', $etatEntreeSol1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol WC (entrée) - chambre 2  : ', $etatEntreeSol2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol WC (sortie) - chambre 1  : ', $etatSortieSol1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du sol WC (sortie) - chambre 2  : ', $etatSortieSol2, 0, 1, 'l');
 
         // WC - Vitrages et volets
-        $pdf->Cell(0, 10, utf8_decode( 'Vitrages et volets WC - chambre 1 : ' ). utf8_decode( $vitrageVolet1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Vitrages et volets WC - chambre 2 : ' ). utf8_decode( $vitrageVolet2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages et volets WC (entrée) - chambre 1 : ' ). utf8_decode( $etatEntreeVitrageVolet1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages et volets WC (entrée) - chambre 2 : ' ). utf8_decode( $etatEntreeVitrageVolet2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages et volets WC (sortie) - chambre 1 : ' ). utf8_decode( $etatSortieVitrageVolet1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État des vitrages et volets WC (sortie) - chambre 2 : ' ). utf8_decode( $etatSortieVitrageVolet2), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Vitrages et volets WC - chambre 1  : ', $vitrageVolet1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Vitrages et volets WC - chambre 2  : ', $vitrageVolet2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages et volets WC (entrée) - chambre 1  : ', $etatEntreeVitrageVolet1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages et volets WC (entrée) - chambre 2  : ', $etatEntreeVitrageVolet2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages et volets WC (sortie) - chambre 1  : ', $etatSortieVitrageVolet1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État des vitrages et volets WC (sortie) - chambre 2  : ', $etatSortieVitrageVolet2, 0, 1, 'l');
 
         // WC - Tuyauterie
-        $pdf->Cell(0, 10, utf8_decode( 'Tuyauterie WC - chambre 1 : ' ). utf8_decode( $tuyauterie1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Tuyauterie WC - chambre 2 : ' ). utf8_decode( $tuyauterie2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la tuyauterie WC (entrée) - chambre 1 : ' ). utf8_decode( $etatEntreeTuyauterie1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la tuyauterie WC (entrée) - chambre 2 : ' ). utf8_decode( $etatEntreeTuyauterie2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la tuyauterie WC (sortie) - chambre 1 : ' ). utf8_decode( $etatSortieTuyauterie1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État de la tuyauterie WC (sortie) - chambre 2 : ' ). utf8_decode( $etatSortieTuyauterie2), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Tuyauterie WC - chambre 1  : ', $tuyauterie1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Tuyauterie WC - chambre 2  : ', $tuyauterie2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la tuyauterie WC (entrée) - chambre 1  : ', $etatEntreeTuyauterie1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la tuyauterie WC (entrée) - chambre 2  : ', $etatEntreeTuyauterie2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la tuyauterie WC (sortie) - chambre 1  : ', $etatSortieTuyauterie1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État de la tuyauterie WC (sortie) - chambre 2  : ', $etatSortieTuyauterie2, 0, 1, 'l');
 
         // WC - Luminaire
-        $pdf->Cell(0, 10, utf8_decode( 'Luminaire WC - chambre 1 : ' ). utf8_decode( $luminaire1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'Luminaire WC - chambre 2 : ' ). utf8_decode( $luminaire2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du luminaire WC (entrée) - chambre 1 : ' ). utf8_decode( $etatEntreeLuminaire1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du luminaire WC (entrée) - chambre 2 : ' ). utf8_decode( $etatEntreeLuminaire2), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du luminaire WC (sortie) - chambre 1 : ' ). utf8_decode( $etatSortieLuminaire1), 0, 1, 'l');
-        $pdf->Cell(0, 10, utf8_decode( 'État du luminaire WC (sortie) - chambre 2 : ' ). utf8_decode( $etatSortieLuminaire2), 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Luminaire WC - chambre 1  : ', $luminaire1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'Luminaire WC - chambre 2  : ', $luminaire2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du luminaire WC (entrée) - chambre 1  : ', $etatEntreeLuminaire1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du luminaire WC (entrée) - chambre 2  : ', $etatEntreeLuminaire2, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du luminaire WC (sortie) - chambre 1  : ', $etatSortieLuminaire1, 0, 1, 'l');
+        $pdf->Cell(0, 10,   'État du luminaire WC (sortie) - chambre 2  : ', $etatSortieLuminaire2, 0, 1, 'l');
      
         // Zone de commentaire
-        $pdf->Cell(0, 10, utf8_decode( 'Zone de commentaire : ' ).utf8_decode( $zoneDeCommentaire), 0, 1, 'L');
+        $pdf->Cell(0, 10,   'Zone de commentaire  : ',$zoneDeCommentaire, 0, 1, 'L');
 
         // Envoi du PDF ou du format choisi
-        $pdf->Output($fileFormat == 'pdf' ? 'D' : 'I', 'etat_des_lieux.' . $fileFormat); 
+        $pdf->Output($fileFormat == 'pdf' ? 'D'  : ',I', 'etat_des_lieux.' . $fileFormat, true); 
         
     }
 }
