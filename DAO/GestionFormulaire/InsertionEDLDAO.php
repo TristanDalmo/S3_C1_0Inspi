@@ -66,7 +66,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         
         #endregion 
         
-        #region Insertions dans la BDD
+        #region Insertions dans la BDD (Cuisine)
 
         // Création du logement dans la BDD
         $logement = new Logement();
@@ -154,6 +154,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $cuisine->setidLogement($idLogement);
         $cuisine->setidPrise($idPriseCuisine);
         $cuisine->setIdElectromenager($idelectromenager);
+        $cuisine->setidLogement($idLogement);
 
         $idCuisine=$pieceDAO->Create($cuisine);
 
@@ -193,6 +194,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $plafondCuisine->setEtatEntree($donnees['etat_cuisine_plafond_entree']);
         $plafondCuisine->setEtatSortie($donnees['etat_cuisine_plafond_sortie']);
         $plafondCuisine->setidPiece($idCuisine);
+        $plafondCuisine->setTypeElement('Plafond');
 
         $idPlafondCuisine=$elementsDAO->Create($plafondCuisine);
 
@@ -202,6 +204,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $eclairageInterrupteurCuisine->setEtatEntree($donnees['etat_cuisine_eclairage_interrupteurs_entree']);
         $eclairageInterrupteurCuisine->setEtatSortie($donnees['etat_cuisine_eclairage_interrupteurs_sortie']);
         $eclairageInterrupteurCuisine->setidPiece($idCuisine);
+        $eclairageInterrupteurCuisine->setTypeElement('eclairage interrupteur');
 
         $idEclairageInterrupteurCuisine=$elementsDAO->Create($eclairageInterrupteurCuisine);
 
@@ -211,6 +214,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $placardTiroirCuisine->setEtatEntree($donnees['etat_cuisine_placards_tiroirs_entree']);
         $placardTiroirCuisine->setEtatSortie($donnees['etat_cuisine_placards_tiroirs_sortie']);
         $placardTiroirCuisine->setidPiece($idCuisine);
+        $placardTiroirCuisine->setTypeElement('placard et tiroir');
 
         $idPlacardTiroirCuisine=$elementsDAO->Create($placardTiroirCuisine);
 
@@ -220,6 +224,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $evierRobinetterieCuisine->setEtatEntree($donnees['etat_cuisine_evier_robinetterie_entree']);
         $evierRobinetterieCuisine->setEtatSortie($donnees['etat_cuisine_evier_robinetterie_sortie']);
         $evierRobinetterieCuisine->setidPiece($idCuisine);
+        $evierRobinetterieCuisine->setTypeElement('evier et robinetterie');
 
         $idEvierRobinetterieCuisine=$elementsDAO->Create($evierRobinetterieCuisine);
 
@@ -229,6 +234,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $plaqueFourCuisine->setEtatEntree($donnees['etat_cuisine_plaque_four_entree']);
         $plaqueFourCuisine->setEtatSortie($donnees['etat_cuisine_plaque_four_sortie']);
         $plaqueFourCuisine->setidPiece($idCuisine);
+        $plaqueFourCuisine->setTypeElement('plaque de cuisson et four');
 
         $idPlaqueFourCuisine=$elementsDAO->Create($plaqueFourCuisine);
 
@@ -238,8 +244,207 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $hotteCuisine->setEtatEntree($donnees['etat_cuisine_hotte_entree']);
         $hotteCuisine->setEtatSortie($donnees['etat_cuisine_hotte_sortie']);
         $hotteCuisine->setidPiece($idCuisine);
+        $hotteCuisine->setTypeElement('Hotte');
 
         $idHotteCuisine=$elementsDAO->Create($hotteCuisine);
+
+        #endregion
+
+        #region Insertions dans la BDD (salle de bain 1)
+
+        // création des prises de salle de bain
+        $priseSdb1=new Prises();
+        $priseSdb1->setDescription($donnees['prise_sdb1']);
+        $priseSdb1->setEtatEntree($donnees['etat_prise_entree']);
+        $priseSdb1->setEtatSortie($donnees['etat_prise_sortie']);
+        $priseSdb1->setNombrePrises($donnees['nombre_prise_electrique']);
+        $priseSdb1->setNombrePrises($donnees['nbPriseSdb1']);
+
+        $idPriseSdb1=$prisesDAO->Create($priseSdb1);
+
+        $salleDeBain1=new Piece();
+        $salleDeBain1->setidTypePiece('Salle de bain');
+        $salleDeBain1->setidLogement($idLogement);
+        $salleDeBain1->setidPrise($idPriseSdb1);
+
+        $idSalleDeBain1=$pieceDAO->Create($salleDeBain1);
+        
+        $murSdb1=new Elements();
+        $murSdb1->setDescription($donnees['mur_sdb1']);
+        $murSdb1->setEtatEntree($donnees['etat_mur_entree']);
+        $murSdb1->setEtatSortie($donnees['etat_mur_sortie']);
+        $murSdb1->setTypeElement('Mur');
+        $murSdb1->setidPiece($idSalleDeBain1);
+
+        $idMurSdb1=$elementsDAO->Create($murSdb1);
+        
+
+        $solSdb1=new Elements();
+        $solSdb1->setDescription($donnees['sol_sdb1']);
+        $solSdb1->setEtatEntree($donnees['etat_sol_entree']);
+        $solSdb1->setEtatSortie($donnees['etat_sol_sortie']);
+        $solSdb1->setTypeElement('sol');
+
+        $idSolSdb1=$elementsDAO->Create($solSdb1);
+
+        //création vitrages volets
+        $vitrages_voletsSdb1=new Elements();
+        $vitrages_voletsSdb1->setDescription($donnees['vitrage_sdb1']);
+        $vitrages_voletsSdb1->setEtatEntree($donnees['etat_vitrage_entree']);
+        $vitrages_voletsSdb1->setEtatSortie($donnees['etat_vitrage_sortie']);
+        $vitrages_voletsSdb1->setTypeElement('Vitrages et Volets');
+        $vitrages_voletsSdb1->setidPiece($idSalleDeBain1);
+
+        $idVitrages_voletsSdb=$elementsDAO->Create($vitrages_voletsSdb1);
+
+        //création plafond
+        $plafondSdb1=new Elements();
+        $plafondSdb1->setDescription($donnees['description_etat_plafond_sdb1']);
+        $plafondSdb1->setEtatEntree($donnees['etat_plafond_sortie']);
+        $plafondSdb1->setEtatSortie($donnees['etat_cuisine_plafond_sortie']);
+        $plafondSdb1->setTypeElement('Plafond');
+        $plafondSdb1->setidPiece($idSalleDeBain1);
+
+        $idPlafondSdb1=$elementsDAO->Create($plafondSdb1);
+        
+        // creation eclairage et interrupteur
+        $eclairageInterrupteurSdb1=new Elements();
+        $eclairageInterrupteurSdb1->setDescription($donnees['eclairage_sdb1']);
+        $eclairageInterrupteurSdb1->setEtatEntree($donnees['etat_eclairage_entree']);
+        $eclairageInterrupteurSdb1->setEtatSortie($donnees['etat_eclairage_sortie']);
+        $eclairageInterrupteurSdb1->setTypeElement('eclairage interrupteur');
+        $eclairageInterrupteurSdb1->setidPiece($idSalleDeBain1);
+
+        $idEclairageInterrupteurSdb1=$elementsDAO->Create($eclairageInterrupteurSdb1);
+
+        //creation lavabo robinneterie
+        $lavaboRobinetterieSdb1=new Elements();
+        $lavaboRobinetterieSdb1->setDescription($donnees['lavabo_sdb1']);
+        $lavaboRobinetterieSdb1->setEtatEntree($donnees['etat_lavabo_entree']);
+        $lavaboRobinetterieSdb1->setEtatSortie($donnees['etat_lavabo_sortie']);
+        $lavaboRobinetterieSdb1->setTypeElement('lavabo et robinetterie');
+        $lavaboRobinetterieSdb1->setidPiece($idSalleDeBain1);
+
+        $idLavaboRobinetterieSdb1=$elementsDAO->Create($lavaboRobinetterieSdb1);
+
+        //creation baignoire douche
+        $baignoireDoucheSdb1=new Elements();
+        $baignoireDoucheSdb1->setDescription($donnees['description_baignoireSdb1']);
+        $baignoireDoucheSdb1->setEtatEntree($donnees['etat_baignoire_entree']);
+        $baignoireDoucheSdb1->setEtatSortie($donnees['etat_baignoire_sortie']);
+        $baignoireDoucheSdb1->setTypeElement('baignoire et douche');
+        $baignoireDoucheSdb1->setidPiece($idSalleDeBain1);
+
+        $idBaignoireDoucheSdb1=$elementsDAO->Create($baignoireDoucheSdb1);
+
+        //creation wc 
+        $wcSdb1=new Elements();
+        $wcSdb1->setDescription($donnees['wc_sdb1']);
+        $wcSdb1->setEtatEntree($donnees['etat_wc_entree']);
+        $wcSdb1->setEtatSortie($donnees['etat_wc_sortie']);
+        $wcSdb1->setTypeElement('wc');
+        $wcSdb1->setidPiece($idSalleDeBain1);
+
+        $idWcSdb1=$elementsDAO->Create($wcSdb1);
+
+        #endregion
+
+        #region Insertions dans la BDD (salle de bain 2)
+
+        // création des prises de salle de bain
+        $priseSdb2=new Prises();
+        $priseSdb2->setDescription($donnees['prise_sdb2']);
+        $priseSdb2->setEtatEntree($donnees['etat_prise_entree']);
+        $priseSdb2->setEtatSortie($donnees['etat_prise_sortie']);
+        $priseSdb2->setNombrePrises($donnees['nombre_prise_electrique']);
+        $priseSdb2->setNombrePrises($donnees['nbPriseSdb2']);
+
+        $idPriseSdb2=$prisesDAO->Create($priseSdb2);
+
+        $salleDeBain2=new Piece();
+        $salleDeBain2->setidTypePiece('Salle de bain');
+        $salleDeBain2->setidLogement($idLogement);
+        $salleDeBain2->setidPrise($idPriseSdb2);
+
+        $idSalleDeBain2=$pieceDAO->Create($salleDeBain2);
+        
+        $murSdb2=new Elements();
+        $murSdb2->setDescription($donnees['mur_sdb2']);
+        $murSdb2->setEtatEntree($donnees['etat_mur_entree']);
+        $murSdb2->setEtatSortie($donnees['etat_mur_sortie']);
+        $murSdb2->setTypeElement('Mur');
+        $murSdb2->setidPiece($idSalleDeBain2);
+
+        $idMurSdb2=$elementsDAO->Create($murSdb2);
+        
+
+        $solSdb2=new Elements();
+        $solSdb2->setDescription($donnees['sol_sdb2']);
+        $solSdb2->setEtatEntree($donnees['etat_sol_entree']);
+        $solSdb2->setEtatSortie($donnees['etat_sol_sortie']);
+        $solSdb2->setTypeElement('sol');
+
+        $idSolSdb2=$elementsDAO->Create($solSdb2);
+
+        //création vitrages volets
+        $vitrages_voletsSdb2=new Elements();
+        $vitrages_voletsSdb2->setDescription($donnees['vitrage_sdb2']);
+        $vitrages_voletsSdb2->setEtatEntree($donnees['etat_vitrage_entree']);
+        $vitrages_voletsSdb2->setEtatSortie($donnees['etat_vitrage_sortie']);
+        $vitrages_voletsSdb2->setTypeElement('Vitrages et Volets');
+        $vitrages_voletsSdb2->setidPiece($idSalleDeBain2);
+
+        $idVitrages_voletsSdb=$elementsDAO->Create($vitrages_voletsSdb2);
+
+        //création plafond
+        $plafondSdb2=new Elements();
+        $plafondSdb2->setDescription($donnees['description_etat_plafond_sdb2']);
+        $plafondSdb2->setEtatEntree($donnees['etat_plafond_sortie']);
+        $plafondSdb2->setEtatSortie($donnees['etat_cuisine_plafond_sortie']);
+        $plafondSdb2->setTypeElement('Plafond');
+        $plafondSdb2->setidPiece($idSalleDeBain2);
+
+        $idPlafondSdb2=$elementsDAO->Create($plafondSdb2);
+        
+        // creation eclairage et interrupteur
+        $eclairageInterrupteurSdb2=new Elements();
+        $eclairageInterrupteurSdb2->setDescription($donnees['eclairage_sdb2']);
+        $eclairageInterrupteurSdb2->setEtatEntree($donnees['etat_eclairage_entree']);
+        $eclairageInterrupteurSdb2->setEtatSortie($donnees['etat_eclairage_sortie']);
+        $eclairageInterrupteurSdb2->setTypeElement('eclairage interrupteur');
+        $eclairageInterrupteurSdb2->setidPiece($idSalleDeBain2);
+
+        $idEclairageInterrupteurSdb2=$elementsDAO->Create($eclairageInterrupteurSdb2);
+
+        //creation lavabo robinneterie
+        $lavaboRobinetterieSdb2=new Elements();
+        $lavaboRobinetterieSdb2->setDescription($donnees['lavabo_sdb2']);
+        $lavaboRobinetterieSdb2->setEtatEntree($donnees['etat_lavabo_entree']);
+        $lavaboRobinetterieSdb2->setEtatSortie($donnees['etat_lavabo_sortie']);
+        $lavaboRobinetterieSdb2->setTypeElement('lavabo et robinetterie');
+        $lavaboRobinetterieSdb2->setidPiece($idSalleDeBain2);
+
+        $idLavaboRobinetterieSdb2=$elementsDAO->Create($lavaboRobinetterieSdb2);
+
+        //creation baignoire douche
+        $baignoireDoucheSdb2=new Elements();
+        $baignoireDoucheSdb2->setDescription($donnees['description_baignoireSdb2']);
+        $baignoireDoucheSdb2->setEtatEntree($donnees['etat_baignoire_entree']);
+        $baignoireDoucheSdb2->setEtatSortie($donnees['etat_baignoire_sortie']);
+        $baignoireDoucheSdb2->setTypeElement('baignoire et douche');
+        $baignoireDoucheSdb2->setidPiece($idSalleDeBain2);
+
+        $idBaignoireDoucheSdb2=$elementsDAO->Create($baignoireDoucheSdb2);
+
+        //creation wc 
+        $wcSdb2=new Elements();
+        $wcSdb2->setDescription($donnees['wc_sdb2']);
+        $wcSdb2->setEtatEntree($donnees['etat_wc_entree']);
+        $wcSdb2->setEtatSortie($donnees['etat_wc_sortie']);
+        $wcSdb2->setTypeElement('wc');
+        $wcSdb2->setidPiece($idSalleDeBain2);
+
+        $idWcSdb2=$elementsDAO->Create($wcSdb2);
 
         #endregion
 

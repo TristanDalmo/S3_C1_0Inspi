@@ -1,8 +1,12 @@
 <?php
 
 namespace Controllers\PagesFormulaire;
+
+use DAO\GestionFormulaire\InsertionEDLDAO;
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
+require_once(__DIR__ . "/../../DAO/GestionFormulaire/InsertionEDLDAO.php");
 use Views\PagesFormulaire\PagePartage;
+use DAO\GestionFormulaire;
 
 /**
  * Classe permettant de créer la page de remplissage du formulaire
@@ -43,6 +47,8 @@ class ControllerPartage {
 // Création de la page
 $controller = new ControllerPartage(new PagePartage());
 echo $controller->index();
+$insertion=new InsertionEDLDAO();
+$insertion->InsererEDL($_POST);
 
 
 ?>
