@@ -53,7 +53,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
     public function InsererEDL(array $donnees) {
 
-        # region Initialisation des DAO
+        #region Initialisation des DAO
 
         $etatDesLieuxDAO = new EtatDesLieuxDAO();
         $locataireDAO = new LocataireDAO();
@@ -63,8 +63,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $pieceDAO = new PieceDAO();
         $prisesDAO = new PrisesDAO();
         $elementsDAO = new ElementsDAO();
-        
-        #endregion 
+        #endregion
         
         #region Insertions dans la BDD (Cuisine)
 
