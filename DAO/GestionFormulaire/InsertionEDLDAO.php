@@ -129,7 +129,6 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $locataireDAO->Create($locataire);
 
 
-
         // création des prises de cuisine
         $priseCuisine=new Prises();
         $priseCuisine->setDescription($donnees['description_prise_electrique']);
@@ -185,6 +184,62 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $vitrages_voletsCuisine->setEtatSortie($donnees['etat_cuisine_vitrage_volets_sortie']);
         $vitrages_voletsCuisine->setTypeElement('Vitrages et Volets');
         $vitrages_voletsCuisine->setidPiece($idCuisine);
+
+        $idVitrages_voletsCuisine=$elementsDAO->Create($vitrages_voletsCuisine);
+
+        //création plafond
+        $plafondCuisine=new Elements();
+        $plafondCuisine->setDescription($donnees['description_plafond_cuisine']);
+        $plafondCuisine->setEtatEntree($donnees['etat_cuisine_plafond_entree']);
+        $plafondCuisine->setEtatSortie($donnees['etat_cuisine_plafond_sortie']);
+        $plafondCuisine->setidPiece($idCuisine);
+
+        $idPlafondCuisine=$elementsDAO->Create($plafondCuisine);
+
+        // creation eclairage et interrupteur
+        $eclairageInterrupteurCuisine=new Elements();
+        $eclairageInterrupteurCuisine->setDescription($donnees['description_eclairage_interrupteurs']);
+        $eclairageInterrupteurCuisine->setEtatEntree($donnees['etat_cuisine_eclairage_interrupteurs_entree']);
+        $eclairageInterrupteurCuisine->setEtatSortie($donnees['etat_cuisine_eclairage_interrupteurs_sortie']);
+        $eclairageInterrupteurCuisine->setidPiece($idCuisine);
+
+        $idEclairageInterrupteurCuisine=$elementsDAO->Create($eclairageInterrupteurCuisine);
+
+        //creation placard et tiroir
+        $placardTiroirCuisine=new Elements();
+        $placardTiroirCuisine->setDescription($donnees['description_placards_tiroirs']);
+        $placardTiroirCuisine->setEtatEntree($donnees['etat_cuisine_placards_tiroirs_entree']);
+        $placardTiroirCuisine->setEtatSortie($donnees['etat_cuisine_placards_tiroirs_sortie']);
+        $placardTiroirCuisine->setidPiece($idCuisine);
+
+        $idPlacardTiroirCuisine=$elementsDAO->Create($placardTiroirCuisine);
+
+        //creation evier robinneterie
+        $evierRobinetterieCuisine=new Elements();
+        $evierRobinetterieCuisine->setDescription($donnees['description_evier_robinetterie']);
+        $evierRobinetterieCuisine->setEtatEntree($donnees['etat_cuisine_evier_robinetterie_entree']);
+        $evierRobinetterieCuisine->setEtatSortie($donnees['etat_cuisine_evier_robinetterie_sortie']);
+        $evierRobinetterieCuisine->setidPiece($idCuisine);
+
+        $idEvierRobinetterieCuisine=$elementsDAO->Create($evierRobinetterieCuisine);
+
+        //creation plaque de cuisson et four
+        $plaqueFourCuisine=new Elements();
+        $plaqueFourCuisine->setDescription($donnees['description_plaque_four']);
+        $plaqueFourCuisine->setEtatEntree($donnees['etat_cuisine_plaque_four_entree']);
+        $plaqueFourCuisine->setEtatSortie($donnees['etat_cuisine_plaque_four_sortie']);
+        $plaqueFourCuisine->setidPiece($idCuisine);
+
+        $idPlaqueFourCuisine=$elementsDAO->Create($plaqueFourCuisine);
+
+        //creation hotte
+        $hotteCuisine=new Elements();
+        $hotteCuisine->setDescription($donnees['description_hotte']);
+        $hotteCuisine->setEtatEntree($donnees['etat_cuisine_hotte_entree']);
+        $hotteCuisine->setEtatSortie($donnees['etat_cuisine_hotte_sortie']);
+        $hotteCuisine->setidPiece($idCuisine);
+
+        $idHotteCuisine=$elementsDAO->Create($hotteCuisine);
 
         #endregion
 
