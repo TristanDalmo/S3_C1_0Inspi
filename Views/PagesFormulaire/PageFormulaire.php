@@ -49,31 +49,6 @@ class PageFormulaire extends AbstractPage
                 <p>L'état des lieux doit être établi entre les deux parties (locataire et propriétaire) lors de la remise des clés du logement et lors de leur restitution. En effet, le bail (loi n° 89-462 du 6 juillet 1989) stipule que l'état des lieux doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de location, et dont le locataire a la jouissance exclusive.</p>
             </div>
             <br>
-            <fieldset class=\"Logement\">
-                <div class=\"l1\">
-                    <p class=\"putbold\">LOGEMENT</p>
-                </div>
-                <div class=\"l2\">
-                    <input type=\"radio\" id=\"Appartement\" name=\"typeLogement\" value=\"Appartement\">
-                    <label for=\"Appartement\">Appartement</label>
-                    <input type=\"radio\" id=\"Maison\" name=\"typeLogement\" value=\"Maison\">
-                    <label for=\"Maison\">Maison</label>
-                    <input type=\"radio\" id=\"Autre\" name=\"typeLogement\" value=\"Autre\">
-                    <label for=\"Autre\">Autre</label>
-                    <input type=\"text\" id=\"textautre\" name=\"textautre\" size=\"5\">
-                </div>
-                <div class=\"l3\">
-                    <label for=\"SURFACE\" class=\"putbold\">SURFACE :</label>
-                    <input type=\"text\" id=\"SURFACE\" placeholder=\"m²\">
-                    <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÈCES PRINCIPALES :</label>
-                    <input type=\"number\" id=\"nbpiece\">
-                </div>
-                <div class=\"l4\">
-                    <label for=\"adresse\" class=\"putbold\">ADRESSE :</label>
-                    <textarea id=\"adresse\" rows=\"3\" cols=\"50\"></textarea>
-                </div>
-
-                <br>
                 <fieldset class=\"Logement\">
                     <div class=\"l1\">
                         <p class=\"putbold\">LOGEMENT</p>
@@ -148,54 +123,6 @@ class PageFormulaire extends AbstractPage
 
 
             </fieldset>
-            <table>
-                <tr>
-                    <th id=\"tab1\" class=\"putbold\">LE BAILLEUR (OU SON MANDATAIRE)</th>
-                    <th id=\"tab2\" class=\"putbold\">LE(S) LOCATAIRE(S)</th>
-                </tr>
-                <tr>
-                    <td>
-                        <div class=\"civilite-container\">
-                            <label for=\"mr_bailleur\" class=\"putbold\">CIVILITÉ : </label>
-                            <span class=\"civilite\">
-                                <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\" value=\"Mr\">
-                                <label for=\"mr_bailleur\">Mr</label>
-                                <input type=\"radio\" id=\"mme_bailleur\" name=\"civilite_bailleur \"value=\"Mme\">
-                                <label for=\"mme_bailleur\">Mme</label>
-                                <input type=\"radio\" id=\"mlle_bailleur\" name=\"civilite_bailleur\" value=\"Mlle\">
-                                <label for=\"mlle_bailleur\">Mlle</label>
-                            </span>
-                        </div>
-                        <label for=\"prenom_bailleur\" class=\"putbold\" >PRÉNOM :</label>
-                        <input type=\"text\" id=\"prenom_bailleur\">
-                        <label for=\"nom_bailleur\" class=\"putbold\">NOM :</label>
-                        <input type=\"text\" id=\"nom_bailleur\">
-                        <label for=\"adresse_bailleur\" class=\"putbold\">ADRESSE :</label>
-                        <textarea id=\"adresse_bailleur\" rows=\"3\"></textarea>
-                    </td>
-                    <td>
-                        <div class=\"civilite-container\">
-                            <label for=\"mr_locataire\" class=\"putbold\">CIVILITÉ :</label>
-                            <span class=\"civilite\">
-                                <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\" value=\"Mr\">
-                                <label for=\"mr_locataire\">Mr</label>
-                                <input type=\"radio\" id=\"mme_locataire\" name=\"civilite_locataire\" value=\"Mme\">
-                                <label for=\"mme_locataire\">Mme</label>
-                                <input type=\"radio\" id=\"mlle_locataire\" name=\"civilite_locataire\" value=\"Mlle\">
-                                <label for=\"mlle_locataire\">Mlle</label>
-                            </span>
-                        </div>
-                        <label for=\"prenom_locataire\" class=\"putbold\">PRÉNOM :</label>
-                        <input type=\"text\" id=\"prenom_locataire\" name=\"prenom_locataire\">
-                        <label for=\"nom_locataire\" class=\"putbold\">NOM :</label>
-                        <input type=\"text\" id=\"nom_locataire\" name=\"nom_locataire\">
-                        <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE :</label>
-                        <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
-                        <textarea id=\"adresse_locataire\" name=\"adresse_locataire\" rows=\"3\"></textarea>
-                    </td>
-                </tr>
-            </table>
-        </fieldset>
         <p id=\"notationetat\">Complétez les colonnes État avec les lettres <strong>M</strong> (mauvais), <strong>P</strong> (passable), <strong>B</strong> (bon), <strong>TB</strong> (très bon).</p>          
         <table id=\"tableauCuisine\">
             <thead>

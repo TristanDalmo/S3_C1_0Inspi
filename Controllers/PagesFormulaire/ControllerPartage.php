@@ -9,7 +9,6 @@ use Views\PagesFormulaire\PagePartage;
 use FPDF;
 use ZipArchive;
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
-use Views\PagesFormulaire\PagePartage;
 
 use PhpOffice\PhpWord\PhpWord;
 
@@ -46,23 +45,7 @@ class ControllerPartage {
          * =                                INSERER PARTIE SERVICE ICI                                            =
          * ========================================================================================================
 
-         */        
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Affichage du message que le formulaire a été soumis
-            echo "<h1>Détails du formulaire soumis</h1>";
-            echo "<table border='1' cellpadding='10' cellspacing='0'>";
-            echo "<tr><th>Nom du champ</th><th>Valeur</th></tr>";
-            
-            // Génération du PDF
-            $this->generatePDF();
-    
-            // Interrompre le processus pour afficher le PDF directement (ne pas poursuivre l'affichage HTML)
-            exit;  // Arrêter ici pour éviter l'affichage de la page HTML après le PDF
-        }
-    
-        // Création de la page
-        $controller = new ControllerPartage(new PagePartage());
-        echo $controller->index();          
+         */              
         return $this->page->GeneratePage();
     }
     
@@ -467,9 +450,12 @@ class ControllerPartage {
         $pdf->Cell(0, 10, 'Zone de commentaire : ' . $zoneDeCommentaire, 0, 1, 'L');
 
         // Envoi du PDF ou du format choisi
-        $pdf->Output($fileFormat == 'pdf' ? 'D' : 'I', 'etat_des_lieux.' . $fileFormat); 
+        $pdf->Output($fileFormat == 'pdf' ? 'D' : 'I', 'etat_des_lieux.' . $fileFormat);
+        
+        
         
     }
 }
-
+$controller = new ControllerPartage(new PagePartage());
+echo $controller->index();
 ?>
