@@ -26,7 +26,7 @@ class TypePiece {
             $method = 'set'.ucfirst($key);
             
             // Si le setter correspondant existe.
-            if (method_exists($this, $method))
+            if (method_exists($this, $method) && $value != null)
             {
                 // On appelle le setter.
                 $this->$method($value);

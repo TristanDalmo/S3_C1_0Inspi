@@ -2,6 +2,7 @@
 
 namespace Controllers\PagesFormulaire;
 
+
 use Exception;
 
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
@@ -13,6 +14,13 @@ require_once(__DIR__ . "/../../Views/PagesFormulaire/PageErreur.php");
 
 require_once(__DIR__ . "/../../Service/Media/DossiersManagerService.php");
 use Service\Media\DossiersManagerService;
+
+
+use DAO\GestionFormulaire\InsertionEDLDAO;
+
+require_once(__DIR__ . "/../../DAO/GestionFormulaire/InsertionEDLDAO.php");
+
+use DAO\GestionFormulaire;
 
 
 /**
@@ -37,6 +45,7 @@ class ControllerPartage {
      * @return string Page web à afficher
      */
     public function index() : string {
+
 
         $newPage=null;
 
@@ -88,6 +97,10 @@ class ControllerPartage {
 // Création de la page
 $controller = new ControllerPartage(new PagePartage());
 echo $controller->index();
+
+$insertion=new InsertionEDLDAO();
+$insertion->InsererEDL($_POST);
+
 
 
 ?>

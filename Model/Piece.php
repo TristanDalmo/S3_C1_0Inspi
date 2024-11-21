@@ -4,9 +4,11 @@ namespace Model;
 require_once(__DIR__ . "/Prises.php");
 require_once(__DIR__ . "/TypePiece.php");
 require_once(__DIR__ . "/Electromenager.php");
+require_once(__DIR__ . "/Logement.php");
 use Model\Prises;
 use Model\TypePiece;
 use Model\Electromenager;
+use Model\Logement;
 
 /**
  * Classe représentant une pièce d'un logement.
@@ -25,14 +27,15 @@ class Piece {
     // Type de pièce
     private TypePiece $typePiece;
 
+    // Logement contenant la pièce
+    private Logement $logement;
+
     /**
      * Get the value of idPiece
-     *
-     * @return int
      */
-    public function getIdPiece(): int
+    public function getIdPiece()
     {
-        return $this->idPiece;
+        return $this->idPiece ?? null;
     }
 
     /**
@@ -47,22 +50,24 @@ class Piece {
 
     /**
      * Get the value of prises
-     *
-     * @return ?Prises
      */
-    public function getPrises(): ?Prises
+    public function getPrises()
     {
-        return $this->prises;
+        return $this->prises ?? null;
     }
 
     /**
      * Set the value of prises
-     *
-     * @param ?Prises $prises
      */
-    public function setPrises(?Prises $prises)
+    public function setidPrise($prises)
     {
-        $this->prises = $prises;
+        if (is_int($prises)) {
+            $this->prises=new Prises();
+            $this->prises->setIdPrise($prises);
+        }
+        else if($prises instanceof Prises){
+            $this->prises=$prises;
+        }
     }
 
     /**
@@ -72,37 +77,45 @@ class Piece {
      */
     public function getElectromenager(): ?Electromenager
     {
-        return $this->electromenager;
+        return $this->electromenager ?? null;
     }
 
     /**
      * Set the value of electromenager
-     *
-     * @param ?Electromenager $electromenager
      */
-    public function setElectromenager(?Electromenager $electromenager)
+    public function setIdElectromenager($electromenager)
     {
-        $this->electromenager = $electromenager;
+        if (is_int($electromenager))
+        {
+            $this->electromenager = new Electromenager();
+            $this->electromenager->setIdElectromenager($electromenager);
+        }
+        else if($electromenager instanceof Electromenager){
+            $this->electromenager = $electromenager;
+        }        
     }
 
     /**
      * Get the value of typePiece
-     *
-     * @return TypePiece
      */
-    public function getTypePiece(): TypePiece
+    public function getTypePiece()
     {
-        return $this->typePiece;
+        return $this->typePiece ?? null;
     }
 
     /**
      * Set the value of typePiece
-     *
-     * @param TypePiece $typePiece
      */
-    public function setTypePiece(TypePiece $typePiece)
+    public function setidTypePiece($typePiece)
     {
-        $this->typePiece = $typePiece;
+        if (is_int($typePiece))
+        {
+            $this->typePiece= new TypePiece();
+            $this->typePiece->setIdTypePiece($typePiece);
+        }
+        else if ($typePiece instanceof TypePiece){
+            $this->typePiece = $typePiece;
+        }
     }
 
 
@@ -119,7 +132,7 @@ class Piece {
             $method = 'set'.ucfirst($key);
             
             // Si le setter correspondant existe.
-            if (method_exists($this, $method))
+            if (method_exists($this, $method)&& $value != null)
             {
                 // On appelle le setter.
                 $this->$method($value);
@@ -127,4 +140,27 @@ class Piece {
         }
     }
 
+
+    /**
+     * Get the value of logement
+     */ 
+    public function getLogement()
+    {
+        return $this->logement ?? null;
+    }
+
+    /**
+     * Set the value of logement
+     */ 
+    public function setidLogement($logement)
+    {
+        if (is_int($logement)) {
+            $this->logement = new Logement();
+            $this->logement->setIdLogement($logement);
+        }
+        else if ($logement instanceof Logement){
+            $this->logement = $logement;
+        }
+        
+    }
 }

@@ -32,16 +32,24 @@ class Config {
      */
     private static function getParameter() {
         if (self::$param == null) {
-            $cheminFichier = "Config/prod.ini";
-            if (!file_exists($cheminFichier)) {
-                $cheminFichier = "Config/dev.ini";
+            $cheminFichier = "../../Config/prod.ini";
+            if (file_exists("../../Config/prod.ini")) {
+                $cheminFichier = "../../Config/prod.ini";
             }
+            else if (file_exists("../../Config/dev.ini")) {
+                $cheminFichier = "../../Config/dev.ini";
+            }
+            else if (file_exists("./../TestBDD/dev.ini")) {
+                $cheminFichier = "./../TestBDD/dev.ini";
+            }
+            else 
+
             if (!file_exists($cheminFichier)) {
                 throw new Exception("Aucun fichier de configuration trouvé");
             }
-            else {
-                self::$param = parse_ini_file($cheminFichier);
-            }
+            
+            self::$param = parse_ini_file($cheminFichier);
+            
         }
         return self::$param;
     }

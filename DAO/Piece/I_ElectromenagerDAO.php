@@ -12,21 +12,19 @@ interface I_ElectromenagerDAO {
     /**
      * Méthode permettant de créer un élément électroménager dans la BDD
      * @param \Model\Electromenager $electromenager Élément électroménager à insérer
-     * @return void
+     * @return int Id de l'élément créé
      */
-    public function Create(Electromenager $electromenager);
+    public function Create(Electromenager $electromenager): int;
 
     /**
      * Méthode permettant de modifier les données d'une pièce
      * @param \Model\Electromenager $electromenager Élément électroménager à modifier
-     * @return void
      */
     public function Update(Electromenager $electromenager);
 
     /**
      * Méthode permettant de supprimer un élément électroménager
      * @param int $id Id de l'élément électroménager à supprimer
-     * @return void
      */
     public function Delete(int $id);
 

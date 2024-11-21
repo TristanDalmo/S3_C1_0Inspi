@@ -672,6 +672,11 @@ input[type="submit"]:hover {
   body {
     font-family: system-ui;
   }
+  #notice {
+    font-style: italic;
+    text-align: center;
+}
+
 
 
 

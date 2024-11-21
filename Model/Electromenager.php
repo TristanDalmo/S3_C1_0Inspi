@@ -27,7 +27,7 @@ class Electromenager {
      * @return int 
      */
     public function getIdElectromenager() {
-        return $this->idElectromenager;
+        return $this->idElectromenager ?? null;
     }
 
     /**
@@ -35,7 +35,7 @@ class Electromenager {
      * @return string 
      */
     public function getNomElectromenager() {
-        return $this->nomElectromenager;
+        return $this->nomElectromenager ?? null;
     }
 
     /**
@@ -43,7 +43,7 @@ class Electromenager {
      * @return string 
      */
     public function getDescription() {
-        return $this->description;
+        return $this->description ?? null;
     }
 
     /**
@@ -51,7 +51,7 @@ class Electromenager {
      * @return string 
      */
     public function getEtatEntree() {
-        return $this->etatEntree;
+        return $this->etatEntree ?? null;
     }
 
     /**
@@ -59,7 +59,7 @@ class Electromenager {
      * @return string 
      */
     public function getEtatSortie() {
-        return $this->etatSortie;
+        return $this->etatSortie ?? null;
     }
 
     /**
@@ -115,7 +115,7 @@ class Electromenager {
             $method = 'set'.ucfirst($key);
             
             // Si le setter correspondant existe.
-            if (method_exists($this, $method))
+            if (method_exists($this, $method)  && $value != null)
             {
                 // On appelle le setter.
                 $this->$method($value);

@@ -12,21 +12,19 @@ interface I_PieceDAO {
     /**
      * Méthode permettant de créer une pièce dans la BDD
      * @param \Model\Piece $piece Pièce à insérer
-     * @return void
+     * @return int Id de l'élément créé
      */
-    public function Create(Piece $piece);
+    public function Create(Piece $piece): int;
 
     /**
      * Méthode permettant de modifier les données d'une pièce
      * @param \Model\Piece $piece Pièce à modifier
-     * @return void
      */
     public function Update(Piece $piece);
 
     /**
      * Méthode permettant de supprimer une pièce
      * @param int $id Id de la pièce à supprimer
-     * @return void
      */
     public function Delete(int $id);
 
