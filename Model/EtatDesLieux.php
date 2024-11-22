@@ -29,7 +29,10 @@ class EtatDesLieux {
     private string $media;
     
     // Logement associé à l'état des lieux
-    private Logement $logement;    
+    private Logement $logement;   
+    
+    // Commentaire de l'état des lieux
+    private string $commentaire;
 
     public function __construct(){
         $this->bailleur = new Personne();
@@ -180,5 +183,21 @@ class EtatDesLieux {
                 $this->$method($value);
             }
         }
+    }
+
+    /**
+     * Get the value of commentaire
+     */ 
+    public function getCommentaire()
+    {
+        return $this->commentaire ?? null;
+    }
+
+    /**
+     * Set the value of commentaire
+     */ 
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
     }
 }

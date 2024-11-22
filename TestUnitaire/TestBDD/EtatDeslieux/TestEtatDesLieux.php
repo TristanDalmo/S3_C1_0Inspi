@@ -52,7 +52,7 @@ class TestEtatDesLieux extends AbstractTestUnitaire {
             ($etatDesLieux->getType()=="Entrée") && ($etatDesLieux->getBailleur()->getIdPersonne()==1)
             && ($etatDesLieux->getDateEntree()=="2024-01-01")&& ($etatDesLieux->getDateSortie()==null)
             && ($etatDesLieux->getIdEtatDesLieux()==1) && ($etatDesLieux->getLogement()->getIdLogement()==1)
-            && ($etatDesLieux->getMedia()=="photos_entree.zip")
+            && ($etatDesLieux->getMedia()=="photos_entree.zip") && ($etatDesLieux->getCommentaire() == "test1")
         )
         {
             $retour = "<p class='reussi'>Test de GetById : Test réussi </p>";
@@ -81,6 +81,7 @@ class TestEtatDesLieux extends AbstractTestUnitaire {
         $etatDesLieux->setidLogement($logement);
         $personne=new Personne();
         $etatDesLieux->setidPersonne($personne);
+        $etatDesLieux->setCommentaire("Commentaire blablabalbalabala");
 
         $edlDAO = new EtatDesLieuxDAO();
 

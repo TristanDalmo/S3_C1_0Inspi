@@ -16,7 +16,7 @@ class EtatDesLieuxDAO extends BasePDODAO implements I_EtatDesLieuxDAO {
 
     public function Create(EtatDesLieux $etatDesLieux): int {
         // On prépare la requête d'insertion
-        $requete = "INSERT INTO EtatDesLieux (dateEntree,dateSortie,type,media,idPersonne) VALUES (:dateEntree,:dateSortie,:type,:media,:idPersonne)";
+        $requete = "INSERT INTO EtatDesLieux (dateEntree,dateSortie,type,media,commentaire,idPersonne) VALUES (:dateEntree,:dateSortie,:type,:media,:commentaire,:idPersonne)";
 
         // On prépare les données à insérer
         $donnees = array(
@@ -24,6 +24,7 @@ class EtatDesLieuxDAO extends BasePDODAO implements I_EtatDesLieuxDAO {
             "dateSortie" => $etatDesLieux->getDateSortie(),
             "type" => $etatDesLieux->getType(),
             "media" => $etatDesLieux->getMedia(),
+            "commentaire"=> $etatDesLieux->getCommentaire(),
             "idPersonne"=> $etatDesLieux->getBailleur()->getIdPersonne()
         );
 
@@ -43,13 +44,14 @@ class EtatDesLieuxDAO extends BasePDODAO implements I_EtatDesLieuxDAO {
         return $retour;
     }
     public function Update(EtatDesLieux $etatDesLieux) {
-        $requete = "UPDATE EtatDesLieux SET dateEntree = :dateEntree, dateSortie = :dateSortie, type = :type, media = :media, idPersonne = :idPersonne WHERE idEtatDesLieux = :idEtatDesLieux";
+        $requete = "UPDATE EtatDesLieux SET dateEntree = :dateEntree, dateSortie = :dateSortie, type = :type, media = :media, commentaire = :commentaire, idPersonne = :idPersonne WHERE idEtatDesLieux = :idEtatDesLieux";
         $donnees = array(
             "idEtatDesLieux" => $etatDesLieux->getIdEtatDesLieux(),
             "dateEntree" => $etatDesLieux->getDateEntree(),
             "dateSortie" => $etatDesLieux->getDateSortie(),
             "type" => $etatDesLieux->getType(),
             "media" => $etatDesLieux->getMedia(),
+            "commentaire"=> $etatDesLieux->getCommentaire(),
             "idPersonne" => $etatDesLieux->getBailleur()->getIdPersonne()
         );
     
