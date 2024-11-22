@@ -107,7 +107,6 @@ class Psr4AutoloaderClass
      */
     public function loadClass($class)
     {
-        var_dump("Trying to load: " . $class);
         // the current namespace prefix
         $prefix = $class;
 

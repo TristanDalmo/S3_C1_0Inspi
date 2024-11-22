@@ -82,24 +82,23 @@ class ControllerPartage {
             }
             #endregion
             
-            // Gestion de l'insertion dans la BDD
-            /*
+       
+            
             $insertion=new InsertionEDLService();
             $insertion->InsererEDL($_POST,$Dossier_Cible);  
-            */
-            // Gestion de la création du fichier Word
+            
+           
             
             
             $generationWord = new GenerationWordService();
             $generationWord->GenererWord($_POST,$Dossier_Cible);
             $wordLien = $Dossier_Cible."/Etat-Des-Lieux.docx";
-            $newPage = new PagePartage($wordLien);
-
-            /*
+            $this->page = new PagePartage($wordLien);
+          
             // Gestion de la création du fichier pdf
             $generationPDF = new GenerationPDFService();
             $generationPDF->GenererPDF($Dossier_Cible);
-            */
+            
 
             // Affichage de la page en cas de succès
             $newPage=$this->page->GeneratePage();

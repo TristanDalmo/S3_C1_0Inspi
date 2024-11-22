@@ -2,7 +2,7 @@
 
 namespace Controllers\PagesFormulaire;
 use Views\PagesFormulaire\PageEnvoieMail;
-require_once __DIR__."/../../PageFormulaire.php";
+require_once __DIR__."/../../Views/PagesFormulaire/PageEnvoieMail.php";
 
 class ControllerPartageAnnexe
 {
