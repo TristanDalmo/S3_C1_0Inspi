@@ -22,7 +22,7 @@ class PageEnvoieMail extends AbstractPage
         <input type=\"text\" placeholder=\"Adresse Email du destinataire...\" name=\"AdresseEmailDestinataire\" required/>
         <input type=\"text\" placeholder=\"Objet du Mail...\" name=\"ObjetMail\" required/>
         <textarea name=\"CorpsMail\" placeholder=\"Corps du Mail...\" required></textarea>
-        <input type=\"hidden\" value=\".$this->folderPath.\" name=\"PieceJointe\">
+        <input type=\"hidden\" value=\"".$this->folderPath."\" name=\"PieceJointe\">
         <input type=\"submit\" value=\"Envoyer\"/>
         </fieldset>
         

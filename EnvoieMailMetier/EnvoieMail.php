@@ -32,7 +32,7 @@
             $mail->addAddress($donnees['AdresseEmailDestinataire']); // Email du destinataire
             $mail->Subject = $donnees['ObjetMail'];
             $mail->Body    = $donnees['CorpsMail'];
-            //$mail->addAttachment($donnees['PieceJointe']);
+            $mail->addAttachment($donnees['PieceJointe']);
 
             //Envoie du mail
             $mail->send();
