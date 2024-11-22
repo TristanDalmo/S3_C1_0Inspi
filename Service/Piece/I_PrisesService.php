@@ -9,11 +9,10 @@ interface I_PrisesService
 {
     /**
      * Méthode pour créer une prise.
-     *
-     * @param Prises $prises L'objet Prises à créer.
-     * @return void
+     * @param \Model\Prises $prises L'objet Prises à créer.
+     * @return int Id de l'élément créé
      */
-    public function create(Prises $prises);
+    public function create(Prises $prises):int;
 
     /**
      * Méthode pour mettre à jour une prise.

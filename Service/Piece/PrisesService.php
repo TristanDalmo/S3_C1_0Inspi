@@ -7,17 +7,16 @@ use Model\Prises;
 require_once(__DIR__ . "/../../DAO/Piece/PrisesDAO.php");
 use DAO\Piece\PrisesDAO;
 require_once(__DIR__ . "/I_PrisesService.php");
-use Model\Elements;
 
 /**
  * Implémentation de l'interface I_PrisesService.
  */
 class PrisesService implements I_PrisesService
 {
-    public function create(Prises $prises)
+    public function create(Prises $prises):int
     {
         $daoPrises = new PrisesDAO();
-        $daoPrises->create($prises);
+        return $daoPrises->create($prises);
     }
     public function update(Prises $prises)
     {

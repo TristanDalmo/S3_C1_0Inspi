@@ -31,12 +31,10 @@ class Elements {
 
     /**
      * Get the value of idElement
-     *
-     * @return int
      */
-    public function getIdElement(): int
+    public function getIdElement()
     {
-        return $this->idElement;
+        return $this->idElement ?? null;
     }
 
     /**
@@ -51,12 +49,10 @@ class Elements {
 
     /**
      * Get the value of description
-     *
-     * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
-        return $this->description;
+        return $this->description ?? null;
     }
 
     /**
@@ -71,12 +67,10 @@ class Elements {
 
     /**
      * Get the value of etatEntree
-     *
-     * @return string
      */
-    public function getEtatEntree(): string
+    public function getEtatEntree()
     {
-        return $this->etatEntree;
+        return $this->etatEntree ?? null;
     }
 
     /**
@@ -91,12 +85,10 @@ class Elements {
 
     /**
      * Get the value of etatSortie
-     *
-     * @return string
      */
-    public function getEtatSortie(): string
+    public function getEtatSortie()
     {
-        return $this->etatSortie;
+        return $this->etatSortie ?? null;
     }
 
     /**
@@ -111,22 +103,26 @@ class Elements {
 
     /**
      * Get the value of piece
-     *
-     * @return Piece
      */
-    public function getPiece(): Piece
+    public function getPiece()
     {
-        return $this->piece;
+        return $this->piece ?? null;
     }
 
     /**
      * Set the value of piece
-     *
-     * @param Piece $piece
      */
-    public function setPiece(Piece $piece)
+    public function setidPiece($piece)
     {
-        $this->piece = $piece;
+        if (is_int($piece))
+        {
+            $this->piece = new Piece();
+            $this->piece->setIdPiece($piece);
+        }
+        else if ($piece instanceof Piece)
+        {
+            $this->piece = $piece;
+        }
     }
 
     /**
@@ -142,7 +138,7 @@ class Elements {
             $method = 'set'.ucfirst($key);
             
             // Si le setter correspondant existe.
-            if (method_exists($this, $method))
+            if (method_exists($this, $method)&& $value != null)
             {
                 // On appelle le setter.
                 $this->$method($value);
@@ -155,7 +151,7 @@ class Elements {
      */ 
     public function getTypeElement()
     {
-        return $this->typeElement;
+        return $this->typeElement ?? null;
     }
 
     /**

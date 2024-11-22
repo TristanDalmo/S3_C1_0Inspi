@@ -1,0 +1,31 @@
+#messageErreur {
+    background-color: #FFF0F0;
+    border: 2px solid #FF0000;
+    border-radius: 8px;
+    padding: 20px 100px 20px 100px;
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#erreur {
+    color: #8B0000;
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#Message {
+    color: #CC0000;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+#texteFin {
+    color: #000000;
+    font-size: 22px;
+    margin-top: 20px;
+}
