@@ -47,7 +47,7 @@ class ControllerPartage {
     public function index() : string {
 
 
-        $newPage=null;
+        $newPage=null; 
 
         // Définition du dossier dans lequel on enverra les médias et les fichiers docx et pdf (on utilisera 2 variables aléatoires indépendantes qui rendront le nom du dossier unique)
         $Dossier_Cible = "../../MediasClients/" . time() . uniqid() . "/";
