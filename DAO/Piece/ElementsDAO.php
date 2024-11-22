@@ -18,7 +18,7 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
     public function Create(Elements $element) : int
     {
         // Mise en place de la requête
-        $requete = "INSERT INTO ELEMENTS(typeElement,description,etatEntree,etatSortie,idpiece) VALUES (:typeElement,:description,:etatEntree,:etatSortie,:idPiece)";
+        $requete = "INSERT INTO ELEMENTS(typeElement,description,etatEntree,etatSortie,idPiece) VALUES (:typeElement,:description,:etatEntree,:etatSortie,:idPiece)";
         $parameters = array(
             "typeElement"=>$element->getTypeElement(),
             "description"=>$element->getDescription(),

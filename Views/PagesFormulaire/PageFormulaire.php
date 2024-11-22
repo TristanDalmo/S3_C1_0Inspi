@@ -72,13 +72,13 @@ class PageFormulaire extends AbstractPage
                     </div>
                     <div class=\"l3\">
                         <label for=\"SURFACE\" class=\"putbold\">SURFACE :</label>
-                        <input type=\"text\" id=\"SURFACE\" placeholder=\"m²\">
+                        <input type=\"text\" id=\"SURFACE\" name=\"SURFACE\" placeholder=\"m²\">
                         <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÈCES PRINCIPALES :</label>
-                        <input type=\"number\" id=\"nbpiece\">
+                        <input type=\"number\" id=\"nbpiece\" name=\"nbpiece\" >
                     </div>
                     <div class=\"l4\">
                         <label for=\"adresse\" class=\"putbold\">ADRESSE :</label>
-                        <textarea id=\"adresse\" rows=\"3\" cols=\"50\"></textarea>
+                        <textarea id=\"adresse\" name=\"adresse\" rows=\"3\" cols=\"50\"></textarea>
                     </div>
     
                     <br>
@@ -102,11 +102,11 @@ class PageFormulaire extends AbstractPage
                                     </span>
                                 </div>
                                 <label for=\"prenom_bailleur\" class=\"putbold\" >PRÉNOM :</label>
-                                <input type=\"text\" id=\"prenom_bailleur\" required>
+                                <input type=\"text\" id=\"prenom_bailleur\" name=\"prenom_bailleur\" required>
                                 <label for=\"nom_bailleur\" class=\"putbold\">NOM :</label>
-                                <input type=\"text\" id=\"nom_bailleur\" required>
+                                <input type=\"text\" id=\"nom_bailleur\" name=\"nom_bailleur\" required>
                                 <label for=\"adresse_bailleur\" class=\"putbold\">ADRESSE :</label>
-                                <textarea id=\"adresse_bailleur\" rows=\"3\" required></textarea>
+                                <textarea id=\"adresse_bailleur\" name=\"adresse_bailleur\" rows=\"3\" required></textarea>
                             </td>
                             <td>
                                 <div class=\"civilite-container\">
@@ -121,12 +121,12 @@ class PageFormulaire extends AbstractPage
                                     </span>
                                 </div>
                                 <label for=\"prenom_locataire\" class=\"putbold\">PRÉNOM :</label>
-                                <input type=\"text\" id=\"prenom_locataire\" required>
+                                <input type=\"text\" id=\"prenom_locataire\" name=\"prenom_locataire\" required>
                                 <label for=\"nom_locataire\" class=\"putbold\">NOM :</label>
-                                <input type=\"text\" id=\"nom_locataire\" required>
+                                <input type=\"text\" id=\"nom_locataire\" name=\"nom_locataire\" required>
                                 <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE :</label>
                                 <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
-                                <textarea id=\"adresse_locataire\" rows=\"3\" required></textarea>
+                                <textarea id=\"adresse_locataire\" name=\"adresse_locataire\" rows=\"3\" required></textarea>
                             </td>
                         </tr>
                     </table>
