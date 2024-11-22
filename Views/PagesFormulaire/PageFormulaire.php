@@ -30,111 +30,107 @@ class PageFormulaire extends AbstractPage
     <div class=\"formulaire\">
         <form action='./ControllerPartage.php' method='POST' enctype='multipart/form-data'>
             <fieldset class=\"grandfield\">
-                <div class=\"Containerhaut\">
-                    <div class=\"texte-gauche\">
-                        <p class=\"Gras\">ÉTAT DES LIEUX</p>
-                        <p id=\"petit\">(Conforme LOI ALUR)</p>
+    <div class=\"Containerhaut\">
+        <div class=\"texte-gauche\">
+            <p class=\"Gras\">ÉTAT DES LIEUX</p>
+            <p id=\"petit\">(Conforme LOI ALUR)</p>
+        </div>
+        <div class=\"date-droite\">
+            <label for=\"fDate\" class=\"putbold\">DATE D'ENTRÉE : *</label>
+            <input type=\"date\" id=\"fDate\" name=\"fDate\" required>
+        </div>
+    </div>
+    <div class=\"ligne2\">
+        <div class=\"texte-gauche1\">
+            <label for=\"ENTREE\">Entrée *</label>
+            <input type=\"radio\" id=\"ENTREE\" name=\"fPermis\" value=\"Entrée\" required>
+            <label for=\"SORTIE\">Sortie *</label>
+            <input type=\"radio\" id=\"SORTIE\" name=\"fPermis\" value=\"Sortie\" required>
+        </div>
+        <div class=\"date-droite1\">
+            <label for=\"fDateS\" class=\"putbold\">DATE DE SORTIE : *</label>
+            <input type=\"date\" id=\"fDateS\" name=\"fDateS\" required>
+        </div>
+    </div>
+    <br>
+    <div class=\"loi\">
+        <p>L'état des lieux doit être établi entre les deux parties (locataire et propriétaire) lors de la remise des clés du logement et lors de leur restitution. En effet, le bail (loi n° 89-462 du 6 juillet 1989) stipule que l'état des lieux doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de location, et dont le locataire a la jouissance exclusive.</p>
+    </div>
+    <br>
+    <p id=\"notice\">Tous les champs munis d'une astérisque (*) sont obligatoires.</p><br>
+    <fieldset class=\"Logement\">
+        <div class=\"l1\">
+            <p class=\"putbold\">LOGEMENT</p>
+        </div>
+        <div class=\"l2\">
+            <label for=\"Appartement\">Appartement *</label>
+            <input type=\"radio\" id=\"Appartement\" name=\"typeLogement\" value=\"Appartement\" required>
+            <label for=\"Maison\">Maison *</label>
+            <input type=\"radio\" id=\"Maison\" name=\"typeLogement\" value=\"Maison\" required>
+            <label for=\"Autre\">Autre *</label>
+            <input type=\"radio\" id=\"Autre\" name=\"typeLogement\" value=\"Autre\" required>
+            <input type=\"text\" id=\"textautre\" name=\"textautre\" size=\"5\" required>
+        </div>
+        <div class=\"l3\">
+            <label for=\"SURFACE\" class=\"putbold\">SURFACE : *</label>
+            <input type=\"number\" id=\"SURFACE\" name=\"SURFACE\" placeholder=\"m²\" required>
+            <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÈCES PRINCIPALES : *</label>
+            <input type=\"number\" id=\"nbpiece\" name=\"nbpiece\" required>
+        </div>
+        <div class=\"l4\">
+            <label for=\"adresse\" class=\"putbold\">ADRESSE : *</label>
+            <textarea id=\"adresse\" name=\"adresse\" rows=\"3\" cols=\"50\" required></textarea>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <th id=\"tab1\" class=\"putbold\">LE BAILLEUR (OU SON MANDATAIRE)</th>
+                <th id=\"tab2\" class=\"putbold\">LE(S) LOCATAIRE(S)</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class=\"civilite-container\">
+                        <label for=\"mr_bailleur\" class=\"putbold\">CIVILITÉ : *</label>
+                        <span class=\"civilite\">
+                            <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\" value=\"Mr\" required>
+                            <label for=\"mr_bailleur\">Mr</label>
+                            <input type=\"radio\" id=\"mme_bailleur\" name=\"civilite_bailleur\" value=\"Mme\" required>
+                            <label for=\"mme_bailleur\">Mme</label>
+                            <input type=\"radio\" id=\"mlle_bailleur\" name=\"civilite_bailleur\" value=\"Mlle\" required>
+                            <label for=\"mlle_bailleur\">Mlle</label>
+                        </span>
                     </div>
-                    <div class=\"date-droite\">
-                        <label for=\"fDate\" class=\"putbold\">DATE D'ENTRÉE :</label>
-                        <input type=\"date\" id=\"fDate\" name=\"fDate\" required>
+                    <label for=\"prenom_bailleur\" class=\"putbold\">PRÉNOM : *</label>
+                    <input type=\"text\" id=\"prenom_bailleur\" name=\"prenom_bailleur\" required>
+                    <label for=\"nom_bailleur\" class=\"putbold\">NOM : *</label>
+                    <input type=\"text\" id=\"nom_bailleur\" name=\"nom_bailleur\" required>
+                    <label for=\"adresse_bailleur\" class=\"putbold\">ADRESSE : *</label>
+                    <textarea id=\"adresse_bailleur\" name=\"adresse_bailleur\" rows=\"3\" required></textarea>
+                </td>
+                <td>
+                    <div class=\"civilite-container\">
+                        <label for=\"mr_locataire\" class=\"putbold\">CIVILITÉ : *</label>
+                        <span class=\"civilite\">
+                            <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\" value=\"Mr\" required>
+                            <label for=\"mr_locataire\">Mr</label>
+                            <input type=\"radio\" id=\"mme_locataire\" name=\"civilite_locataire\" value=\"Mme\" required>
+                            <label for=\"mme_locataire\">Mme</label>
+                            <input type=\"radio\" id=\"mlle_locataire\" name=\"civilite_locataire\" value=\"Mlle\" required>
+                            <label for=\"mlle_locataire\">Mlle</label>
+                        </span>
                     </div>
-                </div>
-                <div class=\"ligne2\">
-                    <div class=\"texte-gauche1\">
-                        <input type=\"radio\" id=\"ENTREE\" name=\"fPermis\" value=\"Entrée\">
-                        <label for=\"ENTREE\">Entrée</label>
-                        <input type=\"radio\" id=\"SORTIE\" name=\"fPermis\" value=\"Sortie\">
-                        <label for=\"SORTIE\">Sortie</label>
-                    </div>
-                    <div class=\"date-droite1\">
-                        <label for=\"fDateS\" class=\"putbold\">DATE DE SORTIE :</label>
-                        <input type=\"date\" id=\"fDateS\" name=\"fDateS\" required>
-                    </div>
-                </div>
-                <br>
-                <div class=\"loi\">
-                    <p>L'état des lieux doit être établi entre les deux parties (locataire et propriétaire) lors de la remise des clés du logement et lors de leur restitution. En effet, le bail (loi n° 89-462 du 6 juillet 1989) stipule que l'état des lieux doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de location, et dont le locataire a la jouissance exclusive.</p>
-                </div>
-                <br>
-                <fieldset class=\"Logement\">
-                    <div class=\"l1\">
-                        <p class=\"putbold\">LOGEMENT</p>
-                    </div>
-                    <div class=\"l2\">
-                        <input type=\"radio\" id=\"Appartement\" name=\"typeLogement\" value=\"Appartement\">
-                        <label for=\"Appartement\">Appartement</label>
-                        <input type=\"radio\" id=\"Maison\" name=\"typeLogement\" value=\"Maison\">
-                        <label for=\"Maison\">Maison</label>
-                        <input type=\"radio\" id=\"Autre\" name=\"typeLogement\" value=\"Autre\">
-                        <label for=\"Autre\">Autre</label>
-                        <input type=\"text\" id=\"textautre\" name=\"textautre\" size=\"5\">
-                    </div>
-                    <div class=\"l3\">
-                        <label for=\"SURFACE\" class=\"putbold\">SURFACE :</label>
-                        <input type=\"text\" id=\"SURFACE\" name=\"SURFACE\" placeholder=\"m²\">
-                        <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÈCES PRINCIPALES :</label>
-                        <input type=\"number\" id=\"nbpiece\" name=\"nbpiece\" >
-                    </div>
-                    <div class=\"l4\">
-                        <label for=\"adresse\" class=\"putbold\">ADRESSE :</label>
-                        <textarea id=\"adresse\" name=\"adresse\" rows=\"3\" cols=\"50\"></textarea>
-                    </div>
-    
-                    <br>
-                    
-                    <table>
-                        <tr>
-                            <th id=\"tab1\" class=\"putbold\">LE BAILLEUR (OU SON MANDATAIRE)</th>
-                            <th id=\"tab2\" class=\"putbold\">LE(S) LOCATAIRE(S)</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class=\"civilite-container\">
-                                    <label for=\"mr_bailleur\" class=\"putbold\">CIVILITÉ :</label>
-                                    <span class=\"civilite\">
-                                        <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\"  value=\"Mr\" required>
-                                        <label for=\"mr_bailleur\">Mr</label>
-                                        <input type=\"radio\" id=\"mme_bailleur\" name=\"civilite_bailleur\" value=\"Mme\" required>
-                                        <label for=\"mme_bailleur\">Mme</label>
-                                        <input type=\"radio\" id=\"mlle_bailleur\" name=\"civilite_bailleur\" value=\"Mlle\" required>
-                                        <label for=\"mlle_bailleur\">Mlle</label>
-                                    </span>
-                                </div>
-                                <label for=\"prenom_bailleur\" class=\"putbold\" >PRÉNOM :</label>
-                                <input type=\"text\" id=\"prenom_bailleur\" name=\"prenom_bailleur\" required>
-                                <label for=\"nom_bailleur\" class=\"putbold\">NOM :</label>
-                                <input type=\"text\" id=\"nom_bailleur\" name=\"nom_bailleur\" required>
-                                <label for=\"adresse_bailleur\" class=\"putbold\">ADRESSE :</label>
-                                <textarea id=\"adresse_bailleur\" name=\"adresse_bailleur\" rows=\"3\" required></textarea>
-                            </td>
-                            <td>
-                                <div class=\"civilite-container\">
-                                    <label for=\"mr_locataire\" class=\"putbold\">CIVILITÉ :</label>
-                                    <span class=\"civilite\">
-                                        <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\"  value=\"Mr\" required>
-                                        <label for=\"mr_locataire\">Mr</label>
-                                        <input type=\"radio\" id=\"mme_locataire\" name=\"civilite_locataire\" value=\"Mme\" required>
-                                        <label for=\"mme_locataire\">Mme</label>
-                                        <input type=\"radio\" id=\"mlle_locataire\" name=\"civilite_locataire\" value=\"Mlle\" required>
-                                        <label for=\"mlle_locataire\">Mlle</label>
-                                    </span>
-                                </div>
-                                <label for=\"prenom_locataire\" class=\"putbold\">PRÉNOM :</label>
-                                <input type=\"text\" id=\"prenom_locataire\" name=\"prenom_locataire\" required>
-                                <label for=\"nom_locataire\" class=\"putbold\">NOM :</label>
-                                <input type=\"text\" id=\"nom_locataire\" name=\"nom_locataire\" required>
-                                <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE :</label>
-                                <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
-                                <textarea id=\"adresse_locataire\" name=\"adresse_locataire\" rows=\"3\" required></textarea>
-                            </td>
-                        </tr>
-                    </table>
-    
-    
-                </fieldset>
-                
-            </fieldset>
+                    <label for=\"prenom_locataire\" class=\"putbold\">PRÉNOM : *</label>
+                    <input type=\"text\" id=\"prenom_locataire\" name=\"prenom_locataire\" required>
+                    <label for=\"nom_locataire\" class=\"putbold\">NOM : *</label>
+                    <input type=\"text\" id=\"nom_locataire\" name=\"nom_locataire\" required>
+                    <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE :</label>
+                    <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
+                    <textarea id=\"adresse_locataire\" name=\"adresse_locataire\" rows=\"3\"></textarea>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</fieldset>
             <p id=\"notationetat\">Complétez les colonnes État avec les lettres <strong>M</strong> (mauvais), <strong>P</strong> (passable), <strong>B</strong> (bon), <strong>TB</strong> (très bon).</p>          
             <table id=\"tableauCuisine\">
                 <thead>
@@ -1151,18 +1147,6 @@ class PageFormulaire extends AbstractPage
                 <input type=\"reset\" value=\"Effacer\" />
                 <input type=\"submit\" value=\"Valider\" />
             </div>
-                <div class=\"file-generation\">
-        <p>Choisissez le format de fichier à générer :</p>
-            <input type=\"radio\" id=\"format_pdf\" name=\"file_format\" value=\"pdf\" required>
-            <label for=\"format_pdf\">PDF</label>
-    
-            <input type=\"radio\" id=\"format_word\" name=\"file_format\" value=\"word\">
-            <label for=\"format_word\">Word</label>
-    
-            <br><br>
-            <button type=\"submit\" target=\"_blank\" id=\"generateFile\">Générer le fichier</button>
-        </div>
-    
         </form>
     </div>
 </body>
