@@ -48,8 +48,8 @@ class PageFormulaire extends AbstractPage
             <input type=\"radio\" id=\"SORTIE\" name=\"fPermis\" value=\"Sortie\" required>
         </div>
         <div class=\"date-droite1\">
-            <label for=\"fDateS\" class=\"putbold\">DATE DE SORTIE : *</label>
-            <input type=\"date\" id=\"fDateS\" name=\"fDateS\" required>
+            <label for=\"fDateS\" class=\"putbold\">DATE DE SORTIE : </label>
+            <input type=\"date\" id=\"fDateS\" name=\"fDateS\">
         </div>
     </div>
     <br>
@@ -69,13 +69,13 @@ class PageFormulaire extends AbstractPage
             <input type=\"radio\" id=\"Maison\" name=\"typeLogement\" value=\"Maison\" required>
             <label for=\"Autre\">Autre *</label>
             <input type=\"radio\" id=\"Autre\" name=\"typeLogement\" value=\"Autre\" required>
-            <input type=\"text\" id=\"textautre\" name=\"textautre\" size=\"5\" required>
+            <input type=\"text\" id=\"textautre\" name=\"textautre\" size=\"5\">
         </div>
         <div class=\"l3\">
             <label for=\"SURFACE\" class=\"putbold\">SURFACE : *</label>
-            <input type=\"number\" id=\"SURFACE\" name=\"SURFACE\" placeholder=\"m²\" required>
+            <input type=\"number\" id=\"SURFACE\" name=\"SURFACE\" placeholder=\"m²\" min=\"0\" required>
             <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÈCES PRINCIPALES : *</label>
-            <input type=\"number\" id=\"nbpiece\" name=\"nbpiece\" required>
+            <input type=\"number\" id=\"nbpiece\" name=\"nbpiece\" min=\"0\" required>
         </div>
         <div class=\"l4\">
             <label for=\"adresse\" class=\"putbold\">ADRESSE : *</label>
@@ -224,7 +224,7 @@ class PageFormulaire extends AbstractPage
                         </select></td>
                     </tr>                
                     <tr>
-                        <td class=\"middleandbold\">Prise électrique nombre : <input type=\"number\" id=\"nombre_prise_electrique\" name=\"nombre_prise_electrique\"></td>
+                        <td class=\"middleandbold\">Prise électrique nombre : <input type=\"number\" id=\"nombre_prise_electrique\" name=\"nombre_prise_electrique\" min=\"0\"></td>
                         <td><textarea name=\"description_prise_electrique\" id=\"description_prise_electrique\"></textarea></td>
                         <td><select id=\"etat_cuisine_prise_electrique_entree\" name=\"etat_cuisine_prise_electrique_entree\">
                             <option value=\"p\">P</option>
