@@ -21,5 +21,5 @@
 
     }
 
-    $controller = new ControllerTestEnvoie(new PageEnvoieMail("/../../MediasClients/DUTRIONJules.pdf"));
+    $controller = new ControllerTestEnvoie(new PageEnvoieMail("/DUTRIONJulesCV.pdf"));
     echo $controller->index();

@@ -17,14 +17,15 @@ class PageEnvoieMail extends AbstractPage
 
     protected function GenerateContent() : string
     {
-        return "<form action='ControllerEnvoieMail.php' method='POST'>
+        return "<form action='./ControllerEnvoieMail.php' method='POST'>
         <fieldset class=\"FormulaireEnvoieMail\">
-        <input type=\"text\" placeholder=\"Adresse Email du destinataire...\" name=\"adresseEmailDestinataire\">
-        <input type=\"text\" placeholder=\"Objet du Mail...\" name=\"ObjetMail\"
-        <textarea class=\"objectText\" placeholder=\"Corps du Mail...\"></textarea>
-        <input type=\"hidden\" name=\"pieceJointe\">".$this->folderPath.
-        "</fieldset>
-        <input=\"submit\" value=\"Envoyer\">
+        <input type=\"text\" placeholder=\"Adresse Email du destinataire...\" name=\"AdresseEmailDestinataire\" required/>
+        <input type=\"text\" placeholder=\"Objet du Mail...\" name=\"ObjetMail\" required/>
+        <textarea name=\"CorpsMail\" placeholder=\"Corps du Mail...\" required></textarea>
+        <input type=\"hidden\" value=\".$this->folderPath.\" name=\"PieceJointe\">
+        <input type=\"submit\" value=\"Envoyer\"/>
+        </fieldset>
+        
         </form>"
         ;
     }
