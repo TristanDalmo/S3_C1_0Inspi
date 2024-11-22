@@ -3,6 +3,7 @@
 namespace Controllers\PagesFormulaire;
 
 
+
 use Exception;
 
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
@@ -10,7 +11,7 @@ require_once(__DIR__."/../../Service/Media/MediaService.php");
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PageErreur.php");
 require_once(__DIR__ . "/../../Service/Media/DossiersManagerService.php");
 require_once(__DIR__ . "/../../Service/Media/GenerationWordService.php");
-require_once(__DIR__ . "/../../DAO/GestionFormulaire/InsertionEDLDAO.php");
+require_once(__DIR__ . "/../../Service/GestionFormulaire/InsertionEDLService.php");
 require_once(__DIR__ . "/../../Service/Media/GenerationPDFService.php");
 
 use Views\PagesFormulaire\PagePartage;
@@ -20,6 +21,7 @@ use Service\Media\DossiersManagerService;
 use Service\Media\GenerationWordService;
 use Service\GestionFormulaire\InsertionEDLService;
 use Service\Media\GenerationPDFService;
+
 
 
 /**
@@ -44,6 +46,7 @@ class ControllerPartage {
      * @return string Page web à afficher
      */
     public function index() : string {
+
 
 
         $newPage=null;
@@ -91,7 +94,7 @@ class ControllerPartage {
             // Gestion de la création du fichier pdf
             $generationPDF = new GenerationPDFService();
             $generationPDF->GenererPDF($Dossier_Cible);
-*/
+
             // Affichage de la page en cas de succès
             $newPage=$this->page->GeneratePage();
         }
@@ -102,6 +105,7 @@ class ControllerPartage {
             $newPage= $pageerror->GeneratePage();  
             
         }
+            
         
         return $newPage;
 
@@ -112,6 +116,7 @@ class ControllerPartage {
 // Création de la page
 $controller = new ControllerPartage(new PagePartage());
 echo $controller->index();
+
 
 
 
