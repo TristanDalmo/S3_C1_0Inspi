@@ -5,13 +5,13 @@ require_once(__DIR__ . "/../AbstractPage.php");
 use Views\AbstractPage;
 
 /**
- * Classe de gÃ©nÃ©ration de la page d'accueil de l'application
+ * Classe de génération de la page d'accueil de l'application
  */
 class PageFormulaire extends AbstractPage
 {
     public function __construct()
     {
-        // On appelle le constructeur de la classe abstraite, dÃ©finissant les chemins vers le script et le style
+        // On appelle le constructeur de la classe abstraite, définissant les chemins vers le script et le style
         parent::__construct(cssChemin: "../../Public/CSS/formulaire.css",nom:"E-Lieu ~ Formulaire");
     }    
 
@@ -23,18 +23,18 @@ class PageFormulaire extends AbstractPage
             <fieldset class=\"grandfield\">
                 <div class=\"Containerhaut\">
                     <div class=\"texte-gauche\">
-                        <p class=\"Gras\">Ã‰TAT DES LIEUX</p>
+                        <p class=\"Gras\">ÉTAT DES LIEUX</p>
                         <p id=\"petit\">(Conforme LOI ALUR)</p>
                     </div>
                     <div class=\"date-droite\">
-                        <label for=\"fDate\" class=\"putbold\">DATE D'ENTRÃ‰E : *</label>
+                        <label for=\"fDate\" class=\"putbold\">DATE D'ENTRÉE : *</label>
                         <input type=\"date\" id=\"fDate\" name=\"fDate\" required>
                     </div>
                 </div>
                 <div class=\"ligne2\">
                     <div class=\"texte-gauche1\">
-                        <input type=\"radio\" id=\"ENTREE\" name=\"fPermis\" value=\"EntrÃ©e\" required>
-                        <label for=\"ENTREE\" class=\"putbold\" >EntrÃ©e*</label>
+                        <input type=\"radio\" id=\"ENTREE\" name=\"fPermis\" value=\"Entrée\" required>
+                        <label for=\"ENTREE\" class=\"putbold\" >Entrée*</label>
                         <input type=\"radio\" id=\"SORTIE\" name=\"fPermis\" value=\"Sortie\" required>
                         <label for=\"SORTIE\" class=\"putbold\">Sortie*</label>
                     </div>
@@ -45,10 +45,10 @@ class PageFormulaire extends AbstractPage
                 </div>
                 <br>
                 <div class=\"loi\">
-                    <p>L'Ã©tat des lieux doit Ãªtre Ã©tabli entre les deux parties (locataire et propriÃ©taire) lors de la remise des clÃ©s du logement et lors de leur restitution. En effet, le bail (loi nÂ° 89-462 du 6 juillet 1989) stipule que l'Ã©tat des lieux doit porter sur l'ensemble des locaux et Ã©quipements d'usage privatif mentionnÃ©s au contrat de location, et dont le locataire a la jouissance exclusive.</p>
+                    <p>L'état des lieux doit être établi entre les deux parties (locataire et propriétaire) lors de la remise des clés du logement et lors de leur restitution. En effet, le bail (loi n° 89-462 du 6 juillet 1989) stipule que l'état des lieux doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de location, et dont le locataire a la jouissance exclusive.</p>
                 </div>
                 <br>
-                <p id=\"notice\">Tous les champs munis d'une astÃ©risque(*) sont obligatoires.</p>
+                <p id=\"notice\">Tous les champs munis d'une astérisque(*) sont obligatoires.</p>
                 <br>
                 <fieldset class=\"Logement\">
                     <div class=\"l1\">
@@ -65,8 +65,8 @@ class PageFormulaire extends AbstractPage
                     </div>
                     <div class=\"l3\">
                         <label for=\"SURFACE\" class=\"putbold\">SURFACE : *</label>
-                        <input type=\"text\" id=\"SURFACE\" placeholder=\"mÂ²\" required>
-                        <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÃˆCES PRINCIPALES : *</label>
+                        <input type=\"text\" id=\"SURFACE\" placeholder=\"m²\" required>
+                        <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÈCES PRINCIPALES : *</label>
                         <input type=\"number\" id=\"nbpiece\" required>
                     </div>
                     <div class=\"l4\">
@@ -82,7 +82,7 @@ class PageFormulaire extends AbstractPage
                     <tr>
                         <td>
                             <div class=\"civilite-container\">
-                                <label for=\"mr_bailleur\" class=\"putbold\">CIVILITÃ‰ : *</label>
+                                <label for=\"mr_bailleur\" class=\"putbold\">CIVILITÉ : *</label>
                                 <span class=\"civilite\">
                                     <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\" required>
                                     <label for=\"mr_bailleur\">Mr</label>
@@ -92,7 +92,7 @@ class PageFormulaire extends AbstractPage
                                     <label for=\"mlle_bailleur\">Mlle</label>
                                 </span>
                             </div>
-                            <label for=\"prenom_bailleur\" class=\"putbold\" >PRÃ‰NOM : *</label>
+                            <label for=\"prenom_bailleur\" class=\"putbold\" >PRÉNOM : *</label>
                             <input type=\"text\" id=\"prenom_bailleur\" required>
                             <label for=\"nom_bailleur\" class=\"putbold\">NOM : *</label>
                             <input type=\"text\" id=\"nom_bailleur\" required>
@@ -101,7 +101,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <div class=\"civilite-container\">
-                                <label for=\"mr_locataire\" class=\"putbold\">CIVILITÃ‰ : *</label>
+                                <label for=\"mr_locataire\" class=\"putbold\">CIVILITÉ : *</label>
                                 <span class=\"civilite\">
                                     <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\" required>
                                     <label for=\"mr_locataire\">Mr</label>
@@ -111,25 +111,25 @@ class PageFormulaire extends AbstractPage
                                     <label for=\"mlle_locataire\">Mlle</label>
                                 </span>
                             </div>
-                            <label for=\"prenom_locataire\" class=\"putbold\">PRÃ‰NOM : *</label>
+                            <label for=\"prenom_locataire\" class=\"putbold\">PRÉNOM : *</label>
                             <input type=\"text\" id=\"prenom_locataire\" required>
                             <label for=\"nom_locataire\" class=\"putbold\">NOM : *</label>
                             <input type=\"text\" id=\"nom_locataire\" required>
                             <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE : </label>
-                            <p class=\"petit\">(Si Ã©tat des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
+                            <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
                             <textarea id=\"adresse_locataire\" rows=\"3\"></textarea>
                         </td>
                     </tr>
                 </table>
             </fieldset>
-            <p id=\"notationetat\">ComplÃ©tez les colonnes Ã‰tat avec les lettres <strong>M</strong> (mauvais), <strong>P</strong> (passable), <strong>B</strong> (bon), <strong>TB</strong> (trÃ¨s bon).</p>          
+            <p id=\"notationetat\">Complétez les colonnes État avec les lettres <strong>M</strong> (mauvais), <strong>P</strong> (passable), <strong>B</strong> (bon), <strong>TB</strong> (très bon).</p>          
             <table id=\"tableauCuisine\">
                 <thead>
                     <tr>
                         <th class=\"rond\">Cuisine</th>
-                        <th class=\"details\">Description / dÃ©tails</th>
-                        <th class=\"etat\">Ã‰tat (entrÃ©e)</th>
-                        <th class=\"etat\">Ã‰tat (sortie)</th>
+                        <th class=\"details\">Description / détails</th>
+                        <th class=\"etat\">État (entrée)</th>
+                        <th class=\"etat\">État (sortie)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -211,7 +211,7 @@ class PageFormulaire extends AbstractPage
                         </select></td>
                     </tr>
                     <tr>
-                        <td class=\"middleandbold\">Ã‰clairage et interrupteurs</td>
+                        <td class=\"middleandbold\">Éclairage et interrupteurs</td>
                         <td><textarea name=\"eclairage1\" id=\"eclairage1\"></textarea></td>
                         <td><select id=\"eclairage2\">
                         <option value=\"\"></option>
@@ -229,7 +229,7 @@ class PageFormulaire extends AbstractPage
                         </select></td>
                     </tr>
                     <tr>
-                        <td class=\"middleandbold\">Prise Ã©lectrique nombre : <input type=\"number\"> </td>
+                        <td class=\"middleandbold\">Prise électrique nombre : <input type=\"number\"> </td>
                         <td><textarea name=\"prise1\" id=\"prise1\"></textarea></td>
                         <td><select id=\"prise2\">
                         <option value=\"\"></option>
@@ -265,7 +265,7 @@ class PageFormulaire extends AbstractPage
                         </select></td>
                     </tr>
                     <tr>
-                        <td class=\"middleandbold\">Ã‰vier (et robinetterie)</td>
+                        <td class=\"middleandbold\">Évier (et robinetterie)</td>
                         <td><textarea name=\"evier1\" id=\"evier1\"></textarea></td>
                         <td><select id=\"evier2\">
                         <option value=\"\"></option>
@@ -320,7 +320,7 @@ class PageFormulaire extends AbstractPage
                     </tr>
                     <tr>
                         <td class=\"middleandbold\">
-                            Ã‰lectromÃ©nager : 
+                            Électroménager : 
                             <input type=\"text\">
                         </td>
                         <td>
@@ -351,13 +351,13 @@ class PageFormulaire extends AbstractPage
                 <thead>
                     <tr>
                         <th rowspan=\"2\">Salle de bain</th>
-                        <th colspan=\"2\" class=\"sdb\">Description / dÃ©tails</th>
-                        <th colspan=\"2\">Ã‰tat</th>
+                        <th colspan=\"2\" class=\"sdb\">Description / détails</th>
+                        <th colspan=\"2\">État</th>
                     </tr>
                     <tr>
                         <th class=\"sdb\">Salle de bain 1</th>
                         <th class=\"sdb\">Salle de bain 2</th>
-                        <th class=\"etat\">(entrÃ©e)</th>
+                        <th class=\"etat\">(entrée)</th>
                         <th class=\"etat\">(sortie)</th>
                     </tr>
                 </thead>
@@ -369,7 +369,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_mur_entree\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -378,7 +378,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_mur_sortie\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -392,7 +392,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_sol_entree\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -401,7 +401,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_sol_sortie\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -415,7 +415,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_vitrage_entree\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -424,7 +424,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_vitrage_sortie\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -438,7 +438,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_plafond_entree\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -447,7 +447,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_plafond_sortie\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -455,13 +455,13 @@ class PageFormulaire extends AbstractPage
                         </td>
                     </tr>
                     <tr>
-                        <td class=\"middleandbold\">Ã‰clairage et interrupteurs</td>
+                        <td class=\"middleandbold\">Éclairage et interrupteurs</td>
                         <td><textarea id=\"eclairage_sdb1\"></textarea></td>
                         <td><textarea id=\"eclairage_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_eclairage_entree\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -470,7 +470,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_eclairage_sortie\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -478,7 +478,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                     </tr>
                     <tr>
-                        <td class=\"middleandbold\">Prise Ã©lectrique</td>
+                        <td class=\"middleandbold\">Prise électrique</td>
                         <td>
                             <strong>Nombre</strong> : <input id=\"prise_sdb1\" type=\"number\" min=\"0\" placeholder=\"Nombre de prises\">
                         </td>
@@ -488,7 +488,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_prise_entree\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -497,7 +497,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_prise_sortie\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -511,7 +511,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_lavabo_entree\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -520,7 +520,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_lavabo_sortie\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -534,7 +534,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_baignoire_entree\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -543,7 +543,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_baignoire_sortie\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -557,7 +557,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_wc_entree\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -566,7 +566,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             <select id=\"etat_wc_sortie\">
                         <option value=\"\"></option>
-                                <option value=\"trÃ¨s bon\">TB</option>
+                                <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
                                 <option value=\"mauvais\">M</option>
@@ -580,9 +580,9 @@ class PageFormulaire extends AbstractPage
                 <thead>
                     <tr>
                         <th rowspan=\"2\" class=\"PremiereColonneChambre\">Chambres</th>
-                        <th colspan=\"3\" class=\"description\">Description / dÃ©tails</th>
-                        <th colspan=\"3\" class=\"etat\">Ã‰tat entrÃ©e</th>
-                        <th colspan=\"3\" class=\"etat\">Ã‰tat sortie</th>
+                        <th colspan=\"3\" class=\"description\">Description / détails</th>
+                        <th colspan=\"3\" class=\"etat\">État entrée</th>
+                        <th colspan=\"3\" class=\"etat\">État sortie</th>
                     </tr>
                     <tr>
                         <th class=\"description\">Chambre 1</th>
@@ -838,7 +838,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                     </tr>
                     <tr>
-                        <td class=\"PremiereColonneChambre\">Ã‰clairage et interrupteurs</td>
+                        <td class=\"PremiereColonneChambre\">Éclairage et interrupteurs</td>
                         <td><textarea id=\"eclairageChambre1\"></textarea></td>
                         <td><textarea id=\"eclairageChambre2\"></textarea></td>
                         <td><textarea id=\"eclairageChambre3\"></textarea></td>
@@ -898,7 +898,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                     </tr>
                     <tr>
-                        <td class=\"PremiereColonneChambre\">Plafonds Ã©lectriques</td>
+                        <td class=\"PremiereColonneChambre\">Plafonds électriques</td>
                         <td>
                             <div class=\"description-group\">
                                 <div class=\"input-inline\">
@@ -988,8 +988,8 @@ class PageFormulaire extends AbstractPage
                 <thead>
                     <tr>
                         <th rowspan=\"2\">WC</th>
-                        <th colspan=\"2\" >Description / dÃ©tails</th>
-                        <th colspan=\"2\" class=\"etat\">Etat entrÃ©e</th>
+                        <th colspan=\"2\" >Description / détails</th>
+                        <th colspan=\"2\" class=\"etat\">Etat entrée</th>
                         <th colspan=\"2\" class=\"etat\">Etat sortie</th>
                     </tr>
                     <tr>
@@ -1214,11 +1214,11 @@ class PageFormulaire extends AbstractPage
 
             <fieldset class=\"comment-fieldset\">
                 <legend>Zone de Commentaires</legend>
-                <textarea class=\"comment-textarea\" placeholder=\"Veuillez saisir les informations supplÃ©mentaires que vous souhaitez nous faire parvenir \"></textarea>
+                <textarea class=\"comment-textarea\" placeholder=\"Veuillez saisir les informations supplémentaires que vous souhaitez nous faire parvenir \"></textarea>
             </fieldset>
 
             <label for=\"Documents\" class=\"drop-container\" id=\"dropcontainer\">
-                <span class=\"drop-title\">DÃ©posez vos fichiers</span>
+                <span class=\"drop-title\">Déposez vos fichiers</span>
                 ou
                 <input type=\"file\" name=\"Documents[]\" id=\"Documents\" accept=\".jpg,.jpeg,.png,.mp4,.mov\" multiple capture>
             </label>
