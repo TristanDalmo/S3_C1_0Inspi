@@ -10,11 +10,10 @@ interface iElementsService
 {
     /**
      * Méthode pour créer un élément.
-     *
-     * @param Elements $elements L'objet Elements à créer.
-     * @return void
+     * @param \Model\Elements $elements L'objet Elements à créer. 
+     * @return int Id de l'élément créé
      */
-    public function create(Elements $elements);
+    public function create(Elements $elements):int;
 
     /**
      * Méthode pour mettre à jour un élément.

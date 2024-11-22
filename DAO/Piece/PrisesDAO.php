@@ -51,7 +51,7 @@ class PrisesDAO extends BasePDODAO implements I_PrisesDAO {
             "nombrePrises"=>$prises->getNombrePrises(),
             "etatEntree"=>$prises->getEtatEntree(),
             "etatSortie"=>$prises->getEtatSortie(),
-            "idPrise"=>$prises->getIdPrises()       
+            "idPrise"=>$prises->getIdPrise()       
         );
 
         // Exécution de la requête
@@ -61,7 +61,8 @@ class PrisesDAO extends BasePDODAO implements I_PrisesDAO {
         $this->verificationResultat($reponse,
         "Prises mises à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour les prises");
+        "Impossible de mettre à jour les prises",
+        true);
     }
 
     public function Delete(int $id)

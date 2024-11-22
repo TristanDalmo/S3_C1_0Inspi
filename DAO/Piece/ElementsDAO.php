@@ -8,6 +8,7 @@ use DAO\BasePDODAO;
 require_once(__DIR__ . "/../../Model/Elements.php");
 use Model\Elements;
 use PDO;
+use Exception;
 
 /**
  * Classe d'interactions avec la BDD sur la table Elements
@@ -23,7 +24,7 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
             "description"=>$element->getDescription(),
             "etatEntree"=>$element->getEtatEntree(),
             "etatSortie"=>$element->getEtatSortie(),
-            "idPiece"=>$element->getPiece()->getidPiece()          
+            "idPiece" => $element->getPiece()?->getidPiece() ?? null,       
         );
 
         // Exécution de la requête
@@ -46,13 +47,14 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
     public function Update(Elements $element)
     {
         // Mise en place de la requête
-        $requete = "UPDATE ELEMENTS SET typeElement = :TypeElement, description = :description, etatEntree = :etatEntree, etatSortie = :etatSortie, idPiece = :idPiece WHERE idElement = :idElement";
+        $requete = "UPDATE ELEMENTS SET typeElement = :typeElement, description = :description, etatEntree = :etatEntree, etatSortie = :etatSortie, idPiece = :idPiece WHERE idElement = :idElement";
         $parameters = array(
             "typeElement"=>$element->getTypeElement(),
             "description"=>$element->getDescription(),
             "etatEntree"=>$element->getEtatEntree(),
             "etatSortie"=>$element->getEtatSortie(),
-            "idPiece"=>$element->getPiece()->getidPiece()          
+            "idPiece"=>$element->getPiece()?->getidPiece() ?? null,    
+            "idElement"=>$element->getIdElement()         
         );
 
         // Exécution de la requête
@@ -62,7 +64,8 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
         $this->verificationResultat($reponse,
         "Élément mis à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour l'élément");
+        "Impossible de mettre à jour l'élément",
+        true);
     }
 
     public function Delete(int $id)
@@ -96,6 +99,9 @@ class ElementsDAO extends BasePDODAO implements I_ElementsDAO {
         if (($row = $reponse->fetch(PDO::FETCH_ASSOC)) != null) {
             $element = new Elements();
             $element->hydrate($row);
+        }
+        else {
+            throw new Exception("Aucun élément trouvé pour l'ID : $id");
         }
 
         // On retourne l'élément

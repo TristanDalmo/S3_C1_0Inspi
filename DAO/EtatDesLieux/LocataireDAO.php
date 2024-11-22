@@ -3,9 +3,9 @@
 namespace DAO\EtatDesLieux;
 require_once(__DIR__ . "/../BasePDODAO.php");
 use DAO\BasePDODAO;
-require_once(__DIR__."../../Model/Locataire.php");
+require_once(__DIR__."/../../Model/Locataire.php");
 use Model\Locataire;
-require_once(__DIR__."./I_LocataireDAO.php");
+require_once(__DIR__."/I_LocataireDAO.php");
 use DAO\EtatDesLieux\I_LocataireDAO;
 use PDO;
 
@@ -37,10 +37,10 @@ class LocataireDAO extends BasePDODAO implements I_LocataireDAO {
     
     public function Delete(int $idPersonne, int $idEtatDesLieux) {
 
-        $requete = "DELETE FROM LOGEMENT WHERE idPersonne = :idPersonne, idEtatDesLieux = :idEtatDesLieux";
+        $requete = "DELETE FROM LOCATAIRE WHERE idPersonne = :idPersonne AND idEtatDesLieux = :idEtatDesLieux";
     
         $donnees = array(
-            "idLogement" => $idPersonne,
+            "idPersonne" => $idPersonne,
             "idEtatDesLieux" => $idEtatDesLieux
         );
         
@@ -57,9 +57,9 @@ class LocataireDAO extends BasePDODAO implements I_LocataireDAO {
     public function getById(int $idPersonne, int $idEtatDesLieux) : Locataire {
 
         // On met en place la requête
-        $requete = "SELECT * FROM LOGEMENT WHERE idPersonne = :idPersonne, idEtatDesLieux = :idEtatDesLieux";
+        $requete = "SELECT * FROM LOCATAIRE WHERE idPersonne = :idPersonne AND idEtatDesLieux = :idEtatDesLieux";
         $donnees = array(
-            "idLogement" => $idPersonne,
+            "idPersonne" => $idPersonne,
             "idEtatDesLieux" => $idEtatDesLieux
         );
 

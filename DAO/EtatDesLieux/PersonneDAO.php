@@ -3,9 +3,9 @@
 namespace DAO\EtatDesLieux;
 require_once(__DIR__ . "/../BasePDODAO.php");
 use DAO\BasePDODAO;
-require_once(__DIR__."../../Model/Personne.php");
+require_once(__DIR__."/../../Model/Personne.php");
 use Model\Personne;
-require_once(__DIR__."./I_PersonneDAO.php");
+require_once(__DIR__."/I_PersonneDAO.php");
 use DAO\EtatDesLieux\I_PersonneDAO;
 use PDO;
 
@@ -60,7 +60,8 @@ class PersonneDAO extends BasePDODAO implements I_PersonneDAO {
         $this->verificationResultat($reponse,
         "Personne mis à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour la personne");
+        "Impossible de mettre à jour la personne",
+        true);
     }
 
     public function Delete(int $id) {
@@ -88,6 +89,30 @@ class PersonneDAO extends BasePDODAO implements I_PersonneDAO {
 
         // On exécute la requête
         $reponse = $this->execRequest($requete, array("idPersonne"=> $id));
+
+        $personne = null;
+
+        // Si on a bien obtenu une ligne, on retournera une Personne
+        if (($row = $reponse->fetch(PDO::FETCH_ASSOC)) != null) {
+            $personne = new Personne();
+            $personne->hydrate($row);
+        }
+
+        // On retourne la personne
+        return $personne;
+    }
+
+    public function GetByNomPrenomAdresse(Personne $personne): Personne|null{
+        // On met en place la requête
+        $requete = "SELECT * FROM PERSONNE WHERE nom = :nom and prenom=:prenom and adresse=:adresse";
+
+        // On exécute la requête
+        $reponse = $this->execRequest($requete,array(
+            "prenom" => $personne->getPrenom(),
+            "nom" => $personne->getNom(),
+            "adresse" => $personne->getAdresse()
+        )
+        );
 
         $personne = null;
 

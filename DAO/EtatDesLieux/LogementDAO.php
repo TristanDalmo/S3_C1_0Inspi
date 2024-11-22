@@ -3,9 +3,9 @@
 namespace DAO\EtatDesLieux;
 require_once(__DIR__ . "/../BasePDODAO.php");
 use DAO\BasePDODAO;
-require_once(__DIR__."../../Model/Logement.php");
+require_once(__DIR__."/../../Model/Logement.php");
 use Model\Logement;
-require_once(__DIR__."./I_LogementDAO.php");
+require_once(__DIR__."/I_LogementDAO.php");
 use DAO\EtatDesLieux\I_LogementDAO;
 use PDO;
 
@@ -60,7 +60,8 @@ class LogementDAO extends BasePDODAO implements I_LogementDAO {
         $this->verificationResultat($reponse,
         "Logement mis à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour le logement");
+        "Impossible de mettre à jour le logement",
+        true);
     }
 
     public function Delete(int $id) {
