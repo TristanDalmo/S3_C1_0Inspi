@@ -25,17 +25,6 @@ class PagePartage extends AbstractPage
                     <button onclick='action4()'>Télécharger au format PDF</button>
                 </div>
             </div>
-
-            <script>
-                const currentUrl = window.location.href;
-
-                if (!sessionStorage.getItem('redirected')) {
-                    sessionStorage.setItem('redirected', 'true'); // Marque la redirection comme effectuée
-                    window.location.href = currentUrl; // Redirige l'utilisateur vers l'URL exacte
-                } else {
-                    sessionStorage.removeItem('redirected'); // Réinitialise le marqueur pour les visites futures
-                }
-            </script>
         ";
     }
 }

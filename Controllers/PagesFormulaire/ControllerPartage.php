@@ -20,7 +20,8 @@ use Service\Media\DossiersManagerService;
 use Service\Media\GenerationWordService;
 use Service\GestionFormulaire\InsertionEDLService;
 use Service\Media\GenerationPDFService;
-
+require_once(__DIR__ . "/../../bibliotheque/Psr4AutoloaderClass.php");
+use PSR4\Psr4AutoloaderClass;
 
 
 /**
@@ -80,15 +81,15 @@ class ControllerPartage {
             
             }
             #endregion
-            */
+            
             // Gestion de l'insertion dans la BDD
             $insertion=new InsertionEDLService();
             $insertion->InsererEDL($_POST,$Dossier_Cible);          
             // Gestion de la création du fichier Word
-            /*
+            */
             $generationWord = new GenerationWordService();
             $generationWord->GenererWord($_POST,$Dossier_Cible);
-            */
+            
             /*
             // Gestion de la création du fichier pdf
             $generationPDF = new GenerationPDFService();
@@ -112,6 +113,14 @@ class ControllerPartage {
     }
 
 }
+
+// instantiate the loader
+$loader = new Psr4AutoloaderClass();
+// register the autoloader
+$loader->register();
+        
+// register the base directories for the namespace prefix
+$loader->addNamespace('PhpOffice\PhpWord', __DIR__ . '/../../bibliotheque/PhpWord');
 
 // Création de la page
 $controller = new ControllerPartage(new PagePartage());
