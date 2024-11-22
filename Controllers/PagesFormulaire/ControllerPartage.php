@@ -6,21 +6,20 @@ namespace Controllers\PagesFormulaire;
 use Exception;
 
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
+require_once(__DIR__."/../../Service/Media/MediaService.php");
+require_once(__DIR__ . "/../../Views/PagesFormulaire/PageErreur.php");
+require_once(__DIR__ . "/../../Service/Media/DossiersManagerService.php");
+require_once(__DIR__ . "/../../Service/Media/GenerationWordService.php");
+require_once(__DIR__ . "/../../DAO/GestionFormulaire/InsertionEDLDAO.php");
+require_once(__DIR__ . "/../../Service/Media/GenerationPDFService.php");
+
 use Views\PagesFormulaire\PagePartage;
 use Service\MediaService\MediaService;
-require_once(__DIR__."/../../Service/Media/MediaService.php");
 use Views\PagesFormulaire\pageErreur;
-require_once(__DIR__ . "/../../Views/PagesFormulaire/PageErreur.php");
-
-require_once(__DIR__ . "/../../Service/Media/DossiersManagerService.php");
 use Service\Media\DossiersManagerService;
-
-
-use DAO\GestionFormulaire\InsertionEDLDAO;
-
-require_once(__DIR__ . "/../../DAO/GestionFormulaire/InsertionEDLDAO.php");
-
-use DAO\GestionFormulaire;
+use Service\Media\GenerationWordService;
+use Service\GestionFormulaire\InsertionEDLService;
+use Service\Media\GenerationPDFService;
 
 
 /**
@@ -81,16 +80,17 @@ class ControllerPartage {
 
             #endregion
 
-            // Gestion du commentaire de bas de page (génération .txt)
-
             // Gestion de l'insertion dans la BDD
-            $insertion=new InsertionEDLDAO();
+            $insertion=new InsertionEDLService();
             $insertion->InsererEDL($_POST);
 
             // Gestion de la création du fichier Word
-
+            $generationWord = new GenerationWordService();
+            $generationWord->GenererWord($_POST,$Dossier_Cible);
+            
             // Gestion de la création du fichier pdf
-
+            $generationPDF = new GenerationPDFService();
+            $generationPDF->GenererPDF($_POST,$Dossier_Cible);
 
             // Affichage de la page en cas de succès
             $newPage=$this->page->GeneratePage();
