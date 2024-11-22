@@ -167,6 +167,8 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         $idMurCuisine=$elementsDAO->Create($murCuisine);
 
+/////////////////////
+
         //création sol cuisine
         $solCuisine=new Elements();
         $solCuisine->setDescription($donnees['description_sol_cuisine']);
@@ -253,7 +255,6 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // création des prises de salle de bain
         $priseSdb1=new Prises();
-        //$priseSdb1->setDescription($donnees['prise_sdb1']);//////////////////////////////////
         $priseSdb1->setEtatEntree($donnees['etat_prise_entree']);
         $priseSdb1->setEtatSortie($donnees['etat_prise_sortie']);
         $priseSdb1->setNombrePrises((int)$donnees['prise_sdb1']);
@@ -282,6 +283,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $solSdb1->setEtatEntree($donnees['etat_sol_entree']);
         $solSdb1->setEtatSortie($donnees['etat_sol_sortie']);
         $solSdb1->setTypeElement('sol');
+        $solSdb1->setidPiece($idSalleDeBain1);
 
         $idSolSdb1=$elementsDAO->Create($solSdb1);
 
@@ -349,9 +351,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
 	    #region Insertions dans la BDD (salle de bain 2)
 
-        // création des prises de salle de bain
         $priseSdb2=new Prises();
-        //$priseSdb2->setDescription($donnees['prise_sdb2']);//////////////////////////////////
+
+        // création des prises de salle de bain
         $priseSdb2->setEtatEntree($donnees['etat_prise_entree']);
         $priseSdb2->setEtatSortie($donnees['etat_prise_sortie']);
         $priseSdb2->setNombrePrises((int)$donnees['prise_sdb2']);
@@ -380,6 +382,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $solSdb2->setEtatEntree($donnees['etat_sol_entree']);
         $solSdb2->setEtatSortie($donnees['etat_sol_sortie']);
         $solSdb2->setTypeElement('sol');
+        $solSdb2->setidPiece($idSalleDeBain2);
 
         $idSolSdb2=$elementsDAO->Create($solSdb2);
 
@@ -444,7 +447,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $idWcSdb2=$elementsDAO->Create($wcSdb2);
 
         #endregion
-
+/*
         #region Insertion Chambre1
 
         $chambre1=new Piece();
@@ -452,7 +455,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $chambre1->setidTypePiece(3);
         $chambre1->setidLogement($idLogement);
 
-        $idChambre1=$pieceDAO->Create($chambre);
+        $idChambre1=$pieceDAO->Create($chambre1);
 
         // creation du mur 1
         $mur1Chambre=new Elements();
@@ -582,7 +585,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $idplafondElectriqueChambre2->$elementsDAO->Create($plafondElectriqueChambre2);
 
         #endregion
-        
+     
         #region Insertion Chambre3
 
         $chambre3=new Piece();
@@ -651,7 +654,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $idplafondElectriqueChambre3->$elementsDAO->Create($plafondElectriqueChambre3);
 
         #endregion
-    
+*/
         #region Insertion WC1
 
         $wc1=new Piece();
@@ -669,15 +672,15 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur1Wc->setTypeElement('mur');
         $mur1Wc->setidPiece($idWc1);
 
-        $idMur1Wc=$elementsDAO->Create($mur1wc);
+        $idMur1Wc=$elementsDAO->Create($mur1Wc);
 
         // creation sol
         $sol1Wc=new Elements();
         $sol1Wc->setDescription($donnees['description_sol1']);
         $sol1Wc->setEtatEntree($donnees['etat_entree_sol1']);
-        $sol1Wc->setEtatSortie($donnees['etat_cuisine_sol_sortie1']);
+        $sol1Wc->setEtatSortie($donnees['etat_sortie_sol1']);
         $sol1Wc->setTypeElement('sol');
-        $sol1Wc->setidPiece($wc1);
+        $sol1Wc->setidPiece($idWc1);
 
         $idSol1Wc=$elementsDAO->Create($sol1Wc);
 
@@ -687,7 +690,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $vitrages_voletsWc1->setEtatEntree($donnees['etat_entree_vitrage_volet1']);
         $vitrages_voletsWc1->setEtatSortie($donnees['etat_sortie_vitrage_volet1']);
         $vitrages_voletsWc1->setTypeElement('Vitrages et Volets');
-        $vitrages_voletsWc1->setidPiece($idwc1);
+        $vitrages_voletsWc1->setidPiece($idWc1);
 
         $idVitrages_voletsWc1=$elementsDAO->Create($vitrages_voletsWc1);
 
@@ -697,9 +700,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $tuyauterieWc1->setEtatEntree($donnees['etat_entree_tuyauterie1']);
         $tuyauterieWc1->setEtatSortie($donnees['etat_sortie_tuyauterie1']);
         $tuyauterieWc1->setTypeElement('luminaire');
-        $tuyauterieWc1->setidPiece($idwc1);
+        $tuyauterieWc1->setidPiece($idWc1);
 
-        $idLuminaireWc1=$elementsDAO->Create($luminaireWc1);
+        $idLuminaireWc1=$elementsDAO->Create($tuyauterieWc1);
 
         // luminaire
         $luminaireWc1=new Elements();
@@ -707,7 +710,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $luminaireWc1->setEtatEntree($donnees['etat_entree_luminaire1']);
         $luminaireWc1->setEtatSortie($donnees['etat_sortie_luminaire1']);
         $luminaireWc1->setTypeElement('luminaire');
-        $luminaireWc1->setidPiece($idwc1);
+        $luminaireWc1->setidPiece($idWc1);
 
         $idLuminaireWc1=$elementsDAO->Create($luminaireWc1);
    
@@ -730,15 +733,15 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur2Wc->setTypeElement('mur');
         $mur2Wc->setidPiece($idWc2);
 
-        $idMur2Wc=$elementsDAO->Create($mur2wc);
+        $idMur2Wc=$elementsDAO->Create($mur2Wc);
 
         // creation sol
         $sol2Wc=new Elements();
         $sol2Wc->setDescription($donnees['description_sol2']);
         $sol2Wc->setEtatEntree($donnees['etat_entree_sol2']);
-        $sol2Wc->setEtatSortie($donnees['etat_cuisine_sol_sortie2']);
+        $sol2Wc->setEtatSortie($donnees['etat_sortie_sol2']);
         $sol2Wc->setTypeElement('sol');
-        $sol2Wc->setidPiece($wc2);
+        $sol2Wc->setidPiece($idWc2);
 
         $idSol2Wc=$elementsDAO->Create($sol2Wc);
 
@@ -748,7 +751,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $vitrages_voletsWc2->setEtatEntree($donnees['etat_entree_vitrage_volet2']);
         $vitrages_voletsWc2->setEtatSortie($donnees['etat_sortie_vitrage_volet2']);
         $vitrages_voletsWc2->setTypeElement('Vitrages et Volets');
-        $vitrages_voletsWc2->setidPiece($idwc2);
+        $vitrages_voletsWc2->setidPiece($idWc2);
 
         $idVitrages_voletsWc2=$elementsDAO->Create($vitrages_voletsWc2);
 
@@ -758,9 +761,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $tuyauterieWc2->setEtatEntree($donnees['etat_entree_tuyauterie2']);
         $tuyauterieWc2->setEtatSortie($donnees['etat_sortie_tuyauterie2']);
         $tuyauterieWc2->setTypeElement('luminaire');
-        $tuyauterieWc2->setidPiece($idwc2);
+        $tuyauterieWc2->setidPiece($idWc2);
 
-        $idLuminaireWc2=$elementsDAO->Create($luminaireWc2);
+        $idTuyauterieWc2=$elementsDAO->Create($tuyauterieWc2);
 
         // luminaire
         $luminaireWc2=new Elements();
@@ -768,73 +771,12 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $luminaireWc2->setEtatEntree($donnees['etat_entree_luminaire2']);
         $luminaireWc2->setEtatSortie($donnees['etat_sortie_luminaire2']);
         $luminaireWc2->setTypeElement('luminaire');
-        $luminaireWc2->setidPiece($idwc2);
+        $luminaireWc2->setidPiece($idWc2);
 
         $idLuminaireWc2=$elementsDAO->Create($luminaireWc2);
    
         #endregion    
-    
-        #region Insertion WC3
-
-        $wc3=new Piece();
-
-        $wc3->setidTypePiece(5);
-        $wc3->setidLogement($idLogement);
-
-        $idWc3=$pieceDAO->Create($wc3);
-
-        // creation du mur 3
-        $mur3Wc=new Elements();
-        $mur3Wc->setDescription($donnees['description_mur_wc3']);
-        $mur3Wc->setEtatEntree($donnees['etat_wc3_entree']);
-        $mur3Wc->setEtatSortie($donnees['etat_wc3_sortie']);
-        $mur3Wc->setTypeElement('mur');
-        $mur3Wc->setidPiece($idWc3);
-
-        $idMur3Wc=$elementsDAO->Create($mur3wc);
-
-        // creation sol
-        $sol3Wc=new Elements();
-        $sol3Wc->setDescription($donnees['description_sol3']);
-        $sol3Wc->setEtatEntree($donnees['etat_entree_sol3']);
-        $sol3Wc->setEtatSortie($donnees['etat_cuisine_sol_sortie3']);
-        $sol3Wc->setTypeElement('sol');
-        $sol3Wc->setidPiece($wc3);
-
-        $idSol3Wc=$elementsDAO->Create($sol3Wc);
-
-        //création vitrages volets
-        $vitrages_voletsWc3=new Elements();
-        $vitrages_voletsWc3->setDescription($donnees['vitrage_volet3']);
-        $vitrages_voletsWc3->setEtatEntree($donnees['etat_entree_vitrage_volet3']);
-        $vitrages_voletsWc3->setEtatSortie($donnees['etat_sortie_vitrage_volet3']);
-        $vitrages_voletsWc3->setTypeElement('Vitrages et Volets');
-        $vitrages_voletsWc3->setidPiece($idwc3);
-
-        $idVitrages_voletsWc3=$elementsDAO->Create($vitrages_voletsWc3);
-
-        // tuyauterie
-        $tuyauterieWc3=new Elements();
-        $tuyauterieWc3->setDescription($donnees['tuyauterie3']);
-        $tuyauterieWc3->setEtatEntree($donnees['etat_entree_tuyauterie3']);
-        $tuyauterieWc3->setEtatSortie($donnees['etat_sortie_tuyauterie3']);
-        $tuyauterieWc3->setTypeElement('luminaire');
-        $tuyauterieWc3->setidPiece($idwc3);
-
-        $idLuminaireWc3=$elementsDAO->Create($luminaireWc3);
-
-        // luminaire
-        $luminaireWc3=new Elements();
-        $luminaireWc3->setDescription($donnees['luminaire3']);
-        $luminaireWc3->setEtatEntree($donnees['etat_entree_luminaire3']);
-        $luminaireWc3->setEtatSortie($donnees['etat_sortie_luminaire3']);
-        $luminaireWc3->setTypeElement('luminaire');
-        $luminaireWc3->setidPiece($idwc3);
-
-        $idLuminaireWc3=$elementsDAO->Create($luminaireWc3);
-   
-        #endregion  
-    }
+        }
 }
 
 

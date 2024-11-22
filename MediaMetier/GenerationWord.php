@@ -20,8 +20,7 @@ class GenerationWord implements I_GenerationWord {
         copy("../../MediasClients/Etat-Des-Lieux(Modele).docx",$cheminFichier . "Etat-Des-Lieux.docx"); 
 
         $templateProcessor = new TemplateProcessor($cheminFichier . "Etat-Des-Lieux.docx");
-        $templateProcessor->saveAs($cheminFichier . "Etat-Des-Lieux.docx");
- 
+        
         $templateProcessor->setValue('Date d\'entrée', htmlspecialchars($donnees['fDate'] ?? 'Non renseignée'));
         $templateProcessor->setValue('Date de sortie', htmlspecialchars($donnees['fDateS'] ?? 'Non renseignée'));
         $templateProcessor->setValue('Permis', htmlspecialchars($donnees['fPermis'] ?? 'Non renseignée'));
@@ -32,9 +31,11 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('Prénom bailleur', htmlspecialchars($donnees['prenom_bailleur'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Nom bailleur', htmlspecialchars($donnees['nom_bailleur'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Adresse bailleur', htmlspecialchars($donnees['adresse_bailleur'] ?? 'Non renseignée'));
-
         $templateProcessor->setValue('surface du bien', htmlspecialchars($_POST['SURFACE'] ?? 'Non renseignée'));
         $templateProcessor->setValue('nombre de piece', htmlspecialchars($_POST['nbpiece'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('civilité du bailleur', htmlspecialchars($_POST['civilite_bailleur'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('civilité du locataire', htmlspecialchars($_POST['civilite_locataire'] ?? 'Non renseignée'));
+
         
         // Cuisine
         $templateProcessor->setValue('Description du mur de la cuisine', htmlspecialchars($donnees['description_mur_cuisine'] ?? 'Non renseignée'));
@@ -45,13 +46,10 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('État du sol de la cuisine (sortie)', htmlspecialchars($donnees['etat_cuisine_sol_sortie'] ?? 'Non renseignée'));
         $templateProcessor->setValue('Description des vitrages et volets de la cuisine', htmlspecialchars($donnees['description_vitrage_volets'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État des vitrages et volets de la cuisine (entrée)', htmlspecialchars($donnees['etat_cuisine_vitrage_volets_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État des vitrages et volets de la cuisine (sortie)', htmlspecialchars($donnees['etat_cuisine_vitrage_volets_sortie'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('État des vitrages et volets de la cuisine (sortie)', htmlspecialchars($donnees['etat_cuisine_vitrage_volets_sortie'] ?? 'Non renseignée'));      
         $templateProcessor->setValue('Description du plafond de la cuisine', htmlspecialchars($donnees['description_plafond_cuisine'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État du plafond de la cuisine (entrée)', htmlspecialchars($donnees['etat_cuisine_plafond_entree'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État du plafond de la cuisine (sortie)', htmlspecialchars($donnees['etat_cuisine_plafond_sortie'] ?? 'Non renseignée'));
-
- 
-        // Prises, placards, électroménagers
         $templateProcessor->setValue('Description des éclairages et interrupteurs', htmlspecialchars($donnees['description_eclairage_interrupteurs'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État des éclairages et interrupteurs (entrée)', htmlspecialchars($donnees['etat_cuisine_eclairage_interrupteurs_entree'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État des éclairages et interrupteurs (sortie)', htmlspecialchars($donnees['etat_cuisine_eclairage_interrupteurs_sortie'] ?? 'Non renseignée'));
@@ -101,7 +99,7 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('État de l\'éclairage (entrée)', htmlspecialchars($donnees['etat_eclairage_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État de l\'éclairage (sortie)', htmlspecialchars($donnees['etat_eclairage_sortie'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Nombre de prises salle de bain1', htmlspecialchars($donnees['prise_sdb1'] ?? 'Non renseignée')); 
-        $templateProcessor->setValue('Nombre de prises salle de bain 2', htmlspecialchars($donnees['prise_sdb2'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('Nombre de prises salle de bain2', htmlspecialchars($donnees['prise_sdb2'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État de la prise (entrée)', htmlspecialchars($donnees['etat_prise_entree'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État de la prise (sortie)', htmlspecialchars($donnees['etat_prise_sortie'] ?? 'Non renseignée'));
         $templateProcessor->setValue('Lavabo salle de bain 1', htmlspecialchars($donnees['lavabo_sdb1'] ?? 'Non renseigné'));
@@ -147,183 +145,77 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('État des Vitrage et volets 1 (sortie)', htmlspecialchars($_POST['etatSortieVitrages1'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des Vitrage et volets 2 (sortie)', htmlspecialchars($_POST['etatSortieVitrages2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des Vitrage et volets 3 (sortie)', htmlspecialchars($_POST['etatSortieVitrages3'] ?? 'Non renseigné'));
-
-        $templateProcessor->setValue('Vitrage et volets chambre 1', htmlspecialchars($_POST['vitrages1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Vitrage et volets chambre 2', htmlspecialchars($_POST['vitrages2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Vitrage et volets chambre 3', htmlspecialchars($_POST['vitrages3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des Vitrage et volets 1 (entrée)', htmlspecialchars($_POST['etatEntreeVitrages1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des Vitrage et volets 2 (entrée)', htmlspecialchars($_POST['etatEntreeVitrages2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des Vitrage et volets 3 (entrée)', htmlspecialchars($_POST['etatEntreeVitrages3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des Vitrage et volets 1 (sortie)', htmlspecialchars($_POST['etatSortieVitrages1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des Vitrage et volets 2 (sortie)', htmlspecialchars($_POST['etatSortieVitrages2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des Vitrage et volets 3 (sortie)', htmlspecialchars($_POST['etatSortieVitrages3'] ?? 'Non renseigné'));
-
-
-
-
- 
+        $templateProcessor->setValue('Plafond chambre 1', htmlspecialchars($_POST['plafond1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Plafond chambre 2', htmlspecialchars($_POST['plafond2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Plafond chambre 3', htmlspecialchars($_POST['plafond3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds de la chambre 1 (entrée)', htmlspecialchars($_POST['etat_chambre_plafond_entree1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds de la chambre 2 (entrée)', htmlspecialchars($_POST['etat_chambre_plafond_entree2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds de la chambre 3 (entrée)', htmlspecialchars($_POST['etat_chambre_plafond_entree3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds de la chambre 1 (sortie)', htmlspecialchars($_POST['etat_chambre_plafond_sortie1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds de la chambre 2 (sortie)', htmlspecialchars($_POST['etat_chambre_plafond_sortie2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds de la chambre 3 (sortie)', htmlspecialchars($_POST['etat_chambre_plafond_sortie3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('eclairage chambre 1', htmlspecialchars($_POST['eclairageChambre1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('eclairage chambre 2', htmlspecialchars($_POST['eclairageChambre2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('eclairage chambre 3', htmlspecialchars($_POST['eclairageChambre3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('eclairage de la chambre 1 (entrée)', htmlspecialchars($_POST['etat_chambre_eclairage_entree1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('eclairage de la chambre 2 (entrée)', htmlspecialchars($_POST['etat_chambre_eclairage_entree2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('eclairage de la chambre 3 (entrée)', htmlspecialchars($_POST['etat_chambre_eclairage_entree3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('eclairage de la chambre 1 (sortie)', htmlspecialchars($_POST['etat_chambre_eclairage_sortie1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('eclairage de la chambre 2 (sortie)', htmlspecialchars($_POST['etat_chambre_eclairage_sortie2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('eclairage de la chambre 3 (sortie)', htmlspecialchars($_POST['etat_chambre_eclairage_sortie3'] ?? 'Non renseigné'));  
+        $templateProcessor->setValue('nombre des plafonds electrique chambre 1', htmlspecialchars($_POST['nbPlafondElectrique1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('nombre des plafonds electrique chambre 2', htmlspecialchars($_POST['nbPlafondElectrique2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('nombre des plafonds electrique chambre 3', htmlspecialchars($_POST['nbPlafondElectrique3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Vitrage et volets chambre 1', htmlspecialchars($_POST['plafondElectrique1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Vitrage et volets chambre 2', htmlspecialchars($_POST['plafondElectrique2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Vitrage et volets chambre 3', htmlspecialchars($_POST['plafondElectrique3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 1 (entrée)', htmlspecialchars($_POST['etatEntreePlafondElectrique1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 2 (entrée)', htmlspecialchars($_POST['etatEntreePlafondElectrique2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 3 (entrée)', htmlspecialchars($_POST['etatEntreePlafondElectrique3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 1 (sortie)', htmlspecialchars($_POST['etatSortiePlafondElectrique1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 2 (sortie)', htmlspecialchars($_POST['etatSortiePlafondElectrique2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 3 (sortie)', htmlspecialchars($_POST['etatSortiePlafondElectrique3'] ?? 'Non renseigné'));
+      
         
-        // Cuisine - Sol
-        $templateProcessor->setValue('État du sol de la cuisine (entrée) - chambre 1', htmlspecialchars($donnees['etat_cuisine_sol_entree1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du sol de la cuisine (entrée) - chambre 2', htmlspecialchars($donnees['etat_cuisine_sol_entree2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du sol de la cuisine (entrée) - chambre 3', htmlspecialchars($donnees['etat_cuisine_sol_entree3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du sol de la cuisine (sortie) - chambre 1', htmlspecialchars($donnees['etat_cuisine_sol_sortie1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du sol de la cuisine (sortie) - chambre 2', htmlspecialchars($donnees['etat_cuisine_sol_sortie2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du sol de la cuisine (sortie) - chambre 3', htmlspecialchars($donnees['etat_cuisine_sol_sortie3'] ?? 'Non renseigné'));
-        
-        // Cuisine - Vitrages
-        $templateProcessor->setValue('Vitrages de la cuisine - chambre 1', htmlspecialchars($donnees['vitrages1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Vitrages de la cuisine - chambre 2', htmlspecialchars($donnees['vitrages2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Vitrages de la cuisine - chambre 3', htmlspecialchars($donnees['vitrages3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages (entrée) - chambre 1', htmlspecialchars($donnees['etat_cuisine_vitrages_entree1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages (entrée) - chambre 2', htmlspecialchars($donnees['etat_cuisine_vitrages_entree2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages (entrée) - chambre 3', htmlspecialchars($donnees['etat_cuisine_vitrages_entree3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages (sortie) - chambre 1', htmlspecialchars($donnees['etat_cuisine_vitrages_sortie1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages (sortie) - chambre 2', htmlspecialchars($donnees['etat_cuisine_vitrages_sortie2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages (sortie) - chambre 3', htmlspecialchars($donnees['etat_cuisine_vitrages_sortie3'] ?? 'Non renseigné'));
-        
-        // Cuisine - Plafond
-        $templateProcessor->setValue('Plafond de la cuisine - chambre 1', htmlspecialchars($donnees['plafond1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Plafond de la cuisine - chambre 2', htmlspecialchars($donnees['plafond2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Plafond de la cuisine - chambre 3', htmlspecialchars($donnees['plafond3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond (entrée) - chambre 1', htmlspecialchars($donnees['etat_cuisine_plafond_entree1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond (entrée) - chambre 2', htmlspecialchars($donnees['etat_cuisine_plafond_entree2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond (entrée) - chambre 3', htmlspecialchars($donnees['etat_cuisine_plafond_entree3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond (sortie) - chambre 1', htmlspecialchars($donnees['etat_cuisine_plafond_sortie1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond (sortie) - chambre 2', htmlspecialchars($donnees['etat_cuisine_plafond_sortie2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond (sortie) - chambre 3', htmlspecialchars($donnees['etat_cuisine_plafond_sortie3'] ?? 'Non renseigné'));
-        
-        // Cuisine - Éclairage
-        $templateProcessor->setValue('Éclairage de la cuisine - chambre 1', htmlspecialchars($donnees['eclairage1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Éclairage de la cuisine - chambre 2', htmlspecialchars($donnees['eclairage2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Éclairage de la cuisine - chambre 3', htmlspecialchars($donnees['eclairage3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de l\'éclairage (entrée) - chambre 1', htmlspecialchars($donnees['etat_chambre_eclairage_entree1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de l\'éclairage (entrée) - chambre 2', htmlspecialchars($donnees['etat_chambre_eclairage_entree2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de l\'éclairage (entrée) - chambre 3', htmlspecialchars($donnees['etat_chambre_eclairage_entree3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de l\'éclairage (sortie) - chambre 1', htmlspecialchars($donnees['etat_chambre_eclairage_sortie1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de l\'éclairage (sortie) - chambre 2', htmlspecialchars($donnees['etat_chambre_eclairage_sortie2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de l\'éclairage (sortie) - chambre 3', htmlspecialchars($donnees['etat_chambre_eclairage_sortie3'] ?? 'Non renseigné'));
-        
-        // Cuisine - Plafond Électrique
-        $templateProcessor->setValue('Plafond électrique - chambre 1', htmlspecialchars($donnees['plafondElectrique1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Plafond électrique - chambre 2', htmlspecialchars($donnees['plafondElectrique2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Plafond électrique - chambre 3', htmlspecialchars($donnees['plafondElectrique3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond électrique (entrée) - chambre 1', htmlspecialchars($donnees['etatEntreePlafondElectrique1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond électrique (entrée) - chambre 2', htmlspecialchars($donnees['etatEntreePlafondElectrique2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond électrique (entrée) - chambre 3', htmlspecialchars($donnees['etatEntreePlafondElectrique3'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond électrique (sortie) - chambre 1', htmlspecialchars($donnees['etatSortiePlafondElectrique1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond électrique (sortie) - chambre 2', htmlspecialchars($donnees['etatSortiePlafondElectrique2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du plafond électrique (sortie) - chambre 3', htmlspecialchars($donnees['etatSortiePlafondElectrique3'] ?? 'Non renseigné'));
-        
-        $templateProcessor->setValue('Nombre de plafond électrique (sortie) - chambre 1', htmlspecialchars($donnees['nbPlafondElectrique1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Nombre de plafond électrique (sortie) - chambre 2', htmlspecialchars($donnees['nbPlafondElectrique2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Nombre de plafond électrique (sortie) - chambre 3', htmlspecialchars($donnees['nbPlafondElectrique3'] ?? 'Non renseigné'));
-        
-        
-        
-        
-        // WC - Description et état des murs
-        $templateProcessor->setValue('Description des murs WC - chambre 1', htmlspecialchars($donnees['description_mur_wc1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Description des murs WC - chambre 2', htmlspecialchars($donnees['description_mur_wc2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des murs WC (entrée) - chambre 1', htmlspecialchars($donnees['etat_wc1_entree'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des murs WC (entrée) - chambre 2', htmlspecialchars($donnees['etat_wc2_entree'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des murs WC (sortie) - chambre 1', htmlspecialchars($donnees['etat_wc1_sortie'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des murs WC (sortie) - chambre 2', htmlspecialchars($donnees['etat_wc2_sortie'] ?? 'Non renseigné'));
-        
-        // WC - Description et état des sols
-        $templateProcessor->setValue('Description du sol WC - chambre 1', htmlspecialchars($donnees['description_sol1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Description du sol WC - chambre 2', htmlspecialchars($donnees['description_sol2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du sol WC (entrée) - chambre 1', htmlspecialchars($donnees['etat_entree_sol1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du sol WC (entrée) - chambre 2', htmlspecialchars($donnees['etat_entree_sol2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du sol WC (sortie) - chambre 1', htmlspecialchars($donnees['etat_sortie_sol1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du sol WC (sortie) - chambre 2', htmlspecialchars($donnees['etat_sortie_sol2'] ?? 'Non renseigné'));
-        
-        // WC - Vitrages et volets
-        $templateProcessor->setValue('Vitrages et volets WC - chambre 1', htmlspecialchars($donnees['vitrage_volet1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Vitrages et volets WC - chambre 2', htmlspecialchars($donnees['vitrage_volet2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages et volets WC (entrée) - chambre 1', htmlspecialchars($donnees['etat_entree_vitrage_volet1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages et volets WC (entrée) - chambre 2', htmlspecialchars($donnees['etat_entree_vitrage_volet2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages et volets WC (sortie) - chambre 1', htmlspecialchars($donnees['etat_sortie_vitrage_volet1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des vitrages et volets WC (sortie) - chambre 2', htmlspecialchars($donnees['etat_sortie_vitrage_volet2'] ?? 'Non renseigné'));
-        
-        // WC - Tuyauterie
-        $templateProcessor->setValue('Tuyauterie WC - chambre 1', htmlspecialchars($donnees['tuyauterie1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Tuyauterie WC - chambre 2', htmlspecialchars($donnees['tuyauterie2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de la tuyauterie WC (entrée) - chambre 1', htmlspecialchars($donnees['etat_entree_tuyauterie1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de la tuyauterie WC (entrée) - chambre 2', htmlspecialchars($donnees['etat_entree_tuyauterie2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de la tuyauterie WC (sortie) - chambre 1', htmlspecialchars($donnees['etat_sortie_tuyauterie1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État de la tuyauterie WC (sortie) - chambre 2', htmlspecialchars($donnees['etat_sortie_tuyauterie2'] ?? 'Non renseigné'));
-        
-        // WC - Luminaire 
-        $templateProcessor->setValue('Luminaire WC - chambre 1', htmlspecialchars($donnees['luminaire1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Luminaire WC - chambre 2', htmlspecialchars($donnees['luminaire2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du luminaire WC (entrée) - chambre 1', htmlspecialchars($donnees['etat_entree_luminaire1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du luminaire WC (entrée) - chambre 2', htmlspecialchars($donnees['etat_entree_luminaire2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du luminaire WC (sortie) - chambre 1', htmlspecialchars($donnees['etat_sortie_luminaire1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État du luminaire WC (sortie) - chambre 2', htmlspecialchars($donnees['etat_sortie_luminaire2'] ?? 'Non renseigné'));
+        // WC 
+        $templateProcessor->setValue('Description des murs WC-1', htmlspecialchars($donnees['description_mur_wc1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Description des murs WC-2', htmlspecialchars($donnees['description_mur_wc2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des murs WC (entrée)-1', htmlspecialchars($donnees['etat_wc1_entree'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des murs WC (entrée)-2', htmlspecialchars($donnees['etat_wc2_entree'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des murs WC (sortie)-1', htmlspecialchars($donnees['etat_wc1_sortie'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des murs WC (sortie)-2', htmlspecialchars($donnees['etat_wc2_sortie'] ?? 'Non renseigné'));   
+        $templateProcessor->setValue('Description du sol WC-1', htmlspecialchars($donnees['description_sol1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Description du sol WC-2', htmlspecialchars($donnees['description_sol2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol WC (entrée)-1', htmlspecialchars($donnees['etat_entree_sol1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol WC (entrée)-2', htmlspecialchars($donnees['etat_entree_sol2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol WC (sortie)-1', htmlspecialchars($donnees['etat_sortie_sol1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol WC (sortie)-2', htmlspecialchars($donnees['etat_sortie_sol2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Vitrages et volets WC-1', htmlspecialchars($donnees['vitrage_volet1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Vitrages et volets WC-2', htmlspecialchars($donnees['vitrage_volet2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des vitrages et volets WC (entrée)-1', htmlspecialchars($donnees['etat_entree_vitrage_volet1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des vitrages et volets WC (entrée)-2', htmlspecialchars($donnees['etat_entree_vitrage_volet2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des vitrages et volets WC (sortie)-1', htmlspecialchars($donnees['etat_sortie_vitrage_volet1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des vitrages et volets WC (sortie)-2', htmlspecialchars($donnees['etat_sortie_vitrage_volet2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Tuyauterie WC-1', htmlspecialchars($donnees['tuyauterie1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Tuyauterie WC-2', htmlspecialchars($donnees['tuyauterie2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État de la tuyauterie WC (entrée)-1', htmlspecialchars($donnees['etat_entree_tuyauterie1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État de la tuyauterie WC (entrée)-2', htmlspecialchars($donnees['etat_entree_tuyauterie2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État de la tuyauterie WC (sortie)-1', htmlspecialchars($donnees['etat_sortie_tuyauterie1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État de la tuyauterie WC (sortie)-2', htmlspecialchars($donnees['etat_sortie_tuyauterie2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Luminaire WC-1', htmlspecialchars($donnees['luminaire1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Luminaire WC-2', htmlspecialchars($donnees['luminaire2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du luminaire WC (entrée)-1', htmlspecialchars($donnees['etat_entree_luminaire1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du luminaire WC (entrée)-2', htmlspecialchars($donnees['etat_entree_luminaire2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du luminaire WC (sortie)-1', htmlspecialchars($donnees['etat_sortie_luminaire1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du luminaire WC (sortie)-2', htmlspecialchars($donnees['etat_sortie_luminaire2'] ?? 'Non renseigné'));
         
         // Zone de commentaire
         $templateProcessor->setValue('Zone de commentaire', htmlspecialchars($donnees['zone_de_commentaire'] ?? 'Non renseignée'));
+
+        $templateProcessor->saveAs($cheminFichier . "Etat-Des-Lieux.docx");
     } 
 }  
                
-?>   
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
-
-
-
-
-        // Ouverture du fichier avec le chemin donné
-
-
-
-        // Écriture du fichier
-
-
-
-
-    }
-
-
-}
 
 ?>
