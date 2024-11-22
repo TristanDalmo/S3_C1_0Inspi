@@ -167,6 +167,8 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         $idMurCuisine=$elementsDAO->Create($murCuisine);
 
+/////////////////////
+
         //création sol cuisine
         $solCuisine=new Elements();
         $solCuisine->setDescription($donnees['description_sol_cuisine']);
@@ -253,7 +255,6 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // création des prises de salle de bain
         $priseSdb1=new Prises();
-        //$priseSdb1->setDescription($donnees['prise_sdb1']);//////////////////////////////////
         $priseSdb1->setEtatEntree($donnees['etat_prise_entree']);
         $priseSdb1->setEtatSortie($donnees['etat_prise_sortie']);
         $priseSdb1->setNombrePrises((int)$donnees['prise_sdb1']);
@@ -282,6 +283,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $solSdb1->setEtatEntree($donnees['etat_sol_entree']);
         $solSdb1->setEtatSortie($donnees['etat_sol_sortie']);
         $solSdb1->setTypeElement('sol');
+        $solSdb1->setidPiece($idSalleDeBain1);
 
         $idSolSdb1=$elementsDAO->Create($solSdb1);
 
@@ -349,9 +351,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
 	    #region Insertions dans la BDD (salle de bain 2)
 
-        // création des prises de salle de bain
         $priseSdb2=new Prises();
-        //$priseSdb2->setDescription($donnees['prise_sdb2']);//////////////////////////////////
+
+        // création des prises de salle de bain
         $priseSdb2->setEtatEntree($donnees['etat_prise_entree']);
         $priseSdb2->setEtatSortie($donnees['etat_prise_sortie']);
         $priseSdb2->setNombrePrises((int)$donnees['prise_sdb2']);
@@ -380,6 +382,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $solSdb2->setEtatEntree($donnees['etat_sol_entree']);
         $solSdb2->setEtatSortie($donnees['etat_sol_sortie']);
         $solSdb2->setTypeElement('sol');
+        $solSdb2->setidPiece($idSalleDeBain2);
 
         $idSolSdb2=$elementsDAO->Create($solSdb2);
 
@@ -452,7 +455,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $chambre1->setidTypePiece(3);
         $chambre1->setidLogement($idLogement);
 
-        $idChambre1=$pieceDAO->Create($chambre);
+        $idChambre1=$pieceDAO->Create($chambre1);
 
         // creation du mur 1
         $mur1Chambre=new Elements();
@@ -832,9 +835,8 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $luminaireWc3->setidPiece($idwc3);
 
         $idLuminaireWc3=$elementsDAO->Create($luminaireWc3);
-   
         #endregion  
-    }
+        }
 }
 
 
