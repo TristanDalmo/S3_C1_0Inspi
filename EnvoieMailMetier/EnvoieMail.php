@@ -3,9 +3,9 @@
     namespace EnvoieMailMetier;
     use EnvoieMailMetier\I_EnvoieMail;
     require_once(__DIR__."/I_EnvoieMail.php");
-    require __DIR__.'/../Bibliotheques/PhpMailer/src/PHPMailer.php';
-    require __DIR__.'/../Bibliotheques/PhpMailer/src/SMTP.php';
-    require __DIR__.'/../Bibliotheques/PhpMailer/src/Exception.php';
+    require __DIR__.'/../bibliotheque/PhpMailer/src/PHPMailer.php';
+    require __DIR__.'/../bibliotheque/PhpMailer/src/SMTP.php';
+    require __DIR__.'/../bibliotheque/PhpMailer/src/Exception.php';
 
     use PHPMailer\PHPMailer\PHPMailer;
    
@@ -14,6 +14,11 @@
     class EnvoieMail implements I_EnvoieMail
     {
 
+        /**
+         * Méthode envoyant le mail
+         * @param array $donnees tableau contenant les différentes données servant à l'envoie du mail
+         * @return void
+         */
         public function EnvoieMail(array $donnees)
         {
             $mail = new PHPMailer(true);
