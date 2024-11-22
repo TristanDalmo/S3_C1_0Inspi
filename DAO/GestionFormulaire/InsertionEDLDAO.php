@@ -167,8 +167,6 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         $idMurCuisine=$elementsDAO->Create($murCuisine);
 
-/////////////////////
-
         //création sol cuisine
         $solCuisine=new Elements();
         $solCuisine->setDescription($donnees['description_sol_cuisine']);
@@ -447,7 +445,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $idWcSdb2=$elementsDAO->Create($wcSdb2);
 
         #endregion
-/*
+
         #region Insertion Chambre1
 
         $chambre1=new Piece();
@@ -465,13 +463,15 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur1Chambre->setTypeElement('mur');
         $mur1Chambre->setidPiece($idChambre1);
 
+        $idMur1Chambre=$elementsDAO->Create($mur1Chambre);
+
         // creation sol
         $sol1Chambre=new Elements();
         $sol1Chambre->setDescription($donnees['solChambre1']);
         $sol1Chambre->setEtatEntree($donnees['etat_chambre_sol_entree1']);
         $sol1Chambre->setEtatSortie($donnees['etat_chambre_sol_sortie1']);
         $sol1Chambre->setTypeElement('sol');
-        $sol1Chambre->setidPiece($chambre1);
+        $sol1Chambre->setidPiece($idChambre1);
 
         $idSol1Chambre=$elementsDAO->Create($sol1Chambre);
 
@@ -483,7 +483,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $vitrages_voletsChambre1->setTypeElement('Vitrages et Volets');
         $vitrages_voletsChambre1->setidPiece($idChambre1);
 
-        $idVitrages_voletsChambre=$elementsDAO->Create($vitrages_voletsChambre1);
+        $idVitrages_voletsChambre1=$elementsDAO->Create($vitrages_voletsChambre1);
 
         //création plafond
         $plafond1Chambre=new Elements();
@@ -513,10 +513,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $plafondElectriqueChambre1->setTypeElement('plafon electrique');
         $plafondElectriqueChambre1->setidPiece($idChambre1);
 
-        $idplafondElectriqueChambre1->$elementsDAO->Create($plafondElectriqueChambre1);
+        $idplafondElectriqueChambre1=$elementsDAO->Create($plafondElectriqueChambre1);
 
         #endregion
-    
         #region Insertion Chambre2
 
         $chambre2=new Piece();
@@ -524,7 +523,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $chambre2->setidTypePiece(3);
         $chambre2->setidLogement($idLogement);
 
-        $idChambre2=$pieceDAO->Create($chambre);
+        $idChambre2=$pieceDAO->Create($chambre2);
 
         // creation du mur 2
         $mur2Chambre=new Elements();
@@ -534,13 +533,15 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur2Chambre->setTypeElement('mur');
         $mur2Chambre->setidPiece($idChambre2);
 
+        $idMur2Chambre=$elementsDAO->Create($mur2Chambre);
+
         // creation sol
         $sol2Chambre=new Elements();
         $sol2Chambre->setDescription($donnees['solChambre2']);
         $sol2Chambre->setEtatEntree($donnees['etat_chambre_sol_entree2']);
         $sol2Chambre->setEtatSortie($donnees['etat_chambre_sol_sortie2']);
         $sol2Chambre->setTypeElement('sol');
-        $sol2Chambre->setidPiece($chambre2);
+        $sol2Chambre->setidPiece($idChambre2);
 
         $idSol2Chambre=$elementsDAO->Create($sol2Chambre);
 
@@ -582,10 +583,10 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $plafondElectriqueChambre2->setTypeElement('plafon electrique');
         $plafondElectriqueChambre2->setidPiece($idChambre2);
 
-        $idplafondElectriqueChambre2->$elementsDAO->Create($plafondElectriqueChambre2);
+        $idplafondElectriqueChambre2=$elementsDAO->Create($plafondElectriqueChambre2);
 
         #endregion
-     
+  
         #region Insertion Chambre3
 
         $chambre3=new Piece();
@@ -593,7 +594,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $chambre3->setidTypePiece(3);
         $chambre3->setidLogement($idLogement);
 
-        $idChambre3=$pieceDAO->Create($chambre);
+        $idChambre3=$pieceDAO->Create($chambre3);
 
         // creation du mur 3
         $mur3Chambre=new Elements();
@@ -603,13 +604,15 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur3Chambre->setTypeElement('mur');
         $mur3Chambre->setidPiece($idChambre3);
 
+        $idMur3Chambre=$elementsDAO->Create($mur3Chambre);
+
         // creation sol
         $sol3Chambre=new Elements();
         $sol3Chambre->setDescription($donnees['solChambre3']);
         $sol3Chambre->setEtatEntree($donnees['etat_chambre_sol_entree3']);
         $sol3Chambre->setEtatSortie($donnees['etat_chambre_sol_sortie3']);
         $sol3Chambre->setTypeElement('sol');
-        $sol3Chambre->setidPiece($chambre3);
+        $sol3Chambre->setidPiece($idChambre3);
 
         $idSol3Chambre=$elementsDAO->Create($sol3Chambre);
 
@@ -651,10 +654,8 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $plafondElectriqueChambre3->setTypeElement('plafon electrique');
         $plafondElectriqueChambre3->setidPiece($idChambre3);
 
-        $idplafondElectriqueChambre3->$elementsDAO->Create($plafondElectriqueChambre3);
-
+        $idplafondElectriqueChambre3=$elementsDAO->Create($plafondElectriqueChambre3);
         #endregion
-*/
         #region Insertion WC1
 
         $wc1=new Piece();
