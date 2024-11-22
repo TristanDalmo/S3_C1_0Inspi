@@ -39,8 +39,8 @@ class PageFormulaire extends AbstractPage
                         <label for=\"SORTIE\" class=\"putbold\">Sortie*</label>
                     </div>
                     <div class=\"date-droite1\">
-                        <label for=\"fDateS\" class=\"putbold\">DATE DE SORTIE : *</label>
-                        <input type=\"date\" id=\"fDateS\" name=\"fDateS\" required>
+                        <label for=\"fDateS\" class=\"putbold\">DATE DE SORTIE : </label>
+                        <input type=\"date\" id=\"fDateS\" name=\"fDateS\">
                     </div>
                 </div>
                 <br>
@@ -61,7 +61,7 @@ class PageFormulaire extends AbstractPage
                         <label for=\"Maison\" class=\"putbold\">Maison*</label>
                         <input type=\"radio\" id=\"Autre\" name=\"typeLogement\"required>
                         <label for=\"Autre\" class=\"putbold\">Autre*</label>
-                        <input type=\"text\" id=\"textautre\" size=\"5\" required>
+                        <input type=\"text\" id=\"textautre\" size=\"5\">
                     </div>
                     <div class=\"l3\">
                         <label for=\"SURFACE\" class=\"putbold\">SURFACE : *</label>
@@ -115,9 +115,9 @@ class PageFormulaire extends AbstractPage
                             <input type=\"text\" id=\"prenom_locataire\" required>
                             <label for=\"nom_locataire\" class=\"putbold\">NOM : *</label>
                             <input type=\"text\" id=\"nom_locataire\" required>
-                            <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE : *</label>
+                            <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE : </label>
                             <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
-                            <textarea id=\"adresse_locataire\" rows=\"3\" required></textarea>
+                            <textarea id=\"adresse_locataire\" rows=\"3\"></textarea>
                         </td>
                     </tr>
                 </table>
@@ -137,12 +137,14 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Mur</td>
                         <td><textarea name=\"mur1\" id=\"mur1\"></textarea></td>
                         <td><select id=\"Mur2\">
+                            <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
                         <td><select id=\"Mur3\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -153,12 +155,14 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Sol</td>
                         <td><textarea name=\"sol1\" id=\"sol1\"></textarea></td>
                         <td><select id=\"sol2\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
                         <td><select id=\"sol3\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -169,6 +173,7 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Vitrage et volets</td>
                         <td><textarea name=\"Vitrage1\" id=\"Vitrage1\"></textarea></td>
                         <td><select id=\"Vitrage2\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -178,6 +183,7 @@ class PageFormulaire extends AbstractPage
                         <td>
                             
                                 <select id=\"Vitrage3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -190,12 +196,14 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Plafond</td>
                         <td><textarea name=\"Plafond1\" id=\"Plafond1\"></textarea></td>
                         <td><select id=\"Plafond2\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
                         <td><select id=\"Plafond3\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -206,12 +214,14 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Éclairage et interrupteurs</td>
                         <td><textarea name=\"eclairage1\" id=\"eclairage1\"></textarea></td>
                         <td><select id=\"eclairage2\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
                         <td><select id=\"eclairage3\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -222,12 +232,14 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Prise électrique nombre : <input type=\"number\"> </td>
                         <td><textarea name=\"prise1\" id=\"prise1\"></textarea></td>
                         <td><select id=\"prise2\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
                         <td><select id=\"prise3\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -238,12 +250,14 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Placards et tiroirs</td>
                         <td><textarea name=\"placard1\" id=\"placard1\"></textarea></td>
                         <td><select id=\"placard2\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
                         <td><select id=\"placard3\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -254,12 +268,14 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Évier (et robinetterie)</td>
                         <td><textarea name=\"evier1\" id=\"evier1\"></textarea></td>
                         <td><select id=\"evier2\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
                         <td><select id=\"evier3\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -270,12 +286,14 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Plaques de cuisson et four</td>
                         <td><textarea name=\"plaque1\" id=\"plaque1\"></textarea></td>
                         <td><select id=\"plaque2\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
                         <td><select id=\"plaque3\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -286,12 +304,14 @@ class PageFormulaire extends AbstractPage
                         <td class=\"middleandbold\">Hotte</td>
                         <td><textarea name=\"hotte1\" id=\"hotte1\"></textarea></td>
                         <td><select id=\"hotte2\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
                         <td><select id=\"hotte3\">
+                        <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
@@ -308,6 +328,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"electromenager2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -316,6 +337,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"electromenager3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -346,6 +368,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"mur_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_mur_entree\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -354,6 +377,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_mur_sortie\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -367,6 +391,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"sol_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_sol_entree\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -375,6 +400,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_sol_sortie\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -388,6 +414,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"vitrage_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_vitrage_entree\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -396,6 +423,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_vitrage_sortie\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -409,6 +437,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"plafond_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_plafond_entree\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -417,6 +446,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_plafond_sortie\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -430,6 +460,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"eclairage_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_eclairage_entree\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -438,6 +469,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_eclairage_sortie\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -455,6 +487,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_prise_entree\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -463,6 +496,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_prise_sortie\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -476,6 +510,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"lavabo_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_lavabo_entree\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -484,6 +519,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_lavabo_sortie\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -497,6 +533,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"baignoire_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_baignoire_entree\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -505,6 +542,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_baignoire_sortie\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -518,6 +556,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"wc_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_wc_entree\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -526,6 +565,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etat_wc_sortie\">
+                        <option value=\"\"></option>
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
@@ -564,6 +604,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"murChambre3\"></textarea></td>
                         <td>
                             <select id=\"etatEntreeMur1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -572,6 +613,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreeMur2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -580,6 +622,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreeMur3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -588,6 +631,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieMur1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -596,6 +640,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieMur2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -604,6 +649,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieMur3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -618,6 +664,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"solChambre3\"></textarea></td>
                         <td>
                             <select id=\"etatEntreeSol1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -626,6 +673,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreeSol2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -634,6 +682,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreeSol3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -642,6 +691,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieSol1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -650,6 +700,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieSol2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -658,6 +709,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieSol3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -672,6 +724,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"vitrages3\"></textarea></td>
                         <td>
                             <select id=\"etatEntreeVitrages1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -680,6 +733,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreeVitrages2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -688,6 +742,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreeVitrages3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -696,6 +751,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieVitrages1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -704,6 +760,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieVitrages2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -712,6 +769,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieVitrages3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -726,6 +784,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"plafond3\"></textarea></td>
                         <td>
                             <select id=\"etatEntreePlafond1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -734,6 +793,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreePlafond2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -742,6 +802,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreePlafond3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -750,6 +811,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortiePlafond1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -758,6 +820,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortiePlafond2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -766,6 +829,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortiePlafond3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -780,6 +844,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea id=\"eclairageChambre3\"></textarea></td>
                         <td>
                             <select id=\"etatEntreeEclairage1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -788,6 +853,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreeEclairage2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -796,6 +862,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreeEclairage3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -804,6 +871,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieEclairage1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -812,6 +880,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieEclairage2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -820,6 +889,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortieEclairage3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -858,6 +928,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreePlafondElectrique1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -866,6 +937,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreePlafondElectrique2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -874,6 +946,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatEntreePlafondElectrique3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -882,6 +955,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortiePlafondElectrique1\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -890,6 +964,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortiePlafondElectrique2\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -898,6 +973,7 @@ class PageFormulaire extends AbstractPage
                         </td>
                         <td>
                             <select id=\"etatSortiePlafondElectrique3\">
+                        <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -932,34 +1008,39 @@ class PageFormulaire extends AbstractPage
                         <td><textarea ></textarea></td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                     </tr>
@@ -969,34 +1050,38 @@ class PageFormulaire extends AbstractPage
                         <td><textarea></textarea></td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                     </tr>
@@ -1006,34 +1091,38 @@ class PageFormulaire extends AbstractPage
                         <td><textarea></textarea></td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                     </tr>
@@ -1043,34 +1132,38 @@ class PageFormulaire extends AbstractPage
                         <td><textarea></textarea></td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                     </tr>
@@ -1080,34 +1173,38 @@ class PageFormulaire extends AbstractPage
                         <td><textarea></textarea></td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                         <td>
                             <select>
-                                <option value=\"très bon\">TB</option>
-                                <option value=\"bon\">B</option>
-                                <option value=\"passable\">P</option>
-                                <option value=\"mauvais\">M</option>
+                        <option value=\"\"></option>
+                                <option value=\"p\">P</option>
+                                <option value=\"m\">M</option>
+                                <option value=\"b\">B</option>
+                                <option value=\"tb\">TB</option>
                             </select>
                         </td>
                     </tr>
