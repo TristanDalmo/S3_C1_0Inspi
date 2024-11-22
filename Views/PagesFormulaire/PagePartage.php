@@ -19,10 +19,13 @@ class PagePartage extends AbstractPage
                     <embed id='pdf-embed' src='../../Public/Medias/TP1ANALYSE.pdf?nocache=" . uniqid() . "' width='100%' height='500px' type='application/pdf'/> 
                 </div>
                 <div class='buttons-container'>
-                    <button onclick='action1()'>Imprimer l'état des lieux</button>
-                    <button onclick='action2()'>Partager par mail</button>
-                    <button onclick='action3()'>Télécharger au format docx</button>
-                    <button onclick='action4()'>Télécharger au format PDF</button>
+                    <form action=\"./ControllerPartageAnnexe.php\" method=\"POST\">
+                    <fieldset class=\"FormualirePartage\">
+                        <input type=\"submit\" name=\"TelechargerDOCX\" value=\"Télécharger word\"/>
+                        <input type=\"submit\" name=\"TelechargerPDF\" value=\"Télécharger pdf\"/>
+                        <input type=\"submit\" name=\"EnvoyerMail\" value=\"Envoyer par mail\"/>
+                    </fieldset>
+                    </form>
                 </div>
             </div>
         ";
