@@ -15,7 +15,7 @@ class ControllerPartageAnnexe
         {
             if (isset($_POST["EnvoyerMail"]))
             {
-                $newPage= new PageEnvoieMail("pasdéfini");
+                $newPage= new PageEnvoieMail($_POST["PieceJointe"]);
                 return $newPage->GeneratePage();
             }
             if (isset($_POST["EnvoyerMail"]))

@@ -36,8 +36,8 @@ class ControllerPartage {
      * Constructeur du controller de la page
      * @param \Views\PagesFormulaire\PagePartage $page Page à utiliser
      */
-    public function __construct(PagePartage $page) {
-        $this->page = $page;
+    public function __construct() {
+        
     }
 
 
@@ -61,7 +61,7 @@ class ControllerPartage {
             #region Gestion médias
 
             // Gestion des médias ajoutés dans le serveur (images et vidéos)
-            /*$mediaService = new MediaService();
+            $mediaService = new MediaService();
             if (isset($_FILES['Documents']) && is_array($_FILES['Documents']['error']))
             {
                 
@@ -81,7 +81,7 @@ class ControllerPartage {
             
             }
             #endregion
-            */
+            
             // Gestion de l'insertion dans la BDD
             /*
             $insertion=new InsertionEDLService();
@@ -92,7 +92,9 @@ class ControllerPartage {
             
             $generationWord = new GenerationWordService();
             $generationWord->GenererWord($_POST,$Dossier_Cible);
-            
+            $wordLien = $Dossier_Cible."/Etat-Des-Lieux.docx";
+            $newPage = new PagePartage($wordLien);
+
             /*
             // Gestion de la création du fichier pdf
             $generationPDF = new GenerationPDFService();
@@ -126,5 +128,5 @@ $loader->register();
 $loader->addNamespace('PhpOffice\PhpWord', __DIR__ . '/../../bibliotheque/PhpWord');
 
 // Création de la page
-$controller = new ControllerPartage(new PagePartage());
+$controller = new ControllerPartage();
 echo $controller->index();

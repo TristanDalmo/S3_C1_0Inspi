@@ -1,13 +1,14 @@
 <?php
 namespace Views\PagesFormulaire;
-
 require_once(__DIR__ . "/../AbstractPage.php");
 use Views\AbstractPage;
 
 class PagePartage extends AbstractPage
 {
-    public function __construct()
+    private string $folderPath;
+    public function __construct(string $folderPath)
     {
+        $this->folderPath=$folderPath;
         parent::__construct(cssChemin: "../../Public/CSS/Partage.css", nom: "E-Lieu ~ Partage et Export");
     }
 
@@ -23,6 +24,7 @@ class PagePartage extends AbstractPage
                     <fieldset class=\"FormualirePartage\">
                         <input type=\"submit\" name=\"TelechargerDOCX\" value=\"Télécharger word\"/>
                         <input type=\"submit\" name=\"TelechargerPDF\" value=\"Télécharger pdf\"/>
+                        <input type=\"hidden\" value=\"".$this->folderPath."\" name=\"PieceJointe\">
                         <input type=\"submit\" name=\"EnvoyerMail\" value=\"Envoyer par mail\"/>
                     </fieldset>
                     </form>
