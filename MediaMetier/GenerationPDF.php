@@ -2,7 +2,7 @@
 
 namespace MediaMetier;
 
-require_once(__DIR__ . "/GenerationPDF.php");
+require_once(__DIR__ . "/I_GenerationPDF.php");
 use MediaMetier\I_GenerationPDF;
 
 /**
