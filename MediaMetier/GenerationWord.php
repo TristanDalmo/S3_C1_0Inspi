@@ -33,6 +33,9 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('Adresse bailleur', htmlspecialchars($donnees['adresse_bailleur'] ?? 'Non renseignée'));
         $templateProcessor->setValue('surface du bien', htmlspecialchars($_POST['SURFACE'] ?? 'Non renseignée'));
         $templateProcessor->setValue('nombre de piece', htmlspecialchars($_POST['nbpiece'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('civilité du bailleur', htmlspecialchars($_POST['civilite_bailleur'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('civilité du locataire', htmlspecialchars($_POST['civilite_locataire'] ?? 'Non renseignée'));
+
         
         // Cuisine
         $templateProcessor->setValue('Description du mur de la cuisine', htmlspecialchars($donnees['description_mur_cuisine'] ?? 'Non renseignée'));
@@ -96,7 +99,7 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('État de l\'éclairage (entrée)', htmlspecialchars($donnees['etat_eclairage_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État de l\'éclairage (sortie)', htmlspecialchars($donnees['etat_eclairage_sortie'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Nombre de prises salle de bain1', htmlspecialchars($donnees['prise_sdb1'] ?? 'Non renseignée')); 
-        $templateProcessor->setValue('Nombre de prises salle de bain 2', htmlspecialchars($donnees['prise_sdb2'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('Nombre de prises salle de bain2', htmlspecialchars($donnees['prise_sdb2'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État de la prise (entrée)', htmlspecialchars($donnees['etat_prise_entree'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État de la prise (sortie)', htmlspecialchars($donnees['etat_prise_sortie'] ?? 'Non renseignée'));
         $templateProcessor->setValue('Lavabo salle de bain 1', htmlspecialchars($donnees['lavabo_sdb1'] ?? 'Non renseigné'));
@@ -167,11 +170,11 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('Vitrage et volets chambre 2', htmlspecialchars($_POST['plafondElectrique2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Vitrage et volets chambre 3', htmlspecialchars($_POST['plafondElectrique3'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des plafonds electrique chambre 1 (entrée)', htmlspecialchars($_POST['etatEntreePlafondElectrique1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des plafonds electrique chambre 1 (entrée)', htmlspecialchars($_POST['etatEntreePlafondElectrique2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des plafonds electrique chambre 1 (entrée)', htmlspecialchars($_POST['etatEntreePlafondElectrique3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 2 (entrée)', htmlspecialchars($_POST['etatEntreePlafondElectrique2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 3 (entrée)', htmlspecialchars($_POST['etatEntreePlafondElectrique3'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des plafonds electrique chambre 1 (sortie)', htmlspecialchars($_POST['etatSortiePlafondElectrique1'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des plafonds electrique chambre 1 (sortie)', htmlspecialchars($_POST['etatSortiePlafondElectrique2'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('État des plafonds electrique chambre 1 (sortie)', htmlspecialchars($_POST['etatSortiePlafondElectrique3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 2 (sortie)', htmlspecialchars($_POST['etatSortiePlafondElectrique2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des plafonds electrique chambre 3 (sortie)', htmlspecialchars($_POST['etatSortiePlafondElectrique3'] ?? 'Non renseigné'));
       
         
         // WC 
@@ -181,7 +184,7 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('État des murs WC (entrée)-2', htmlspecialchars($donnees['etat_wc2_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des murs WC (sortie)-1', htmlspecialchars($donnees['etat_wc1_sortie'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des murs WC (sortie)-2', htmlspecialchars($donnees['etat_wc2_sortie'] ?? 'Non renseigné'));   
-        $templateProcessor->setValue('Descripwordtion du sol WC-1', htmlspecialchars($donnees['description_sol1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Description du sol WC-1', htmlspecialchars($donnees['description_sol1'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Description du sol WC-2', htmlspecialchars($donnees['description_sol2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du sol WC (entrée)-1', htmlspecialchars($donnees['etat_entree_sol1'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du sol WC (entrée)-2', htmlspecialchars($donnees['etat_entree_sol2'] ?? 'Non renseigné'));

@@ -83,14 +83,16 @@ class ControllerPartage {
             #endregion
             */
             // Gestion de l'insertion dans la BDD
+            /*
             $insertion=new InsertionEDLService();
-            $insertion->InsererEDL($_POST,$Dossier_Cible);          
+            $insertion->InsererEDL($_POST,$Dossier_Cible);  
+            */
             // Gestion de la création du fichier Word
             
-            /*
+            
             $generationWord = new GenerationWordService();
             $generationWord->GenererWord($_POST,$Dossier_Cible);
-            */
+            
             /*
             // Gestion de la création du fichier pdf
             $generationPDF = new GenerationPDFService();

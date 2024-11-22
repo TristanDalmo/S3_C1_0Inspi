@@ -93,11 +93,11 @@ class PageFormulaire extends AbstractPage
                                 <div class=\"civilite-container\">
                                     <label for=\"mr_bailleur\" class=\"putbold\">CIVILITÉ :</label>
                                     <span class=\"civilite\">
-                                        <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\" required>
+                                        <input type=\"radio\" id=\"mr_bailleur\" name=\"civilite_bailleur\"  value=\"Mr\" required>
                                         <label for=\"mr_bailleur\">Mr</label>
-                                        <input type=\"radio\" id=\"mme_bailleur\" name=\"civilite_bailleur\" required>
+                                        <input type=\"radio\" id=\"mme_bailleur\" name=\"civilite_bailleur\" value=\"Mme\" required>
                                         <label for=\"mme_bailleur\">Mme</label>
-                                        <input type=\"radio\" id=\"mlle_bailleur\" name=\"civilite_bailleur\" required>
+                                        <input type=\"radio\" id=\"mlle_bailleur\" name=\"civilite_bailleur\" value=\"Mlle\" required>
                                         <label for=\"mlle_bailleur\">Mlle</label>
                                     </span>
                                 </div>
@@ -112,11 +112,11 @@ class PageFormulaire extends AbstractPage
                                 <div class=\"civilite-container\">
                                     <label for=\"mr_locataire\" class=\"putbold\">CIVILITÉ :</label>
                                     <span class=\"civilite\">
-                                        <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\" required>
+                                        <input type=\"radio\" id=\"mr_locataire\" name=\"civilite_locataire\"  value=\"Mr\" required>
                                         <label for=\"mr_locataire\">Mr</label>
-                                        <input type=\"radio\" id=\"mme_locataire\" name=\"civilite_locataire\" required>
+                                        <input type=\"radio\" id=\"mme_locataire\" name=\"civilite_locataire\" value=\"Mme\" required>
                                         <label for=\"mme_locataire\">Mme</label>
-                                        <input type=\"radio\" id=\"mlle_locataire\" name=\"civilite_locataire\" required>
+                                        <input type=\"radio\" id=\"mlle_locataire\" name=\"civilite_locataire\" value=\"Mlle\" required>
                                         <label for=\"mlle_locataire\">Mlle</label>
                                     </span>
                                 </div>
