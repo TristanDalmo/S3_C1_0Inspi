@@ -1114,7 +1114,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_sortie_luminaire3\" name=\"etat_sortie_luminaire3\">
+                            <select id=\"etat_sortie_luminaire1\" name=\"etat_sortie_luminaire1\">
                                 <option value=\"très bon\">TB</option>
                                 <option value=\"bon\">B</option>
                                 <option value=\"passable\">P</option>
