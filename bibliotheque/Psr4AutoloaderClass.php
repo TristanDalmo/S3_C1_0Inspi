@@ -1,6 +1,6 @@
 <?php
 
-namespace bibliotheque;
+namespace PSR4;
 
 /**
  * An example of a general-purpose implementation that includes the optional
@@ -107,6 +107,7 @@ class Psr4AutoloaderClass
      */
     public function loadClass($class)
     {
+        var_dump("Trying to load: " . $class);
         // the current namespace prefix
         $prefix = $class;
 
@@ -122,7 +123,6 @@ class Psr4AutoloaderClass
 
             // try to load a mapped file for the prefix and relative class
             $mapped_file = $this->loadMappedFile($prefix, $relative_class);
-
             if ($mapped_file) {
                 return $mapped_file;
             }
@@ -158,8 +158,8 @@ class Psr4AutoloaderClass
             // replace namespace separators with directory separators
             // in the relative class name, append with .php
             $file = $base_dir
-                . str_replace('\\', '/', $relative_class)
-                . '.php';
+                  . str_replace('\\', '/', $relative_class)
+                  . '.php';
 
             // if the mapped file exists, require it
             if ($this->requireFile($file)) {
@@ -180,16 +180,10 @@ class Psr4AutoloaderClass
      */
     protected function requireFile($file)
     {
-        $returnValue = false;
-
         if (file_exists($file)) {
             require $file;
-            $returnValue = true;
+            return true;
         }
-        else if (file_exists('.'.$file)) {
-            require '.'.$file;
-            $returnValue = true;
-        }
-        return $returnValue;
+        return false;
     }
 }
