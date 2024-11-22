@@ -22,13 +22,6 @@ class Logement {
     // Adresse du logement
     private string $adresse;
 
-
-    /**
-     * Constructeur de la classe
-     */
-    public function __construct() {
-    }
-
     /**
      * Getter pour l'id du logement
      * @return int 
@@ -42,7 +35,7 @@ class Logement {
      * @return string 
      */
     public function getType() {
-        return $this->type;
+        return $this->type ?? null;
     }
 
     /**
@@ -50,7 +43,7 @@ class Logement {
      * @return float 
      */
     public function getSurface() {
-        return $this->surface;
+        return $this->surface ?? null;
     }
 
     /**
@@ -58,7 +51,7 @@ class Logement {
      * @return int 
      */
     public function getNbPiece() {
-        return $this->nbPiece;
+        return $this->nbPiece ?? null;
     }
 
     /**
@@ -66,7 +59,7 @@ class Logement {
      * @return string 
      */
     public function getAdresse() {
-        return $this->adresse;
+        return $this->adresse ?? null;
     }
 
 
@@ -123,7 +116,7 @@ class Logement {
             $method = 'set'.ucfirst($key);
             
             // Si le setter correspondant existe.
-            if (method_exists($this, $method))
+            if (method_exists($this, $method)&& $value != null)
             {
                 // On appelle le setter.
                 $this->$method($value);

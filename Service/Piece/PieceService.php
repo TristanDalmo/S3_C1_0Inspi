@@ -10,10 +10,10 @@ use DAO\Piece\PieceDAO;
 
 class PieceService implements I_PieceService {
 
-    public function Create(Piece $piece)
+    public function Create(Piece $piece):int
     {
         $daoPiece = new PieceDAO();    
-        $daoPiece->Create($piece);
+        return $daoPiece->Create($piece);
 
     }
     public function Delete(int $id)

@@ -12,12 +12,11 @@ use Model\Electromenager;
 interface I_ElectomenagerService 
 {
     /**
-    * Crée un nouvel électroménager.
-    *
-    * @param Electromenager $electromenager L'objet contenant les données de l'électroménager.
-    * @return void
-    */
-    public function create(Electromenager $electromenager);
+     * Crée un nouvel électroménager.
+     * @param Electromenager $electromenager L'objet contenant les données de l'électroménager.
+     * @return int Id de l'élément créé
+     */
+    public function create(Electromenager $electromenager):int;
 
     /**
      * Met à jour un électroménager existant.

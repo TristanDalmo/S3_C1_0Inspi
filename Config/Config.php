@@ -7,6 +7,28 @@ use Exception;
  * Classe permettant une connexion à la BDD à partir d'un profil donné (temporaire pour les tests)
  */
 class Config {
+
+    private static bool $modeTestUnitaires = false;
+
+    /**
+     * Get the value of modeTestUnitaires
+     */ 
+    public static function getModeTestUnitaires()
+    {
+        return self::$modeTestUnitaires;
+    }
+
+    /**
+     * Set the value of modeTestUnitaires
+     * @param bool $modeTestUnitaires
+     * @return void
+     */
+    public static function setModeTestUnitaires(bool $modeTestUnitaires)
+    {
+        self::$modeTestUnitaires = $modeTestUnitaires;
+    }
+    
+
     private static $param;
 
     /**
@@ -31,20 +53,34 @@ class Config {
      * @return mixed Paramètres de connexion
      */
     private static function getParameter() {
+
         if (self::$param == null) {
-            $cheminFichier = "../Config/prod.ini";
-            if (!file_exists($cheminFichier)) {
-                $cheminFichier = "../Config/dev.ini";
+
+            if (Config::$modeTestUnitaires)
+            {
+                $cheminFichier = "TestBDD/dev.ini";
             }
+            else {
+                if (file_exists("../../Config/prod.ini")) {
+                    $cheminFichier = "../../Config/prod.ini";
+                }
+                if (file_exists("../../Config/dev.ini")) {
+                        $cheminFichier = "../../Config/dev.ini";
+                }
+            } 
+
             if (!file_exists($cheminFichier)) {
                 throw new Exception("Aucun fichier de configuration trouvé");
             }
-            else {
-                self::$param = parse_ini_file($cheminFichier);
-            }
-        }
+            
+            self::$param = parse_ini_file($cheminFichier);
+            
+        }        
+
         return self::$param;
     }
+
+
 }
 
 ?>

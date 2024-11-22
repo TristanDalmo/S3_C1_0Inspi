@@ -1,6 +1,9 @@
 <?php
 
 namespace Controllers\PagesFormulaire;
+
+use MediaMetier\MediaManager;
+use MediaService\MediaService;
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PageFormulaire.php");
 use Views\PagesFormulaire\PageFormulaire;
 
@@ -26,7 +29,6 @@ class ControllerFormulaire {
      * @return string Page web à afficher
      */
     public function index() : string {
-
         return $this->page->GeneratePage();
 
     }

@@ -28,12 +28,10 @@ class Prises {
 
     /**
      * Get the value of idPrises
-     *
-     * @return int
      */
-    public function getIdPrises(): int
+    public function getIdPrise()
     {
-        return $this->idPrises;
+        return $this->idPrises ?? null;
     }
 
     /**
@@ -41,19 +39,17 @@ class Prises {
      *
      * @param int $idPrises
      */
-    public function setIdPrises(int $idPrises)
+    public function setIdPrise(int $idPrises)
     {
         $this->idPrises = $idPrises;
     }
 
     /**
      * Get the value of description
-     *
-     * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
-        return $this->description;
+        return $this->description ?? null;
     }
 
     /**
@@ -68,12 +64,10 @@ class Prises {
 
     /**
      * Get the value of NombrePrises
-     *
-     * @return int
      */
-    public function getNombrePrises(): int
+    public function getNombrePrises()
     {
-        return $this->NombrePrises;
+        return $this->NombrePrises ?? null;
     }
 
     /**
@@ -88,12 +82,10 @@ class Prises {
 
     /**
      * Get the value of etatEntree
-     *
-     * @return string
      */
-    public function getEtatEntree(): string
+    public function getEtatEntree()
     {
-        return $this->etatEntree;
+        return $this->etatEntree ?? null;
     }
 
     /**
@@ -108,12 +100,10 @@ class Prises {
 
     /**
      * Get the value of etatSortie
-     *
-     * @return string
      */
-    public function getEtatSortie(): string
+    public function getEtatSortie()
     {
-        return $this->etatSortie;
+        return $this->etatSortie ?? null;
     }
 
     /**
@@ -139,7 +129,7 @@ class Prises {
             $method = 'set'.ucfirst($key);
             
             // Si le setter correspondant existe.
-            if (method_exists($this, $method))
+            if (method_exists($this, $method) && $value != null)
             {
                 // On appelle le setter.
                 $this->$method($value);

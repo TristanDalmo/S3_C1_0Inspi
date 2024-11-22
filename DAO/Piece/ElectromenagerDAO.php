@@ -61,7 +61,8 @@ class ElectromenagerDAO extends BasePDODAO implements I_ElectromenagerDAO {
         $this->verificationResultat($reponse,
         "Élément électroménager mis à jour avec succès",
         "Aucune modification n'a été effectuée",
-        "Impossible de mettre à jour l'élément électroménager");
+        "Impossible de mettre à jour l'élément électroménager",
+        true);
     }
 
     public function Delete(int $id)

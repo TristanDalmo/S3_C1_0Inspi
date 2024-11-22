@@ -14,10 +14,10 @@ use Model\Elements;
  */
 class ElementsService implements iElementsService
 {
-    public function create(Elements $elements)
+    public function create(Elements $elements):int
     {
         $daoelements = new ElementsDAO(); 
-        $daoelements->Create(element: $elements); 
+        return $daoelements->Create(element: $elements); 
     }
     public function update(Elements $elements)
     {

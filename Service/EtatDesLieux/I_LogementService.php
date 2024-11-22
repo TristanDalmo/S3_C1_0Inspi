@@ -1,16 +1,22 @@
 <?php
 
+namespace Service\EtatDesLieux;
+
+require_once(__DIR__ . "/../../Model/Logement.php");
 use Model\Logement;
 
+/**
+ * (Interface) Couche service servant aux méthodes liées à la table Logement
+ */
 interface I_LogementService
 {
     /**
      * Crée un nouveau logement.
      *
      * @param Logement $logement L'entité à créer.
-     * @return void
+     * @return int Logement à créer
      */
-    public function create(Logement $logement);
+    public function create(Logement $logement) : int;
 
     /**
      * Met à jour un logement existant.

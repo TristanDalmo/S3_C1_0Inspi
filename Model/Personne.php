@@ -33,7 +33,7 @@ class Personne {
      * @return int L'id de la personne
      */
     public function getIdPersonne() {
-        return $this->idPersonne;
+        return $this->idPersonne ?? null;
     }
 
     /**
@@ -41,7 +41,7 @@ class Personne {
      * @return string La civilité
      */
     public function getCivilite() {
-        return $this->civilite;
+        return $this->civilite ?? null;
     }
 
     /**
@@ -49,7 +49,7 @@ class Personne {
      * @return string Le prénom
      */
     public function getPrenom() {
-        return $this->prenom;
+        return $this->prenom ?? null;
     }
 
     /**
@@ -57,7 +57,7 @@ class Personne {
      * @return string Le nom
      */
     public function getNom() {
-        return $this->nom;
+        return $this->nom ?? null;
     }
 
     /**
@@ -65,7 +65,7 @@ class Personne {
      * @return string L'adresse
      */
     public function getAdresse() {
-        return $this->adresse;
+        return $this->adresse ?? null;
     }
 
     /**
@@ -121,7 +121,7 @@ class Personne {
             $method = 'set'.ucfirst($key);
             
             // Si le setter correspondant existe.
-            if (method_exists($this, $method))
+            if (method_exists($this, $method)&& $value != null)
             {
                 // On appelle le setter.
                 $this->$method($value);
