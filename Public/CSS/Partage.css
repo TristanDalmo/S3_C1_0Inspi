@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Section pour afficher le PDF */
+.pdf-container {
+    width: 70%;
+    height: 500px;
+    padding-right: 20px;
+}
+
+/* Section pour les boutons */
+.buttons-container {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 20px;
+}
+
+/* Style commun pour tous les boutons */
+.buttons-container button {
+    height: 3em;
+    width: 10em;
+    border-radius: 1em;
+    font-size: 105%;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    margin: 1.75em 0; /* Marge top et bottom pour espacer verticalement */
+    margin-left: 0.2em;
+}
+
+/* Style des boutons Action 1 à 4 */
+.buttons-container button.action1 {
+    background: #094146; 
+    color: white;
+}
+
+.buttons-container button.action2 {
+    background: #78cdd7; 
+    color: black;
+}
+
+.buttons-container button.action3 {
+    background: #094146; 
+    color: white;
+}
+
+.buttons-container button.action4 {
+    background: #78cdd7; 
+    color: black;
+}
+
+/* Effet au survol des boutons */
+.buttons-container button:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}

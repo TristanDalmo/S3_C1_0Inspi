@@ -3,6 +3,7 @@
 namespace Controllers\PagesFormulaire;
 
 
+
 use Exception;
 
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PagePartage.php");
@@ -20,6 +21,7 @@ use Service\Media\DossiersManagerService;
 use Service\Media\GenerationWordService;
 use Service\GestionFormulaire\InsertionEDLService;
 use Service\Media\GenerationPDFService;
+
 
 
 /**
@@ -44,6 +46,7 @@ class ControllerPartage {
      * @return string Page web à afficher
      */
     public function index() : string {
+
 
 
         $newPage=null;
@@ -114,6 +117,7 @@ class ControllerPartage {
 // Création de la page
 $controller = new ControllerPartage(new PagePartage());
 echo $controller->index();
+
 
 
 
