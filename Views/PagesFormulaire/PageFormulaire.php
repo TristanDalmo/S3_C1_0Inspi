@@ -143,6 +143,7 @@ class PageFormulaire extends AbstractPage
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
+
                         <td><select id=\"Mur3\">
                         <option value=\"\"></option>
                             <option value=\"p\">P</option>
@@ -433,8 +434,8 @@ class PageFormulaire extends AbstractPage
                     </tr>
                     <tr>
                         <td class=\"middleandbold\">Plafond</td>
-                        <td><textarea id=\"plafond_sdb1\"></textarea></td>
-                        <td><textarea id=\"plafond_sdb2\"></textarea></td>
+                        <td><textarea id=\"plafond_sdb1\" name=\"plafond_sdb1\"></textarea></td>
+                        <td><textarea id=\"plafond_sdb2\" name=\"plafond_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_plafond_entree\">
                         <option value=\"\"></option>
@@ -480,10 +481,10 @@ class PageFormulaire extends AbstractPage
                     <tr>
                         <td class=\"middleandbold\">Prise électrique</td>
                         <td>
-                            <strong>Nombre</strong> : <input id=\"prise_sdb1\" type=\"number\" min=\"0\" placeholder=\"Nombre de prises\">
+                            <strong>Nombre</strong> : <input id=\"prise_sdb1\" name=\"prise_sdb1\" type=\"number\" min=\"0\" placeholder=\"Nombre de prises\">
                         </td>
                         <td>
-                            <strong>Nombre</strong> : <input id=\"prise_sdb2\" type=\"number\" min=\"0\" placeholder=\"Nombre de prises\">
+                            <strong>Nombre</strong> : <input id=\"prise_sdb2\" name=\"prise_sdb2\" type=\"number\" min=\"0\" placeholder=\"Nombre de prises\">
                         </td>
                         <td>
                             <select id=\"etat_prise_entree\">
@@ -529,8 +530,8 @@ class PageFormulaire extends AbstractPage
                     </tr>
                     <tr>
                         <td class=\"middleandbold\">Baignoire / douche</td>
-                        <td><textarea id=\"baignoire_sdb1\"></textarea></td>
-                        <td><textarea id=\"baignoire_sdb2\"></textarea></td>
+                        <td><textarea id=\"baignoire_sdb1\" name=\"baignoire_sdb1\"></textarea></td>
+                        <td><textarea id=\"baignoire_sdb2\" name=\"baignoire_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_baignoire_entree\">
                         <option value=\"\"></option>
@@ -599,11 +600,11 @@ class PageFormulaire extends AbstractPage
                 <tbody>
                     <tr>
                         <td class=\"PremiereColonneChambre\">Mur</td>
-                        <td><textarea id=\"murChambre1\"></textarea></td>
-                        <td><textarea id=\"murChambre2\"></textarea></td>
-                        <td><textarea id=\"murChambre3\"></textarea></td>
+                        <td><textarea id=\"murChambre1\"  name=\"\"></textarea></td>
+                        <td><textarea id=\"murChambre2\" name=\"\"></textarea></td>
+                        <td><textarea id=\"murChambre3\" name=\"\"></textarea></td>
                         <td>
-                            <select id=\"etatEntreeMur1\">
+                            <select id=\"etatEntreeMur1\" name=\"\">
                         <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
@@ -612,7 +613,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etatEntreeMur2\">
+                            <select id=\"etatEntreeMur2\" name=\"\">
                         <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
@@ -621,7 +622,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etatEntreeMur3\">
+                            <select id=\"etatEntreeMur3\" name=\"\">
                         <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
@@ -630,7 +631,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etatSortieMur1\">
+                            <select id=\"etatSortieMur1\" name=\"\">
                         <option value=\"\"></option>
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>

@@ -42,7 +42,8 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('Prénom bailleur', htmlspecialchars($_POST['prenom_bailleur'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Nom bailleur', htmlspecialchars($_POST['nom_bailleur'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Adresse bailleur', htmlspecialchars($_POST['adresse_bailleur'] ?? 'Non renseignée'));
-        
+        $templateProcessor->setValue('surface du bien', htmlspecialchars($_POST['SURFACE'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('nombre de piece', htmlspecialchars($_POST['nbpiece'] ?? 'Non renseignée'));
         
         // Cuisine
         $templateProcessor->setValue('Description du mur de la cuisine', htmlspecialchars($_POST['description_mur_cuisine'] ?? 'Non renseignée'));
@@ -101,32 +102,31 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('Vitrage salle de bain 2', htmlspecialchars($_POST['vitrage_sdb2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du vitrage (entrée)', htmlspecialchars($_POST['etat_vitrage_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du vitrage (sortie)', htmlspecialchars($_POST['etat_vitrage_sortie'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('plafond de la salle de bain 1', htmlspecialchars($_POST['plafond_sdb1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('plafond de la salle de bain 2', htmlspecialchars($_POST['plafond_sdb2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du plafond (entrée)', htmlspecialchars($_POST['etat_plafond_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du plafond (sortie)', htmlspecialchars($_POST['etat_plafond_sortie'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Éclairage salle de bain 1', htmlspecialchars($_POST['eclairage_sdb1'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Éclairage salle de bain 2', htmlspecialchars($_POST['eclairage_sdb2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État de l\'éclairage (entrée)', htmlspecialchars($_POST['etat_eclairage_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État de l\'éclairage (sortie)', htmlspecialchars($_POST['etat_eclairage_sortie'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Prise salle de bain 1', htmlspecialchars($_POST['prise_sdb1'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Prise salle de bain 2', htmlspecialchars($_POST['prise_sdb2'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('Nombre de prises salle de bain1', htmlspecialchars($_POST['prise_sdb1'] ?? 'Non renseignée')); 
+        $templateProcessor->setValue('Nombre de prises salle de bain 2', htmlspecialchars($_POST['prise_sdb2'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État de la prise (entrée)', htmlspecialchars($_POST['etat_prise_entree'] ?? 'Non renseignée'));
         $templateProcessor->setValue('État de la prise (sortie)', htmlspecialchars($_POST['etat_prise_sortie'] ?? 'Non renseignée'));
         $templateProcessor->setValue('Lavabo salle de bain 1', htmlspecialchars($_POST['lavabo_sdb1'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Lavabo salle de bain 2', htmlspecialchars($_POST['lavabo_sdb2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du lavabo (entrée)', htmlspecialchars($_POST['etat_lavabo_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du lavabo (sortie)', htmlspecialchars($_POST['etat_lavabo_sortie'] ?? 'Non renseigné'));
- 
-        
-        
-        
- 
-        // WC
+        $templateProcessor->setValue('Baignoire salle de bain 1', htmlspecialchars($_POST['baignoire_sdb1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Baignoire salle de bain 2', htmlspecialchars($_POST['baignoire_sdb2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État de la baignoire (entrée)', htmlspecialchars($_POST['etat_baignoire_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État de la baignoire (sortie)', htmlspecialchars($_POST['etat_baignoire_sortie'] ?? 'Non renseigné'));
         $templateProcessor->setValue('WC salle de bain 1', htmlspecialchars($_POST['wc_sdb1'] ?? 'Non renseigné'));
         $templateProcessor->setValue('WC salle de bain 2', htmlspecialchars($_POST['wc_sdb2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des WC (entrée)', htmlspecialchars($_POST['etat_wc_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des WC (sortie)', htmlspecialchars($_POST['etat_wc_sortie'] ?? 'Non renseigné'));
+        
         
         // Chambre
         $templateProcessor->setValue('Mur chambre 1', htmlspecialchars($_POST['murChambre1'] ?? 'Non renseigné'));
@@ -141,6 +141,36 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('Sol chambre 1', htmlspecialchars($_POST['solChambre1'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Sol chambre 2', htmlspecialchars($_POST['solChambre2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Sol chambre 3', htmlspecialchars($_POST['solChambre3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol 1 (entrée)', htmlspecialchars($_POST['etatEntreeSol1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol 2 (entrée)', htmlspecialchars($_POST['etatEntreeSol2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol 3 (entrée)', htmlspecialchars($_POST['etatEntreeSol3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol 1 (sortie)', htmlspecialchars($_POST['etatSortieSol1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol 2 (sortie)', htmlspecialchars($_POST['etatSortieSol2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État du sol 3 (sortie)', htmlspecialchars($_POST['etatSortieSol3'] ?? 'Non renseigné'));
+
+        $templateProcessor->setValue('Vitrage et volets chambre 1', htmlspecialchars($_POST['vitrages1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Vitrage et volets chambre 2', htmlspecialchars($_POST['vitrages2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Vitrage et volets chambre 3', htmlspecialchars($_POST['vitrages3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 1 (entrée)', htmlspecialchars($_POST['etatEntreeVitrages1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 2 (entrée)', htmlspecialchars($_POST['etatEntreeVitrages2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 3 (entrée)', htmlspecialchars($_POST['etatEntreeVitrages3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 1 (sortie)', htmlspecialchars($_POST['etatSortieVitrages1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 2 (sortie)', htmlspecialchars($_POST['etatSortieVitrages2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 3 (sortie)', htmlspecialchars($_POST['etatSortieVitrages3'] ?? 'Non renseigné'));
+
+        $templateProcessor->setValue('Vitrage et volets chambre 1', htmlspecialchars($_POST['vitrages1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Vitrage et volets chambre 2', htmlspecialchars($_POST['vitrages2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Vitrage et volets chambre 3', htmlspecialchars($_POST['vitrages3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 1 (entrée)', htmlspecialchars($_POST['etatEntreeVitrages1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 2 (entrée)', htmlspecialchars($_POST['etatEntreeVitrages2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 3 (entrée)', htmlspecialchars($_POST['etatEntreeVitrages3'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 1 (sortie)', htmlspecialchars($_POST['etatSortieVitrages1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 2 (sortie)', htmlspecialchars($_POST['etatSortieVitrages2'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('État des Vitrage et volets 3 (sortie)', htmlspecialchars($_POST['etatSortieVitrages3'] ?? 'Non renseigné'));
+
+
+
+
  
         
         // Cuisine - Sol
