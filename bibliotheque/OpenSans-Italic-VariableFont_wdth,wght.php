@@ -1,6 +1,7 @@
 <?php
-$type = 'Core';
-$name = 'Symbol';
+$type = 'TrueType';
+$name = 'OpenSans-Italic';
+$desc = array('Ascent'=>1069,'Descent'=>-293,'CapHeight'=>714,'Flags'=>96,'FontBBox'=>'[-483 -268 1229 1062]','ItalicAngle'=>-12,'StemV'=>70,'MissingWidth'=>600);
 $up = -49;
 $ut = 24;
 $cw = array(
@@ -17,7 +18,9 @@ $cw = array(
 	chr(220)=>678,chr(221)=>506,chr(222)=>499,chr(223)=>578,chr(224)=>395,chr(225)=>565,chr(226)=>565,chr(227)=>565,chr(228)=>565,chr(229)=>252,chr(230)=>453,chr(231)=>453,chr(232)=>453,chr(233)=>498,chr(234)=>498,chr(235)=>498,chr(236)=>498,chr(237)=>252,chr(238)=>252,chr(239)=>608,chr(240)=>578,chr(241)=>576,
 	chr(242)=>576,chr(243)=>563,chr(244)=>563,chr(245)=>563,chr(246)=>563,chr(247)=>572,chr(248)=>395,chr(249)=>576,chr(250)=>576,chr(251)=>576,chr(252)=>576,chr(253)=>460,chr(254)=>330,chr(255)=>179);
 $enc = 'ISO-8859-2';
+$diff = '128 /.notdef 130 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 142 /.notdef 145 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 158 /.notdef /.notdef 161 /Aogonek /breve /Lslash 165 /Lcaron /Sacute 169 /Scaron /Scedilla /Tcaron /Zacute 174 /Zcaron /Zdotaccent 177 /aogonek /ogonek /lslash 181 /lcaron /sacute /caron 185 /scaron /scedilla /tcaron /zacute /hungarumlaut /zcaron /zdotaccent /Racute 195 /Abreve 197 /Lacute /Cacute 200 /Ccaron 202 /Eogonek 204 /Ecaron 207 /Dcaron /Dcroat /Nacute /Ncaron 213 /Ohungarumlaut 216 /Rcaron /Uring 219 /Uhungarumlaut 222 /Tcommaaccent 224 /racute 227 /abreve 229 /lacute /cacute 232 /ccaron 234 /eogonek 236 /ecaron 239 /dcaron /dcroat /nacute /ncaron 245 /ohungarumlaut 248 /rcaron /uring 251 /uhungarumlaut 254 /tcommaaccent /dotaccent';
 $uv = array(0=>array(0,161),161=>260,162=>728,163=>321,164=>164,165=>317,166=>346,167=>array(167,2),169=>352,170=>350,171=>356,172=>377,173=>173,174=>381,175=>379,176=>176,177=>261,178=>731,179=>322,180=>180,181=>318,182=>347,183=>711,184=>184,185=>353,186=>351,187=>357,188=>378,189=>733,190=>382,191=>380,192=>340,193=>array(193,2),195=>258,196=>196,197=>313,198=>262,199=>199,200=>268,201=>201,202=>280,203=>203,204=>282,205=>array(205,2),207=>270,208=>272,209=>323,210=>327,211=>array(211,2),213=>336,214=>array(214,2),216=>344,217=>366,218=>218,219=>368,220=>array(220,2),222=>354,223=>223,224=>341,225=>array(225,2),227=>259,228=>228,229=>314,230=>263,231=>231,232=>269,233=>233,234=>281,235=>235,236=>283,237=>array(237,2),239=>271,240=>273,241=>324,242=>328,243=>array(243,2),245=>337,246=>array(246,2),248=>345,249=>367,250=>250,251=>369,252=>array(252,2),254=>355,255=>729);
+$file = 'OpenSans-Italic-VariableFont_wdth,wght.z';
 $originalsize = 27040;
-$subsetted = true
+$subsetted = true;
 ?>
