@@ -39,6 +39,9 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('Prénom locataire', htmlspecialchars($_POST['prenom_locataire'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Nom locataire', htmlspecialchars($_POST['nom_locataire'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Adresse locataire', htmlspecialchars($_POST['adresse_locataire'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('Prénom bailleur', htmlspecialchars($_POST['prenom_bailleur'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Nom bailleur', htmlspecialchars($_POST['nom_bailleur'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Adresse bailleur', htmlspecialchars($_POST['adresse_bailleur'] ?? 'Non renseignée'));
         
         
         // Cuisine
