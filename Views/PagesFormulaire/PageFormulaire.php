@@ -155,6 +155,7 @@ class PageFormulaire extends AbstractPage
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
+
                         <td><select id=\"etat_cuisine_mur_sortie\" name=\"etat_cuisine_mur_sortie\">
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
@@ -413,8 +414,8 @@ class PageFormulaire extends AbstractPage
                     </tr>
                     <tr>
                         <td class=\"middleandbold\">Plafond</td>
-                        <td><textarea id=\"plafond_sdb1\"></textarea></td>
-                        <td><textarea id=\"plafond_sdb2\"></textarea></td>
+                        <td><textarea id=\"plafond_sdb1\" name=\"plafond_sdb1\"></textarea></td>
+                        <td><textarea id=\"plafond_sdb2\" name=\"plafond_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_plafond_entree\" name=\"etat_plafond_entree\">
                                 <option value=\"très bon\">TB</option>
@@ -456,10 +457,10 @@ class PageFormulaire extends AbstractPage
                     <tr>
                         <td class=\"middleandbold\">Prise électrique</td>
                         <td>
-                            <strong>Nombre</strong> : <input id=\"prise_sdb1\" name=\"prise_sdb1\" type=\"number\" min=\"0\" placeholder=\"Nombre de prises\">
+                            <strong>Nombre</strong> : <input id=\"prise_sdb1\" name=\"prise_sdb1\" name=\"prise_sdb1\" type=\"number\" min=\"0\" placeholder=\"Nombre de prises\">
                         </td>
                         <td>
-                            <strong>Nombre</strong> : <input id=\"prise_sdb2\" name=\"prise_sdb2\" type=\"number\" min=\"0\" placeholder=\"Nombre de prises\">
+                            <strong>Nombre</strong> : <input id=\"prise_sdb2\" name=\"prise_sdb2\" name=\"prise_sdb2\" type=\"number\" min=\"0\" placeholder=\"Nombre de prises\">
                         </td>
                         <td>
                             <select id=\"etat_prise_entree\" name=\"etat_prise_entree\">
@@ -501,8 +502,8 @@ class PageFormulaire extends AbstractPage
                     </tr>
                     <tr>
                         <td class=\"middleandbold\">Baignoire / douche</td>
-                        <td><textarea id=\"baignoire_sdb1\"></textarea></td>
-                        <td><textarea id=\"baignoire_sdb2\"></textarea></td>
+                        <td><textarea id=\"baignoire_sdb1\" name=\"baignoire_sdb1\"></textarea></td>
+                        <td><textarea id=\"baignoire_sdb2\" name=\"baignoire_sdb2\"></textarea></td>
                         <td>
                             <select id=\"etat_baignoire_entree\" name=\"etat_baignoire_entree\">
                                 <option value=\"très bon\">TB</option>
