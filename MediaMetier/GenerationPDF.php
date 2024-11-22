@@ -10,7 +10,7 @@ use MediaMetier\I_GenerationPDF;
  */
 class GenerationPDF implements I_GenerationPDF {
 
-    public function GenererPDF(array $donnees, string $cheminFichier) {
+    public function GenererPDF(string $cheminFichier) {
 
 
     }

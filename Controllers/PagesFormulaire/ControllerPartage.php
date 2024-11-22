@@ -90,7 +90,7 @@ class ControllerPartage {
             
             // Gestion de la création du fichier pdf
             $generationPDF = new GenerationPDFService();
-            $generationPDF->GenererPDF($_POST,$Dossier_Cible);
+            $generationPDF->GenererPDF($Dossier_Cible);
 
             // Affichage de la page en cas de succès
             $newPage=$this->page->GeneratePage();
