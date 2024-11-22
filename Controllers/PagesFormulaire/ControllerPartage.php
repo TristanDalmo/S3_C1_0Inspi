@@ -60,7 +60,7 @@ class ControllerPartage {
             #region Gestion médias
 
             // Gestion des médias ajoutés dans le serveur (images et vidéos)
-            $mediaService = new MediaService();
+            /*$mediaService = new MediaService();
             if (isset($_FILES['Documents']) && is_array($_FILES['Documents']['error']))
             {
                 
@@ -80,14 +80,15 @@ class ControllerPartage {
             
             }
             #endregion
-/*
+            */
             // Gestion de l'insertion dans la BDD
             $insertion=new InsertionEDLService();
-            $insertion->InsererEDL($_POST);
-  */          
+            $insertion->InsererEDL($_POST,$Dossier_Cible);          
             // Gestion de la création du fichier Word
+            /*
             $generationWord = new GenerationWordService();
             $generationWord->GenererWord($_POST,$Dossier_Cible);
+            */
             /*
             // Gestion de la création du fichier pdf
             $generationPDF = new GenerationPDFService();

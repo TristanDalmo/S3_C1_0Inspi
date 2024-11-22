@@ -51,7 +51,7 @@ use Model\Prises;
 class InsertionEDLDAO implements I_InsertionEDLDAO {
 
 
-    public function InsererEDL(array $donnees) {
+    public function InsererEDL(array $donnees, string $cheminDossier) {
 
         #region Initialisation des DAO
 
@@ -111,10 +111,10 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // Création d'un état des lieux
         $etatDesLieux = new EtatDesLieux();
-        $etatDesLieux->setdateEntree($donnees['']);
-        $etatDesLieux->setdateSortie($donnees['']);
-        $etatDesLieux->setMedia($donnees['']);
-        $etatDesLieux->setType($donnees['']);
+        $etatDesLieux->setdateEntree($donnees['fDate']);
+        $etatDesLieux->setdateSortie($donnees['fDateS']);
+        $etatDesLieux->setMedia($cheminDossier);
+        $etatDesLieux->setType($donnees['fPermis']);
         $etatDesLieux->setidLogement($idLogement);
         $etatDesLieux->setidPersonne($idBailleur);
         
@@ -130,19 +130,19 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // création des prises de cuisine
         $priseCuisine=new Prises();
-        $priseCuisine->setDescription($donnees['description_prise_electrique']);
-        $priseCuisine->setEtatEntree($donnees['etat_cuisine_prise_electrique_entree']);
-        $priseCuisine->setEtatSortie($donnees['etat_cuisine_prise_electrique_sortie']);
-        $priseCuisine->setNombrePrises($donnees['nombre_prise_electrique']);
+        $priseCuisine->setDescription($donnees['prise1']);
+        $priseCuisine->setEtatEntree($donnees['prise2']);
+        $priseCuisine->setEtatSortie($donnees['prise3']);
+        $priseCuisine->setNombrePrises($donnees['nbPriseCuisine']);
 
         $idPriseCuisine=$prisesDAO->Create($priseCuisine);
 
         // création electromenager
         $electromenager=new Electromenager();
-        $electromenager->setDescription($donnees['description_electromenager']);
-        $electromenager->setEtatEntree($donnees['etat_cuisine_electromenager_entree']);
-        $electromenager->setEtatSortie($donnees['etat_cuisine_electromenager_sortie']);
-        $electromenager->setNomElectromenager($donnees['electromenager_nom']);
+        $electromenager->setDescription($donnees['electromenagerDescription']);//////////////////////////////////
+        $electromenager->setEtatEntree($donnees['electromenager2']);
+        $electromenager->setEtatSortie($donnees['electromenager3']);
+        $electromenager->setNomElectromenager($donnees['nomElectromenager']);
 
         $idelectromenager=$electromenagerDAO->Create($electromenager);
 

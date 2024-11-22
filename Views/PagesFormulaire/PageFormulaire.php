@@ -93,11 +93,11 @@ class PageFormulaire extends AbstractPage
                                 </span>
                             </div>
                             <label for=\"prenom_bailleur\" class=\"putbold\" >PRÉNOM : *</label>
-                            <input type=\"text\" id=\"prenom_bailleur\" required>
+                            <input type=\"text\" id=\"prenom_bailleur\" name=\"prenom_bailleur\" required>
                             <label for=\"nom_bailleur\" class=\"putbold\">NOM : *</label>
-                            <input type=\"text\" id=\"nom_bailleur\" required>
+                            <input type=\"text\" id=\"nom_bailleur\" name=\"nom_bailleur\" required>
                             <label for=\"adresse_bailleur\" class=\"putbold\">ADRESSE : *</label>
-                            <textarea id=\"adresse_bailleur\" rows=\"3\" required></textarea>
+                            <textarea id=\"adresse_bailleur\" name=\"adresse_bailleur\" rows=\"3\" required></textarea>
                         </td>
                         <td>
                             <div class=\"civilite-container\">
@@ -112,12 +112,12 @@ class PageFormulaire extends AbstractPage
                                 </span>
                             </div>
                             <label for=\"prenom_locataire\" class=\"putbold\">PRÉNOM : *</label>
-                            <input type=\"text\" id=\"prenom_locataire\" required>
+                            <input type=\"text\" id=\"prenom_locataire\" name=\"prenom_locataire\" required>
                             <label for=\"nom_locataire\" class=\"putbold\">NOM : *</label>
-                            <input type=\"text\" id=\"nom_locataire\" required>
+                            <input type=\"text\" id=\"nom_locataire\" name=\"nom_locataire\" required>
                             <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE : </label>
                             <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
-                            <textarea id=\"adresse_locataire\" rows=\"3\"></textarea>
+                            <textarea id=\"adresse_locataire\" name=\"adresse_locataire\" rows=\"3\"></textarea>
                         </td>
                     </tr>
                 </table>
@@ -229,16 +229,16 @@ class PageFormulaire extends AbstractPage
                         </select></td>
                     </tr>
                     <tr>
-                        <td class=\"middleandbold\">Prise électrique nombre : <input type=\"number\"> </td>
+                        <td class=\"middleandbold\">Prise électrique nombre : <input type=\"number\" id=nbPriseCuisine name=nbPriseCuisine> </td>
                         <td><textarea name=\"prise1\" id=\"prise1\"></textarea></td>
-                        <td><select id=\"prise2\">
+                        <td><select id=\"prise2\" name=\"prise2\" >
                         <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
                             <option value=\"b\">B</option>
                             <option value=\"tb\">TB</option>
                         </select></td>
-                        <td><select id=\"prise3\">
+                        <td><select id=\"prise3\" name=\"prise3\">
                         <option value=\"\"></option>
                             <option value=\"p\">P</option>
                             <option value=\"m\">M</option>
@@ -321,10 +321,10 @@ class PageFormulaire extends AbstractPage
                     <tr>
                         <td class=\"middleandbold\">
                             Électroménager : 
-                            <input type=\"text\">
+                            <input type=\"text\"> id=nomElectromenager name=nomElectromenager
                         </td>
                         <td>
-                            <textarea name=\"electromenager1\" id=\"electromenager1\" style=\"width: 100%;\"></textarea>
+                            <textarea name=\"electromenagerDescription\" id=\"electromenager1\" style=\"width: 100%;\"></textarea>
                         </td>
                         <td>
                             <select id=\"electromenager2\">
