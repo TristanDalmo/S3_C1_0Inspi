@@ -253,10 +253,10 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // création des prises de salle de bain
         $priseSdb1=new Prises();
-        $priseSdb1->setDescription($donnees['prise_sdb1']);
+        //$priseSdb1->setDescription($donnees['prise_sdb1']);//////////////////////////////////
         $priseSdb1->setEtatEntree($donnees['etat_prise_entree']);
         $priseSdb1->setEtatSortie($donnees['etat_prise_sortie']);
-        $priseSdb1->setNombrePrises($donnees['nombre_prise_electrique1']);
+        $priseSdb1->setNombrePrises((int)$donnees['nombre_prise_electrique_sdb1']);
 
         $idPriseSdb1=$prisesDAO->Create($priseSdb1);
 
@@ -297,9 +297,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //création plafond
         $plafondSdb1=new Elements();
-        $plafondSdb1->setDescription($donnees['description_etat_plafond_sdb1']);
-        $plafondSdb1->setEtatEntree($donnees['etat_plafond_sortie']);
-        $plafondSdb1->setEtatSortie($donnees['etat_cuisine_plafond_sortie']);
+        $plafondSdb1->setDescription($donnees['plafond_sdb1']);
+        $plafondSdb1->setEtatEntree($donnees['etat_plafond_entree']);
+        $plafondSdb1->setEtatSortie($donnees['etat_plafond_sortie']);
         $plafondSdb1->setTypeElement('Plafond');
         $plafondSdb1->setidPiece($idSalleDeBain1);
 
@@ -327,7 +327,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //creation baignoire douche
         $baignoireDoucheSdb1=new Elements();
-        $baignoireDoucheSdb1->setDescription($donnees['description_baignoireSdb1']);
+        $baignoireDoucheSdb1->setDescription($donnees['baignoire_sdb1']);
         $baignoireDoucheSdb1->setEtatEntree($donnees['etat_baignoire_entree']);
         $baignoireDoucheSdb1->setEtatSortie($donnees['etat_baignoire_sortie']);
         $baignoireDoucheSdb1->setTypeElement('baignoire et douche');
