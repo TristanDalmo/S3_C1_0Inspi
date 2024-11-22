@@ -14,7 +14,7 @@ use Service\GestionFormulaire\I_InsertionEDLService;
 class InsertionEDLService implements I_InsertionEDLService {
 
     public function InsererEDL(array $donnees) {
-        new InsertionEDLDAO()->InsererEDL($donnees);
+        (new InsertionEDLDAO())->InsererEDL($donnees);
     }
 }
 

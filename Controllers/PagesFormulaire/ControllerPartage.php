@@ -10,7 +10,7 @@ require_once(__DIR__."/../../Service/Media/MediaService.php");
 require_once(__DIR__ . "/../../Views/PagesFormulaire/PageErreur.php");
 require_once(__DIR__ . "/../../Service/Media/DossiersManagerService.php");
 require_once(__DIR__ . "/../../Service/Media/GenerationWordService.php");
-require_once(__DIR__ . "/../../DAO/GestionFormulaire/InsertionEDLDAO.php");
+require_once(__DIR__ . "/../../Service/GestionFormulaire/InsertionEDLService.php");
 require_once(__DIR__ . "/../../Service/Media/GenerationPDFService.php");
 
 use Views\PagesFormulaire\PagePartage;
@@ -83,7 +83,7 @@ class ControllerPartage {
             // Gestion de l'insertion dans la BDD
             $insertion=new InsertionEDLService();
             $insertion->InsererEDL($_POST);
-
+            /*
             // Gestion de la création du fichier Word
             $generationWord = new GenerationWordService();
             $generationWord->GenererWord($_POST,$Dossier_Cible);
@@ -91,6 +91,7 @@ class ControllerPartage {
             // Gestion de la création du fichier pdf
             $generationPDF = new GenerationPDFService();
             $generationPDF->GenererPDF($Dossier_Cible);
+            */
 
             // Affichage de la page en cas de succès
             $newPage=$this->page->GeneratePage();
@@ -102,6 +103,7 @@ class ControllerPartage {
             $newPage= $pageerror->GeneratePage();  
             
         }
+            
         
         return $newPage;
 
