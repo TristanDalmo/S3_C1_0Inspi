@@ -626,7 +626,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea name=\"solChambre2\" id=\"solChambre2\"></textarea></td>
                         <td><textarea name=\"solChambre3\" id=\"solChambre3\"></textarea></td>
                         <td>
-                            <select id=\"etat_cuisine_sol_entree1\" name=\"etat_cuisine_sol_entree1\">
+                            <select id=\"etat_chambre_sol_entree1\" name=\"etat_chambre_sol_entree1\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -634,7 +634,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_sol_entree2\" name=\"etat_cuisine_sol_entree2\">
+                            <select id=\"etat_chambre_sol_entree2\" name=\"etat_chambre_sol_entree2\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -642,7 +642,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_sol_entree3\" name=\"etat_cuisine_sol_entree3\">
+                            <select id=\"etat_chambre_sol_entree3\" name=\"etat_chambre_sol_entree3\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -650,7 +650,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_sol_sortie1\" name=\"etat_cuisine_sol_sortie1\">
+                            <select id=\"etat_chambre_sol_sortie1\" name=\"etat_chambre_sol_sortie1\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -658,7 +658,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_sol_sortie2\" name=\"etat_cuisine_sol_sortie2\">
+                            <select id=\"etat_chambre_sol_sortie2\" name=\"etat_chambre_sol_sortie2\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -666,7 +666,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_sol_sortie3\" name=\"etat_cuisine_sol_sortie3\">
+                            <select id=\"etat_chambre_sol_sortie2\" name=\"etat_chambre_sol_sortie3\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -681,7 +681,7 @@ class PageFormulaire extends AbstractPage
                         <td><textarea name=\"vitrages2\" id=\"vitrages2\"></textarea></td>
                         <td><textarea name=\"vitrages3\" id=\"vitrages3\"></textarea></td>
                         <td>
-                            <select id=\"etat_cuisine_vitrages_entree1\" name=\"etat_cuisine_vitrages_entree1\">
+                            <select id=\"etat_chambre_vitrages_entree1\" name=\"etat_chambre_vitrages_entree1\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -689,7 +689,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_vitrages_entree2\" name=\"etat_cuisine_vitrages_entree2\">
+                            <select id=\"etat_chambre_vitrages_entree2\" name=\"etat_chambre_vitrages_entree2\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -697,7 +697,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_vitrages_entree3\" name=\"etat_cuisine_vitrages_entree3\">
+                            <select id=\"etat_chambre_vitrages_entree3\" name=\"etat_chambre_vitrages_entree3\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -705,7 +705,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_vitrages_sortie1\" name=\"etat_cuisine_vitrages_sortie1\">
+                            <select id=\"etat_chambre_vitrages_sortie1\" name=\"etat_chambre_vitrages_sortie1\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -713,7 +713,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_vitrages_sortie2\" name=\"etat_cuisine_vitrages_sortie2\">
+                            <select id=\"etat_chambre_vitrages_sortie2\" name=\"etat_chambre_vitrages_sortie2\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
@@ -721,7 +721,7 @@ class PageFormulaire extends AbstractPage
                             </select>
                         </td>
                         <td>
-                            <select id=\"etat_cuisine_vitrages_sortie3\" name=\"etat_cuisine_vitrages_sortie3\">
+                            <select id=\"etat_chambre_vitrages_sortie3\" name=\"etat_chambre_vitrages_sortie3\">
                                 <option value=\"p\">P</option>
                                 <option value=\"m\">M</option>
                                 <option value=\"b\">B</option>
