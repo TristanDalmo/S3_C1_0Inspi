@@ -65,6 +65,7 @@ class PageFormulaire extends AbstractPage
                     </div>
                     <div class=\"l3\">
                         <label for=\"SURFACE\" class=\"putbold\">SURFACE : *</label>
+
                         <input type=\"text\" id=\"SURFACE\" name=\"SURFACE\" placeholder=\"m²\" required>
                         <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÈCES PRINCIPALES : *</label>
                         <input type=\"number\" id=\"nbpiece\" name=\"nbpiece\" required>
@@ -72,6 +73,7 @@ class PageFormulaire extends AbstractPage
                     <div class=\"l4\">
                         <label for=\"adresse\" class=\"putbold\">ADRESSE : *</label>
                         <textarea id=\"adresse\" name=\"adresse\" rows=\"3\" cols=\"50\" required></textarea>
+
                     </div>
                 </fieldset>
                 <table>
@@ -93,7 +95,9 @@ class PageFormulaire extends AbstractPage
                                 </span>
                             </div>
                             <label for=\"prenom_bailleur\" class=\"putbold\" >PRÉNOM : *</label>
+
                             <input type=\"text\" id=\"prenom_bailleur\" name=\"prenom_bailleur\" required>
+
                             <label for=\"nom_bailleur\" class=\"putbold\">NOM : *</label>
                             <input type=\"text\" id=\"nom_bailleur\" name=\"nom_bailleur\" required>
                             <label for=\"adresse_bailleur\" class=\"putbold\">ADRESSE : *</label>
@@ -112,12 +116,16 @@ class PageFormulaire extends AbstractPage
                                 </span>
                             </div>
                             <label for=\"prenom_locataire\" class=\"putbold\">PRÉNOM : *</label>
+
                             <input type=\"text\" id=\"prenom_locataire\" name=\"prenom_locataire\" required>
+
                             <label for=\"nom_locataire\" class=\"putbold\">NOM : *</label>
                             <input type=\"text\" id=\"nom_locataire\" name=\"nom_locataire\" required>
                             <label for=\"adresse_locataire\" class=\"putbold\">ADRESSE : </label>
                             <p class=\"petit\">(Si état des lieux de sortie, mentionner la nouvelle adresse de domiciliation)</p>
+
                             <textarea id=\"adresse_locataire\" name=\"adresse_locataire\" rows=\"3\"></textarea>
+
                         </td>
                     </tr>
                 </table>
@@ -433,8 +441,10 @@ class PageFormulaire extends AbstractPage
                     </tr>
                     <tr>
                         <td class=\"middleandbold\">Plafond</td>
+
                         <td><textarea id=\"plafond_sdb1\" name=\"plafond_sdb1\"></textarea></td>
                         <td><textarea id=\"plafond_sdb2\" name=\"plafond_sdb2\"></textarea></td>
+
                         <td>
                             <select id=\"etat_plafond_entree\" name=\"etat_plafond_entree\">
                         <option value=\"\"></option>
@@ -529,8 +539,10 @@ class PageFormulaire extends AbstractPage
                     </tr>
                     <tr>
                         <td class=\"middleandbold\">Baignoire / douche</td>
+
                         <td><textarea id=\"baignoire_sdb1\" name=\"baignoire_sdb1\"></textarea></td>
                         <td><textarea id=\"baignoire_sdb2\" name=\"baignoire_sdb2\"></textarea></td>
+
                         <td>
                             <select id=\"etat_baignoire_entree\" name=\"etat_baignoire_entree\">
                         <option value=\"\"></option>
