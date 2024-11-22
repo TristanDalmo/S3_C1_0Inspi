@@ -20,7 +20,7 @@ class GenerationWord implements I_GenerationWord {
         copy("../../MediasClients/Etat-Des-Lieux(Modele).docx",$cheminFichier . "Etat-Des-Lieux.docx"); 
 
         $templateProcessor = new TemplateProcessor($cheminFichier . "Etat-Des-Lieux.docx");
-        $templateProcessor->saveAs($cheminFichier . "Etat-Des-Lieux.docx");
+        
         $templateProcessor->setValue('Date d\'entrée', htmlspecialchars($donnees['fDate'] ?? 'Non renseignée'));
         $templateProcessor->setValue('Date de sortie', htmlspecialchars($donnees['fDateS'] ?? 'Non renseignée'));
         $templateProcessor->setValue('Permis', htmlspecialchars($donnees['fPermis'] ?? 'Non renseignée'));
@@ -181,7 +181,7 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('État des murs WC (entrée)-2', htmlspecialchars($donnees['etat_wc2_entree'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des murs WC (sortie)-1', htmlspecialchars($donnees['etat_wc1_sortie'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État des murs WC (sortie)-2', htmlspecialchars($donnees['etat_wc2_sortie'] ?? 'Non renseigné'));   
-        $templateProcessor->setValue('Description du sol WC-1', htmlspecialchars($donnees['description_sol1'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Descripwordtion du sol WC-1', htmlspecialchars($donnees['description_sol1'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Description du sol WC-2', htmlspecialchars($donnees['description_sol2'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du sol WC (entrée)-1', htmlspecialchars($donnees['etat_entree_sol1'] ?? 'Non renseigné'));
         $templateProcessor->setValue('État du sol WC (entrée)-2', htmlspecialchars($donnees['etat_entree_sol2'] ?? 'Non renseigné'));
@@ -208,6 +208,8 @@ class GenerationWord implements I_GenerationWord {
         
         // Zone de commentaire
         $templateProcessor->setValue('Zone de commentaire', htmlspecialchars($donnees['zone_de_commentaire'] ?? 'Non renseignée'));
+
+        $templateProcessor->saveAs($cheminFichier . "Etat-Des-Lieux.docx");
     } 
 }  
                
