@@ -447,10 +447,203 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         #endregion
 
+        #region Insertion Chambre1
 
+        $chambre1=new Piece();
 
+        $chambre1->setidTypePiece(3);
+        $chambre1->setidLogement($idLogement);
 
+        $idChambre1=$pieceDAO->Create($chambre);
 
+        // creation du mur 1
+        $mur1Chambre=new Elements();
+        $mur1Chambre->setDescription($donnees['murChambre1']);
+        $mur1Chambre->setEtatEntree($donnees['etatEntreeMur1']);
+        $mur1Chambre->setEtatSortie($donnees['etatSortieMur1']);
+
+        // creation sol
+        $sol1Chambre=new Elements();
+        $sol1Chambre->setDescription($donnees['solChambre1']);
+        $sol1Chambre->setEtatEntree($donnees['etat_cuisine_sol_entree1']);
+        $sol1Chambre->setEtatSortie($donnees['etat_cuisine_sol_sortie1']);
+        $sol1Chambre->setidPiece($chambre1);
+
+        $idSol1Chambre=$elementsDAO->Create($sol1Chambre);
+
+        //création vitrages volets
+        $vitrages_voletsChambre1=new Elements();
+        $vitrages_voletsChambre1->setDescription($donnees['vitrages1']);
+        $vitrages_voletsChambre1->setEtatEntree($donnees['etat_cuisine_vitrages_entree1']);
+        $vitrages_voletsChambre1->setEtatSortie($donnees['etat_cuisine_vitrages_sortie1']);
+        $vitrages_voletsChambre1->setTypeElement('Vitrages et Volets');
+        $vitrages_voletsChambre1->setidPiece($idChambre1);
+
+        $idVitrages_voletsChambre=$elementsDAO->Create($vitrages_voletsChambre1);
+
+        //création plafond
+        $plafond1Chambre=new Elements();
+        $plafond1Chambre->setDescription($donnees['plafond1']);
+        $plafond1Chambre->setEtatEntree($donnees['etat_cuisine_plafond_entree1']);
+        $plafond1Chambre->setEtatSortie($donnees['etat_cuisine_plafond_sortie1']);
+        $plafond1Chambre->setTypeElement('Plafond');
+        $plafond1Chambre->setidPiece($idChambre1);
+
+        $idPlafond1Chambre=$elementsDAO->Create($plafond1Chambre);
+
+        // creation eclairage et interrupteur
+        $eclairageInterrupteurChambre1=new Elements();
+        $eclairageInterrupteurChambre1->setDescription($donnees['eclairage1']);
+        $eclairageInterrupteurChambre1->setEtatEntree($donnees['etat_chambre_eclairage_entree1']);
+        $eclairageInterrupteurChambre1->setEtatSortie($donnees['etat_chambre_eclairage_sortie1']);
+        $eclairageInterrupteurChambre1->setTypeElement('eclairage interrupteur');
+        $eclairageInterrupteurChambre1->setidPiece($idChambre1);
+
+        $idEclairageInterrupteurChambre1=$elementsDAO->Create($eclairageInterrupteurChambre1);
+
+        //création plafond electrique
+        $plafondElectriqueChambre1=new Elements();
+        $plafondElectriqueChambre1->setDescription($donnees['plafondElectrique1'].': '.$donnees['nbPlafondElectrique1']);
+        $plafondElectriqueChambre1->setEtatEntree($donnees['etatEntreePlafondElectrique1']);
+        $plafondElectriqueChambre1->setEtatSortie($donnees['etatSortiePlafondElectrique1']);
+        $plafondElectriqueChambre1->setTypeElement('plafon electrique');
+        $plafondElectriqueChambre1->setidPiece($idChambre1);
+
+        $idplafondElectriqueChambre1->$elementsDAO->Create($plafondElectriqueChambre1);
+
+        #endregion
+    
+        #region Insertion Chambre2
+
+        $chambre2=new Piece();
+
+        $chambre2->setidTypePiece(3);
+        $chambre2->setidLogement($idLogement);
+
+        $idChambre2=$pieceDAO->Create($chambre);
+
+        // creation du mur 2
+        $mur2Chambre=new Elements();
+        $mur2Chambre->setDescription($donnees['murChambre2']);
+        $mur2Chambre->setEtatEntree($donnees['etatEntreeMur2']);
+        $mur2Chambre->setEtatSortie($donnees['etatSortieMur2']);
+
+        // creation sol
+        $sol2Chambre=new Elements();
+        $sol2Chambre->setDescription($donnees['solChambre2']);
+        $sol2Chambre->setEtatEntree($donnees['etat_cuisine_sol_entree2']);
+        $sol2Chambre->setEtatSortie($donnees['etat_cuisine_sol_sortie2']);
+        $sol2Chambre->setidPiece($chambre2);
+
+        $idSol2Chambre=$elementsDAO->Create($sol2Chambre);
+
+        //création vitrages volets
+        $vitrages_voletsChambre2=new Elements();
+        $vitrages_voletsChambre2->setDescription($donnees['vitrages2']);
+        $vitrages_voletsChambre2->setEtatEntree($donnees['etat_cuisine_vitrages_entree2']);
+        $vitrages_voletsChambre2->setEtatSortie($donnees['etat_cuisine_vitrages_sortie2']);
+        $vitrages_voletsChambre2->setTypeElement('Vitrages et Volets');
+        $vitrages_voletsChambre2->setidPiece($idChambre2);
+
+        $idVitrages_voletsChambre=$elementsDAO->Create($vitrages_voletsChambre2);
+
+        //création plafond
+        $plafond2Chambre=new Elements();
+        $plafond2Chambre->setDescription($donnees['plafond2']);
+        $plafond2Chambre->setEtatEntree($donnees['etat_cuisine_plafond_entree2']);
+        $plafond2Chambre->setEtatSortie($donnees['etat_cuisine_plafond_sortie2']);
+        $plafond2Chambre->setTypeElement('Plafond');
+        $plafond2Chambre->setidPiece($idChambre2);
+
+        $idPlafond2Chambre=$elementsDAO->Create($plafond2Chambre);
+
+        // creation eclairage et interrupteur
+        $eclairageInterrupteurChambre2=new Elements();
+        $eclairageInterrupteurChambre2->setDescription($donnees['eclairage2']);
+        $eclairageInterrupteurChambre2->setEtatEntree($donnees['etat_chambre_eclairage_entree2']);
+        $eclairageInterrupteurChambre2->setEtatSortie($donnees['etat_chambre_eclairage_sortie2']);
+        $eclairageInterrupteurChambre2->setTypeElement('eclairage interrupteur');
+        $eclairageInterrupteurChambre2->setidPiece($idChambre2);
+
+        $idEclairageInterrupteurChambre2=$elementsDAO->Create($eclairageInterrupteurChambre2);
+
+        //création plafond electrique
+        $plafondElectriqueChambre2=new Elements();
+        $plafondElectriqueChambre2->setDescription($donnees['plafondElectrique2'].': '.$donnees['nbPlafondElectrique2']);
+        $plafondElectriqueChambre2->setEtatEntree($donnees['etatEntreePlafondElectrique2']);
+        $plafondElectriqueChambre2->setEtatSortie($donnees['etatSortiePlafondElectrique2']);
+        $plafondElectriqueChambre2->setTypeElement('plafon electrique');
+        $plafondElectriqueChambre2->setidPiece($idChambre2);
+
+        $idplafondElectriqueChambre2->$elementsDAO->Create($plafondElectriqueChambre2);
+
+        #endregion
+        
+        #region Insertion Chambre3
+
+        $chambre3=new Piece();
+
+        $chambre3->setidTypePiece(3);
+        $chambre3->setidLogement($idLogement);
+
+        $idChambre3=$pieceDAO->Create($chambre);
+
+        // creation du mur 3
+        $mur3Chambre=new Elements();
+        $mur3Chambre->setDescription($donnees['murChambre3']);
+        $mur3Chambre->setEtatEntree($donnees['etatEntreeMur3']);
+        $mur3Chambre->setEtatSortie($donnees['etatSortieMur3']);
+
+        // creation sol
+        $sol3Chambre=new Elements();
+        $sol3Chambre->setDescription($donnees['solChambre3']);
+        $sol3Chambre->setEtatEntree($donnees['etat_cuisine_sol_entree3']);
+        $sol3Chambre->setEtatSortie($donnees['etat_cuisine_sol_sortie3']);
+        $sol3Chambre->setidPiece($chambre3);
+
+        $idSol3Chambre=$elementsDAO->Create($sol3Chambre);
+
+        //création vitrages volets
+        $vitrages_voletsChambre3=new Elements();
+        $vitrages_voletsChambre3->setDescription($donnees['vitrages3']);
+        $vitrages_voletsChambre3->setEtatEntree($donnees['etat_cuisine_vitrages_entree3']);
+        $vitrages_voletsChambre3->setEtatSortie($donnees['etat_cuisine_vitrages_sortie3']);
+        $vitrages_voletsChambre3->setTypeElement('Vitrages et Volets');
+        $vitrages_voletsChambre3->setidPiece($idChambre3);
+
+        $idVitrages_voletsChambre=$elementsDAO->Create($vitrages_voletsChambre3);
+
+        //création plafond
+        $plafond3Chambre=new Elements();
+        $plafond3Chambre->setDescription($donnees['plafond3']);
+        $plafond3Chambre->setEtatEntree($donnees['etat_cuisine_plafond_entree3']);
+        $plafond3Chambre->setEtatSortie($donnees['etat_cuisine_plafond_sortie3']);
+        $plafond3Chambre->setTypeElement('Plafond');
+        $plafond3Chambre->setidPiece($idChambre3);
+
+        $idPlafond3Chambre=$elementsDAO->Create($plafond3Chambre);
+
+        // creation eclairage et interrupteur
+        $eclairageInterrupteurChambre3=new Elements();
+        $eclairageInterrupteurChambre3->setDescription($donnees['eclairage3']);
+        $eclairageInterrupteurChambre3->setEtatEntree($donnees['etat_chambre_eclairage_entree3']);
+        $eclairageInterrupteurChambre3->setEtatSortie($donnees['etat_chambre_eclairage_sortie3']);
+        $eclairageInterrupteurChambre3->setTypeElement('eclairage interrupteur');
+        $eclairageInterrupteurChambre3->setidPiece($idChambre3);
+
+        $idEclairageInterrupteurChambre3=$elementsDAO->Create($eclairageInterrupteurChambre3);
+
+        //création plafond electrique
+        $plafondElectriqueChambre3=new Elements();
+        $plafondElectriqueChambre3->setDescription($donnees['plafondElectrique3'].': '.$donnees['nbPlafondElectrique3']);
+        $plafondElectriqueChambre3->setEtatEntree($donnees['etatEntreePlafondElectrique3']);
+        $plafondElectriqueChambre3->setEtatSortie($donnees['etatSortiePlafondElectrique3']);
+        $plafondElectriqueChambre3->setTypeElement('plafon electrique');
+        $plafondElectriqueChambre3->setidPiece($idChambre3);
+
+        $idplafondElectriqueChambre3->$elementsDAO->Create($plafondElectriqueChambre3);
+
+        #endregion
     }
 }
 
