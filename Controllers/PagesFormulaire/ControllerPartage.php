@@ -45,7 +45,7 @@ class ControllerPartage {
      * @return string Page web à afficher
      */
     public function index() : string {
-
+ 
 
         $newPage=null;
 
