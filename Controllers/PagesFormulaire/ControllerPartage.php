@@ -46,21 +46,50 @@ class ControllerPartage {
      */
     public function index() : string {
 
+
+        $newPage=null; 
+
+        // Définition du dossier dans lequel on enverra les médias et les fichiers docx et pdf (on utilisera 2 variables aléatoires indépendantes qui rendront le nom du dossier unique)
+        $Dossier_Cible = "../../MediasClients/" . time() . uniqid() . "/";
+
+        try
+        {
+            // Crée le dossier si nécessaire
+            mkdir(directory: $Dossier_Cible,permissions: 0777,recursive: true);
+
+            #region Gestion médias
+
+            // Gestion des médias ajoutés dans le serveur (images et vidéos)
+            /*$mediaService = new MediaService();
+            if (isset($_FILES['Documents']) && is_array($_FILES['Documents']['error']))
+            {
+                
+                $hasValidFiles = false;
+
+                // Parcourt chaque fichier pour voir s'il est valide
+                foreach ($_FILES['Documents']['error'] as $error) {
+                    if ($error === UPLOAD_ERR_OK) {
+                        $hasValidFiles = true; // Au moins un fichier valide a été trouvé
+                        break;
+                    }
+                }
+
                 if ($hasValidFiles) {
                     $mediaService->InsertionMedias($_FILES['Documents'],$Dossier_Cible);
                 } 
-            } 
-
+            
+            }
             #endregion
-
+            */
             // Gestion de l'insertion dans la BDD
             $insertion=new InsertionEDLService();
-            $insertion->InsererEDL($_POST);
-            /*
+            $insertion->InsererEDL($_POST,$Dossier_Cible);          
             // Gestion de la création du fichier Word
+            /*
             $generationWord = new GenerationWordService();
             $generationWord->GenererWord($_POST,$Dossier_Cible);
-            
+            */
+            /*
             // Gestion de la création du fichier pdf
             $generationPDF = new GenerationPDFService();
             $generationPDF->GenererPDF($Dossier_Cible);

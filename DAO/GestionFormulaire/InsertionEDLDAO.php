@@ -51,7 +51,7 @@ use Model\Prises;
 class InsertionEDLDAO implements I_InsertionEDLDAO {
 
 
-    public function InsererEDL(array $donnees) {
+    public function InsererEDL(array $donnees, string $cheminDossier) {
 
         #region Initialisation des DAO
 
@@ -111,10 +111,10 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // Création d'un état des lieux
         $etatDesLieux = new EtatDesLieux();
-        $etatDesLieux->setdateEntree($donnees['']);
-        $etatDesLieux->setdateSortie($donnees['']);
-        $etatDesLieux->setMedia($donnees['']);
-        $etatDesLieux->setType($donnees['']);
+        $etatDesLieux->setdateEntree($donnees['fDate']);
+        $etatDesLieux->setdateSortie($donnees['fDateS']);
+        $etatDesLieux->setMedia($cheminDossier);
+        $etatDesLieux->setType($donnees['fPermis']);
         $etatDesLieux->setidLogement($idLogement);
         $etatDesLieux->setidPersonne($idBailleur);
         
@@ -130,19 +130,19 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // création des prises de cuisine
         $priseCuisine=new Prises();
-        $priseCuisine->setDescription($donnees['description_prise_electrique']);
-        $priseCuisine->setEtatEntree($donnees['etat_cuisine_prise_electrique_entree']);
-        $priseCuisine->setEtatSortie($donnees['etat_cuisine_prise_electrique_sortie']);
-        $priseCuisine->setNombrePrises($donnees['nombre_prise_electrique']);
+        $priseCuisine->setDescription($donnees['prise1']);
+        $priseCuisine->setEtatEntree($donnees['prise2']);
+        $priseCuisine->setEtatSortie($donnees['prise3']);
+        $priseCuisine->setNombrePrises((int)$donnees['nbPriseCuisine']);
 
         $idPriseCuisine=$prisesDAO->Create($priseCuisine);
 
         // création electromenager
         $electromenager=new Electromenager();
-        $electromenager->setDescription($donnees['description_electromenager']);
-        $electromenager->setEtatEntree($donnees['etat_cuisine_electromenager_entree']);
-        $electromenager->setEtatSortie($donnees['etat_cuisine_electromenager_sortie']);
-        $electromenager->setNomElectromenager($donnees['electromenager_nom']);
+        $electromenager->setDescription($donnees['electromenagerDescription']);
+        $electromenager->setEtatEntree($donnees['electromenager2']);
+        $electromenager->setEtatSortie($donnees['electromenager3']);
+        $electromenager->setNomElectromenager($donnees['nomElectromenager']);
 
         $idelectromenager=$electromenagerDAO->Create($electromenager);
 
@@ -159,9 +159,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // crétion du mur de la cuisine
         $murCuisine=new Elements();
-        $murCuisine->setDescription($donnees['description_mur_cuisine']);
-        $murCuisine->setEtatEntree($donnees['etat_cuisine_mur_entree']);
-        $murCuisine->setEtatSortie($donnees['etat_cuisine_mur_sortie']);
+        $murCuisine->setDescription($donnees['mur1']);
+        $murCuisine->setEtatEntree($donnees['mur2']);
+        $murCuisine->setEtatSortie($donnees['mur3']);
         $murCuisine->setTypeElement('Mur');
         $murCuisine->setidPiece($idCuisine);
 
@@ -169,9 +169,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //création sol cuisine
         $solCuisine=new Elements();
-        $solCuisine->setDescription($donnees['description_sol_cuisine']);
-        $solCuisine->setEtatEntree($donnees['etat_cuisine_sol_entree']);
-        $solCuisine->setEtatSortie($donnees['etat_cuisine_sol_sortie']);
+        $solCuisine->setDescription($donnees['sol1']);
+        $solCuisine->setEtatEntree($donnees['sol2']);
+        $solCuisine->setEtatSortie($donnees['sol3']);
         $solCuisine->setTypeElement('Sol');
         $solCuisine->setidPiece($idCuisine);
 
@@ -179,9 +179,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //création vitrages volets
         $vitrages_voletsCuisine=new Elements();
-        $vitrages_voletsCuisine->setDescription($donnees['description_vitrage_volets']);
-        $vitrages_voletsCuisine->setEtatEntree($donnees['etat_cuisine_vitrage_volets_entree']);
-        $vitrages_voletsCuisine->setEtatSortie($donnees['etat_cuisine_vitrage_volets_sortie']);
+        $vitrages_voletsCuisine->setDescription($donnees['Vitrage1']);
+        $vitrages_voletsCuisine->setEtatEntree($donnees['Vitrage2']);
+        $vitrages_voletsCuisine->setEtatSortie($donnees['Vitrage3']);
         $vitrages_voletsCuisine->setTypeElement('Vitrages et Volets');
         $vitrages_voletsCuisine->setidPiece($idCuisine);
 
@@ -189,9 +189,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //création plafond
         $plafondCuisine=new Elements();
-        $plafondCuisine->setDescription($donnees['description_plafond_cuisine']);
-        $plafondCuisine->setEtatEntree($donnees['etat_cuisine_plafond_entree']);
-        $plafondCuisine->setEtatSortie($donnees['etat_cuisine_plafond_sortie']);
+        $plafondCuisine->setDescription($donnees['Plafond1']);
+        $plafondCuisine->setEtatEntree($donnees['Plafond2']);
+        $plafondCuisine->setEtatSortie($donnees['Plafond3']);
         $plafondCuisine->setidPiece($idCuisine);
         $plafondCuisine->setTypeElement('Plafond');
 
@@ -199,9 +199,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // creation eclairage et interrupteur
         $eclairageInterrupteurCuisine=new Elements();
-        $eclairageInterrupteurCuisine->setDescription($donnees['description_eclairage_interrupteurs']);
-        $eclairageInterrupteurCuisine->setEtatEntree($donnees['etat_cuisine_eclairage_interrupteurs_entree']);
-        $eclairageInterrupteurCuisine->setEtatSortie($donnees['etat_cuisine_eclairage_interrupteurs_sortie']);
+        $eclairageInterrupteurCuisine->setDescription($donnees['eclairage1']);
+        $eclairageInterrupteurCuisine->setEtatEntree($donnees['eclairage2']);
+        $eclairageInterrupteurCuisine->setEtatSortie($donnees['eclairage3']);
         $eclairageInterrupteurCuisine->setidPiece($idCuisine);
         $eclairageInterrupteurCuisine->setTypeElement('eclairage interrupteur');
 
@@ -209,9 +209,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //creation placard et tiroir
         $placardTiroirCuisine=new Elements();
-        $placardTiroirCuisine->setDescription($donnees['description_placards_tiroirs']);
-        $placardTiroirCuisine->setEtatEntree($donnees['etat_cuisine_placards_tiroirs_entree']);
-        $placardTiroirCuisine->setEtatSortie($donnees['etat_cuisine_placards_tiroirs_sortie']);
+        $placardTiroirCuisine->setDescription($donnees['placard1']);
+        $placardTiroirCuisine->setEtatEntree($donnees['placard2']);
+        $placardTiroirCuisine->setEtatSortie($donnees['placard3']);
         $placardTiroirCuisine->setidPiece($idCuisine);
         $placardTiroirCuisine->setTypeElement('placard et tiroir');
 
@@ -219,9 +219,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //creation evier robinneterie
         $evierRobinetterieCuisine=new Elements();
-        $evierRobinetterieCuisine->setDescription($donnees['description_evier_robinetterie']);
-        $evierRobinetterieCuisine->setEtatEntree($donnees['etat_cuisine_evier_robinetterie_entree']);
-        $evierRobinetterieCuisine->setEtatSortie($donnees['etat_cuisine_evier_robinetterie_sortie']);
+        $evierRobinetterieCuisine->setDescription($donnees['evier1']);
+        $evierRobinetterieCuisine->setEtatEntree($donnees['evier2']);
+        $evierRobinetterieCuisine->setEtatSortie($donnees['evier3']);
         $evierRobinetterieCuisine->setidPiece($idCuisine);
         $evierRobinetterieCuisine->setTypeElement('evier et robinetterie');
 
@@ -229,9 +229,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //creation plaque de cuisson et four
         $plaqueFourCuisine=new Elements();
-        $plaqueFourCuisine->setDescription($donnees['description_plaque_four']);
-        $plaqueFourCuisine->setEtatEntree($donnees['etat_cuisine_plaque_four_entree']);
-        $plaqueFourCuisine->setEtatSortie($donnees['etat_cuisine_plaque_four_sortie']);
+        $plaqueFourCuisine->setDescription($donnees['plaque1']);
+        $plaqueFourCuisine->setEtatEntree($donnees['plaque2']);
+        $plaqueFourCuisine->setEtatSortie($donnees['plaque3']);
         $plaqueFourCuisine->setidPiece($idCuisine);
         $plaqueFourCuisine->setTypeElement('plaque de cuisson et four');
 
@@ -239,9 +239,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //creation hotte
         $hotteCuisine=new Elements();
-        $hotteCuisine->setDescription($donnees['description_hotte']);
-        $hotteCuisine->setEtatEntree($donnees['etat_cuisine_hotte_entree']);
-        $hotteCuisine->setEtatSortie($donnees['etat_cuisine_hotte_sortie']);
+        $hotteCuisine->setDescription($donnees['hotte1']);
+        $hotteCuisine->setEtatEntree($donnees['hotte2']);
+        $hotteCuisine->setEtatSortie($donnees['hotte3']);
         $hotteCuisine->setidPiece($idCuisine);
         $hotteCuisine->setTypeElement('Hotte');
 
@@ -253,10 +253,10 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         // création des prises de salle de bain
         $priseSdb1=new Prises();
-        $priseSdb1->setDescription($donnees['prise_sdb1']);
+        //$priseSdb1->setDescription($donnees['prise_sdb1']);//////////////////////////////////
         $priseSdb1->setEtatEntree($donnees['etat_prise_entree']);
         $priseSdb1->setEtatSortie($donnees['etat_prise_sortie']);
-        $priseSdb1->setNombrePrises($donnees['nombre_prise_electrique1']);
+        $priseSdb1->setNombrePrises((int)$donnees['nombre_prise_electrique_sdb1']);
 
         $idPriseSdb1=$prisesDAO->Create($priseSdb1);
 
@@ -297,9 +297,9 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //création plafond
         $plafondSdb1=new Elements();
-        $plafondSdb1->setDescription($donnees['description_etat_plafond_sdb1']);
-        $plafondSdb1->setEtatEntree($donnees['etat_plafond_sortie']);
-        $plafondSdb1->setEtatSortie($donnees['etat_cuisine_plafond_sortie']);
+        $plafondSdb1->setDescription($donnees['plafond_sdb1']);
+        $plafondSdb1->setEtatEntree($donnees['etat_plafond_entree']);
+        $plafondSdb1->setEtatSortie($donnees['etat_plafond_sortie']);
         $plafondSdb1->setTypeElement('Plafond');
         $plafondSdb1->setidPiece($idSalleDeBain1);
 
@@ -327,7 +327,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
 
         //creation baignoire douche
         $baignoireDoucheSdb1=new Elements();
-        $baignoireDoucheSdb1->setDescription($donnees['description_baignoireSdb1']);
+        $baignoireDoucheSdb1->setDescription($donnees['baignoire_sdb1']);
         $baignoireDoucheSdb1->setEtatEntree($donnees['etat_baignoire_entree']);
         $baignoireDoucheSdb1->setEtatSortie($donnees['etat_baignoire_sortie']);
         $baignoireDoucheSdb1->setTypeElement('baignoire et douche');

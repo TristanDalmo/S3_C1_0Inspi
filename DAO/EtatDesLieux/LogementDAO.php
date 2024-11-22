@@ -16,7 +16,7 @@ class LogementDAO extends BasePDODAO implements I_LogementDAO {
 
     public function Create(Logement $logement): int {
         // On prépare la requête d'insertion
-        $requete = "INSERT INTO LOGEMENT (type, surface, nbPiece, adresse) VALUES (:type, :surface, :nbPiece, :adresse)";
+        $requete = "INSERT INTO Logement (type, surface, nbPiece, adresse) VALUES (:type, :surface, :nbPiece, :adresse)";
 
         // On prépare les données à insérer
         $donnees = array(
@@ -44,7 +44,7 @@ class LogementDAO extends BasePDODAO implements I_LogementDAO {
     
     public function Update(Logement $logement) {
 
-        $requete = "UPDATE LOGEMENT SET type = :type, surface = :surface, nbPiece = :nbPiece, adresse = :adresse WHERE idLogement = :idLogement";
+        $requete = "UPDATE Logement SET type = :type, surface = :surface, nbPiece = :nbPiece, adresse = :adresse WHERE idLogement = :idLogement";
         $donnees = array(
             "type" => $logement->getType(),
             "surface" => $logement->getSurface(),
@@ -66,7 +66,7 @@ class LogementDAO extends BasePDODAO implements I_LogementDAO {
 
     public function Delete(int $id) {
 
-        $requete = "DELETE FROM LOGEMENT WHERE idLogement = :idLogement";
+        $requete = "DELETE FROM Logement WHERE idLogement = :idLogement";
     
         $donnees = array(
             "idLogement" => $id
@@ -85,7 +85,7 @@ class LogementDAO extends BasePDODAO implements I_LogementDAO {
     public function getById(int $id) : Logement {
 
         // On met en place la requête
-        $requete = "SELECT * FROM LOGEMENT WHERE idLogement = :idLogement";
+        $requete = "SELECT * FROM Logement WHERE idLogement = :idLogement";
 
         // On exécute la requête
         $reponse = $this->execRequest($requete, array("idLogement"=> $id));

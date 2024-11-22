@@ -5,12 +5,9 @@ namespace MediaMetier;
 require_once(__DIR__ . "/I_GenerationWord.php");
 use MediaMetier\I_GenerationWord;
 
-require_once(__DIR__ . "/../bibliotheque/PhpWord/TemplateProcessor.php");
-require_once(__DIR__ . "/../bibliotheque/PhpWord/IOFactory.php");
-use PhpOffice\PhpWord\TemplateProcessor;
-use PhpOffice\PhpWord\IOFactory;
+require_once(__DIR__ . "/../bibliotheque/Psr4AutoloaderClass.php");
+use Bibliotheque\Psr4AutoloaderClass;
 
-require_once(__DIR__."/../bibliotheque");
 
 /**
  * Classe permettant de générer un fichier word 
@@ -20,10 +17,19 @@ class GenerationWord implements I_GenerationWord {
 
     public function GenererWord(array $donnees, string $cheminFichier) {
 
+        // instantiate the loader
+        $loader = new Psr4AutoloaderClass();
+        // register the autoloader
+        $loader->register();
+        
+        // register the base directories for the namespace prefix
+        $loader->addNamespace('\PhpOffice\PHPWord', __DIR__ . '/../bibliotheque/PhpWord');
+
+
         // Copier coller du modèle de l'état des lieux
         copy("../../MediasClients/Etat-Des-Lieux(Modele).docx",$cheminFichier . "Etat-Des-Lieux.docx"); 
 
-        $templateProcessor = new TemplateProcessor($cheminFichier . "Etat-Des-Lieux.docx");
+        $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($cheminFichier . "Etat-Des-Lieux.docx");
     
  
         $templateProcessor->setValue('Date d\'entrée', htmlspecialchars($_POST['fDate'] ?? 'Non renseignée'));
@@ -33,6 +39,9 @@ class GenerationWord implements I_GenerationWord {
         $templateProcessor->setValue('Prénom locataire', htmlspecialchars($_POST['prenom_locataire'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Nom locataire', htmlspecialchars($_POST['nom_locataire'] ?? 'Non renseigné'));
         $templateProcessor->setValue('Adresse locataire', htmlspecialchars($_POST['adresse_locataire'] ?? 'Non renseignée'));
+        $templateProcessor->setValue('Prénom bailleur', htmlspecialchars($_POST['prenom_bailleur'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Nom bailleur', htmlspecialchars($_POST['nom_bailleur'] ?? 'Non renseigné'));
+        $templateProcessor->setValue('Adresse bailleur', htmlspecialchars($_POST['adresse_bailleur'] ?? 'Non renseignée'));
         
         
         // Cuisine
