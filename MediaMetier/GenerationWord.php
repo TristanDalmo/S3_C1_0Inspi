@@ -10,7 +10,7 @@ require_once(__DIR__ . "/../bibliotheque/PhpWord/IOFactory.php");
 use PhpOffice\PhpWord\TemplateProcessor;
 use PhpOffice\PhpWord\IOFactory;
 
-require_once(__DIR__."/../bibliotheque");
+//require_once(__DIR__."/../bibliotheque");
 
 /**
  * Classe permettant de générer un fichier word 

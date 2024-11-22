@@ -65,13 +65,13 @@ class PageFormulaire extends AbstractPage
                     </div>
                     <div class=\"l3\">
                         <label for=\"SURFACE\" class=\"putbold\">SURFACE : *</label>
-                        <input type=\"text\" id=\"SURFACE\" placeholder=\"m²\" required>
+                        <input type=\"text\" id=\"SURFACE\" name=\"SURFACE\" placeholder=\"m²\" required>
                         <label for=\"nbpiece\" class=\"putbold\">NOMBRE DE PIÈCES PRINCIPALES : *</label>
-                        <input type=\"number\" id=\"nbpiece\" required>
+                        <input type=\"number\" id=\"nbpiece\" name=\"nbpiece\" required>
                     </div>
                     <div class=\"l4\">
                         <label for=\"adresse\" class=\"putbold\">ADRESSE : *</label>
-                        <textarea id=\"adresse\" rows=\"3\" cols=\"50\" required></textarea>
+                        <textarea id=\"adresse\" name=\"adresse\" rows=\"3\" cols=\"50\" required></textarea>
                     </div>
                 </fieldset>
                 <table>
