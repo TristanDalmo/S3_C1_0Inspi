@@ -256,8 +256,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $priseSdb1->setDescription($donnees['prise_sdb1']);
         $priseSdb1->setEtatEntree($donnees['etat_prise_entree']);
         $priseSdb1->setEtatSortie($donnees['etat_prise_sortie']);
-        $priseSdb1->setNombrePrises($donnees['nombre_prise_electrique']);
-        $priseSdb1->setNombrePrises($donnees['nbPriseSdb1']);
+        $priseSdb1->setNombrePrises($donnees['nombre_prise_electrique1']);
 
         $idPriseSdb1=$prisesDAO->Create($priseSdb1);
 
@@ -355,8 +354,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $priseSdb2->setDescription($donnees['prise_sdb2']);
         $priseSdb2->setEtatEntree($donnees['etat_prise_entree']);
         $priseSdb2->setEtatSortie($donnees['etat_prise_sortie']);
-        $priseSdb2->setNombrePrises($donnees['nombre_prise_electrique']);
-        $priseSdb2->setNombrePrises($donnees['nbPriseSdb2']);
+        $priseSdb2->setNombrePrises($donnees['nombre_prise_electrique2']);
 
         $idPriseSdb2=$prisesDAO->Create($priseSdb2);
 
@@ -461,12 +459,15 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur1Chambre->setDescription($donnees['murChambre1']);
         $mur1Chambre->setEtatEntree($donnees['etatEntreeMur1']);
         $mur1Chambre->setEtatSortie($donnees['etatSortieMur1']);
+        $mur1Chambre->setTypeElement('mur');
+        $mur1Chambre->setidPiece($idChambre1);
 
         // creation sol
         $sol1Chambre=new Elements();
         $sol1Chambre->setDescription($donnees['solChambre1']);
         $sol1Chambre->setEtatEntree($donnees['etat_cuisine_sol_entree1']);
         $sol1Chambre->setEtatSortie($donnees['etat_cuisine_sol_sortie1']);
+        $sol1Chambre->setTypeElement('sol');
         $sol1Chambre->setidPiece($chambre1);
 
         $idSol1Chambre=$elementsDAO->Create($sol1Chambre);
@@ -527,12 +528,15 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur2Chambre->setDescription($donnees['murChambre2']);
         $mur2Chambre->setEtatEntree($donnees['etatEntreeMur2']);
         $mur2Chambre->setEtatSortie($donnees['etatSortieMur2']);
+        $mur2Chambre->setTypeElement('mur');
+        $mur2Chambre->setidPiece($idChambre2);
 
         // creation sol
         $sol2Chambre=new Elements();
         $sol2Chambre->setDescription($donnees['solChambre2']);
         $sol2Chambre->setEtatEntree($donnees['etat_cuisine_sol_entree2']);
         $sol2Chambre->setEtatSortie($donnees['etat_cuisine_sol_sortie2']);
+        $sol2Chambre->setTypeElement('sol');
         $sol2Chambre->setidPiece($chambre2);
 
         $idSol2Chambre=$elementsDAO->Create($sol2Chambre);
@@ -593,12 +597,15 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur3Chambre->setDescription($donnees['murChambre3']);
         $mur3Chambre->setEtatEntree($donnees['etatEntreeMur3']);
         $mur3Chambre->setEtatSortie($donnees['etatSortieMur3']);
+        $mur3Chambre->setTypeElement('mur');
+        $mur3Chambre->setidPiece($idChambre3);
 
         // creation sol
         $sol3Chambre=new Elements();
         $sol3Chambre->setDescription($donnees['solChambre3']);
         $sol3Chambre->setEtatEntree($donnees['etat_cuisine_sol_entree3']);
         $sol3Chambre->setEtatSortie($donnees['etat_cuisine_sol_sortie3']);
+        $sol3Chambre->setTypeElement('sol');
         $sol3Chambre->setidPiece($chambre3);
 
         $idSol3Chambre=$elementsDAO->Create($sol3Chambre);
@@ -659,6 +666,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur1Wc->setDescription($donnees['description_mur_wc1']);
         $mur1Wc->setEtatEntree($donnees['etat_wc1_entree']);
         $mur1Wc->setEtatSortie($donnees['etat_wc1_sortie']);
+        $mur1Wc->setTypeElement('mur');
         $mur1Wc->setidPiece($idWc1);
 
         $idMur1Wc=$elementsDAO->Create($mur1wc);
@@ -668,6 +676,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $sol1Wc->setDescription($donnees['description_sol1']);
         $sol1Wc->setEtatEntree($donnees['etat_entree_sol1']);
         $sol1Wc->setEtatSortie($donnees['etat_cuisine_sol_sortie1']);
+        $sol1Wc->setTypeElement('sol');
         $sol1Wc->setidPiece($wc1);
 
         $idSol1Wc=$elementsDAO->Create($sol1Wc);
@@ -718,6 +727,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur2Wc->setDescription($donnees['description_mur_wc2']);
         $mur2Wc->setEtatEntree($donnees['etat_wc2_entree']);
         $mur2Wc->setEtatSortie($donnees['etat_wc2_sortie']);
+        $mur2Wc->setTypeElement('mur');
         $mur2Wc->setidPiece($idWc2);
 
         $idMur2Wc=$elementsDAO->Create($mur2wc);
@@ -727,6 +737,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $sol2Wc->setDescription($donnees['description_sol2']);
         $sol2Wc->setEtatEntree($donnees['etat_entree_sol2']);
         $sol2Wc->setEtatSortie($donnees['etat_cuisine_sol_sortie2']);
+        $sol2Wc->setTypeElement('sol');
         $sol2Wc->setidPiece($wc2);
 
         $idSol2Wc=$elementsDAO->Create($sol2Wc);
@@ -777,6 +788,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $mur3Wc->setDescription($donnees['description_mur_wc3']);
         $mur3Wc->setEtatEntree($donnees['etat_wc3_entree']);
         $mur3Wc->setEtatSortie($donnees['etat_wc3_sortie']);
+        $mur3Wc->setTypeElement('mur');
         $mur3Wc->setidPiece($idWc3);
 
         $idMur3Wc=$elementsDAO->Create($mur3wc);
@@ -786,6 +798,7 @@ class InsertionEDLDAO implements I_InsertionEDLDAO {
         $sol3Wc->setDescription($donnees['description_sol3']);
         $sol3Wc->setEtatEntree($donnees['etat_entree_sol3']);
         $sol3Wc->setEtatSortie($donnees['etat_cuisine_sol_sortie3']);
+        $sol3Wc->setTypeElement('sol');
         $sol3Wc->setidPiece($wc3);
 
         $idSol3Wc=$elementsDAO->Create($sol3Wc);
