@@ -480,7 +480,7 @@ class DeleteDocumentPropertyRequest extends BaseApiRequest
         if (isset($_tempBody)) {
             $headerParams['Content-Type'] = $_tempBody['mime'];
             if ($_tempBody['mime'] == 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody['content']));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($_tempBody['content']));
             } else {
                 $httpBody = ObjectSerializer::sanitizeForSerialization($_tempBody['content']);
             }

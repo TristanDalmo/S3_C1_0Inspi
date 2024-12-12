@@ -2,6 +2,8 @@
 
 namespace MediaMetier;
 
+use Aspose\Words\Model\Requests\DownloadFileRequest;
+
 
 require_once(__DIR__ . "/I_GenerationWord.php");
 use MediaMetier\I_GenerationWord;
@@ -13,6 +15,8 @@ use Aspose\Words\Model\Requests\SaveAsRequest;
 use Aspose\Words\Model\ReplaceTextParameters;
 use Aspose\Words\Model\Requests\ReplaceTextRequest;
 use Aspose\Words\Model\DocxSaveOptionsData;
+use Aspose\Words\Model\Requests\CopyFileRequest;
+use Aspose\Words\Model\Requests\DeleteFileRequest;
 
 /**
  * Classe permettant de générer un fichier word 
@@ -22,17 +26,15 @@ class GenerationWord implements I_GenerationWord {
     private $wordsAPI;
 
     public function __construct() {
-        $this->wordsAPI = new WordsApi("7f7daf1e-6dd1-4b95-a6ec-153f9ea31a2","4d6b3df06dd8e9325a633f2ee82245eb");
+        $this->wordsAPI = new WordsApi("1df1dfc7-488f-4802-9f65-f53d1230510b","87c724d7a2865cb6493fe3d9b117ed3d");
     }
 
 
     public function GenererWord(array $donnees, string $cheminFichier) {
 
+        $this->wordsAPI->copyFile(new CopyFileRequest(src_path: "Etat-Des-Lieux(Modele).docx",dest_path: "Etat-Des-Lieux.docx"));
 
-        // Copier coller du modèle de l'état des lieux
-        copy("../../MediasClients/Etat-Des-Lieux(Modele).docx",$cheminFichier . "Etat-Des-Lieux.docx"); 
-
-        $document = $this->wordsAPI->getDocument(new GetDocumentRequest(($cheminFichier . "Etat-Des-Lieux.docx")));
+        $document = $this->wordsAPI->getDocument(new GetDocumentRequest("Etat-Des-Lieux.docx"));
 
         // Préparation des données
         $replacements = [
@@ -94,15 +96,27 @@ class GenerationWord implements I_GenerationWord {
             $replaceOptions = new ReplaceTextParameters();
             $replaceOptions->setOldValue($field);
             $replaceOptions->setNewValue($value);
-            $this->wordsAPI->replaceText(new ReplaceTextRequest($cheminFichier . "Etat-Des-Lieux.docx", $replaceOptions));
+            $replaceOptions->setIsMatchCase(true);
+            $replaceOptions->setIsMatchWholeWord(false);
+            $replaceOptions->setIsOldValueRegex(false);
+
+            $this->wordsAPI->replaceText(new ReplaceTextRequest("Etat-Des-Lieux.docx", $replaceOptions));
         }
 
         // Mettre à jour les champs
-        $this->wordsAPI->updateFields(new UpdateFieldsRequest($cheminFichier . "Etat-Des-Lieux.docx"));
+        $this->wordsAPI->updateFields(new UpdateFieldsRequest( "Etat-Des-Lieux.docx"));
 
-        // Sauvegarder le document
+        // Sauvegarde chez Aspose
         $saveOptions = new DocxSaveOptionsData();
-        $this->wordsAPI->saveAs(new SaveAsRequest($cheminFichier . "Etat-Des-Lieux.docx", $saveOptions));
+        $saveOptions->setFileName("Etat-Des-Lieux.docx");
+        $this->wordsAPI->saveAs(new SaveAsRequest("Etat-Des-Lieux.docx", $saveOptions));
+
+        // Sauvegarde côté serveur E-Lieu
+        $this->wordsAPI->downloadFile(new DownloadFileRequest( storage_name: $cheminFichier . "Etat-Des-Lieux.docx", path: "Etat-Des-Lieux.docx"));
+
+
+        // Suppression du fichier créé à distance
+        $this->wordsAPI->deleteFile(new DeleteFileRequest("Etat-Des-Lieux.docx"));
 
         /*
         

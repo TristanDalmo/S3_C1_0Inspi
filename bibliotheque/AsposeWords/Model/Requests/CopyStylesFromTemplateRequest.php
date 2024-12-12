@@ -38,6 +38,7 @@ use Aspose\Words\ObjectSerializer;
 use Aspose\Words\HeaderSelector;
 use Aspose\Words\Model\Response\CopyStylesFromTemplateResponse;
 use Aspose\Words\Encryptor;
+use GuzzleHttp\Utils;
 
 /*
  * Request model for copyStylesFromTemplate operation.
@@ -481,7 +482,7 @@ class CopyStylesFromTemplateRequest extends BaseApiRequest
         if (isset($_tempBody)) {
             $headerParams['Content-Type'] = $_tempBody['mime'];
             if ($_tempBody['mime'] == 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody['content']));
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($_tempBody['content']));
             } else {
                 $httpBody = ObjectSerializer::sanitizeForSerialization($_tempBody['content']);
             }

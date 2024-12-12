@@ -76,6 +76,11 @@ class CurlFactory implements CurlFactoryInterface
             $conf = \array_replace($conf, $options['curl']);
         }
 
+        // Désactiver la vérification SSL
+        $conf[\CURLOPT_SSL_VERIFYPEER] = false;  // Ne pas vérifier le certificat du serveur
+        $conf[\CURLOPT_SSL_VERIFYHOST] = false;  // Ne pas vérifier l'identité du serveur
+
+
         $conf[\CURLOPT_HEADERFUNCTION] = $this->createHeaderFn($easy);
         $easy->handle = $this->handles ? \array_pop($this->handles) : \curl_init();
         curl_setopt_array($easy->handle, $conf);
