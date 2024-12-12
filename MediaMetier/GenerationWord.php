@@ -2,15 +2,28 @@
 
 namespace MediaMetier;
 
+
 require_once(__DIR__ . "/I_GenerationWord.php");
 use MediaMetier\I_GenerationWord;
 
-use PhpOffice\PhpWord\TemplateProcessor;
+use Aspose\Words\WordsApi;
+use Aspose\Words\Model\Requests\GetDocumentRequest;
+use Aspose\Words\Model\Requests\UpdateFieldsRequest;
+use Aspose\Words\Model\Requests\SaveAsRequest;
+use Aspose\Words\Model\ReplaceTextParameters;
+use Aspose\Words\Model\Requests\ReplaceTextRequest;
+use Aspose\Words\Model\DocxSaveOptionsData;
 
 /**
  * Classe permettant de générer un fichier word 
  */
 class GenerationWord implements I_GenerationWord {
+
+    private $wordsAPI;
+
+    public function __construct() {
+        $this->wordsAPI = new WordsApi("7f7daf1e-6dd1-4b95-a6ec-153f9ea31a2","4d6b3df06dd8e9325a633f2ee82245eb");
+    }
 
 
     public function GenererWord(array $donnees, string $cheminFichier) {
@@ -19,62 +32,79 @@ class GenerationWord implements I_GenerationWord {
         // Copier coller du modèle de l'état des lieux
         copy("../../MediasClients/Etat-Des-Lieux(Modele).docx",$cheminFichier . "Etat-Des-Lieux.docx"); 
 
-        $templateProcessor = new TemplateProcessor($cheminFichier . "Etat-Des-Lieux.docx");
-        
-        $templateProcessor->setValue('Date d\'entrée', htmlspecialchars($donnees['fDate'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Date de sortie', htmlspecialchars($donnees['fDateS'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Permis', htmlspecialchars($donnees['fPermis'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Autre texte', htmlspecialchars($donnees['textautre'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Prénom locataire', htmlspecialchars($donnees['prenom_locataire'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Nom locataire', htmlspecialchars($donnees['nom_locataire'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Adresse locataire', htmlspecialchars($donnees['adresse_locataire'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Prénom bailleur', htmlspecialchars($donnees['prenom_bailleur'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Nom bailleur', htmlspecialchars($donnees['nom_bailleur'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Adresse bailleur', htmlspecialchars($donnees['adresse_bailleur'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('surface du bien', htmlspecialchars($_POST['SURFACE'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('nombre de piece', htmlspecialchars($_POST['nbpiece'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('civilité du bailleur', htmlspecialchars($_POST['civilite_bailleur'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('civilité du locataire', htmlspecialchars($_POST['civilite_locataire'] ?? 'Non renseignée'));
+        $document = $this->wordsAPI->getDocument(new GetDocumentRequest(($cheminFichier . "Etat-Des-Lieux.docx")));
 
-        
-        // Cuisine
-        $templateProcessor->setValue('Description du mur de la cuisine', htmlspecialchars($donnees['description_mur_cuisine'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État du mur de la cuisine (entrée)', htmlspecialchars($donnees['etat_cuisine_mur_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État du mur de la cuisine (sortie)', htmlspecialchars($donnees['etat_cuisine_mur_sortie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Description du sol de la cuisine', htmlspecialchars($donnees['description_sol_cuisine'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État du sol de la cuisine (entrée)', htmlspecialchars($donnees['etat_cuisine_sol_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État du sol de la cuisine (sortie)', htmlspecialchars($donnees['etat_cuisine_sol_sortie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Description des vitrages et volets de la cuisine', htmlspecialchars($donnees['description_vitrage_volets'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État des vitrages et volets de la cuisine (entrée)', htmlspecialchars($donnees['etat_cuisine_vitrage_volets_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État des vitrages et volets de la cuisine (sortie)', htmlspecialchars($donnees['etat_cuisine_vitrage_volets_sortie'] ?? 'Non renseignée'));      
-        $templateProcessor->setValue('Description du plafond de la cuisine', htmlspecialchars($donnees['description_plafond_cuisine'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État du plafond de la cuisine (entrée)', htmlspecialchars($donnees['etat_cuisine_plafond_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État du plafond de la cuisine (sortie)', htmlspecialchars($donnees['etat_cuisine_plafond_sortie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Description des éclairages et interrupteurs', htmlspecialchars($donnees['description_eclairage_interrupteurs'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État des éclairages et interrupteurs (entrée)', htmlspecialchars($donnees['etat_cuisine_eclairage_interrupteurs_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État des éclairages et interrupteurs (sortie)', htmlspecialchars($donnees['etat_cuisine_eclairage_interrupteurs_sortie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Nombre de prises électriques', htmlspecialchars($donnees['nombre_prise_electrique'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Description des prises électriques', htmlspecialchars($donnees['description_prise_electrique'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État des prises électriques (entrée)', htmlspecialchars($donnees['etat_cuisine_prise_electrique_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État des prises électriques (sortie)', htmlspecialchars($donnees['etat_cuisine_prise_electrique_sortie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Description des placards et tiroirs', htmlspecialchars($donnees['description_placards_tiroirs'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État des placards et tiroirs (entrée)', htmlspecialchars($donnees['etat_cuisine_placards_tiroirs_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État des placards et tiroirs (sortie)', htmlspecialchars($donnees['etat_cuisine_placards_tiroirs_sortie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Description de l\'évier et robinetterie', htmlspecialchars($donnees['description_evier_robinetterie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État de l\'évier et robinetterie (entrée)', htmlspecialchars($donnees['etat_cuisine_evier_robinetterie_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État de l\'évier et robinetterie (sortie)', htmlspecialchars($donnees['etat_cuisine_evier_robinetterie_sortie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Description de la plaque de cuisson et four', htmlspecialchars($donnees['description_plaque_four'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État de la plaque de cuisson et du four (entrée)', htmlspecialchars($donnees['etat_cuisine_plaque_four_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État de la plaque de cuisson et du four (sortie)', htmlspecialchars($donnees['etat_cuisine_plaque_four_sortie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Description de la hotte', htmlspecialchars($donnees['description_hotte'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État de la hotte (entrée)', htmlspecialchars($donnees['etat_cuisine_hotte_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État de la hotte (sortie)', htmlspecialchars($donnees['etat_cuisine_hotte_sortie'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('Nom de l\'électroménager', htmlspecialchars($donnees['electromenager_nom'] ?? 'Non renseigné'));
-        $templateProcessor->setValue('Description de l\'électroménager', htmlspecialchars($donnees['description_electromenager'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État de l\'électroménager (entrée)', htmlspecialchars($donnees['etat_cuisine_electromenager_entree'] ?? 'Non renseignée'));
-        $templateProcessor->setValue('État de l\'électroménager (sortie)', htmlspecialchars($donnees['etat_cuisine_electromenager_sortie'] ?? 'Non renseignée'));
- 
-        
+        // Préparation des données
+        $replacements = [
+            'Date d\'entrée' => htmlspecialchars($donnees['fDate'] ?? 'Non renseignée'),
+            'Date de sortie' => htmlspecialchars($donnees['fDateS'] ?? 'Non renseignée'),
+            'Permis' => htmlspecialchars($donnees['fPermis'] ?? 'Non renseignée'),
+            'Autre texte' => htmlspecialchars($donnees['textautre'] ?? 'Non renseignée'),
+            'Prénom locataire' => htmlspecialchars($donnees['prenom_locataire'] ?? 'Non renseigné'),
+            'Nom locataire' => htmlspecialchars($donnees['nom_locataire'] ?? 'Non renseigné'),
+            'Adresse locataire' => htmlspecialchars($donnees['adresse_locataire'] ?? 'Non renseignée'),
+            'Prénom bailleur' => htmlspecialchars($donnees['prenom_bailleur'] ?? 'Non renseigné'),
+            'Nom bailleur' => htmlspecialchars($donnees['nom_bailleur'] ?? 'Non renseigné'),
+            'Adresse bailleur' => htmlspecialchars($donnees['adresse_bailleur'] ?? 'Non renseignée'),
+            'surface du bien' => htmlspecialchars($_POST['SURFACE'] ?? 'Non renseignée'),
+            'nombre de piece' => htmlspecialchars($_POST['nbpiece'] ?? 'Non renseignée'),
+            'civilité du bailleur' => htmlspecialchars($_POST['civilite_bailleur'] ?? 'Non renseignée'),
+            'civilité du locataire' => htmlspecialchars($_POST['civilite_locataire'] ?? 'Non renseignée'),
+            'Description du mur de la cuisine' => htmlspecialchars($donnees['description_mur_cuisine'] ?? 'Non renseignée'),
+            'État du mur de la cuisine (entrée)' => htmlspecialchars($donnees['etat_cuisine_mur_entree'] ?? 'Non renseignée'),
+            'État du mur de la cuisine (sortie)' => htmlspecialchars($donnees['etat_cuisine_mur_sortie'] ?? 'Non renseignée'),
+            'Description du sol de la cuisine' => htmlspecialchars($donnees['description_sol_cuisine'] ?? 'Non renseignée'),
+            'État du sol de la cuisine (entrée)' => htmlspecialchars($donnees['etat_cuisine_sol_entree'] ?? 'Non renseignée'),
+            'État du sol de la cuisine (sortie)' => htmlspecialchars($donnees['etat_cuisine_sol_sortie'] ?? 'Non renseignée'),
+            'Description des vitrages et volets de la cuisine' => htmlspecialchars($donnees['description_vitrage_volets'] ?? 'Non renseignée'),
+            'État des vitrages et volets de la cuisine (entrée)' => htmlspecialchars($donnees['etat_cuisine_vitrage_volets_entree'] ?? 'Non renseignée'),
+            'État des vitrages et volets de la cuisine (sortie)' => htmlspecialchars($donnees['etat_cuisine_vitrage_volets_sortie'] ?? 'Non renseignée'),
+            'Description du plafond de la cuisine' => htmlspecialchars($donnees['description_plafond_cuisine'] ?? 'Non renseignée'),
+            'État du plafond de la cuisine (entrée)' => htmlspecialchars($donnees['etat_cuisine_plafond_entree'] ?? 'Non renseignée'),
+            'État du plafond de la cuisine (sortie)' => htmlspecialchars($donnees['etat_cuisine_plafond_sortie'] ?? 'Non renseignée'),
+            'Description des éclairages et interrupteurs' => htmlspecialchars($donnees['description_eclairage_interrupteurs'] ?? 'Non renseignée'),
+            'État des éclairages et interrupteurs (entrée)' => htmlspecialchars($donnees['etat_cuisine_eclairage_interrupteurs_entree'] ?? 'Non renseignée'),
+            'État des éclairages et interrupteurs (sortie)' => htmlspecialchars($donnees['etat_cuisine_eclairage_interrupteurs_sortie'] ?? 'Non renseignée'),
+
+            // Salle de bain
+            'Nombre de prises électriques' => htmlspecialchars($donnees['nombre_prise_electrique'] ?? 'Non renseigné'),
+            'Description des prises électriques' => htmlspecialchars($donnees['description_prise_electrique'] ?? 'Non renseignée'),
+            'État des prises électriques (entrée)' => htmlspecialchars($donnees['etat_cuisine_prise_electrique_entree'] ?? 'Non renseignée'),
+            'État des prises électriques (sortie)' => htmlspecialchars($donnees['etat_cuisine_prise_electrique_sortie'] ?? 'Non renseignée'),
+            'Description des placards et tiroirs' => htmlspecialchars($donnees['description_placards_tiroirs'] ?? 'Non renseignée'),
+            'État des placards et tiroirs (entrée)' => htmlspecialchars($donnees['etat_cuisine_placards_tiroirs_entree'] ?? 'Non renseignée'),
+            'État des placards et tiroirs (sortie)' => htmlspecialchars($donnees['etat_cuisine_placards_tiroirs_sortie'] ?? 'Non renseignée'),
+            'Description de l\'évier et robinetterie' => htmlspecialchars($donnees['description_evier_robinetterie'] ?? 'Non renseignée'),
+            'État de l\'évier et robinetterie (entrée)' => htmlspecialchars($donnees['etat_cuisine_evier_robinetterie_entree'] ?? 'Non renseignée'),
+            'État de l\'évier et robinetterie (sortie)' => htmlspecialchars($donnees['etat_cuisine_evier_robinetterie_sortie'] ?? 'Non renseignée'),
+            'Description de la plaque de cuisson et four' => htmlspecialchars($donnees['description_plaque_four'] ?? 'Non renseignée'),
+            'État de la plaque de cuisson et du four (entrée)' => htmlspecialchars($donnees['etat_cuisine_plaque_four_entree'] ?? 'Non renseignée'),
+            'État de la plaque de cuisson et du four (sortie)' => htmlspecialchars($donnees['etat_cuisine_plaque_four_sortie'] ?? 'Non renseignée'),
+            'Description de la hotte' => htmlspecialchars($donnees['description_hotte'] ?? 'Non renseignée'),
+            'État de la hotte (entrée)' => htmlspecialchars($donnees['etat_cuisine_hotte_entree'] ?? 'Non renseignée'),
+            'État de la hotte (sortie)' => htmlspecialchars($donnees['etat_cuisine_hotte_sortie'] ?? 'Non renseignée'),
+            'Nom de l\'électroménager' => htmlspecialchars($donnees['electromenager_nom'] ?? 'Non renseigné'),
+            'Description de l\'électroménager' => htmlspecialchars($donnees['description_electromenager'] ?? 'Non renseignée'),
+            'État de l\'électroménager (entrée)' => htmlspecialchars($donnees['etat_cuisine_electromenager_entree'] ?? 'Non renseignée'),
+            'État de l\'électroménager (sortie)' => htmlspecialchars($donnees['etat_cuisine_electromenager_sortie'] ?? 'Non renseignée')
+    
+        ];
+
+        foreach ($replacements as $field => $value) {
+            $replaceOptions = new ReplaceTextParameters();
+            $replaceOptions->setOldValue($field);
+            $replaceOptions->setNewValue($value);
+            $this->wordsAPI->replaceText(new ReplaceTextRequest($cheminFichier . "Etat-Des-Lieux.docx", $replaceOptions));
+        }
+
+        // Mettre à jour les champs
+        $this->wordsAPI->updateFields(new UpdateFieldsRequest($cheminFichier . "Etat-Des-Lieux.docx"));
+
+        // Sauvegarder le document
+        $saveOptions = new DocxSaveOptionsData();
+        $this->wordsAPI->saveAs(new SaveAsRequest($cheminFichier . "Etat-Des-Lieux.docx", $saveOptions));
+
+        /*
         
  
         // Salle de bain
@@ -212,7 +242,7 @@ class GenerationWord implements I_GenerationWord {
         // Zone de commentaire
         $templateProcessor->setValue('Zone de commentaire', htmlspecialchars($donnees['zone_de_commentaire'] ?? 'Non renseignée'));
 
-        $templateProcessor->saveAs($cheminFichier . "Etat-Des-Lieux.docx");
+        */
     } 
 }  
                

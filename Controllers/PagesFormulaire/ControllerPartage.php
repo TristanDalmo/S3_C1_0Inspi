@@ -124,7 +124,9 @@ $loader = new Psr4AutoloaderClass();
 $loader->register();
         
 // register the base directories for the namespace prefix
-$loader->addNamespace('PhpOffice\PhpWord', __DIR__ . '/../../bibliotheque/PhpWord');
+$loader->addNamespace('GuzzleHttp',__DIR__ . '/../../bibliotheque/Guzzle');
+$loader->addNamespace('Psr',__DIR__ . '/../../bibliotheque/PSR');
+$loader->addNamespace('Aspose\Words', __DIR__ . '/../../bibliotheque/AsposeWords');
 
 // Création de la page
 $controller = new ControllerPartage();
